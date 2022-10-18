@@ -2,7 +2,6 @@
     {
         "id": "1392ff04-a05a-43ba-a7f3-f6fb48443b85",
         "cabinAge": 10,
-        "numberOfBeds": 10,
         "MaxNumberOfCampers": 20,
         "schedules": [
             [
@@ -55,7 +54,6 @@
     {
         "id": "1392ff04-a05a-43ba-a7f3-f6fb48443b85",
         "cabinAge": 12,
-        "numberOfBeds": 14,
         "MaxNumberOfCampers": 14,
         "schedules": [
                 {

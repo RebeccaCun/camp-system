@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Cabin {
     private UUID id;
     private int cabinAge;
-    private int numberOfBeds;
     private int MaxNumberOfCampers;
     private int sessionDuration;
     private ArrayList<Camper> Campers;
