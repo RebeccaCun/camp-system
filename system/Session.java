@@ -16,6 +16,7 @@ public class Session {
     private int ageGroup;
     private int availableSpots;
     private ArrayList<Cabin> cabins;
+    private ArrayList<String> themes;
 
     /**
      * 
