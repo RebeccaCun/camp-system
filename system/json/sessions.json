@@ -1,0 +1,13 @@
+[
+    {
+        "id": "ae03bbb0-0bef-415b-a0fd-2d440dd1fa92",
+        "startDate": "01/15/2022",
+        "endDate": "01/27/2022",
+        "durationPerWeek": 2,
+        "ageGroup": 10,
+        "availableSpots": 20,
+        "cabins": [
+            "1392ff04-a05a-43ba-a7f3-f6fb48443b85"
+        ]
+    }
+]

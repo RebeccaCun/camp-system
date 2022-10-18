@@ -1,0 +1,21 @@
+[
+    {
+        "id": "2c05844f-d412-4503-bd19-ee4059c50406",
+        "firstName": "John",
+        "lastName": "Williams",
+        "userName": "jowi34",
+        "password": "123aE234*3eMp",
+        "email": "williamsWork@gmail.com",
+        "phone": "803-323-3967",
+        "prefferedContact": "phone",
+        "birthday": "3/24/1981",
+        "address": "7 Boyden St, Webster, MA 01570",
+        "campers": [
+            "07f46736-08e4-4a8e-a0c6-7ee46acbcb76"
+        ],
+        "biography": "Jacob is a very friedly, open and outdoor-type guy who loves working with kids and organizing camps.",
+        "cabins": [
+            "1392ff04-a05a-43ba-a7f3-f6fb48443b85"
+        ]
+    }
+]

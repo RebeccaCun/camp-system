@@ -1,0 +1,17 @@
+[
+    {
+        "id": "b34d803b-5c08-42fb-8be4-f377060f1f0e",
+        "firstName": "Peri",
+        "lastName": "Layers",
+        "userName": "periIsAQueen12",
+        "password": "Ry09#3ILafcg",
+        "email": "perilayers@gmail.com",
+        "phoneNumber": "801-403-6839",
+        "preferredContact": "phone",
+        "birthday": "10/17/1992",
+        "address": "439 Blossom St., Columbia, SC 29201",
+        "campers": [
+            "942f97dc-fac3-48ea-8dad-3360908698fd"
+        ]
+    }
+]
