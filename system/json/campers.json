@@ -3,7 +3,6 @@
         "id": "942f97dc-fac3-48ea-8dad-3360908698fd",
         "firstName": "Jane",
         "lastName": "Shaw",
-        "relationship": "Mother",
         "birthday": "9/12/2006",
         "emergencyContacts": [
             {
@@ -68,7 +67,6 @@
         "id": "07f46736-08e4-4a8e-a0c6-7ee46acbcb76",
         "firstName": "Josue",
         "lastName": "Yu",
-        "relationship": "Brother",
         "birthday": "1/1/2009",
         "emergencyContacts": [
             ""

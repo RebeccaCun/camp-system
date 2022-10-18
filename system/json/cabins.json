@@ -4,7 +4,6 @@
         "cabinAge": 10,
         "numberOfBeds": 10,
         "MaxNumberOfCampers": 20,
-        "sessionDuration": 2,
         "schedules": [
             [
                 {
@@ -48,6 +47,26 @@
                     ]
                 }
             ]
+        ],
+        "Campers": [
+            "07f46736-08e4-4a8e-a0c6-7ee46acbcb76"
+        ]
+    },
+    {
+        "id": "1392ff04-a05a-43ba-a7f3-f6fb48443b85",
+        "cabinAge": 12,
+        "numberOfBeds": 14,
+        "MaxNumberOfCampers": 14,
+        "schedules": [
+                {
+                    "title": "cayaking",
+                    "location": "river",
+                    "startTime": "1400",
+                    "endTime": "1500",
+                    "notes": [
+                        "Don't forget the life jackets"
+                    ]
+                }
         ],
         "Campers": [
             "07f46736-08e4-4a8e-a0c6-7ee46acbcb76"
