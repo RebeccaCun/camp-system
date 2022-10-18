@@ -12,7 +12,6 @@ public class Session {
     private UUID id;
     private Date startDate;
     private Date endDate;
-    private int durationPerWeek;
     private int ageGroup;
     private int availableSpots;
     private ArrayList<Cabin> cabins;
