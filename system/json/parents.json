@@ -9,9 +9,24 @@
         "phoneNumber": "801-403-6839",
         "preferredContact": "phone",
         "birthday": "10/17/1992",
-        "address": "439 Blossom St., Columbia, SC 29201",
+        "address": "5260 Forest Dr., Columbia, SC 29206",
         "campers": [
             "942f97dc-fac3-48ea-8dad-3360908698fd"
+        ]
+    },
+    {
+        "id": "c67d874r-5c09-27fs-8be4-r3897582f1f0e",
+        "firstName": "James",
+        "lastName": "Fendro",
+        "userName": "JamesFendro45",
+        "password": "jFen377#camp",
+        "email": "jamesFendro@gmail.com",
+        "phoneNumber": "388-521-5948",
+        "preferredContact": "phone",
+        "birthday": "05/22/1988",
+        "address": "300 Monticello Ave, Norfolk, VA 23510",
+        "campers": [
+            "enter campers id here"
         ]
     }
 ]
