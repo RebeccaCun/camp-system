@@ -45,7 +45,6 @@ public class Session {
     
     /**
      * 
-     * @return
      */
     public void addCabin(Cabin cabin) {
         ;
