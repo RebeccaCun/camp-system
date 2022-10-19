@@ -10,22 +10,20 @@
         "counselors": [
             "2c05844f-d412-4503-bd19-ee4059c50406"
         ],
-        "Director": [
-            {
-                "id": "6bfed27d-726c-4ff4-827b-b154d98100e4",
-                "firstName": "Arthur",
-                "lastName": "Barret",
-                "userName": "aBarret",
-                "password": "L09IFoUVBy#3",
-                "email": "arthurBarret9@gmail.com",
-                "phoneNumber": "803-407-6234",
-                "preferredContact": "email",
-                "birthday": "1/17/1997",
-                "address": "2718 Seneca Ave, Fort Pierce, FL 34946439",
-                "campers": [
-                    ""
-                ]
-            }
-        ]
+        "director": {
+            "id": "6bfed27d-726c-4ff4-827b-b154d98100e4",
+            "firstName": "Arthur",
+            "lastName": "Barret",
+            "userName": "aBarret",
+            "password": "L09IFoUVBy#3",
+            "email": "arthurBarret9@gmail.com",
+            "phoneNumber": "803-407-6234",
+            "preferredContact": "email",
+            "birthday": "1/17/1997",
+            "address": "2718 Seneca Ave, Fort Pierce, FL 34946439",
+            "campers": [
+                ""
+            ]
+        }
     }
 ]

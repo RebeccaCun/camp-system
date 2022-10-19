@@ -1,6 +1,8 @@
 package system;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class Cabin {
     private UUID id;
@@ -27,7 +29,7 @@ public class Cabin {
         return "";
     }
 
-    public void editSchedule(String schedule): {
+    public void editSchedule(String schedule) {
 
     }
 
