@@ -1,6 +1,6 @@
 package system;
 import java.util.UUID;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -10,12 +10,12 @@ import java.util.ArrayList;
 public class Session {
 
     private UUID id;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private int ageGroup;
     private int availableSpots;
-    private ArrayList<Cabin> cabins;
     private ArrayList<String> themes;
+    private ArrayList<Cabin> cabins;
 
     /**
      * 
@@ -23,7 +23,11 @@ public class Session {
      * @param endDate
      * @param ageGroup
      */
-    public Session(String startDate, String endDate, String ageGroup) {
+    public Session(LocalDate startDate, LocalDate endDate, String ageGroup) {
+
+    }
+
+    public void setAvailableSpots(int availableSpots) {
 
     }
     

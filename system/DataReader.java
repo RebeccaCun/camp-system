@@ -13,10 +13,12 @@ import org.json.simple.parser.JSONParser;
 public class DataReader extends DataConstants {
 
     private static ArrayList<User> users;
+    private static ArrayList<Camper> campers;
 
     public static void main(String[] args) {
         ArrayList<Camper> u = getAllCampers();
     }
+    
     /*
     public static ArrayList<User> getAllUsers() {
         users = new ArrayList<>();
@@ -49,7 +51,7 @@ public class DataReader extends DataConstants {
 
     public static ArrayList<Camper> getAllCampers() {
         // initiailize the campers arraylist
-        ArrayList<Camper> campers = new ArrayList<>();
+        campers = new ArrayList<>();
         
         try {
             
@@ -61,18 +63,14 @@ public class DataReader extends DataConstants {
                 JSONObject camper = (JSONObject) camperJSON.get(i);
 
                 // get the attributes...
-                UUID camperID = UUID.fromString((String) camper.get(USER_ID));
-                String firstName = (String) camper.get(FIRST_NAME);
-                String lastName = (String) camper.get(LAST_NAME);
+                UUID camperID = UUID.fromString((String) camper.get(USER_ID)); // NOTE
                 String birthday = (String) camper.get(BIRTHDAY);
 
-                System.out.println("\n" + camperID);
-                System.out.println(firstName);
-                System.out.println(lastName);
-                System.out.println(birthday);
-
                 // create the camper...
-                Camper newCamper = new Camper(firstName, lastName, LocalDate.parse(birthday));
+                Camper newCamper = new Camper(
+                    (String) camper.get(FIRST_NAME), 
+                    (String) camper.get(LAST_NAME), 
+                    LocalDate.parse(birthday));
 
                 // create a new emergency contacts arraylist from the emergency contacts JSON array
                 ArrayList<Contact> newEmegConts = getContacts( (JSONArray) camper.get(EMERGENCY_CONTACTS) );
@@ -109,9 +107,7 @@ public class DataReader extends DataConstants {
                 
                 for (int j=0; j<notes.size(); j++)
                     newNotes.add( (String) notes.get(j) );
-                newCamper.addNotes(newNotes);
-
-                // TODO sessions
+                newCamper.addNotes(newNotes);     
 
                 // // traverse to the camper in their json file
                 // FileReader camperReader = new FileReader(CAMPERS_FILE_NAME);
@@ -128,7 +124,12 @@ public class DataReader extends DataConstants {
                 // }
 
                 // user.addCamper(new Camper(firstName, lastName, null, null, null, parCampers));
-            }    
+
+                campers.add(newCamper);
+            }
+            
+            getAllSessions();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -200,6 +201,97 @@ public class DataReader extends DataConstants {
         return toRetMed;
     }
     
+    private static void getAllSessions() {
+        try {
+            
+            FileReader sessionsReader = new FileReader(COUNSELORS_FILE_NAME);
+            JSONParser sessionsParser = new JSONParser();
+            JSONArray sessionsJSON = (JSONArray) new JSONParser().parse(sessionsReader);
+
+            for (int i=0; i<sessionsJSON.size(); i++) {
+                JSONObject session = (JSONObject) sessionsJSON.get(i);
+
+                // get the attributes...
+                UUID sessionID = UUID.fromString((String) session.get(USER_ID));
+
+                // create the session
+                Session newSession = new Session(
+                    LocalDate.parse((String) session.get(START_DATE)),
+                    LocalDate.parse((String) session.get(END_DATE)),
+                    (String) session.get(AGE_GROUP));
+
+                newSession.setAvailableSpots(
+                    ((Long) session.get(AVAILABLE_SPOTS)).intValue());
+                
+                JSONArray themes = (JSONArray) session.get(THEMES);
+                ArrayList<String> newThemes = new ArrayList<>();
+                for (int j=0; j<themes.size(); j++)
+                    newThemes.add((String) themes.get(i));
+                
+                // get cabins...
+                JSONArray cabins = (JSONArray) session.get(CABINS);
+                ArrayList<Cabin> sessionCabins = new ArrayList<>();
+                for (int j=0; j<cabins.size(); j++) {
+                    // sessionCabins.add((String) cabins.get(i));
+                    // TODO add cabins
+                }
+                
+            }    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static ArrayList<Cabin> getAllCabins() {
+        try {
+            
+            FileReader cabinsReader = new FileReader(CABIN_FILE_NAME);
+            JSONParser cabinsParser = new JSONParser();
+            JSONArray cabinsJSON = (JSONArray) new JSONParser().parse(cabinsReader);
+
+            for (int i=0; i<cabinsJSON.size(); i++) {
+                JSONObject cabin = (JSONObject) cabinsJSON.get(i);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private static ArrayList<Counselor> getAllCounselors() {
+        // initiailize the counselors arraylist
+        ArrayList<Counselor> counselors = new ArrayList<>();
+        
+        try {
+            
+            FileReader counselorReader = new FileReader(COUNSELORS_FILE_NAME);
+            JSONParser counselorParser = new JSONParser();
+            JSONArray counselorJSON = (JSONArray) new JSONParser().parse(counselorReader);
+
+            for (int i=0; i<counselorJSON.size(); i++) {
+                JSONObject counselor = (JSONObject) counselorJSON.get(i);
+
+                // get the attributes...
+                UUID counselorID = UUID.fromString((String) counselor.get(USER_ID));
+
+                // creat the counselor
+                Counselor newCounselor = new Counselor(
+                    (String) counselor.get(FIRST_NAME), 
+                    (String) counselor.get(LAST_NAME), 
+                    (String) counselor.get(USERNAME));
+
+
+                newCounselor.addPassword( (String) counselor.get(PASSWORD) );
+                newCounselor.addPassword( (String) counselor.get(PASSWORD) );
+
+                // TODO
+            }    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return counselors;
+    }
 
     /*
     private static ArrayList<User> getParents(JSONObject camp) {
@@ -251,14 +343,6 @@ public class DataReader extends DataConstants {
     
         for (int i=0; i<campers.size(); i++) {
             UUID camperID = UUID.fromString((String) campers.get(i));
-        }
-    }
-    
-    private static void getCounselors(JSONObject camp) {
-        JSONArray couselors = (JSONArray) camp.get(COUNSELORS);
-        
-        for (int i=0; i<couselors.size(); i++) {
-            UUID counselorID = UUID.fromString((String) couselors.get(i));
         }
     }
 

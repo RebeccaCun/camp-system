@@ -5,6 +5,7 @@ public class DataConstants {
  protected static final String USERS_FILE_NAME = "system/json/users.json";
  protected static final String CAMPERS_FILE_NAME = "system/json/campers.json";
  protected static final String COUNSELORS_FILE_NAME = "system/json/counselors.json";
+ protected static final String CABIN_FILE_NAME = "system/json/cabins.json";
  protected static final String CONTACTS_FILE_NAME = "system/json/contacts.json";
  
  protected static final String PARENTS = "parents";
@@ -35,4 +36,10 @@ public class DataConstants {
  protected static final String NUMBER_STRIKES = "numberStrikes";
  protected static final String REASON_STRIKES = "reasonStrikes";
  protected static final String NOTES = "notes";
+ protected static final String START_DATE = "startDate";
+ protected static final String END_DATE = "endDate";
+ protected static final String AGE_GROUP = "ageGroup";
+ protected static final String AVAILABLE_SPOTS = "availableSpots";
+ protected static final String THEMES = "themes";
+ protected static final String CABINS = "cabins";
 }
