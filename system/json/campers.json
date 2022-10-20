@@ -32,23 +32,24 @@
                 "address": "406 Dundee Trl, Southern Pines, NC 28387"
             }
         ],
-        "doctor": {
-            "firstName": "Kasey",
-            "lastName": "Frederick",
-            "phoneNumber": "773-234-3329",
-            "address": "2706 W Flournoy St, Chicago, IL 60612"
+        "medical": {
+            "doctor": {
+                "firstName": "Kasey",
+                "lastName": "Frederick",
+                "phoneNumber": "773-234-3329",
+                "address": "2706 W Flournoy St, Chicago, IL 60612"
+            },
+            "allergies": [
+                "Dogs that shed",
+                "House dust mites"
+            ],
+            "medications": [
+                {
+                    "description": "Takes one OCD tablet mixed in with breakfasts",
+                    "time": "Before breakfast"
+                }
+            ]
         },
-        "allergies": [
-            "Dogs that shed",
-            "House dust mites"
-        ],
-        "medications": [
-            {
-                "description": "Takes one OCD tablet mixed in with breakfasts",
-                "time": "Before breakfast",
-                "reason": "OCD"
-            }
-        ],
         "acceptedWaiver": false,
         "numberStrikes": 2,
         "reasonStrikes": [
@@ -74,13 +75,15 @@
         "guardians": [
             ""
         ],
-        "doctor": "",
-        "allergies": [
-            ""
-        ],
-        "medications": [
-            ""
-        ],
+        "medical": {
+            "doctor": "",
+            "allergies": [
+                ""
+            ],
+            "medications": [
+                ""
+            ]
+        },
         "acceptedWaiver": false,
         "numberStrikes": 0,
         "reasonStrikes": [

@@ -22,4 +22,15 @@ public class DataConstants {
  protected static final String PREFFERED_CONTACT = "preferredContact";
  protected static final String BIRTHDAY = "birthday";
  protected static final String ADDRESS = "address";
+ protected static final String EMERGENCY_CONTACTS = "emergencyContacts";
+ protected static final String GUARDIANS = "guardians";
+ protected static final String MEDICAL = "medical";
+ protected static final String DOCTOR = "doctor";
+ protected static final String ALLERGIES = "allergies";
+ protected static final String MEDICATIONS = "medications";
+ protected static final String DESCRIPTION = "description";
+ protected static final String TIME = "time";
+ protected static final String REASON = "reason";
+ protected static final String ACCEPTED_WAIVER = "acceptedWaiver";
+ protected static final String NUMBER_STRIKES = "numberStrikes";
 }

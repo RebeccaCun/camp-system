@@ -1,5 +1,6 @@
 package system;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * 
@@ -7,14 +8,16 @@ import java.util.ArrayList;
  */
 public class UserList {
 
-    private ArrayList<User> users;
+    private ArrayList<User> parents;
+    private ArrayList<Camper> campers;
     private static UserList userList;
 
     /**
      * 
      */
     private UserList() {
-
+        campers = DataReader.getAllCampers();
+        parents = DataReader.getAllParents();
     }
 
     /**
@@ -50,6 +53,10 @@ public class UserList {
      * @return
      */
     public ArrayList<User> getUsers() {
+        return null;
+    }
+
+    public Camper getCamperByUUID(UUID id){
         return null;
     }
 

@@ -19,6 +19,22 @@ public class Medical {
     }
 
     /**
+     * 
+     * @param allergies
+     */
+    public void addAllergies(ArrayList<String> allergies) {
+
+    }
+
+    /**
+     * 
+     * @param medications
+     */
+    public void addMedications(ArrayList<Medication> medications) {
+
+    }
+
+    /**
      * @param
      */
     public void addAllergy(String allergy) {

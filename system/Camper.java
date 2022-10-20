@@ -1,7 +1,7 @@
 package system;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.UUID;
 
 public class Camper {
@@ -17,13 +17,45 @@ public class Camper {
     private ArrayList<String> notes;
     private ArrayList<Session> sessions;
 
-    public Camper(String firstName, String lastName, Date birthday, Contact emergencyContact, Contact guardian, ArrayList<String> notes){}
+    public Camper(String firstName, String lastName, LocalDate birthday){}
+
+    public void addAddress(String address) {
+
+    }
+
+    public void addEmergContacts(ArrayList<Contact> emergencyContacts) {
+
+    }
+
+    public void addGuardians(ArrayList<Contact>  guardians) {
+
+    }
+
+    public void addMedical(Medical medical) {
+        
+    }
+
+    public void setAccectedWaiver(Boolean value) {
+
+    }
+
+    public void setNumStrikes(int strikes) {
+
+    }
+
+    public void addStrikeReason(ArrayList<String> reasons) {
+
+    }
+
+    public void addNotes(ArrayList<String> notes) {
+
+    }
+
+    public void addSession(Session session): void {
+
+    }
 
     public void giveStrike(){}
-
-    public void addEmergencyContact(Contact emergencyContact){}
-
-    public void addGuardian(Contact guardian){}
 
     public String toString(){
         return "this is a camper";

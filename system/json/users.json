@@ -10,6 +10,7 @@
         "preferredContact": "phone",
         "birthday": "10/17/1992",
         "address": "5260 Forest Dr., Columbia, SC 29206",
+        "type": "parent",
         "campers": [
             "942f97dc-fac3-48ea-8dad-3360908698fd"
         ]
@@ -25,8 +26,24 @@
         "preferredContact": "phone",
         "birthday": "05/22/1988",
         "address": "300 Monticello Ave, Norfolk, VA 23510",
+        "type": "parent",
         "campers": [
             "enter campers id here"
+        ]
+    },
+    {
+        "id": "6bfed27d-726c-4ff4-827b-b154d98100e4",
+        "firstName": "Arthur",
+        "lastName": "Barret",
+        "use d": "L09IFoUVBy#3",
+        "email": "arthurBarret9@gmail.com",
+        "phoneNumber": "803-407-6234",
+        "preferredContact": "email",
+        "birthday": "1/17/1997",
+        "address": "2718 Seneca Ave, Fort Pierce, FL 34946439",
+        "type": "director",
+        "campers": [
+            ""
         ]
     }
 ]
