@@ -6,10 +6,28 @@ public class UI {
     private Scanner scanner;
     private CampSystemFACADE campSystem;
 
-    public void run(){}
-    private void displayMainMenu(){}
+    public void run(){
+        System.out.println("Welcome to our camp website!");
+        displayMainMenu();
+        int choice = getUserCommand();
+        if(choice == 1){
+            login();
+        }
+        else if(choice == 2){
+            createAccount();
+        }
+        else{
+            System.out.println("Invalid Input.");
+            displayMainMenu();
+        }
+    }
+    private void displayMainMenu(){
+        System.out.println("Press (1) to sign in to your account");
+        System.out.println("Press (2) to create a new account");
+    }
     private int getUserCommand(){
-        return 1;
+        int choice = scanner.nextInt();
+        return choice;
     };
     private void createAccount(){}
     private void login(){}
