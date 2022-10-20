@@ -3,7 +3,7 @@
         "id": "942f97dc-fac3-48ea-8dad-3360908698fd",
         "firstName": "Jane",
         "lastName": "Shaw",
-        "birthday": "9/12/2006",
+        "birthday": "2006-12-02",
         "emergencyContacts": [
             {
                 "firstName": "Walter",
@@ -68,32 +68,65 @@
         "id": "07f46736-08e4-4a8e-a0c6-7ee46acbcb76",
         "firstName": "Josue",
         "lastName": "Yu",
-        "birthday": "1/1/2009",
+        "birthday": "2009-01-01",
         "emergencyContacts": [
-            ""
+            {
+                "firstName": "Walter",
+                "lastName": "Jenkins",
+                "phoneNumber": "803-423-3483",
+                "address": "49 New York Ave #B, Columbia, SC 29204"
+            },
+            {
+                "firstName": "Jason",
+                "lastName": "Hope",
+                "phoneNumber": "803-421-3234",
+                "address": "1505 Garden Plz, Columbia, SC 29204"
+            }
         ],
         "guardians": [
-            ""
+            {
+                "firstName": "Taylor",
+                "lastName": "White",
+                "phoneNumber": "833-323-2234",
+                "address": "1505 Garden Plz, Columbia, SC 29204"
+            },
+            {
+                "firstName": "Kamari",
+                "lastName": "Carson",
+                "phoneNumber": "823-422-3231",
+                "address": "406 Dundee Trl, Southern Pines, NC 28387"
+            }
         ],
         "medical": {
-            "doctor": "",
+            "doctor": {
+                "firstName": "Kasey",
+                "lastName": "Frederick",
+                "phoneNumber": "773-234-3329",
+                "address": "2706 W Flournoy St, Chicago, IL 60612"
+            },
             "allergies": [
-                ""
+                "Dogs that shed",
+                "House dust mites"
             ],
             "medications": [
-                ""
+                {
+                    "description": "Takes one OCD tablet mixed in with breakfasts",
+                    "time": "Before breakfast"
+                }
             ]
         },
         "acceptedWaiver": false,
-        "numberStrikes": 0,
+        "numberStrikes": 2,
         "reasonStrikes": [
-            ""
+            "Hitting another camper",
+            "Starting a food fight"
         ],
         "notes": [
-            ""
+            "Needs to take medication with breakfast",
+            "Is a bit afraid of water"
         ],
         "sessions": [
-            ""
+            "ae03bbb0-0bef-415b-a0fd-2d440dd1fa92"
         ]
     }
 ]

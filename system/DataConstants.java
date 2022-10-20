@@ -33,4 +33,6 @@ public class DataConstants {
  protected static final String REASON = "reason";
  protected static final String ACCEPTED_WAIVER = "acceptedWaiver";
  protected static final String NUMBER_STRIKES = "numberStrikes";
+ protected static final String REASON_STRIKES = "reasonStrikes";
+ protected static final String NOTES = "notes";
 }

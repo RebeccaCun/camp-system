@@ -15,7 +15,7 @@ public class DataReader extends DataConstants {
     private static ArrayList<User> users;
 
     public static void main(String[] args) {
-        ArrayList<User> u;
+        ArrayList<Camper> u = getAllCampers();
     }
     /*
     public static ArrayList<User> getAllUsers() {
@@ -50,103 +50,89 @@ public class DataReader extends DataConstants {
     public static ArrayList<Camper> getAllCampers() {
         // initiailize the campers arraylist
         ArrayList<Camper> campers = new ArrayList<>();
-
-        FileReader camperReader = new FileReader(CAMPERS_FILE_NAME);
-        JSONParser camperParser = new JSONParser();
-        JSONArray camperJSON = (JSONArray) new JSONParser().parse(camperReader);
-
-        for (int i=0; i<camperJSON.size(); i++) {
-            JSONObject camper = (JSONObject) camperJSON.get(i);
-
-            // get the attributes...
-            UUID camperID = UUID.fromString((String) camper.get(USER_ID));
-            String firstName = (String) camper.get(FIRST_NAME);
-            String lastName = (String) camper.get(LAST_NAME);
-            String birthday = (String) camper.get(BIRTHDAY);
-
-            // create the camper...
-            Camper newCamper = new Camper(firstName, lastName, LocalDate.parse(birthday));
-
-            // create a new emergency contacts arraylist from the emergency contacts JSON array
-            ArrayList<Contact> newEmegConts = getContacts( (JSONArray) camper.get(EMERGENCY_CONTACTS) );
-            newCamper.addEmergContacts(newEmegConts);
-
-            // create a new guardians arraylist from the guardians JSON array
-            ArrayList<Contact> newGuardians = getContacts( (JSONArray) camper.get(GUARDIANS) );
-            newCamper.addGuardians(newGuardians);
-
-            // get the medical information
-            JSONObject medical = (JSONObject) camper.get(MEDICAL);
-            newCamper.addMedical(getMedical(medical));
-
-            // get the accepted waiver info...
-            Boolean accWaiver = (Boolean) camper.get(ACCEPTED_WAIVER);
-
-            // get the Number Strikes info...
-            int numberStrikes = (int) camper.get(NUMBER_STRIKES);
-
-            /* TODO Check and remove
-            // create a new emergency contacts arraylist...
-            ArrayList<Contact> newEmegConts = new ArrayList<>();
-            // get the emergency contacts JSON array
-            JSONArray emergConts = (JSONArray) camper.get(EMERGENCY_CONTACTS);
-            for (int j=0; j<emergConts.size(); j++) {
-                JSONObject emergCont = (JSONObject) emergConts.get(j);
-
-                // NOTE should we modify the firtName variables or make new ones
-                firstName = (String) emergCont.get(FIRST_NAME);
-                lastName = (String) emergCont.get(LAST_NAME);
-                String phoneNumber = (String) emergCont.get(PHONE_NUMBER);
-                String address = (String) emergCont.get(ADDRESS);
-
-                Contact newEmegCont = new Contact(firstName, lastName, phoneNumber);
-                newEmegCont.addAddress(address);
-
-                // add this emergency contact to the emergency contacts arraylist
-                newEmegConts.add(newEmegCont);
-            }
-            newCamper.addEmergContacts(newEmegConts);
-
-            // create a new guardians arraylist...
-            ArrayList<Contact> newGuardians = new ArrayList<>();
-            // get the guardians JSON array
-            JSONArray guardians = (JSONArray) camper.get(GUARDIANS);
-            for (int j=0; j<guardians.size(); j++) {
-                JSONObject guardian = (JSONObject) guardians.get(j);
-
-                // NOTE should we modify the firtName variables or make new ones
-                firstName = (String) guardian.get(FIRST_NAME);
-                lastName = (String) guardian.get(LAST_NAME);
-                String phoneNumber = (String) guardian.get(PHONE_NUMBER);
-                String address = (String) guardian.get(ADDRESS);
-
-                Contact  = new Contact(firstName, lastName, phoneNumber);
-                newEmegCont.addAddress(address);
-
-                // add this emergency contact to the emergency contacts arraylist
-                newEmegConts.add(newEmegCont);
-            }
-            newCamper.addEmergContacts(newEmegConts);
-            */
-
-
-            // // traverse to the camper in their json file
-            // FileReader camperReader = new FileReader(CAMPERS_FILE_NAME);
-            // JSONParser camperParser = new JSONParser();
-            
-
-            // for (int l=0;l<camperJSON.size(); l++) {
-            //     JSONObject aCamper = (JSONObject) camperJSON.get(l);
-
-            //     if (UUID.fromString((String) aCamper.get(USER_ID)).compareTo(camperID) == 0) {
-
-            //     }
-
-            // }
-
-            // user.addCamper(new Camper(firstName, lastName, null, null, null, parCampers));
-        }
         
+        try {
+            
+            FileReader camperReader = new FileReader(CAMPERS_FILE_NAME);
+            JSONParser camperParser = new JSONParser();
+            JSONArray camperJSON = (JSONArray) new JSONParser().parse(camperReader);
+
+            for (int i=0; i<camperJSON.size(); i++) {
+                JSONObject camper = (JSONObject) camperJSON.get(i);
+
+                // get the attributes...
+                UUID camperID = UUID.fromString((String) camper.get(USER_ID));
+                String firstName = (String) camper.get(FIRST_NAME);
+                String lastName = (String) camper.get(LAST_NAME);
+                String birthday = (String) camper.get(BIRTHDAY);
+
+                System.out.println("\n" + camperID);
+                System.out.println(firstName);
+                System.out.println(lastName);
+                System.out.println(birthday);
+
+                // create the camper...
+                Camper newCamper = new Camper(firstName, lastName, LocalDate.parse(birthday));
+
+                // create a new emergency contacts arraylist from the emergency contacts JSON array
+                ArrayList<Contact> newEmegConts = getContacts( (JSONArray) camper.get(EMERGENCY_CONTACTS) );
+                newCamper.addEmergContacts(newEmegConts);
+
+                // create a new guardians arraylist from the guardians JSON array
+                ArrayList<Contact> newGuardians = getContacts( (JSONArray) camper.get(GUARDIANS) );
+                newCamper.addGuardians(newGuardians);
+
+                // get the medical information
+                JSONObject medical = (JSONObject) camper.get(MEDICAL);
+                newCamper.addMedical(getMedical(medical));
+
+                // get the accepted waiver info...
+                Boolean accWaiver = (Boolean) camper.get(ACCEPTED_WAIVER);
+                newCamper.setAccectedWaiver(accWaiver);
+
+                // get the Number Strikes info...
+                
+                int numberStrikes =((Long) camper.get(NUMBER_STRIKES)).intValue();
+                newCamper.setNumStrikes(numberStrikes);
+
+                // get the reason strikes info...
+                JSONArray reasonStrikes = (JSONArray) camper.get(REASON_STRIKES);
+                ArrayList<String> newStrikes = new ArrayList<>();
+                
+                for (int j=0; j<reasonStrikes.size(); j++)
+                    newStrikes.add( (String) reasonStrikes.get(j) );
+                newCamper.addStrikeReason(newStrikes);
+
+                // get the notes info...
+                JSONArray notes = (JSONArray) camper.get(NOTES);
+                ArrayList<String> newNotes = new ArrayList<>();
+                
+                for (int j=0; j<notes.size(); j++)
+                    newNotes.add( (String) notes.get(j) );
+                newCamper.addNotes(newNotes);
+
+                // TODO sessions
+
+                // // traverse to the camper in their json file
+                // FileReader camperReader = new FileReader(CAMPERS_FILE_NAME);
+                // JSONParser camperParser = new JSONParser();
+                
+
+                // for (int l=0;l<camperJSON.size(); l++) {
+                //     JSONObject aCamper = (JSONObject) camperJSON.get(l);
+
+                //     if (UUID.fromString((String) aCamper.get(USER_ID)).compareTo(camperID) == 0) {
+
+                //     }
+
+                // }
+
+                // user.addCamper(new Camper(firstName, lastName, null, null, null, parCampers));
+            }    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return campers;
     }
 
@@ -157,13 +143,12 @@ public class DataReader extends DataConstants {
         for (int j=0; j<contacts.size(); j++) {
             // get a JSONObject (which contains ONE contact)
             JSONObject contact = (JSONObject) contacts.get(j);
-
-            String firstName = (String) contact.get(FIRST_NAME);
-            String lastName = (String) contact.get(LAST_NAME);
-            String phoneNumber = (String) contact.get(PHONE_NUMBER);
             String address = (String) contact.get(ADDRESS);
 
-            Contact newContact = new Contact(firstName, lastName, phoneNumber);
+            Contact newContact = new Contact(
+                (String) contact.get(FIRST_NAME), 
+                (String) contact.get(LAST_NAME), 
+                (String) contact.get(PHONE_NUMBER));
             newContact.addAddress(address);
 
             // add this contact to the contacts arraylist
@@ -216,6 +201,7 @@ public class DataReader extends DataConstants {
     }
     
 
+    /*
     private static ArrayList<User> getParents(JSONObject camp) {
             ArrayList<User> = new ArrayList<User>();
             try {
@@ -290,4 +276,5 @@ public class DataReader extends DataConstants {
         
         // System.out.println(dirfirstName);
     }
+    */
 }

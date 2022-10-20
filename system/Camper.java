@@ -8,7 +8,7 @@ public class Camper {
     private UUID id;
     private String firstName;
     private String lastName;
-    private Date birthday;
+    private LocalDate birthday;
     private ArrayList<Contact> emergencyContacts;
     private Medical medical;
     private boolean acceptedWaiver;
@@ -51,7 +51,7 @@ public class Camper {
 
     }
 
-    public void addSession(Session session): void {
+    public void addSession(Session session) {
 
     }
 
