@@ -18,6 +18,8 @@ public class Camper {
     private ArrayList<Session> sessions;
 
     public Camper(String firstName, String lastName, LocalDate birthday){}
+    
+    public Camper(UUID id, String firstName, String lastName, LocalDate birthday){}
 
     public void addAddress(String address) {
 

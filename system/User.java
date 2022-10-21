@@ -2,6 +2,7 @@ package system;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class User {
     //protected UUID id;
@@ -23,6 +24,8 @@ public class User {
         this.lastName = lastName;
     }
 
+    public User(UUID id, String firstName, String lastName, String userName) {
+    }
     
     public void addPhoneNumber(String phoneNumber) {
 

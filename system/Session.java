@@ -27,6 +27,17 @@ public class Session {
 
     }
 
+    /**
+     * 
+     * @param id 
+     * @param startDate
+     * @param endDate
+     * @param ageGroup
+     */
+    public Session(UUID id, LocalDate startDate, LocalDate endDate, String ageGroup) {
+
+    }
+
     public void setAvailableSpots(int availableSpots) {
 
     }

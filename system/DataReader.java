@@ -61,11 +61,11 @@ public class DataReader extends DataConstants {
                 JSONObject camper = (JSONObject) camperJSON.get(i);
 
                 // get the attributes...
-                UUID camperID = UUID.fromString((String) camper.get(USER_ID)); // NOTE
                 String birthday = (String) camper.get(BIRTHDAY);
 
                 // create the camper...
                 Camper newCamper = new Camper(
+                    UUID.fromString((String) camper.get(USER_ID)),
                     (String) camper.get(FIRST_NAME), 
                     (String) camper.get(LAST_NAME), 
                     LocalDate.parse(birthday));
@@ -144,11 +144,9 @@ public class DataReader extends DataConstants {
             for (int i=0; i<sessionsJSON.size(); i++) {
                 JSONObject session = (JSONObject) sessionsJSON.get(i);
 
-                // get the attributes...
-                UUID sessionID = UUID.fromString((String) session.get(USER_ID));
-
                 // create the session
                 Session newSession = new Session(
+                    UUID.fromString((String) session.get(USER_ID)),
                     LocalDate.parse((String) session.get(START_DATE)),
                     LocalDate.parse((String) session.get(END_DATE)),
                     (String) session.get(AGE_GROUP));
@@ -235,12 +233,11 @@ public class DataReader extends DataConstants {
      */
     private static User getUser(JSONObject user) {
 
-        UUID ID = UUID.fromString((String) user.get(USER_ID));
-        String firstName = (String) user.get(FIRST_NAME);
-        String lastName = (String) user.get(LAST_NAME);
-        String userName = (String) user.get(USERNAME);
-        
-        User newUser = new User(firstName, lastName, userName);
+        User newUser = new User(
+        UUID.fromString((String) user.get(USER_ID)),
+        (String) user.get(FIRST_NAME),
+        (String) user.get(LAST_NAME),
+        (String) user.get(USERNAME));
 
         newUser.setPassword( (String) user.get(PASSWORD) );
         newUser.addEmail( (String) user.get(EMAIL) );

@@ -17,6 +17,9 @@ public class Cabin {
         this.sessionDuration = sessionDuration;
     }
 
+    public Cabin(UUID id, int cabinAge, int sessionDuration) {
+    }
+
     public void addCamper(Camper camper) {
 
     }
