@@ -23,6 +23,7 @@ public class DataConstants {
  protected static final String PREFFERED_CONTACT = "preferredContact";
  protected static final String BIRTHDAY = "birthday";
  protected static final String ADDRESS = "address";
+ protected static final String TYPE = "type";
  protected static final String EMERGENCY_CONTACTS = "emergencyContacts";
  protected static final String GUARDIANS = "guardians";
  protected static final String MEDICAL = "medical";
@@ -42,4 +43,7 @@ public class DataConstants {
  protected static final String AVAILABLE_SPOTS = "availableSpots";
  protected static final String THEMES = "themes";
  protected static final String CABINS = "cabins";
+ protected static final String CABIN_AGE = "cabinAge";
+ protected static final String MAX_NO_OF_CAMPERS = "maxNumberOfCampers";
+ protected static final String BIOGRAPHY = "biography";
 }

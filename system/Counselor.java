@@ -11,12 +11,6 @@ public class Counselor extends User{
         super(firstName, lastName, userName);
     }
 
-    public void addPassword(String password) {
-
-    }
-
-
-
     public void addBiography(String biography) {
 
     }
@@ -24,6 +18,15 @@ public class Counselor extends User{
     public void giveStrike(Camper camper, String reason) {
 
     }
+
+    public void addMedical(Medical medical) {
+
+    }
+    
+    public void addCabins(ArrayList<Cabin> cabins) {
+
+    }
+    
 
     public String toString() {
         return "";

@@ -2,7 +2,7 @@
     {
         "id": "641f16ee-eddb-4c29-b2ba-d0f6d54b30ce",
         "cabinAge": 10,
-        "MaxNumberOfCampers": 20,
+        "maxNumberOfCampers": 20,
         "schedules": [
             [
                 {

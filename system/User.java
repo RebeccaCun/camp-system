@@ -1,5 +1,6 @@
 package system;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class User {
@@ -11,8 +12,9 @@ public class User {
     protected String email;
     protected String phoneNumber;
     protected String preferredContact;
-    protected Date birthday;
+    protected LocalDate birthday;
     protected String address;
+    protected String type;
     //protected ArrayList<Camper> campers;
 
     public User(String firstName, String lastName, String userName) {
@@ -21,15 +23,36 @@ public class User {
         this.lastName = lastName;
     }
 
+    
     public void addPhoneNumber(String phoneNumber) {
 
     }
-    
+
+    public void setPassword(String password) {
+
+    }
+
+    public void addEmail(String email) {
+
+    }
+
     public void addPreferredContact(String preferredContact) {
 
     }
 
+    public void addBirthday(LocalDate birthday) {
+
+    }
+
     public void addCamper(Camper camper) {
+
+    }
+
+    public void addAddress(String address) {
+
+    }
+
+    public void setType(String type) {
 
     }
 

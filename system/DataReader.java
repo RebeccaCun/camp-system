@@ -1,8 +1,6 @@
 package system;
 
 import java.io.FileReader;
-import java.lang.reflect.Array;
-import java.security.Guard;
 import java.util.ArrayList;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -27,7 +25,7 @@ public class DataReader extends DataConstants {
             
             // read from the file that is defined in the DataConstants
             FileReader reader = new FileReader(CAMP_FILE_NAME);
-            JSONParser parser = new JSONParser(); // make a JSON parser
+            JSONParser parser = new JSONParser(); // maie a JSON parser
 			
             // get the camp array from json
             JSONArray campJSON = (JSONArray)new JSONParser().parse(reader);
@@ -43,7 +41,7 @@ public class DataReader extends DataConstants {
             // users.add(new User());
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStaciTrace();
         }
 
         return users;
@@ -89,7 +87,6 @@ public class DataReader extends DataConstants {
                 newCamper.setAccectedWaiver(accWaiver);
 
                 // get the Number Strikes info...
-                
                 int numberStrikes =((Long) camper.get(NUMBER_STRIKES)).intValue();
                 newCamper.setNumStrikes(numberStrikes);
 
@@ -123,7 +120,7 @@ public class DataReader extends DataConstants {
 
                 // }
 
-                // user.addCamper(new Camper(firstName, lastName, null, null, null, parCampers));
+                // user.addCamper(new Camper(firstName, lastName, null, null, null, Campers));
 
                 campers.add(newCamper);
             }
@@ -135,70 +132,6 @@ public class DataReader extends DataConstants {
         }
 
         return campers;
-    }
-
-    private static ArrayList<Contact> getContacts(JSONArray contacts) {
-        ArrayList<Contact> contactsList = new ArrayList<>();
-
-        // loop through the JSONArray 
-        for (int j=0; j<contacts.size(); j++) {
-            // get a JSONObject (which contains ONE contact)
-            JSONObject contact = (JSONObject) contacts.get(j);
-            String address = (String) contact.get(ADDRESS);
-
-            Contact newContact = new Contact(
-                (String) contact.get(FIRST_NAME), 
-                (String) contact.get(LAST_NAME), 
-                (String) contact.get(PHONE_NUMBER));
-            newContact.addAddress(address);
-
-            // add this contact to the contacts arraylist
-            contactsList.add(newContact);
-        }
-
-        return contactsList;
-    }
-
-    private static Medical getMedical(JSONObject medical) {
-        
-        // get the doctor object
-        JSONObject doctor = (JSONObject) medical.get(DOCTOR);
-    
-        // create a new doctor and add the info
-        Contact doc = new Contact(
-            (String) doctor.get(FIRST_NAME), 
-            (String) doctor.get(LAST_NAME), 
-            (String) doctor.get(PHONE_NUMBER) );
-        doc.addAddress( (String) doctor.get(ADDRESS) );
-
-        // get the allergies array
-        ArrayList<String> newAllergies = new ArrayList<>();
-        JSONArray allergies = (JSONArray) medical.get(ALLERGIES);
-
-        // loop through and add info to the created allergies array
-        for (int i=0; i<allergies.size(); i++)
-            newAllergies.add( (String) allergies.get(i) );
-        
-        // get the medications array 
-        ArrayList<Medication> newMedications = new ArrayList<>();
-        JSONArray medications = (JSONArray) medical.get(MEDICATIONS);
-        
-        // loop through all medications
-        for (int i=0; i<medications.size(); i++) {
-            // the array contains Medication objects
-            JSONObject medication = (JSONObject) medications.get(i);
-
-            // get the medication info and add to the arraylist
-            newMedications.add( new Medication(
-                (String) medication.get(DESCRIPTION),
-                (String) medication.get(TIME) ));
-        }
-        
-        Medical toRetMed = new Medical(doc);
-        toRetMed.addAllergies(newAllergies);
-        toRetMed.addMedications(newMedications);
-        
-        return toRetMed;
     }
     
     private static void getAllSessions() {
@@ -252,6 +185,14 @@ public class DataReader extends DataConstants {
             for (int i=0; i<cabinsJSON.size(); i++) {
                 JSONObject cabin = (JSONObject) cabinsJSON.get(i);
 
+                // get the attributes...
+                UUID cabinID = UUID.fromString((String) cabin.get(USER_ID));
+                int cabinAge = ((Long) cabin.get(CABIN_AGE)).intValue();
+                int maxCampers = ((Long) cabin.get(MAX_NO_OF_CAMPERS)).intValue();
+
+                // TODO schedules
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -263,7 +204,6 @@ public class DataReader extends DataConstants {
         ArrayList<Counselor> counselors = new ArrayList<>();
         
         try {
-            
             FileReader counselorReader = new FileReader(COUNSELORS_FILE_NAME);
             JSONParser counselorParser = new JSONParser();
             JSONArray counselorJSON = (JSONArray) new JSONParser().parse(counselorReader);
@@ -271,20 +211,15 @@ public class DataReader extends DataConstants {
             for (int i=0; i<counselorJSON.size(); i++) {
                 JSONObject counselor = (JSONObject) counselorJSON.get(i);
 
-                // get the attributes...
-                UUID counselorID = UUID.fromString((String) counselor.get(USER_ID));
+                // create the counselor
+                Counselor newCounselor = (Counselor) getUser(counselor);
+                
+                newCounselor.addBiography((String) counselor.get(BIOGRAPHY));
+                newCounselor.addMedical(getMedical(
+                    (JSONObject) counselor.get(MEDICAL)));
 
-                // creat the counselor
-                Counselor newCounselor = new Counselor(
-                    (String) counselor.get(FIRST_NAME), 
-                    (String) counselor.get(LAST_NAME), 
-                    (String) counselor.get(USERNAME));
+                // TODO cabins
 
-
-                newCounselor.addPassword( (String) counselor.get(PASSWORD) );
-                newCounselor.addPassword( (String) counselor.get(PASSWORD) );
-
-                // TODO
             }    
         } catch (Exception e) {
             e.printStackTrace();
@@ -293,72 +228,108 @@ public class DataReader extends DataConstants {
         return counselors;
     }
 
-    /*
-    private static ArrayList<User> getParents(JSONObject camp) {
-            ArrayList<User> = new ArrayList<User>();
-            try {
-                
-                // read from users.json
-                FileReader parentReader = new FileReader(USERS_FILE_NAME);
-                JSONParser parentParser = new JSONParser(); // make a JSON parser
+    /**
+     * Return a user
+     * @param user The JSONObject for the user
+     * @return a new User class object
+     */
+    private static User getUser(JSONObject user) {
 
-                // the user array
-                JSONArray parentsJSON =  (JSONArray) new JSONParser().parse(parentReader);
-
-                for (int j=0; j<parentsJSON.size(); j++) {
-                    JSONObject parent = (JSONObject) parentsJSON.get(i);
-
-                    UUID ID = UUID.fromString((String) parent.get(USER_ID));
-                    String firstName = (String) parent.get(FIRST_NAME);
-                    String lastName = (String) parent.get(LAST_NAME);
-                    String userName = (String) parent.get(USERNAME);
-
-                    User user = new User(firstName, lastName, userName);
-                    user.addPhoneNumber( (String) parent.get(PHONE_NUMBER) );
-                    user.addPreferredContact( (String) parent.get(PREFFERED_CONTACT) );
-                    user.addBirthday( getDate((String) parent.get(BIRTHDAY) ));
-                    user.addAddress( (String) parent.get(ADDRESS) );
-                    JSONArray parCampers = (JSONArray) parent.get(CAMPERS);
-
-                    for(int k=0; k < parCampers.size(); i++){
-                        UUID camperID = UUID.fromString((String) parCampers.get(k));
-                        Camper camper = UserList.getInstance().getCamperByUUID(camperID)
-                        
-                    }
-                    
-                    }
-
-                    users.add(user);
-                }
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private static void getCampers(JSONObject camp) {
-        JSONArray campers = (JSONArray) camp.get(CAMPERS);
-    
-        for (int i=0; i<campers.size(); i++) {
-            UUID camperID = UUID.fromString((String) campers.get(i));
-        }
-    }
-
-    private static void getDirector(JSONObject camp) {
-        JSONObject director = (JSONObject) camp.get(DIRECTOR);
-
-        UUID ID = UUID.fromString((String) director.get(USER_ID));
-        String firstName = (String) director.get(FIRST_NAME);
-        String lastName = (String) director.get(LAST_NAME);
-        String userName = (String) director.get(USERNAME);
-        String phoneNumber = (String) director.get(PHONE_NUMBER);
-        String prefCont = (String) director.get(PREFFERED_CONTACT);
-        String birthday = (String) director.get(BIRTHDAY);
-        String address = (String) director.get(ADDRESS);
+        UUID ID = UUID.fromString((String) user.get(USER_ID));
+        String firstName = (String) user.get(FIRST_NAME);
+        String lastName = (String) user.get(LAST_NAME);
+        String userName = (String) user.get(USERNAME);
         
-        // System.out.println(dirfirstName);
+        User newUser = new User(firstName, lastName, userName);
+
+        newUser.setPassword( (String) user.get(PASSWORD) );
+        newUser.addEmail( (String) user.get(EMAIL) );
+        newUser.addPhoneNumber( (String) user.get(PHONE_NUMBER) );
+        newUser.addPreferredContact( (String) user.get(PREFFERED_CONTACT) );
+        newUser.addBirthday( LocalDate.parse((String) user.get(BIRTHDAY)) );
+        newUser.addAddress( (String) user.get(ADDRESS) );
+        newUser.setType( (String) user.get(TYPE) );
+
+        // JSONArray campers = (JSONArray) user.get(CAMPERS);
+        // for(int i=0; i < campers.size(); i++){
+        //     UUID camperID = UUID.fromString((String) campers.get(i));
+        //     Camper camper = UserList.getInstance().getCamperByUUID(camperID);
+        // }
+
+        return newUser;
     }
-    */
+
+    /**
+     * Return medical
+     * @param medical The JSONObject for the medical
+     * @return a new Medical class object
+     */
+    private static Medical getMedical(JSONObject medical) {
+        
+        // get the doctor object
+        JSONObject doctor = (JSONObject) medical.get(DOCTOR);
+    
+        // create a new doctor and add the info
+        Contact doc = new Contact(
+            (String) doctor.get(FIRST_NAME), 
+            (String) doctor.get(LAST_NAME), 
+            (String) doctor.get(PHONE_NUMBER) );
+        doc.addAddress( (String) doctor.get(ADDRESS) );
+
+        // get the allergies array
+        ArrayList<String> newAllergies = new ArrayList<>();
+        JSONArray allergies = (JSONArray) medical.get(ALLERGIES);
+
+        // loop through and add info to the created allergies array
+        for (int i=0; i<allergies.size(); i++)
+            newAllergies.add( (String) allergies.get(i) );
+        
+        // get the medications array 
+        ArrayList<Medication> newMedications = new ArrayList<>();
+        JSONArray medications = (JSONArray) medical.get(MEDICATIONS);
+        
+        // loop through all medications
+        for (int i=0; i<medications.size(); i++) {
+            // the array contains Medication objects
+            JSONObject medication = (JSONObject) medications.get(i);
+
+            // get the medication info and add to the arraylist
+            newMedications.add( new Medication(
+                (String) medication.get(DESCRIPTION),
+                (String) medication.get(TIME) ));
+        }
+        
+        Medical toRetMed = new Medical(doc);
+        toRetMed.addAllergies(newAllergies);
+        toRetMed.addMedications(newMedications);
+        
+        return toRetMed;
+    }
+
+    /**
+     * Return ArrayList of contacts
+     * @param contacts The JSONArray of contacts
+     * @return an ArrayList of Contact
+     */
+    private static ArrayList<Contact> getContacts(JSONArray contacts) {
+        ArrayList<Contact> contactsList = new ArrayList<>();
+
+        // loop through the JSONArray 
+        for (int j=0; j<contacts.size(); j++) {
+            // get a JSONObject (which contains ONE contact)
+            JSONObject contact = (JSONObject) contacts.get(j);
+            String address = (String) contact.get(ADDRESS);
+
+            Contact newContact = new Contact(
+                (String) contact.get(FIRST_NAME), 
+                (String) contact.get(LAST_NAME), 
+                (String) contact.get(PHONE_NUMBER));
+            newContact.addAddress(address);
+
+            // add this contact to the contacts arraylist
+            contactsList.add(newContact);
+        }
+
+        return contactsList;
+    }
 }
