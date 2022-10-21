@@ -2,6 +2,7 @@
     {
         "id": "641f16ee-eddb-4c29-b2ba-d0f6d54b30ce",
         "cabinAge": 10,
+        "sessionDuration": 4,
         "maxNumberOfCampers": 20,
         "schedules": [
             [
@@ -56,6 +57,7 @@
         "cabinAge": 12,
         "MaxNumberOfCampers": 14,
         "schedules": [
+            [
                 {
                     "title": "cayaking",
                     "location": "river",
@@ -65,6 +67,7 @@
                         "Don't forget the life jackets"
                     ]
                 }
+            ]
         ],
         "Campers": [
             "07f46736-08e4-4a8e-a0c6-7ee46acbcb76"

@@ -15,7 +15,7 @@ public class User {
     protected String preferredContact;
     protected LocalDate birthday;
     protected String address;
-    protected String type;
+    protected Type type;
     //protected ArrayList<Camper> campers;
 
     public User(String firstName, String lastName, String userName) {
@@ -55,7 +55,7 @@ public class User {
 
     }
 
-    public void setType(String type) {
+    public void setType(Type type) {
 
     }
 

@@ -154,6 +154,7 @@ public class DataReader extends DataConstants {
                 newSession.setAvailableSpots(
                     ((Long) session.get(AVAILABLE_SPOTS)).intValue());
                 
+                // get the themes array...
                 JSONArray themes = (JSONArray) session.get(THEMES);
                 ArrayList<String> newThemes = new ArrayList<>();
                 for (int j=0; j<themes.size(); j++)
@@ -174,6 +175,8 @@ public class DataReader extends DataConstants {
     }
 
     private static ArrayList<Cabin> getAllCabins() {
+        ArrayList<Cabin> cabins = new ArrayList<>();
+        
         try {
             
             FileReader cabinsReader = new FileReader(CABIN_FILE_NAME);
@@ -183,17 +186,32 @@ public class DataReader extends DataConstants {
             for (int i=0; i<cabinsJSON.size(); i++) {
                 JSONObject cabin = (JSONObject) cabinsJSON.get(i);
 
-                // get the attributes...
-                UUID cabinID = UUID.fromString((String) cabin.get(USER_ID));
-                int cabinAge = ((Long) cabin.get(CABIN_AGE)).intValue();
-                int maxCampers = ((Long) cabin.get(MAX_NO_OF_CAMPERS)).intValue();
+                // create the new cabin
+                Cabin newCabin = new Cabin(
+                    UUID.fromString((String) cabin.get(USER_ID)), 
+                    ((Long) cabin.get(CABIN_AGE)).intValue(),
+                    ((Long) cabin.get(SESSION_DURATION)).intValue());
 
-                // TODO schedules
+                newCabin.addMaxCampers( ((Long) cabin.get(MAX_NO_OF_CAMPERS)).intValue() );
+
+                JSONArray schedules = (JSONArray) cabin.get(SCHEDULES);
+                ArrayList<Schedule> newSchedules = new ArrayList<>();
+                for (int j=0; j<schedules.size(); j++) {
+
+                    // TODO
+                    ArrayList<Activity> newSchedule =
+                        getActivities((JSONArray) schedules.get(j));
+                }
+
+
+            cabins.add(newCabin);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return cabins;
     }
 
 
@@ -245,7 +263,10 @@ public class DataReader extends DataConstants {
         newUser.addPreferredContact( (String) user.get(PREFFERED_CONTACT) );
         newUser.addBirthday( LocalDate.parse((String) user.get(BIRTHDAY)) );
         newUser.addAddress( (String) user.get(ADDRESS) );
-        newUser.setType( (String) user.get(TYPE) );
+       
+        String type = (String) user.get(TYPE);
+        Type newType = Type.valueOf(type.toUpperCase());
+        newUser.setType(newType);
 
         // JSONArray campers = (JSONArray) user.get(CAMPERS);
         // for(int i=0; i < campers.size(); i++){
@@ -328,5 +349,37 @@ public class DataReader extends DataConstants {
         }
 
         return contactsList;
+    }
+
+    /**
+     * Return the Activity array
+     * @param schedules a JSONArray of schedules
+     * @return The ArrayList of Activities
+     */
+    private static ArrayList<Activity> getActivities(JSONArray schedules) {
+       ArrayList<Activity> newActivites = new ArrayList<>();
+
+        for (int i=0; i<schedules.size(); i++) {
+            JSONObject activity = (JSONObject) schedules.get(i);
+            
+            Activity newActivity = new Activity(
+                (String) activity.get(TITLE),
+                (String) activity.get(LOCATION));
+
+            newActivity.addStartTime( (String) activity.get(START_TIME) );
+            newActivity.addEndTime( (String) activity.get(END_TIME) );
+            
+            // get the ArrayList of notes
+            ArrayList<String> newNotes = new ArrayList<>();
+            JSONArray notes = (JSONArray) activity.get(NOTES);
+            for (int j=0; j<notes.size(); j++)
+                newNotes.add( (String) notes.get(j) );
+            
+            newActivity.addNotes(newNotes);
+
+            newActivites.add(newActivity);
+        }
+
+        return newActivites;
     }
 }

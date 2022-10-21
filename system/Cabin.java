@@ -20,6 +20,10 @@ public class Cabin {
     public Cabin(UUID id, int cabinAge, int sessionDuration) {
     }
 
+    public void addMaxCampers(int maxCampers) {
+
+    }
+
     public void addCamper(Camper camper) {
 
     }
