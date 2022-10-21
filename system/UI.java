@@ -114,9 +114,59 @@ public class UI {
         }
     }
     private void addCamper(){
-        System.out.println("Enter Campers name: ");
-        String CamperName = scanner.nextLine();
+        while(true){
+            System.out.print("\nEnter Campers first name: ");
+            String firstName = scanner.nextLine();
+            System.out.print("\nEnter Campers last name: ");
+            String lastName = scanner.nextLine();
+            System.out.print("\nEnter your relationship to Camper: ");
+            String relationship = scanner.nextLine();
+            System.out.print("\nEnter Campers birthday (format: yyyy-mm-dd): ");
+            String birthdayString = scanner.nextLine();
+            LocalDate birthday = LocalDate.parse(birthdayString);
+            System.out.print("\n Enter the following information about the EMERGENCY CONTACT:")
+            Contact emergContact = createTheContact(); //for emergency contact. add to arrayList?
+            //add guardians
+            //medical info starts here
+            System.out.println("Enter the folling information about the Campers DOCTOR");
+            Contact docContact = createTheContact();
+            System.out.println("Would you like to add Medications to your Campers Account (All necessary medications to be taken during camp must be added) Y/N")
+            String yn = scanner.nextLine();
+            while(yn.equalsIgnoreCase("y")){
+                //add medical info
+            }
+            
 
+
+            /* 
+            //System.out.print("\nEnter your address: ");
+            if(campSystem.createAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address) == true){
+                System.out.println("\nAccount created successfully.");
+                break;
+            }
+            System.out.println("\nInvalid input. Start over.");*/
+        }
+    }
+    private Contact createTheContact(){
+        Contact aContact;
+        while(true){ //emergency contact
+            System.out.print("\n Enter the first name of Campers emergency contact"); 
+            String emFirstName = scanner.nextLine();
+            System.out.print("\n Enter the last name of Campers emergency contact"); 
+            String emLastName = scanner.nextLine();
+            System.out.print("\nEnter contact email address: ");
+            String ememail = scanner.nextLine();
+            System.out.print("\nEnter contact phone number: ");
+            String emphoneNumber = scanner.nextLine();
+            aContact = new Contact(emFirstName, emLastName, emphoneNumber);
+            if(aContact != null){
+                System.out.println("\nAccount created successfully.");
+                break;
+                
+            }
+            System.out.print("\nInvalid input. Start over.");
+        }
+        return aContact;
     }
     private void finalizePayment(){}
     private void printGeneralInformation(){}
