@@ -18,6 +18,7 @@ public class Cabin {
     }
 
     public Cabin(UUID id, int cabinAge, int sessionDuration) {
+        this.id = id;
     }
 
     public UUID getUUID() {

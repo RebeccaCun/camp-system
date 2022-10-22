@@ -58,7 +58,7 @@
         "maxNumberOfCampers": 20,
         "sessionDuration": 1,
         "schedules": {
-            "Thursday": [
+            "THURSDAY": [
                 {
                     "title": "cayaking",
                     "location": "river",

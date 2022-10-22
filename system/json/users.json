@@ -8,7 +8,7 @@
         "email": "perilayers@gmail.com",
         "phoneNumber": "801-403-6839",
         "preferredContact": "phone",
-        "birthday": "10/17/1992",
+        "birthday": "1992-10-17",
         "address": "5260 Forest Dr., Columbia, SC 29206",
         "type": "PARENT",
         "campers": [
@@ -16,7 +16,7 @@
         ]
     },
     {
-        "id": "c67d874r-5c09-27fs-8be4-r3897582f1f0e",
+        "id": "ea2f3110-aa8e-4b70-ab5e-29707a6c9cd0",
         "firstName": "James",
         "lastName": "Fendro",
         "userName": "JamesFendro45",
@@ -24,7 +24,7 @@
         "email": "jamesFendro@gmail.com",
         "phoneNumber": "388-521-5948",
         "preferredContact": "phone",
-        "birthday": "05/22/1988",
+        "birthday": "1988-05-22",
         "address": "300 Monticello Ave, Norfolk, VA 23510",
         "type": "PARENT",
         "campers": [
@@ -32,14 +32,14 @@
         ]
     },
     {
-        "id": "6bfed27d-726c-4ff4-827b-b154d98100e4",
+        "id": "7dbf5d74-976b-4fdc-a11d-d3008f5861fe",
         "firstName": "Arthur",
         "lastName": "Barret",
         "use d": "L09IFoUVBy#3",
         "email": "arthurBarret9@gmail.com",
         "phoneNumber": "803-407-6234",
         "preferredContact": "email",
-        "birthday": "1/17/1997",
+        "birthday": "1997-01-17",
         "address": "2718 Seneca Ave, Fort Pierce, FL 34946439",
         "type": "DIRECTOR",
         "campers": [
