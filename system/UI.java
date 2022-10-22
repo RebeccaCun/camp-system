@@ -14,23 +14,22 @@ public class UI {
 
     public void run(){
         System.out.println("Welcome to our camp website!");
-        boolean invalid = false;
         int choice;
-        while(!invalid){
+        boolean stop = false;
+        while(true){
             displayIntroMenu();
             choice = getUserCommand(2);
-            if(choice == 1){
-                login();
-            }
-            else if(choice == 2){
-                createAccount();
-            }
-            else{
-                System.out.println("Invalid Input.");
-                invalid = true;
-            }
+        if(choice == -1){
+            System.out.println("Invalid input.");
+        }else if(choice == 1){
+            login();
+            break;
+        }else if(choice == 2){
+            createAccount();
+        }
+            
         }  
-        while(!invalid){
+        while(!stop){
             displayMainMenu();
             choice = getUserCommand(6);
             switch(choice){
@@ -51,10 +50,10 @@ public class UI {
                     break;
                 case '6':
                     logout();
+                    stop = true;
                     break;
                 default:
                     System.out.println("Invalid input");
-                    invalid = true;
             }
         } 
 
