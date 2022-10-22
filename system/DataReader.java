@@ -10,6 +10,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+/**
+ * Reads data
+ * @author CyberCouncil
+ */
 public class DataReader extends DataConstants {
 
     private static ArrayList<User> users;
@@ -18,11 +22,6 @@ public class DataReader extends DataConstants {
     private static ArrayList<Camper> campers;
     private static ArrayList<Cabin> cabins;
 
-    public static void main(String[] args) {
-        ArrayList<User> u = getAllUsers();
-        ArrayList<Counselor> c = getAllCounselors();
-    }
-    
     /**
      * Fill in the users ArrayList
      * @return ArrayList<User>
@@ -59,7 +58,7 @@ public class DataReader extends DataConstants {
      * Fill in the counselors ArrayList
      * @return ArrayList<Counselor>
      */
-    private static ArrayList<Counselor> getAllCounselors() {
+    public static ArrayList<Counselor> getAllCounselors() {
         // initiailize the counselors arraylist
         counselors = new ArrayList<>();
         
@@ -96,7 +95,7 @@ public class DataReader extends DataConstants {
      * Fill in the campers ArrayList
      * @return ArrayList<Camper>
      */
-    public static ArrayList<Camper> getAllCampers() {
+    private static ArrayList<Camper> getAllCampers() {
         // initiailize the campers arraylist
         campers = new ArrayList<>();
         
@@ -202,7 +201,7 @@ public class DataReader extends DataConstants {
      * Fill in the sessions ArrayList
      * @return ArrayList<Session>
      */
-    private static void getAllSessions() {
+    private static ArrayList<Session> getAllSessions() {
         sessions = new ArrayList<>();
         
         try {
@@ -240,6 +239,8 @@ public class DataReader extends DataConstants {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return sessions;
     }
 
     /**
