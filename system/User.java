@@ -25,6 +25,10 @@ public class User {
     }
 
     public User(UUID id, String firstName, String lastName, String userName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.userName = userName;
+        this.lastName = lastName;
     }
     
     public void addCampers(ArrayList<Camper> campers) {

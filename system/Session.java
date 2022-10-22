@@ -23,7 +23,7 @@ public class Session {
      * @param endDate
      * @param ageGroup
      */
-    public Session(LocalDate startDate, LocalDate endDate, String ageGroup) {
+    public Session(LocalDate startDate, LocalDate endDate, int ageGroup) {
 
     }
 
@@ -34,8 +34,8 @@ public class Session {
      * @param endDate
      * @param ageGroup
      */
-    public Session(UUID id, LocalDate startDate, LocalDate endDate, String ageGroup) {
-
+    public Session(UUID id, LocalDate startDate, LocalDate endDate, int ageGroup) {
+        this.id = id;
     }
 
     public void setAvailableSpots(int availableSpots) {

@@ -19,7 +19,9 @@ public class Camper {
 
     public Camper(String firstName, String lastName, LocalDate birthday){}
     
-    public Camper(UUID id, String firstName, String lastName, LocalDate birthday){}
+    public Camper(UUID id, String firstName, String lastName, LocalDate birthday){
+        this.id = id;
+    }
 
     public void addAddress(String address) {
 

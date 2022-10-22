@@ -42,7 +42,7 @@ public class DataReader extends DataConstants {
                 JSONObject user = (JSONObject) userJSON.get(i);
 
                 // create the user
-                User newUser = getUser(user);
+                User newUser = getUser(user, "");
                            
                 // add this new User to the User ArrayList
                 users.add(newUser);
@@ -73,7 +73,7 @@ public class DataReader extends DataConstants {
 
                 // create the counselor
                 // Counselor extends User, so many attributes are common
-                Counselor newCounselor = (Counselor) getUser(counselor);
+                Counselor newCounselor = (Counselor) getUser(counselor, "counselor");
                 
                 newCounselor.addBiography((String) counselor.get(BIOGRAPHY));
                 newCounselor.addMedical(getMedical(
@@ -219,7 +219,7 @@ public class DataReader extends DataConstants {
                     UUID.fromString((String) session.get(USER_ID)),
                     LocalDate.parse((String) session.get(START_DATE)),
                     LocalDate.parse((String) session.get(END_DATE)),
-                    (String) session.get(AGE_GROUP));
+                    ((Long) session.get(AGE_GROUP)).intValue());
 
                 newSession.setAvailableSpots(
                     ((Long) session.get(AVAILABLE_SPOTS)).intValue());
@@ -289,8 +289,7 @@ public class DataReader extends DataConstants {
                 }
                 newCabin.addSchedules(newSchedules);
 
-                // add Campers to the Cabin
-                newCabin.addCampers(getSomeCampers(cabin));
+                // add Campers to Cabin later...
 
                 // add the Cabin to the Arraylist of Cabin
                 cabins.add(newCabin);
@@ -301,6 +300,29 @@ public class DataReader extends DataConstants {
         }
 
         return cabins;
+    }
+
+    /**
+     * 
+     * @param someObject
+     * @return
+     */
+    private static void addCampersToCabins() {
+        // add Campers to the Cabin
+
+        try {
+            
+            FileReader cabinsReader = new FileReader(CABIN_FILE_NAME);
+            JSONParser cabinsParser = new JSONParser();
+            JSONArray cabinsJSON = (JSONArray) new JSONParser().parse(cabinsReader);
+
+            for (int i=0; i<cabinsJSON.size(); i++) {
+                JSONObject cabin = (JSONObject) cabinsJSON.get(i);
+                cabins.get(i).addCampers(getSomeCampers(cabin));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }        
     }
 
     /**
@@ -341,7 +363,7 @@ public class DataReader extends DataConstants {
     private static ArrayList<Cabin> getSomeCabins(JSONObject someObject) {
         if (cabins == null)
             getAllCabins(); // initialize all the cabins first
-                    
+                            
         // get cabins...
         JSONArray JSONcabins = (JSONArray) someObject.get(CABINS);
         ArrayList<Cabin> newCabins = new ArrayList<>();
@@ -412,13 +434,24 @@ public class DataReader extends DataConstants {
      * @param user The JSONObject for the user
      * @return a new User class object
      */
-    private static User getUser(JSONObject user) {
-
-        User newUser = new User(
-        UUID.fromString((String) user.get(USER_ID)),
-        (String) user.get(FIRST_NAME),
-        (String) user.get(LAST_NAME),
-        (String) user.get(USERNAME));
+    private static User getUser(JSONObject user, String userType) {
+        User newUser;
+        
+        if (userType.equals("counselor")) {
+            newUser = new Counselor(
+                UUID.fromString((String) user.get(USER_ID)),
+                (String) user.get(FIRST_NAME),
+                (String) user.get(LAST_NAME),
+                (String) user.get(USERNAME));
+        }
+        
+        else {
+            newUser = new User(
+                UUID.fromString((String) user.get(USER_ID)),
+                (String) user.get(FIRST_NAME),
+                (String) user.get(LAST_NAME),
+                (String) user.get(USERNAME));
+        }
 
         newUser.setPassword( (String) user.get(PASSWORD) );
         newUser.addEmail( (String) user.get(EMAIL) );
@@ -433,6 +466,9 @@ public class DataReader extends DataConstants {
 
         // initialize the campers ArrayList first...
         getAllCampers();
+
+        // Now add campers to cabins, because campers have been initialized...
+        addCampersToCabins();
         
         // add Campers to the User
         newUser.addCampers(getSomeCampers(user));
