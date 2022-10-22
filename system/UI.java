@@ -134,17 +134,32 @@ public class UI {
             String yn = scanner.nextLine();
             while(yn.equalsIgnoreCase("y")){
                 //add medical info
+                System.out.print("What is the name of the Campers medication");
+                String medName = scanner.nextLine();
+                System.out.print("What time of day does the camper need to take medicine" );
+                String medTime = scanner.nextLine();
+                System.out.print("Do you want to add another medicatipn?");
+                yn = scanner.nextLine();
             }
-            
-
-
-            /* 
-            //System.out.print("\nEnter your address: ");
-            if(campSystem.createAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address) == true){
-                System.out.println("\nAccount created successfully.");
+            //for adding allergies
+            System.out.println("Would you like to add any Allergies to your Campers Account (All necessary allergies to be taken during camp must be added) Y/N")
+            yn = scanner.nextLine();
+            while(yn.equalsIgnoreCase("y")){
+                System.out.print("What is the campers allergy to?");
+                String medName = scanner.nextLine();
+                System.out.print("Do you want to add another medicatipn?");
+                yn = scanner.nextLine();
+            }
+            System.out.print("Would you like to sign a camper up for a session now? (Y/N)");
+            yn = scanner.nextLine();
+            if(yn.equalsIgnoreCase("y")){
+                sessionSignup();
+            }
+            if(campSystem.addCamper(firstName, lastName, birthday, emergContact, docContact)){   //Fix this
+                System.out.println(firstName + lastName+ "has been successfully signed up as a Camper");
                 break;
             }
-            System.out.println("\nInvalid input. Start over.");*/
+            System.out.println("\nInvalid input. Start over.");
         }
     }
     private Contact createTheContact(){
