@@ -20,11 +20,23 @@ public class Cabin {
     public Cabin(UUID id, int cabinAge, int sessionDuration) {
     }
 
+    public UUID getUUID() {
+        return id;
+    }
+
     public void addMaxCampers(int maxCampers) {
 
     }
 
+    public void addCampers(ArrayList<Camper> campers) {
+
+    }
+
     public void addCamper(Camper camper) {
+
+    }
+
+    public void addSchedules(HashMap<Day, Schedule> schedules) {
 
     }
 

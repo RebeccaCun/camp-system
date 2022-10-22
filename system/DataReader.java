@@ -2,6 +2,8 @@ package system;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 import java.time.LocalDate;
 import java.util.UUID;
 import org.json.simple.JSONArray;
@@ -11,42 +13,89 @@ import org.json.simple.parser.JSONParser;
 public class DataReader extends DataConstants {
 
     private static ArrayList<User> users;
+    private static ArrayList<Counselor> counselors;
+    private static ArrayList<Session> sessions;
     private static ArrayList<Camper> campers;
+    private static ArrayList<Cabin> cabins;
 
     public static void main(String[] args) {
-        ArrayList<Camper> u = getAllCampers();
+        ArrayList<User> u = getAllUsers();
+        ArrayList<Counselor> c = getAllCounselors();
     }
     
-    /*
+    /**
+     * Fill in the users ArrayList
+     * @return ArrayList<User>
+     */
     public static ArrayList<User> getAllUsers() {
         users = new ArrayList<>();
 
         try {
-            
             // read from the file that is defined in the DataConstants
-            FileReader reader = new FileReader(CAMP_FILE_NAME);
-            JSONParser parser = new JSONParser(); // maie a JSON parser
+            FileReader reader = new FileReader(USERS_FILE_NAME);
+            JSONParser parser = new JSONParser(); // make a JSON parser
 			
             // get the camp array from json
-            JSONArray campJSON = (JSONArray)new JSONParser().parse(reader);
+            JSONArray userJSON = (JSONArray) new JSONParser().parse(reader);
 
-            // only have one object for the camp
-            JSONObject camp = (JSONObject) campJSON.get(0);
-            
-            getParents(camp); // getParents(camp); //TODO
-            getDirector(camp);
-            getCampers(camp);
-            getCounselors(camp);
+            for (int i=0; i<userJSON.size(); i++) {
+                JSONObject user = (JSONObject) userJSON.get(i);
 
-            // users.add(new User());
+                // create the user
+                User newUser = getUser(user);
+                           
+                // add this new User to the User ArrayList
+                users.add(newUser);
+            }    
 
         } catch (Exception e) {
-            e.printStaciTrace();
+            e.printStackTrace();
         }
 
         return users;
-    }*/
+    }
 
+    /**
+     * Fill in the counselors ArrayList
+     * @return ArrayList<Counselor>
+     */
+    private static ArrayList<Counselor> getAllCounselors() {
+        // initiailize the counselors arraylist
+        counselors = new ArrayList<>();
+        
+        try {
+            FileReader counselorReader = new FileReader(COUNSELORS_FILE_NAME);
+            JSONParser counselorParser = new JSONParser();
+            JSONArray counselorJSON = (JSONArray) new JSONParser().parse(counselorReader);
+
+            for (int i=0; i<counselorJSON.size(); i++) {
+                JSONObject counselor = (JSONObject) counselorJSON.get(i);
+
+                // create the counselor
+                // Counselor extends User, so many attributes are common
+                Counselor newCounselor = (Counselor) getUser(counselor);
+                
+                newCounselor.addBiography((String) counselor.get(BIOGRAPHY));
+                newCounselor.addMedical(getMedical(
+                    (JSONObject) counselor.get(MEDICAL)));
+
+                // add the cabins to the counselor
+                newCounselor.addCabins(getSomeCabins(counselor));
+                
+                // add this new Counselor to the Counselor ArrayList
+                counselors.add(newCounselor);
+            }    
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return counselors;
+    }
+
+    /**
+     * Fill in the campers ArrayList
+     * @return ArrayList<Camper>
+     */
     public static ArrayList<Camper> getAllCampers() {
         // initiailize the campers arraylist
         campers = new ArrayList<>();
@@ -106,26 +155,41 @@ public class DataReader extends DataConstants {
                     newNotes.add( (String) notes.get(j) );
                 newCamper.addNotes(newNotes);     
 
-                // // traverse to the camper in their json file
-                // FileReader camperReader = new FileReader(CAMPERS_FILE_NAME);
-                // JSONParser camperParser = new JSONParser();
-                
+                // add the sessions later...
 
-                // for (int l=0;l<camperJSON.size(); l++) {
-                //     JSONObject aCamper = (JSONObject) camperJSON.get(l);
-
-                //     if (UUID.fromString((String) aCamper.get(USER_ID)).compareTo(camperID) == 0) {
-
-                //     }
-
-                // }
-
-                // user.addCamper(new Camper(firstName, lastName, null, null, null, Campers));
-
+                // add the Camper to the Camper Array
                 campers.add(newCamper);
             }
             
+            // first initialize the sessions arrayList
             getAllSessions();
+
+            // Now, add sessions to the campers...
+            for (int i=0; i<camperJSON.size(); i++) {
+
+                // get the camper again...
+                JSONObject camper = (JSONObject) camperJSON.get(i);
+                // get the sessions array...
+                JSONArray JSONSessions = (JSONArray) camper.get(SESSIONS);
+                
+                ArrayList<Session> newSessions = new ArrayList<>();
+                for (int j=0; j<JSONSessions.size(); j++) {
+                    
+                    // search the array of sessions for the Session by the UUID
+                    Session newSession = getSessionByUUID(
+                        UUID.fromString((String) JSONSessions.get(j)));
+
+                    // if the session exists, add to the sessions ArrayList
+                    if (newSession != null)
+                        newSessions.add(newSession);
+
+                    // TODO else session is in campers but not in sessions?
+                }
+
+                // get the camper from the campers arrayList and 
+                // add its sessions to it...
+                campers.get(i).addSessions(newSessions);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -134,10 +198,16 @@ public class DataReader extends DataConstants {
         return campers;
     }
     
+    /**
+     * Fill in the sessions ArrayList
+     * @return ArrayList<Session>
+     */
     private static void getAllSessions() {
+        sessions = new ArrayList<>();
+        
         try {
             
-            FileReader sessionsReader = new FileReader(COUNSELORS_FILE_NAME);
+            FileReader sessionsReader = new FileReader(SESSION_FILE_NAME);
             JSONParser sessionsParser = new JSONParser();
             JSONArray sessionsJSON = (JSONArray) new JSONParser().parse(sessionsReader);
 
@@ -159,23 +229,25 @@ public class DataReader extends DataConstants {
                 ArrayList<String> newThemes = new ArrayList<>();
                 for (int j=0; j<themes.size(); j++)
                     newThemes.add((String) themes.get(i));
-                
-                // get cabins...
-                JSONArray cabins = (JSONArray) session.get(CABINS);
-                ArrayList<Cabin> sessionCabins = new ArrayList<>();
-                for (int j=0; j<cabins.size(); j++) {
-                    // sessionCabins.add((String) cabins.get(i));
-                    // TODO add cabins
-                }
-                
-            }    
+                newSession.addThemes(newThemes);
+
+                newSession.addCabins(getSomeCabins(session));
+
+                // add this new Session to the Session Array
+                sessions.add(newSession);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Fill in the cabins ArrayList
+     * @return ArrayList<Cabin>
+     */
     private static ArrayList<Cabin> getAllCabins() {
-        ArrayList<Cabin> cabins = new ArrayList<>();
+        cabins = new ArrayList<>();
         
         try {
             
@@ -194,17 +266,34 @@ public class DataReader extends DataConstants {
 
                 newCabin.addMaxCampers( ((Long) cabin.get(MAX_NO_OF_CAMPERS)).intValue() );
 
-                JSONArray schedules = (JSONArray) cabin.get(SCHEDULES);
-                ArrayList<Schedule> newSchedules = new ArrayList<>();
+                // get the schedules...
+                HashMap<Day, Schedule> newSchedules = new HashMap<>();
+                JSONObject schedules = (JSONObject) cabin.get(SCHEDULES);
+                
+                // get the all Day values in the schedules
+                Set<String> s =  schedules.keySet();
+                ArrayList<String> dayList = new ArrayList<>(s);
+
                 for (int j=0; j<schedules.size(); j++) {
+                    
+                    // get the Day for this iteration
+                    String day = dayList.get(j);
 
-                    // TODO
-                    ArrayList<Activity> newSchedule =
-                        getActivities((JSONArray) schedules.get(j));
+                    // Create a new Schedule from the ArrayList of Activity
+                    Schedule newSchedule = new Schedule(
+                        getActivities((JSONArray) schedules.get(day)));
+
+                    // Add the Day and Schedule to the HashMap of schedules
+                    newSchedules.put(Day.valueOf(day), newSchedule);
+                    
                 }
+                newCabin.addSchedules(newSchedules);
 
+                // add Campers to the Cabin
+                newCabin.addCampers(getSomeCampers(cabin));
 
-            cabins.add(newCabin);
+                // add the Cabin to the Arraylist of Cabin
+                cabins.add(newCabin);
             }
 
         } catch (Exception e) {
@@ -214,34 +303,108 @@ public class DataReader extends DataConstants {
         return cabins;
     }
 
+    /**
+     * Return all the campers which are in the given JSONObject
+     * @param someObject JSONObject which must contain the CAMPERS DataConstant
+     * @return an ArrayList of Campers
+     */
+    private static ArrayList<Camper> getSomeCampers(JSONObject someObject) {
+        if (campers == null)
+            getAllCampers(); // initialize all the campers
+                    
+        JSONArray JSONcampers = (JSONArray) someObject.get(CAMPERS);
+        ArrayList<Camper> newCampers = new ArrayList<>();
 
-    private static ArrayList<Counselor> getAllCounselors() {
-        // initiailize the counselors arraylist
-        ArrayList<Counselor> counselors = new ArrayList<>();
-        
-        try {
-            FileReader counselorReader = new FileReader(COUNSELORS_FILE_NAME);
-            JSONParser counselorParser = new JSONParser();
-            JSONArray counselorJSON = (JSONArray) new JSONParser().parse(counselorReader);
+        for (int i=0; i<JSONcampers.size(); i++) {
 
-            for (int i=0; i<counselorJSON.size(); i++) {
-                JSONObject counselor = (JSONObject) counselorJSON.get(i);
+            // get the camper id
+            UUID camperID = UUID.fromString((String) JSONcampers.get(i));
+            
+            // search the array of campers for the Camper
+            Camper newCamper = getCamperByUUID(camperID);
 
-                // create the counselor
-                Counselor newCounselor = (Counselor) getUser(counselor);
-                
-                newCounselor.addBiography((String) counselor.get(BIOGRAPHY));
-                newCounselor.addMedical(getMedical(
-                    (JSONObject) counselor.get(MEDICAL)));
-
-                // TODO cabins
-
-            }    
-        } catch (Exception e) {
-            e.printStackTrace();
+            // if the Camper exists, add to the Camper array
+            if (newCamper != null)
+                newCampers.add(newCamper);
+            
+            // TODO else Camper is in the object but not in campers?
         }
 
-        return counselors;
+        return newCampers;
+    }
+
+    /**
+     * Return all the cabins which are in the given JSONObject
+     * @param someObject JSONObject which must contain the CABINS DataConstant
+     * @return an ArrayList of Cabin
+     */
+    private static ArrayList<Cabin> getSomeCabins(JSONObject someObject) {
+        if (cabins == null)
+            getAllCabins(); // initialize all the cabins first
+                    
+        // get cabins...
+        JSONArray JSONcabins = (JSONArray) someObject.get(CABINS);
+        ArrayList<Cabin> newCabins = new ArrayList<>();
+
+        for (int i=0; i<JSONcabins.size(); i++) {
+
+            // get the camper id
+            UUID cabinID = UUID.fromString((String) JSONcabins.get(i));
+            
+            // search the array of cabins for the Cabin
+            Cabin newCabin = getCabinByUUID(cabinID);
+
+            // if the cabin exists, add to the Cabin array
+            if (newCabin != null)
+                newCabins.add(newCabin);
+            
+            // TODO else cabin is in the object but not in cabins?
+        }
+
+        return newCabins;
+    }
+
+
+    /**
+     * Search and return the Session in the sessions array by the UUID
+     * @param id UUID of the Session
+     * @return Session if they exist in sessions and null otherwise
+     */
+    private static Session getSessionByUUID(UUID id) {
+        for (Session session : sessions) {
+            if (session.getUUID().compareTo(id) == 0)
+                return session;
+        }
+
+        return null;
+    }
+
+    /**
+     * Search and return the Cabin in the cabins array by the UUID
+     * @param id UUID of the Cabin
+     * @return Cabin if they exist in cabins and null otherwise
+     */
+    private static Cabin getCabinByUUID(UUID id) {
+        for (Cabin cabin : cabins) {
+            if (cabin.getUUID().compareTo(id) == 0)
+                return cabin;
+        }
+
+        return null;
+    }
+
+    /**
+     * Search and return the Camper in the campers array by the UUID
+     * @param id UUID of the Camper
+     * @return Camper if they exist in campers and null otherwise
+     */
+    private static Camper getCamperByUUID(UUID id) {
+        for (Camper camper : campers) {
+            if (camper.getUUID().compareTo(id) == 0)
+                return camper;
+        }
+
+        return null;
     }
 
     /**
@@ -265,14 +428,14 @@ public class DataReader extends DataConstants {
         newUser.addAddress( (String) user.get(ADDRESS) );
        
         String type = (String) user.get(TYPE);
-        Type newType = Type.valueOf(type.toUpperCase());
+        Type newType = Type.valueOf(type);
         newUser.setType(newType);
 
-        // JSONArray campers = (JSONArray) user.get(CAMPERS);
-        // for(int i=0; i < campers.size(); i++){
-        //     UUID camperID = UUID.fromString((String) campers.get(i));
-        //     Camper camper = UserList.getInstance().getCamperByUUID(camperID);
-        // }
+        // initialize the campers ArrayList first...
+        getAllCampers();
+        
+        // add Campers to the User
+        newUser.addCampers(getSomeCampers(user));
 
         return newUser;
     }

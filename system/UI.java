@@ -124,7 +124,7 @@ public class UI {
             System.out.print("\nEnter Campers birthday (format: yyyy-mm-dd): ");
             String birthdayString = scanner.nextLine();
             LocalDate birthday = LocalDate.parse(birthdayString);
-            System.out.print("\n Enter the following information about the EMERGENCY CONTACT:")
+            System.out.print("\n Enter the following information about the EMERGENCY CONTACT:");
             Contact emergContact = createTheContact(); //for emergency contact. add to arrayList?
             //add guardians
             //medical info starts here

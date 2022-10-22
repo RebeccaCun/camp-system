@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Schedule {
     private ArrayList<Activity> activities;
 
-    public Schedule(){}
+    public Schedule(ArrayList<Activity> activities){}
 
     public void addActivity(){}
     public void removeActivity(){}

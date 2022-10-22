@@ -53,8 +53,16 @@ public class Camper {
 
     }
 
+    public void addSessions(ArrayList<Session> sessions) {
+
+    }
+
     public void addSession(Session session) {
 
+    }
+
+    public UUID getUUID() {
+        return id;
     }
 
     public void giveStrike(){}

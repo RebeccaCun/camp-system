@@ -4,8 +4,8 @@
         "cabinAge": 10,
         "sessionDuration": 4,
         "maxNumberOfCampers": 20,
-        "schedules": [
-            [
+        "schedules": {
+            "MONDAY": [
                 {
                     "title": "river rafting",
                     "location": "river",
@@ -27,7 +27,7 @@
                     ]
                 }
             ],
-            [
+            "TUESDAY": [
                 {
                     "title": "swimming",
                     "location": "river",
@@ -47,17 +47,18 @@
                     ]
                 }
             ]
-        ],
-        "Campers": [
+        },
+        "campers": [
             "07f46736-08e4-4a8e-a0c6-7ee46acbcb76"
         ]
     },
     {
         "id": "1392ff04-a05a-43ba-a7f3-f6fb48443b85",
         "cabinAge": 12,
-        "MaxNumberOfCampers": 14,
-        "schedules": [
-            [
+        "maxNumberOfCampers": 20,
+        "sessionDuration": 1,
+        "schedules": {
+            "Thursday": [
                 {
                     "title": "cayaking",
                     "location": "river",
@@ -68,8 +69,8 @@
                     ]
                 }
             ]
-        ],
-        "Campers": [
+        },
+        "campers": [
             "07f46736-08e4-4a8e-a0c6-7ee46acbcb76"
         ]
     }

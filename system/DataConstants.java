@@ -1,12 +1,11 @@
 package system;
 
 public class DataConstants { 
- protected static final String CAMP_FILE_NAME = "system/json/camp.json";
  protected static final String USERS_FILE_NAME = "system/json/users.json";
  protected static final String CAMPERS_FILE_NAME = "system/json/campers.json";
  protected static final String COUNSELORS_FILE_NAME = "system/json/counselors.json";
  protected static final String CABIN_FILE_NAME = "system/json/cabins.json";
- protected static final String CONTACTS_FILE_NAME = "system/json/contacts.json";
+ protected static final String SESSION_FILE_NAME = "system/json/sessions.json";
  
  protected static final String PARENTS = "parents";
  protected static final String CAMPERS = "campers";
@@ -52,4 +51,5 @@ public class DataConstants {
  protected static final String LOCATION = "location";
  protected static final String START_TIME = "startTime";
  protected static final String END_TIME = "endTime";
+ protected static final String SESSIONS = "sessions";
 }

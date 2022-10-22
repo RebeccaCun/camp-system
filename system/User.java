@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class User {
-    //protected UUID id;
+    protected UUID id;
     protected String firstName; 
     protected String lastName;
     protected String userName;
@@ -16,7 +16,7 @@ public class User {
     protected LocalDate birthday;
     protected String address;
     protected Type type;
-    //protected ArrayList<Camper> campers;
+    protected ArrayList<Camper> campers;
 
     public User(String firstName, String lastName, String userName) {
         this.firstName = firstName;
@@ -27,6 +27,10 @@ public class User {
     public User(UUID id, String firstName, String lastName, String userName) {
     }
     
+    public void addCampers(ArrayList<Camper> campers) {
+
+    }
+
     public void addPhoneNumber(String phoneNumber) {
 
     }

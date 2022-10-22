@@ -41,6 +41,10 @@ public class Session {
     public void setAvailableSpots(int availableSpots) {
 
     }
+
+    public UUID getUUID() {
+        return id;
+    }
     
     /**
      * 
@@ -58,6 +62,20 @@ public class Session {
         return 0;
     }
     
+    /**
+     * 
+     */
+    public void addCabins(ArrayList<Cabin> cabins) {
+        ;
+    }
+
+    /**
+     * 
+     */
+    public void addThemes(ArrayList<String> themes) {
+        ;
+    }
+
     /**
      * 
      */

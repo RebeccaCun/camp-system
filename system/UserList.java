@@ -56,10 +56,6 @@ public class UserList {
         return null;
     }
 
-    public Camper getCamperByUUID(UUID id){
-        return null;
-    }
-
     /**
      * 
      * @param userName

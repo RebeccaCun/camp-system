@@ -1,6 +1,7 @@
 package system;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Counselor extends User{
     private String biography;

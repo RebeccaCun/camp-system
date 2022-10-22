@@ -10,7 +10,7 @@
         "preferredContact": "phone",
         "birthday": "10/17/1992",
         "address": "5260 Forest Dr., Columbia, SC 29206",
-        "type": "parent",
+        "type": "PARENT",
         "campers": [
             "942f97dc-fac3-48ea-8dad-3360908698fd"
         ]
@@ -26,9 +26,9 @@
         "preferredContact": "phone",
         "birthday": "05/22/1988",
         "address": "300 Monticello Ave, Norfolk, VA 23510",
-        "type": "parent",
+        "type": "PARENT",
         "campers": [
-            "enter campers id here"
+            "52bcafed-844c-44ee-89b9-9c1f1597444b"
         ]
     },
     {
@@ -41,9 +41,9 @@
         "preferredContact": "email",
         "birthday": "1/17/1997",
         "address": "2718 Seneca Ave, Fort Pierce, FL 34946439",
-        "type": "director",
+        "type": "DIRECTOR",
         "campers": [
-            ""
+            "6e67d002-278c-494d-a49c-cd288e345483"
         ]
     }
 ]
