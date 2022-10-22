@@ -18,7 +18,7 @@ public class UI {
         int choice;
         while(!invalid){
             displayIntroMenu();
-            choice = getUserCommand();
+            choice = getUserCommand(2);
             if(choice == 1){
                 login();
             }
@@ -32,7 +32,7 @@ public class UI {
         }  
         while(!invalid){
             displayMainMenu();
-            choice = getUserCommand();
+            choice = getUserCommand(6);
             switch(choice){
                 case '1':
                     addCamper();
@@ -67,9 +67,12 @@ public class UI {
         System.out.println("What would you like to do today? \n(1) add a new Camper \n(2) sign up camper for a session \n(3) finalize payment \n(4) General Information \n(5) FAQ’s (6) Logout");
     
     }
-    private int getUserCommand(){
+    private int getUserCommand(int commands){
         int choice = scanner.nextInt();
-        return choice;
+        if(choice > 0 && choice <= commands){
+            return choice;
+        }
+        return -1;
     };
     private void createAccount(){
         while(true){
