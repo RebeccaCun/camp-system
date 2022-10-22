@@ -23,7 +23,58 @@ public class DataReader extends DataConstants {
     private static ArrayList<Cabin> cabins;
 
     /**
-     * Fill in the users ArrayList
+     * Return sessions
+     * @return ArrayList<Session>
+     */
+    public static ArrayList<Session> getAllSessions() {
+        // getAllUsers() and getAllCounselors() initiate all the five
+        // ArrayLists of this class. So, if these methods are not called,
+        // then call them first before returning the array.
+
+        if (users == null || counselors == null) {
+            getAllUsers();
+            getAllCounselors();
+        }
+
+        return sessions;
+    }
+
+    /**
+     * Return campers
+     * @return ArrayList<Camper>
+     */
+    public static ArrayList<Camper> getAllCampers() {
+        // getAllUsers() and getAllCounselors() initiate all the five
+        // ArrayLists of this class. So, if these methods are not called,
+        // then call them first before returning the array.
+
+        if (users == null || counselors == null) {
+            getAllUsers();
+            getAllCounselors();
+        }
+
+        return campers;
+    }
+
+    /**
+     * Return cabins
+     * @return ArrayList<Cabin>
+     */
+    public static ArrayList<Cabin> getAllCabins() {
+        // getAllUsers() and getAllCounselors() initiate all the five
+        // ArrayLists of this class. So, if these methods are not called,
+        // then call them first before returning the array.
+
+        if (users == null || counselors == null) {
+            getAllUsers();
+            getAllCounselors();
+        }
+
+        return cabins;
+    }
+    
+    /**
+     * Returns users
      * @return ArrayList<User>
      */
     public static ArrayList<User> getAllUsers() {
@@ -55,7 +106,7 @@ public class DataReader extends DataConstants {
     }
 
     /**
-     * Fill in the counselors ArrayList
+     * Returns counselors
      * @return ArrayList<Counselor>
      */
     public static ArrayList<Counselor> getAllCounselors() {
@@ -95,7 +146,7 @@ public class DataReader extends DataConstants {
      * Fill in the campers ArrayList
      * @return ArrayList<Camper>
      */
-    private static ArrayList<Camper> getAllCampers() {
+    private static ArrayList<Camper> getCampers() {
         // initiailize the campers arraylist
         campers = new ArrayList<>();
         
@@ -161,7 +212,7 @@ public class DataReader extends DataConstants {
             }
             
             // first initialize the sessions arrayList
-            getAllSessions();
+            getSessions();
 
             // Now, add sessions to the campers...
             for (int i=0; i<camperJSON.size(); i++) {
@@ -201,7 +252,7 @@ public class DataReader extends DataConstants {
      * Fill in the sessions ArrayList
      * @return ArrayList<Session>
      */
-    private static ArrayList<Session> getAllSessions() {
+    private static ArrayList<Session> getSessions() {
         sessions = new ArrayList<>();
         
         try {
@@ -247,7 +298,7 @@ public class DataReader extends DataConstants {
      * Fill in the cabins ArrayList
      * @return ArrayList<Cabin>
      */
-    private static ArrayList<Cabin> getAllCabins() {
+    private static ArrayList<Cabin> getCabins() {
         cabins = new ArrayList<>();
         
         try {
@@ -333,7 +384,7 @@ public class DataReader extends DataConstants {
      */
     private static ArrayList<Camper> getSomeCampers(JSONObject someObject) {
         if (campers == null)
-            getAllCampers(); // initialize all the campers
+            getCampers(); // initialize all the campers
                     
         JSONArray JSONcampers = (JSONArray) someObject.get(CAMPERS);
         ArrayList<Camper> newCampers = new ArrayList<>();
@@ -363,7 +414,7 @@ public class DataReader extends DataConstants {
      */
     private static ArrayList<Cabin> getSomeCabins(JSONObject someObject) {
         if (cabins == null)
-            getAllCabins(); // initialize all the cabins first
+            getCabins(); // initialize all the cabins first
                             
         // get cabins...
         JSONArray JSONcabins = (JSONArray) someObject.get(CABINS);
@@ -466,7 +517,7 @@ public class DataReader extends DataConstants {
         newUser.setType(newType);
 
         // initialize the campers ArrayList first...
-        getAllCampers();
+        getCampers();
 
         // Now add campers to cabins, because campers have been initialized...
         addCampersToCabins();

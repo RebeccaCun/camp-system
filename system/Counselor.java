@@ -14,7 +14,7 @@ public class Counselor extends User{
     }
 
     public Counselor(UUID id, String firstName, String lastName, String userName) {
-        super(firstName, lastName, userName);
+        super(id, firstName, lastName, userName);
     }
 
     public void addBiography(String biography) {
