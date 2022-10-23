@@ -23,57 +23,6 @@ public class DataReader extends DataConstants {
     private static ArrayList<Cabin> cabins;
 
     /**
-     * Return sessions
-     * @return ArrayList<Session>
-     */
-    public static ArrayList<Session> getAllSessions() {
-        // getAllUsers() and getAllCounselors() initiate all the five
-        // ArrayLists of this class. So, if these methods are not called,
-        // then call them first before returning the array.
-
-        if (users == null || counselors == null) {
-            getAllUsers();
-            getAllCounselors();
-        }
-
-        return sessions;
-    }
-
-    /**
-     * Return campers
-     * @return ArrayList<Camper>
-     */
-    public static ArrayList<Camper> getAllCampers() {
-        // getAllUsers() and getAllCounselors() initiate all the five
-        // ArrayLists of this class. So, if these methods are not called,
-        // then call them first before returning the array.
-
-        if (users == null || counselors == null) {
-            getAllUsers();
-            getAllCounselors();
-        }
-
-        return campers;
-    }
-
-    /**
-     * Return cabins
-     * @return ArrayList<Cabin>
-     */
-    public static ArrayList<Cabin> getAllCabins() {
-        // getAllUsers() and getAllCounselors() initiate all the five
-        // ArrayLists of this class. So, if these methods are not called,
-        // then call them first before returning the array.
-
-        if (users == null || counselors == null) {
-            getAllUsers();
-            getAllCounselors();
-        }
-
-        return cabins;
-    }
-    
-    /**
      * Returns users
      * @return ArrayList<User>
      */
@@ -92,7 +41,8 @@ public class DataReader extends DataConstants {
                 JSONObject user = (JSONObject) userJSON.get(i);
 
                 // create the user
-                User newUser = getUser(user, "");
+                User newUser = null;
+                newUser = getUser(user, newUser);
                            
                 // add this new User to the User ArrayList
                 users.add(newUser);
@@ -123,7 +73,8 @@ public class DataReader extends DataConstants {
 
                 // create the counselor
                 // Counselor extends User, so many attributes are common
-                Counselor newCounselor = (Counselor) getUser(counselor, "counselor");
+                Counselor newCounselor = null;
+                newCounselor = (Counselor) getUser(counselor, newCounselor);
                 
                 newCounselor.addBiography((String) counselor.get(BIOGRAPHY));
                 newCounselor.addMedical(getMedical(
@@ -140,6 +91,45 @@ public class DataReader extends DataConstants {
         }
 
         return counselors;
+    }
+
+    /**
+     * Return sessions
+     * @return ArrayList<Session>
+     */
+    public static ArrayList<Session> getAllSessions() {
+        initiate();
+        return sessions;
+    }
+
+    /**
+     * Return campers
+     * @return ArrayList<Camper>
+     */
+    public static ArrayList<Camper> getAllCampers() {
+        initiate();
+        return campers;
+    }
+
+    /**
+     * Return cabins
+     * @return ArrayList<Cabin>
+     */
+    public static ArrayList<Cabin> getAllCabins() {
+        initiate();
+        return cabins;
+    }
+
+    /**
+     * getAllUsers() and getAllCounselors() initiate all the five 
+     * ArrayLists of this class. 
+     * So, initiate them if the Arrays are not already called.
+     */
+    private static void initiate() {
+        if (users == null || counselors == null) {
+            getAllUsers();
+            getAllCounselors();
+        }
     }
 
     /**
@@ -483,38 +473,28 @@ public class DataReader extends DataConstants {
 
     /**
      * Return a user
-     * @param user The JSONObject for the user
+     * @param userObj The JSONObject for the user
+     * @param user a User instance
      * @return a new User class object
      */
-    private static User getUser(JSONObject user, String userType) {
-        User newUser;
-        
-        if (userType.equals("counselor")) {
-            newUser = new Counselor(
-                UUID.fromString((String) user.get(USER_ID)),
-                (String) user.get(FIRST_NAME),
-                (String) user.get(LAST_NAME),
-                (String) user.get(USERNAME));
-        }
-        
-        else {
-            newUser = new User(
-                UUID.fromString((String) user.get(USER_ID)),
-                (String) user.get(FIRST_NAME),
-                (String) user.get(LAST_NAME),
-                (String) user.get(USERNAME));
-        }
-
-        newUser.setPassword( (String) user.get(PASSWORD) );
-        newUser.addEmail( (String) user.get(EMAIL) );
-        newUser.addPhoneNumber( (String) user.get(PHONE_NUMBER) );
-        newUser.addPreferredContact( (String) user.get(PREFFERED_CONTACT) );
-        newUser.addBirthday( LocalDate.parse((String) user.get(BIRTHDAY)) );
-        newUser.addAddress( (String) user.get(ADDRESS) );
+    private static User getUser(JSONObject userObj, User user) {
        
-        String type = (String) user.get(TYPE);
+        user = new User(
+            UUID.fromString((String) userObj.get(USER_ID)),
+            (String) userObj.get(FIRST_NAME),
+            (String) userObj.get(LAST_NAME),
+            (String) userObj.get(USERNAME));
+            
+        user.setPassword( (String) userObj.get(PASSWORD) );
+        user.addEmail( (String) userObj.get(EMAIL) );
+        user.addPhoneNumber( (String) userObj.get(PHONE_NUMBER) );
+        user.addPreferredContact( (String) userObj.get(PREFFERED_CONTACT) );
+        user.addBirthday( LocalDate.parse((String) userObj.get(BIRTHDAY)) );
+        user.addAddress( (String) userObj.get(ADDRESS) );
+       
+        String type = (String) userObj.get(TYPE);
         Type newType = Type.valueOf(type);
-        newUser.setType(newType);
+        user.setType(newType);
 
         // initialize the campers ArrayList first...
         getCampers();
@@ -523,9 +503,47 @@ public class DataReader extends DataConstants {
         addCampersToCabins();
         
         // add Campers to the User
-        newUser.addCampers(getSomeCampers(user));
+        user.addCampers(getSomeCampers(userObj));
 
-        return newUser;
+        return user;
+    }
+
+    /**
+     * Return a counselor
+     * @param userObj The JSONObject for the counselor
+     * @param counselor a Counselor instance
+     * @return a new Counselor class object
+     */
+    private static User getUser(JSONObject userObj, Counselor counselor) {
+        
+        counselor = new Counselor(
+            UUID.fromString((String) userObj.get(USER_ID)),
+            (String) userObj.get(FIRST_NAME),
+            (String) userObj.get(LAST_NAME),
+            (String) userObj.get(USERNAME));
+            
+        counselor.setPassword( (String) userObj.get(PASSWORD) );
+        counselor.addEmail( (String) userObj.get(EMAIL) );
+        counselor.addPhoneNumber( (String) userObj.get(PHONE_NUMBER) );
+        counselor.addPreferredContact( (String) userObj.get(PREFFERED_CONTACT) );
+        counselor.addBirthday( LocalDate.parse((String) userObj.get(BIRTHDAY)) );
+        counselor.addAddress( (String) userObj.get(ADDRESS) );
+       
+        // get the type
+        String type = (String) userObj.get(TYPE);
+        Type newType = Type.valueOf(type);
+        counselor.setType(newType);
+
+        // initialize the campers ArrayList first...
+        getCampers();
+
+        // Now add campers to cabins, because campers have been initialized...
+        addCampersToCabins();
+        
+        // add Campers to the Counselor
+        counselor.addCampers(getSomeCampers(userObj));
+
+        return counselor;
     }
 
     /**
