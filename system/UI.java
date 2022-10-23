@@ -1,6 +1,7 @@
 package system;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UI {
@@ -140,34 +141,41 @@ public class UI {
             String emPhoneNumber = scanner.nextLine();
             //add guardians
             //medical info starts here
-            System.out.println("Enter the folling information about the Campers DOCTOR");
+            System.out.println("\nEnter the folling information about the Campers DOCTOR");
             Contact docContact = createTheContact();
-            System.out.println("Would you like to add Medications to your Campers Account (All necessary medications to be taken during camp must be added) Y/N")
+            System.out.println("\nWould you like to add Medications to your Campers Account (All necessary medications to be taken during camp must be added) Y/N")
             String yn = scanner.nextLine();
+            ArrayList<Medication> medications;
             while(yn.equalsIgnoreCase("y")){
                 //add medical info
-                System.out.print("What is the name of the Campers medication");
+                System.out.print("\nWhat is the name of the Campers medication");
                 String medName = scanner.nextLine();
-                System.out.print("What time of day does the camper need to take medicine" );
+                System.out.print("\nWhat time of day does the camper need to take medicine" );
                 String medTime = scanner.nextLine();
-                System.out.print("Do you want to add another medicatipn?");
+                Medication medication = new Medication(medName, medTime);
+                medications.add(medication);
+                System.out.print("\nDo you want to add another medicatipn?");
                 yn = scanner.nextLine();
             }
             //for adding allergies
-            System.out.println("Would you like to add any Allergies to your Campers Account (All necessary allergies to be taken during camp must be added) Y/N");
+            System.out.println("\nWould you like to add any Allergies to your Campers Account (All necessary allergies to be taken during camp must be added) Y/N");
             yn = scanner.nextLine();
             while(yn.equalsIgnoreCase("y")){
-                System.out.print("What is the campers allergy to?");
+                System.out.print("\nWhat is the campers allergy to?");
                 String medName = scanner.nextLine();
-                System.out.print("Do you want to add another medication? Y/N");
+                System.out.print("\nDo you want to add another medication? Y/N");
                 yn = scanner.nextLine();
             }
-            System.out.print("Would you like to sign a camper up for a session now? (Y/N)");
+            ArrayList<String> notepad;
+            System.out.print("\n Anything else in general you would like the camp to know? ");
+            String notes = scanner.nextLine();
+            notepad.add(notes);
+            System.out.print("\nWould you like to sign a camper up for a session now? (Y/N)");
             yn = scanner.nextLine();
             if(yn.equalsIgnoreCase("y")){
                 sessionSignup();
             }
-            if(campSystem.addCamper(firstName, lastName, birthday, emFirstName, emLastName, emPhoneNumber,  docContact) == true){   // add guardian details
+            if(campSystem.addCamper(firstName, lastName, birthday, emFirstName, emLastName, emPhoneNumber,  docContact, medications) == true){   // add guardian details
                 System.out.println(firstName + lastName+ "has been successfully signed up as a Camper");
                 break;
             }
@@ -189,8 +197,7 @@ public class UI {
             aContact = new Contact(emFirstName, emLastName, emphoneNumber);
             if(aContact != null){
                 System.out.println("\nAccount created successfully.");
-                break;
-                
+                break;   
             }
             System.out.print("\nInvalid input. Start over.");
         }
