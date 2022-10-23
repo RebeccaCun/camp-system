@@ -7,14 +7,10 @@ public class Contact {
     private String phoneNumber;
     private String address;
 
-    public Contact(String firstName, String lastName, String phoneNumber) {
+    public Contact(String firstName, String lastName, String phoneNumber, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-    }
-
-    public void addAddress(String address) {
-
     }
 
     public String toString() {
