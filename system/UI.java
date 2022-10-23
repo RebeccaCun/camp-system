@@ -216,7 +216,19 @@ public class UI {
         System.exit(0);
     }
 
-    private void sessionSignup(){}
+    private void sessionSignup(){
+        System.out.print("\nEnter the first name of the camper you would like to register for a session: ");
+        String firstName = scanner.nextLine();
+        System.out.print("\nEnter the last name of the camper you would like to register for a session: ");
+        String lastName = scanner.nextLine();
+        Camper camper = campSystem.findCamperByName(firstName, lastName);
+        Session session = chooseSession();
+        campSystem.sessionSignup(camper, session);
+    }
+
+    private Session chooseSession(){
+        //prints available sessions and lets the user choose one
+    }
     
     private void askToAcceptWaiver(){}
     public static void main(String[] args){
