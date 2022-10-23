@@ -195,8 +195,14 @@ public class UI {
     private void finalizePayment(){}
     private void printGeneralInformation(){}
     private void printFAQ(){
-        System.out.println("Can my camper stay for multipple sessions? Yes, guardians may sign up campers  for any number of sessions through their home menu!")
-        System.out.println("Should my camper bring any specific items? Campers will need a vairety of items, such as... ");
+        System.out.println("Can my camper stay for multipple sessions? \nYes, guardians may sign up campers  for any number of sessions through their home menu!");
+        System.out.println("Should my camper bring any specific items? \nCampers will need a vairety of items, such as \n watersport essentails: swimsuit (2 or 3), goggles, towel, sunscreen \n Daily: bedtime essentails, multiple shorts, shirts, socks, shower and bathroom products \n Special event outfit: look at your sessions spirit night and bring relating accessories  ");
+        System.out.println("What if my Camper does not want to or can not participate in an activity? \nAlthough participating is encouraged, campers are allowed to sit out in any activity. \nDepending on the number of kids sitting out, they will either have to sit out and watch the activity or will be escorted to another mini activity like arts & crafts or a game");
+        System.out.println("What are some regular camp activities? \nswimming, archery, canoeing, overnight camp out by lake night, soccer, flag football, gymnastics, tag, camping survival strategies, reptile house, etc.");
+        System.out.println("What kinds of payment do you accept?\n We only accept Credit/Debit card and echecks");
+        System.out.println("Can you sign your kid for more then one session? \nYes, you can sign campers up for multiple on your homepage ");
+        System.out.println("If I have an emergency, can I pick up my camper from camp early? \n Yes, as the campers guardian, you can pick up your camper from camp at any time.\n You may not get recompensated and will have to fill out paperwork and pack up your camper upon arrival");
+        //activities
     }
     private void logout(){
         System.out.println("Goodbye!");
