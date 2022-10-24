@@ -8,16 +8,19 @@ import java.util.UUID;
  */
 public class UserList {
 
-    private ArrayList<User> parents;
+    private ArrayList<User> users;
+    private ArrayList<Counselor> counselors;
     private ArrayList<Camper> campers;
+
     private static UserList userList;
 
     /**
      * 
      */
     private UserList() {
+        users = DataReader.getAllUsers();
+        counselors = DataReader.getAllCounselors();
         campers = DataReader.getAllCampers();
-        parents = DataReader.getAllParents();
     }
 
     /**
