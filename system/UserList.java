@@ -25,8 +25,10 @@ public class UserList {
      * @return
      */
     public static UserList getInstance() {
-
-        return userList;
+        if (userList == null) {
+			userList = new userList();
+		}
+		return userList;   
     }
     
     /**

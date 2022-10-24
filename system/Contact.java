@@ -1,7 +1,6 @@
 package system;
 
 public class Contact {
-    //private UUID id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -11,9 +10,10 @@ public class Contact {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     public String toString() {
-        return "";
+        return "Name: "+this.firstName+" "+this.lastName+"\nPhone number: "+this.phoneNumber+"\nAddress :"+this.address;
     }
 }
