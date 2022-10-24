@@ -20,16 +20,16 @@ public class UI {
         while(true){
             displayIntroMenu();
             choice = getUserCommand(2);
-        if(choice == -1){
-            System.out.println("Invalid input.");
-        }else if(choice == 1){
-            login();
-            break;
-        }else if(choice == 2){
-            createAccount();
+            if(choice == -1){
+                System.out.println("Invalid input.");
+            }else if(choice == 1){
+                login();
+                break;
+            }else if(choice == 2){
+                createAccount();
+            }  
         }
-            
-        }  
+
         while(!stop){
             displayMainMenu();
             choice = getUserCommand(6);
@@ -59,21 +59,24 @@ public class UI {
         } 
 
     }
+
     private void displayIntroMenu(){
         System.out.println("Press (1) to sign in to your account");
         System.out.println("Press (2) to create a new account");
     }
+
     private void displayMainMenu(){ //for choices: create child acct, add child to session
         System.out.println("What would you like to do today? \n(1) add a new Camper \n(2) sign up camper for a session \n(3) finalize payment \n(4) General Information \n(5) FAQ’s (6) Logout");
-    
     }
+
     private int getUserCommand(int commands){
         int choice = scanner.nextInt();
         if(choice > 0 && choice <= commands){
             return choice;
         }
         return -1;
-    };
+    }
+
     private void createAccount(){
         while(true){
             System.out.print("\nEnter your first name: ");
@@ -103,6 +106,7 @@ public class UI {
         }
         
     }
+
     private void login(){
         while(true){
             System.out.print("Username: ");
@@ -116,84 +120,90 @@ public class UI {
             System.out.println("Username or password invalid. Try again.");
         }
     }
+
     private void addCamper(){
         while(true){
             System.out.print("\nEnter Campers first name: ");
             String firstName = scanner.nextLine();
             System.out.print("\nEnter Campers last name: ");
             String lastName = scanner.nextLine();
-            System.out.print("\nEnter your relationship to Camper: ");
-            String relationship = scanner.nextLine();
             System.out.print("\nEnter Campers birthday (format: yyyy-mm-dd): ");
             String birthdayString = scanner.nextLine();
             LocalDate birthday = LocalDate.parse(birthdayString);
-            System.out.print("\n Enter the following information about the EMERGENCY CONTACT:");
-            Contact emergContact = createTheContact(); //for emergency contact. add to arrayList?
-            //add guardians
+            System.out.println("\n Enter the following information about the EMERGENCY CONTACT:");
+            Contact emergencyContact = createContact();
+            //maybe add guardians here (?)
             //medical info starts here
-            System.out.println("\nEnter the folling information about the Campers DOCTOR");
-            Contact docContact = createTheContact();
-            System.out.println("\nWould you like to add Medications to your Campers Account (All necessary medications to be taken during camp must be added) Y/N")
+            System.out.println("\nEnter the following information about the Campers DOCTOR");
+            Contact doctorContact = createContact();
+            System.out.println("\nWould you like to add Medications to your Campers Account (All necessary medications to be taken during camp must be added) Y/N");
             String yn = scanner.nextLine();
             ArrayList<Medication> medications;
             while(yn.equalsIgnoreCase("y")){
-                //add medical info
                 System.out.print("\nWhat is the name of the Campers medication");
                 String medName = scanner.nextLine();
                 System.out.print("\nWhat time of day does the camper need to take medicine" );
                 String medTime = scanner.nextLine();
                 Medication medication = new Medication(medName, medTime);
                 medications.add(medication);
-                System.out.print("\nDo you want to add another medicatipn?");
+                System.out.print("\nDo you want to add another medication? (Y/N) ");
                 yn = scanner.nextLine();
             }
             //for adding allergies
-            System.out.println("\nWould you like to add any Allergies to your Campers Account (All necessary allergies to be taken during camp must be added) Y/N")
+            System.out.println("\nWould you like to add any Allergies to your Campers Account (All necessary allergies to be taken during camp must be added) Y/N");
             yn = scanner.nextLine();
+            ArrayList<String> allergies;
             while(yn.equalsIgnoreCase("y")){
                 System.out.print("\nWhat is the campers allergy to?");
-                String medName = scanner.nextLine();
-                System.out.print("\nDo you want to add another medicatipn?");
+                String allergy = scanner.nextLine();
+                allergies.add(allergy);
+                System.out.print("\nDo you want to add another allergy? Y/N");
                 yn = scanner.nextLine();
             }
-            ArrayList<String> notepad;
-            System.out.print("\n Anything else in general you would like the camp to know? ");
-            String notes = scanner.nextLine();
-            notepad.add(notes);
-            System.out.print("\nWould you like to sign a camper up for a session now? (Y/N)");
+            
+            System.out.print("\n Would you like to add general notes about the camper? (Y/N) ");
             yn = scanner.nextLine();
-            if(yn.equalsIgnoreCase("y")){
-                sessionSignup();
+            ArrayList<String> notes;
+            while(yn.equalsIgnoreCase("y"){
+                System.out.print("\n Enter note: ");
+                String note = scanner.nextLine();
+                notes.add(note);
+                System.out.print("\n Would you like to add more notes about the camper? (Y/N) ");
+                yn = scanner.nextLine();
             }
-            if(campSystem.addCamper(firstName, lastName, birthday, emergContact, docContact, medications)){   //Fix this
+            
+            askToAcceptWaiver();
+
+            if(campSystem.addCamper(firstName, lastName, birthday, emergencyContact, doctorContact, allergies, medications, notes) == true){   // add guardian details?
                 System.out.println(firstName + lastName+ "has been successfully signed up as a Camper");
                 break;
             }
+
+
             System.out.println("\nInvalid input. Start over.");
         }
     }
-    private Contact createTheContact(){
-        Contact aContact;
-        while(true){ //emergency contact
-            System.out.print("\n Enter the first name of Campers emergency contact"); 
-            String emFirstName = scanner.nextLine();
-            System.out.print("\n Enter the last name of Campers emergency contact"); 
-            String emLastName = scanner.nextLine();
-            System.out.print("\nEnter contact email address: ");
-            String ememail = scanner.nextLine();
-            System.out.print("\nEnter contact phone number: ");
-            String emphoneNumber = scanner.nextLine();
-            aContact = new Contact(emFirstName, emLastName, emphoneNumber);
-            if(aContact != null){
-                System.out.println("\nAccount created successfully.");
-                break;   
-            }
-            System.out.print("\nInvalid input. Start over.");
-        }
-        return aContact;
+
+    private Contact createContact(){
+        Contact contact;
+
+        System.out.print("\n Enter the first name: "); 
+        String firstName = scanner.nextLine();
+        System.out.print("\n Enter the last name: "); 
+        String lastName = scanner.nextLine();
+        System.out.print("\nEnter the address: ");
+        String address = scanner.nextLine();
+        System.out.print("\nEnter the phone number: ");
+        String phoneNumber = scanner.nextLine();
+        contact = new Contact(firstName, lastName, phoneNumber, address);
+        
+        return contact;
     }
+
     private void finalizePayment(){}
+
     private void printGeneralInformation(){}
+
     private void printFAQ(){
         System.out.println("Can my camper stay for multipple sessions? \nYes, guardians may sign up campers  for any number of sessions through their home menu!");
         System.out.println("Should my camper bring any specific items? \nCampers will need a vairety of items, such as \n watersport essentails: swimsuit (2 or 3), goggles, towel, sunscreen \n Daily: bedtime essentails, multiple shorts, shirts, socks, shower and bathroom products \n Special event outfit: look at your sessions spirit night and bring relating accessories  ");
@@ -204,12 +214,53 @@ public class UI {
         System.out.println("If I have an emergency, can I pick up my camper from camp early? \n Yes, as the campers guardian, you can pick up your camper from camp at any time.\n You may not get recompensated and will have to fill out paperwork and pack up your camper upon arrival");
         //activities
     }
+
     private void logout(){
         System.out.println("Goodbye!");
         System.exit(0);
     }
-    private void sessionSignup(){}
-    private void askToAcceptWaiver(){}
+
+    private void sessionSignup(){
+        System.out.print("\nEnter the first name of the camper you would like to register for a session: ");
+        String firstName = scanner.nextLine();
+        System.out.print("\nEnter the last name of the camper you would like to register for a session: ");
+        String lastName = scanner.nextLine();
+        Camper camper = campSystem.findCamperByName(firstName, lastName);
+        Session session = chooseSession(camper);
+        campSystem.sessionSignup(camper, session);
+    }
+
+    private Session chooseSession(Camper camper){
+        int age = camper.getAge();
+        ArrayList<Session> options = campSystem.findAvailableSessions(age);
+        int counter = 1;
+        for(Session s : options){
+            System.out.println(counter + ") " + "Start: " + s.getStartDate() + ", End: " + s.getEndDate());
+        }
+        System.out.print("Choose a session by selecting a number: ");
+        int selection = scanner.nextInt();
+        return options.get(selection - 1);
+    }
+    
+    private void askToAcceptWaiver(){
+
+        while(true){
+            System.out.println("By signing this Waiver and Release of Liability, with full appreciation of the risk involved, "
+            + "on my own behalf and on behalf of my child(ren), I hereby voluntarily release and forever discharge the camp "
+            + "from any and all legal or financial responsibility for any personal injury, disability, illness, damage, medical expense or death, arising from "
+            + "or related to my child(ren)'s participation in Summer Camp. I agree, for myself and my child(ren), not to "
+            + "make any type of legal or equitable claim on the camp "
+            + "with respect to any injury I or my child(ren) may suffer, whether or not it "
+            + "arises through the negligence, omission, default or other action of anyone affiliated with the camp, "
+            + "including other campers. I further agree that if any such claim is made, I will indemnify and defend the "
+            + "camp with respect to any such claim, injury or damage.");
+            System.out.print("The camp cannot be attended without accepting this waiver. Type \"yes\" to accept the waiver. ");
+            if(scanner.nextLine().equalsIgnoreCase("yes")){
+                break;
+            }
+        }
+
+    }
     public static void main(String[] args){
         UI ui = new UI();
         ui.run();

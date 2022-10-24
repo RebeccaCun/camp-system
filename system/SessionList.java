@@ -12,25 +12,41 @@ public class SessionList {
         return this.sessions;
     }
 
-    public SessionList getInstance(){
-        return new SessionList();
+    public static SessionList getInstance(){
+        if (sessionList == null) {
+			sessionList = new sessionList();
+		}
+		return sessionList;    
     }
 
     public boolean hasSession(String startDate, String endDate, String ageGroup){
-        return true;
+        Session session = new Session(startDate, endDate, ageGroup);
+        for (int i = 0; i < sessions.size(); i++) {
+            if(sessions.get(i) = session) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public boolean addSession(String startDate, String endDate, String ageGroup){
+        //need more info on method
         return true;
     }
 
     public void editSession(Session session, String newStartDate, String newEndDate, String newAgeGroup){
+        for (int i = 0; i < sessions.size(); i++) {
+            if(sessions.get(i) = session;
+                sessions.get(i) == new Session(newStartDate, newEndDate, newAgeGroup);
+        }
 
     }
 
-    public void deleteSession(Session session){}
+    public void deleteSession(Session session){
+        sessions.remove(session);
+    }
 
-    public void saveSessions(){}
-
-
+    public void saveSessions(){
+        //need more info on method
+    }
 }
