@@ -30,6 +30,14 @@ public class User {
         this.userName = userName;
         this.lastName = lastName;
     }
+
+    public String getUserName(){
+        return userName;
+    }
+
+    public String getPassword(){
+        return password;
+    }
     
     public void addCampers(ArrayList<Camper> campers) {
 

@@ -12,7 +12,7 @@ public class SessionList {
         return this.sessions;
     }
 
-    public SessionList getInstance(){
+    public static SessionList getInstance(){
         return new SessionList();
     }
 
