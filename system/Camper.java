@@ -1,6 +1,7 @@
 package system;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -25,6 +26,10 @@ public class Camper {
 
     public String getLastName(){
         return lastName;
+    }
+
+    public int getAge(){
+        return Period.between(birthday, LocalDate.now()).getYears();
     }
     
     public Camper(UUID id, String firstName, String lastName, LocalDate birthday){

@@ -14,12 +14,14 @@ public class CampSystemFACADE {
     public boolean addCamper(String firstName, String lastName, LocalDate birthday, Contact emergencyContact, Contact doctorContact, ArrayList<String> allergies, ArrayList<Medication> medication, ArrayList<String> notes){return true;}
     public boolean sessionSignup(Camper camper, Session Session){return true;}
     public Camper findCamperByName(String firstName, String lastName){
+        Camper camper = null;
         for(Camper c : currentUser.campers){
             if(c.getFirstName().equalsIgnoreCase(firstName) && c.getLastName().equalsIgnoreCase(lastName)){
-                return c;
+                camper = c;
             }
-            return null;
         }
+        return camper;
     }
+    public ArrayList<Session> findAvailableSessions(int age){}
     public void logout(){}
 }

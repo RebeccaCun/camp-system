@@ -172,10 +172,14 @@ public class UI {
                 yn = scanner.nextLine();
             }
             
+            askToAcceptWaiver();
+
             if(campSystem.addCamper(firstName, lastName, birthday, emergencyContact, doctorContact, allergies, medications, notes) == true){   // add guardian details?
                 System.out.println(firstName + lastName+ "has been successfully signed up as a Camper");
                 break;
             }
+
+
             System.out.println("\nInvalid input. Start over.");
         }
     }
@@ -222,15 +226,41 @@ public class UI {
         System.out.print("\nEnter the last name of the camper you would like to register for a session: ");
         String lastName = scanner.nextLine();
         Camper camper = campSystem.findCamperByName(firstName, lastName);
-        Session session = chooseSession();
+        Session session = chooseSession(camper);
         campSystem.sessionSignup(camper, session);
     }
 
-    private Session chooseSession(){
-        //prints available sessions and lets the user choose one
+    private Session chooseSession(Camper camper){
+        int age = camper.getAge();
+        ArrayList<Session> options = campSystem.findAvailableSessions(age);
+        int counter = 1;
+        for(Session s : options){
+            System.out.println(counter + ") " + "Start: " + s.getStartDate() + ", End: " + s.getEndDate());
+        }
+        System.out.print("Choose a session by selecting a number: ");
+        int selection = scanner.nextInt();
+        return options.get(selection - 1);
     }
     
-    private void askToAcceptWaiver(){}
+    private void askToAcceptWaiver(){
+
+        while(true){
+            System.out.println("By signing this Waiver and Release of Liability, with full appreciation of the risk involved, "
+            + "on my own behalf and on behalf of my child(ren), I hereby voluntarily release and forever discharge the camp "
+            + "from any and all legal or financial responsibility for any personal injury, disability, illness, damage, medical expense or death, arising from "
+            + "or related to my child(ren)'s participation in Summer Camp. I agree, for myself and my child(ren), not to "
+            + "make any type of legal or equitable claim on the camp "
+            + "with respect to any injury I or my child(ren) may suffer, whether or not it "
+            + "arises through the negligence, omission, default or other action of anyone affiliated with the camp, "
+            + "including other campers. I further agree that if any such claim is made, I will indemnify and defend the "
+            + "camp with respect to any such claim, injury or damage.");
+            System.out.print("The camp cannot be attended without accepting this waiver. Type \"yes\" to accept the waiver. ");
+            if(scanner.nextLine().equalsIgnoreCase("yes")){
+                break;
+            }
+        }
+
+    }
     public static void main(String[] args){
         UI ui = new UI();
         ui.run();
