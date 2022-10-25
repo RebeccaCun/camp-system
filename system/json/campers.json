@@ -50,7 +50,6 @@
                 }
             ]
         },
-        "acceptedWaiver": false,
         "numberStrikes": 2,
         "reasonStrikes": [
             "Hitting another camper",
@@ -115,7 +114,6 @@
                 }
             ]
         },
-        "acceptedWaiver": false,
         "numberStrikes": 2,
         "reasonStrikes": [
             "Hitting another camper",

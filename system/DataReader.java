@@ -171,10 +171,6 @@ public class DataReader extends DataConstants {
                 JSONObject medical = (JSONObject) camper.get(MEDICAL);
                 newCamper.addMedical(getMedical(medical));
 
-                // get the accepted waiver info...
-                Boolean accWaiver = (Boolean) camper.get(ACCEPTED_WAIVER);
-                newCamper.setAccectedWaiver(accWaiver);
-
                 // get the Number Strikes info...
                 int numberStrikes =((Long) camper.get(NUMBER_STRIKES)).intValue();
                 newCamper.setNumStrikes(numberStrikes);
@@ -264,12 +260,14 @@ public class DataReader extends DataConstants {
                 newSession.setAvailableSpots(
                     ((Long) session.get(AVAILABLE_SPOTS)).intValue());
                 
-                // get the themes array...
-                JSONArray themes = (JSONArray) session.get(THEMES);
-                ArrayList<String> newThemes = new ArrayList<>();
-                for (int j=0; j<themes.size(); j++)
-                    newThemes.add((String) themes.get(i));
-                newSession.addThemes(newThemes);
+                // get the themes...
+                newSession.addTheme((String) session.get(THEME));
+                
+                // JSONArray themes = (JSONArray) session.get(THEMES);
+                // ArrayList<String> newThemes = new ArrayList<>();
+                // for (int j=0; j<themes.size(); j++)
+                //     newThemes.add((String) themes.get(i));
+                // newSession.addThemes(newThemes);
 
                 newSession.addCabins(getSomeCabins(session));
 
@@ -560,8 +558,8 @@ public class DataReader extends DataConstants {
         Contact doc = new Contact(
             (String) doctor.get(FIRST_NAME), 
             (String) doctor.get(LAST_NAME), 
-            (String) doctor.get(PHONE_NUMBER) );
-        doc.addAddress( (String) doctor.get(ADDRESS) );
+            (String) doctor.get(PHONE_NUMBER),
+            (String) doctor.get(ADDRESS) );
 
         // get the allergies array
         ArrayList<String> newAllergies = new ArrayList<>();
@@ -605,13 +603,12 @@ public class DataReader extends DataConstants {
         for (int j=0; j<contacts.size(); j++) {
             // get a JSONObject (which contains ONE contact)
             JSONObject contact = (JSONObject) contacts.get(j);
-            String address = (String) contact.get(ADDRESS);
 
             Contact newContact = new Contact(
                 (String) contact.get(FIRST_NAME), 
                 (String) contact.get(LAST_NAME), 
-                (String) contact.get(PHONE_NUMBER));
-            newContact.addAddress(address);
+                (String) contact.get(PHONE_NUMBER),
+                (String) contact.get(ADDRESS));
 
             // add this contact to the contacts arraylist
             contactsList.add(newContact);

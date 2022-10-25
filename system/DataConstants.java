@@ -17,8 +17,8 @@ public class DataConstants {
  protected static final String LAST_NAME = "lastName";
  protected static final String USERNAME = "userName";
  protected static final String PASSWORD = "password";
- protected static final String EMAIL = "email";
  protected static final String PHONE_NUMBER = "phoneNumber";
+ protected static final String EMAIL = "email";
  protected static final String PREFFERED_CONTACT = "preferredContact";
  protected static final String BIRTHDAY = "birthday";
  protected static final String ADDRESS = "address";
@@ -40,7 +40,7 @@ public class DataConstants {
  protected static final String END_DATE = "endDate";
  protected static final String AGE_GROUP = "ageGroup";
  protected static final String AVAILABLE_SPOTS = "availableSpots";
- protected static final String THEMES = "themes";
+ protected static final String THEME = "theme";
  protected static final String CABINS = "cabins";
  protected static final String CABIN_AGE = "cabinAge";
  protected static final String MAX_NO_OF_CAMPERS = "maxNumberOfCampers";
