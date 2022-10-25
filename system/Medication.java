@@ -12,7 +12,7 @@ public class Medication {
 
     }
     public String toString(){
-        return " ";
+        return "Take "+ description + " medication at the following time: " + time;
     }
 
 

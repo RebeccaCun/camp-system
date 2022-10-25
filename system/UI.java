@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Cyber Council
+ */
 public class UI {
     private Scanner scanner;
     private CampSystemFACADE campSystem;
@@ -12,7 +16,10 @@ public class UI {
         scanner = new Scanner(System.in);
         campSystem = new CampSystemFACADE();
     }
-
+    /**
+     * main run for the program
+     * calls for and saves all info from user
+     */
     public void run(){
         System.out.println("Welcome to our camp website!");
         int choice;
@@ -56,16 +63,24 @@ public class UI {
         } 
 
     }
-
+    /**
+     * display intro screen
+     */
     private void displayIntroMenu(){
         System.out.println("Press (1) to sign in to your account");
         System.out.println("Press (2) to create a new account");
     }
-
+    /**
+     * displays main screen
+     */
     private void displayMainMenu(){ //for choices: create child acct, add child to session
         System.out.println("What would you like to do today? \n(1) add a new Camper \n(2) sign up camper for a session \n(3) finalize payment \n(4) General Information \n(5) FAQ’s (6) Logout");
     }
-
+    /**
+     * 
+     * @param commands users input
+     * @return int showing users decison 
+     */
     private int getUserCommand(int commands){
         int choice = scanner.nextInt();
         if(choice > 0 && choice <= commands){
@@ -73,7 +88,9 @@ public class UI {
         }
         return -1;
     }
-
+    /**
+     * creates a new user account
+     */
     private void createAccount(){
         while(true){
             System.out.print("\nEnter your first name: ");
@@ -103,7 +120,9 @@ public class UI {
         }
         
     }
-
+    /**
+     * lets user log into preexisting account
+     */
     private void login(){
         while(true){
             System.out.print("Username: ");
@@ -117,7 +136,9 @@ public class UI {
             System.out.println("Username or password invalid. Try again.");
         }
     }
-
+    /**
+     * adds camper to users account
+     */
     private void addCamper(){
         while(true){
             System.out.print("\nEnter Campers first name: ");
@@ -180,7 +201,10 @@ public class UI {
             System.out.println("\nInvalid input. Start over.");
         }
     }
-
+    /**
+     * create a new contact within the account- doctor, emerg contact
+     * @return a new contact
+     */
     private Contact createContact(){
         Contact contact;
 
@@ -196,9 +220,18 @@ public class UI {
         
         return contact;
     }
-
-    private void printGeneralInformation(){}
-
+    /**
+     * prints overall info
+     */
+    private void printGeneralInformation(){
+        System.out.println("> The address of the camp is: 3738 Rofferd Drive, TN 42984 ");
+        System.out.println("> The camps phone number is \"593-783-2849\"");
+        System.out.println("> The camps email is \"campfuntimes@gmail.com \". Feel free to reach out with questions!");
+        System.out.println("> Please arrive to you campers session within 1 hour of their call time. Parking will be availble, but limited.");
+    }
+    /**
+     * prints FAQ's
+     */
     private void printFAQ(){
         System.out.println("Can my camper stay for multipple sessions? \nYes, guardians may sign up campers  for any number of sessions through their home menu!");
         System.out.println("Should my camper bring any specific items? \nCampers will need a vairety of items, such as \n watersport essentails: swimsuit (2 or 3), goggles, towel, sunscreen \n Daily: bedtime essentails, multiple shorts, shirts, socks, shower and bathroom products \n Special event outfit: look at your sessions spirit night and bring relating accessories  ");
@@ -209,12 +242,16 @@ public class UI {
         System.out.println("If I have an emergency, can I pick up my camper from camp early? \n Yes, as the campers guardian, you can pick up your camper from camp at any time.\n You may not get recompensated and will have to fill out paperwork and pack up your camper upon arrival");
         //activities
     }
-
+    /**
+     * choose Logout
+     */
     private void logout(){
         System.out.println("Goodbye!");
         System.exit(0);
     }
-
+    /**
+     * sign up for session
+     */
     private void sessionSignup(){
         System.out.print("\nEnter the first name of the camper you would like to register for a session: ");
         String firstName = scanner.nextLine();
@@ -224,7 +261,11 @@ public class UI {
         Session session = chooseSession(camper);
         campSystem.sessionSignup(camper, session);
     }
-
+    /**
+     * lets a camper join a session
+     * @param camper 
+     * @return the session they chose to join
+     */
     private Session chooseSession(Camper camper){
         int age = camper.getAge();
         ArrayList<Session> options = campSystem.findAvailableSessions(age);
@@ -236,7 +277,9 @@ public class UI {
         int selection = scanner.nextInt();
         return options.get(selection - 1);
     }
-    
+    /**
+     * prints Waiver that must be signed for camper
+     */
     private void askToAcceptWaiver(){
 
         while(true){
