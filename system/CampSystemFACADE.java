@@ -23,7 +23,22 @@ public class CampSystemFACADE {
         return false;
     }
 
-    public boolean createAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address){
+    public boolean createUserAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address){
+       
+        User newUser = new User(firstName, lastName, userName);
+        newUser.addAddress(address);
+        newUser.addEmail(email);
+        newUser.addPassword(password);
+        newUser.addBirthday(birthday);
+        newUser.addPhoneNumber(phoneNumber);
+        newUser.addPreferredContact(preferredContact);
+        if(!users.addUser(newUser)){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean createCounselorAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address, String biography, Medical medicalInfo){
         for(User user : users.getUsers()){
             if(user.getUserName().equals(userName)){
                 return false;
@@ -43,15 +58,12 @@ public class CampSystemFACADE {
         return true;
     }
 
-    public boolean addCamper(String firstName, String lastName, LocalDate birthday, Contact emergencyContact, Contact doctorContact, ArrayList<String> allergies, ArrayList<Medication> medication, ArrayList<String> notes){
+    public boolean addCamper(String firstName, String lastName, LocalDate birthday, Contact emergencyContact, Medical medicalInfo, ArrayList<String> notes){
         Camper newCamper = new Camper(firstName, lastName, birthday);
         ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
         emergencyContacts.add(emergencyContact);
         newCamper.addEmergContacts(emergencyContacts);
-        Medical medical = new Medical(doctorContact);
-        medical.addAllergies(allergies);
-        medical.addMedications(medication);
-        newCamper.addMedical(medical);
+        newCamper.addMedical(medicalInfo);
         newCamper.addNotes(notes);
 
         CamperList.addCamper(newCamper);
@@ -87,5 +99,14 @@ public class CampSystemFACADE {
 
     public void logout(){
         currentUser = null;
+    }
+
+    public boolean checkUsernameAvailability(String username){
+        for(User user : users.getUsers()){
+            if(user.getUserName().equals(username)){
+                return false;
+            }
+        }
+        return true;
     }
 }

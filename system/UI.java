@@ -80,12 +80,24 @@ public class UI {
 
     private void createAccount(){
         while(true){
+            System.out.print("Please choose an account type: (C)ounselor or (P)arent ");
+            String accountType = scanner.nextLine();
             System.out.print("\nEnter your first name: ");
             String firstName = scanner.nextLine();
             System.out.print("\nEnter your last name: ");
             String lastName = scanner.nextLine();
-            System.out.print("\nEnter a username: ");
-            String username = scanner.nextLine();
+            // how to verify account type?
+            String username;
+            while(true){
+                System.out.print("\nEnter a username: ");
+                username = scanner.nextLine();
+                if(!campSystem.checkUsernameAvailability(username)){
+                    System.out.println("Username already taken. Please choose a different one.");
+                    continue;
+                }
+                break;
+            }
+            
             System.out.print("\nEnter a password: ");
             String password = scanner.nextLine();
             System.out.print("\nEnter your email address: ");
@@ -99,7 +111,16 @@ public class UI {
             LocalDate birthday = LocalDate.parse(birthdayString);
             System.out.print("\nEnter your address: ");
             String address = scanner.nextLine();
-            if(campSystem.createAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address) == true){
+            boolean result;
+            if(accountType.equalsIgnoreCase("c")){
+                System.out.println("Enter a short biography: ");
+                String biography = scanner.nextLine();
+                Medical medicalInfo = getMedicalInfo();
+                result = campSystem.createCounselorAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address, biography, medicalInfo);
+            }else{
+                result = campSystem.createUserAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address);
+            }
+            if(result == true){
                 System.out.println("\nAccount created successfully.");
                 break;
             }
@@ -134,38 +155,13 @@ public class UI {
             System.out.println("\n Enter the following information about the EMERGENCY CONTACT:");
             Contact emergencyContact = createContact();
             //maybe add guardians here (?)
-            //medical info starts here
-            System.out.println("\nEnter the following information about the Campers DOCTOR");
-            Contact doctorContact = createContact();
-            System.out.println("\nWould you like to add Medications to your Campers Account (All necessary medications to be taken during camp must be added) Y/N");
-            String yn = scanner.nextLine();
-            ArrayList<Medication> medications;
-            while(yn.equalsIgnoreCase("y")){
-                System.out.print("\nWhat is the name of the Campers medication");
-                String medName = scanner.nextLine();
-                System.out.print("\nWhat time of day does the camper need to take medicine" );
-                String medTime = scanner.nextLine();
-                Medication medication = new Medication(medName, medTime);
-                medications.add(medication);
-                System.out.print("\nDo you want to add another medication? (Y/N) ");
-                yn = scanner.nextLine();
-            }
-            //for adding allergies
-            System.out.println("\nWould you like to add any Allergies to your Campers Account (All necessary allergies to be taken during camp must be added) Y/N");
-            yn = scanner.nextLine();
-            ArrayList<String> allergies;
-            while(yn.equalsIgnoreCase("y")){
-                System.out.print("\nWhat is the campers allergy to?");
-                String allergy = scanner.nextLine();
-                allergies.add(allergy);
-                System.out.print("\nDo you want to add another allergy? Y/N");
-                yn = scanner.nextLine();
-            }
+
+            Medical medicalInfo = getMedicalInfo();
             
             System.out.print("\n Would you like to add general notes about the camper? (Y/N) ");
-            yn = scanner.nextLine();
-            ArrayList<String> notes;
-            while(yn.equalsIgnoreCase("y"){
+            String yn = scanner.nextLine();
+            ArrayList<String> notes = new ArrayList<String>();
+            while(yn.equalsIgnoreCase("y")){
                 System.out.print("\n Enter note: ");
                 String note = scanner.nextLine();
                 notes.add(note);
@@ -175,7 +171,7 @@ public class UI {
             
             askToAcceptWaiver();
 
-            if(campSystem.addCamper(firstName, lastName, birthday, emergencyContact, doctorContact, allergies, medications, notes) == true){   // add guardian details?
+            if(campSystem.addCamper(firstName, lastName, birthday, emergencyContact, medicalInfo, notes) == true){   // add guardian details?
                 System.out.println(firstName + lastName+ "has been successfully signed up as a Camper");
                 break;
             }
@@ -183,6 +179,39 @@ public class UI {
 
             System.out.println("\nInvalid input. Start over.");
         }
+    }
+
+    private Medical getMedicalInfo(){
+        System.out.println("\nEnter the following information about the DOCTOR");
+        Contact doctorContact = createContact();
+        System.out.println("\nWould you like to add Medications? (All necessary medications to be taken during camp must be added) Y/N");
+        String yn = scanner.nextLine();
+        ArrayList<Medication> medications = new ArrayList<Medication>();
+        while(yn.equalsIgnoreCase("y")){
+            System.out.print("\nWhat is the name of the medication");
+            String medName = scanner.nextLine();
+            System.out.print("\nWhat time of day does the medicine have to be taken? " );
+            String medTime = scanner.nextLine();
+            Medication medication = new Medication(medName, medTime);
+            medications.add(medication);
+            System.out.print("\nDo you want to add another medication? (Y/N) ");
+            yn = scanner.nextLine();
+        }
+        //for adding allergies
+        System.out.println("\nWould you like to add any Allergies? Y/N");
+        yn = scanner.nextLine();
+        ArrayList<String> allergies = new ArrayList<String>();
+        while(yn.equalsIgnoreCase("y")){
+            System.out.print("\nWhat is the campers allergy to?");
+            String allergy = scanner.nextLine();
+            allergies.add(allergy);
+            System.out.print("\nDo you want to add another allergy? Y/N");
+            yn = scanner.nextLine();
+        }
+        Medical medicalInfo = new Medical(doctorContact);
+        medicalInfo.addAllergies(allergies);
+        medicalInfo.addMedications(medications);
+        return medicalInfo;
     }
 
     private Contact createContact(){
