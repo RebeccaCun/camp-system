@@ -12,7 +12,6 @@ public class Camper {
     private LocalDate birthday;
     private ArrayList<Contact> emergencyContacts;
     private Medical medical;
-    private boolean acceptedWaiver;
     private int numberStrikes;
     private ArrayList<String> reasonStrikes;
     private ArrayList<String> notes;
@@ -50,10 +49,6 @@ public class Camper {
 
     public void addMedical(Medical medical) {
         
-    }
-
-    public void setAccectedWaiver(Boolean value) {
-
     }
 
     public void setNumStrikes(int strikes) {

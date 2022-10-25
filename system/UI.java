@@ -32,7 +32,7 @@ public class UI {
 
         while(!stop){
             displayMainMenu();
-            choice = getUserCommand(6);
+            choice = getUserCommand(5);
             switch(choice){
                 case '1':
                     addCamper();
@@ -41,15 +41,12 @@ public class UI {
                     sessionSignup();
                     break;
                 case '3':
-                    finalizePayment();
-                    break;
-                case '4':
                     printGeneralInformation();
                     break;
-                case '5': 
+                case '4': 
                     printFAQ();
                     break;
-                case '6':
+                case '5':
                     logout();
                     stop = true;
                     break;
@@ -199,8 +196,6 @@ public class UI {
         
         return contact;
     }
-
-    private void finalizePayment(){}
 
     private void printGeneralInformation(){}
 
