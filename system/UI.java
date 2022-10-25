@@ -19,7 +19,7 @@ public class UI {
         boolean stop = false;
         while(true){
             displayIntroMenu();
-            choice = getUserCommand(2);
+            choice = getUserCommand(3);
             if(choice == -1){
                 System.out.println("Invalid input.");
             }else if(choice == 1){
@@ -27,7 +27,10 @@ public class UI {
                 break;
             }else if(choice == 2){
                 createAccount();
-            }  
+            } else if(choice == 3){
+                System.out.println("Goodbye.");
+                return;
+            } 
         }
 
         while(!stop){
@@ -60,6 +63,7 @@ public class UI {
     private void displayIntroMenu(){
         System.out.println("Press (1) to sign in to your account");
         System.out.println("Press (2) to create a new account");
+        System.out.println("Press (3) to quit");
     }
 
     private void displayMainMenu(){ //for choices: create child acct, add child to session
@@ -200,7 +204,7 @@ public class UI {
     private void printGeneralInformation(){}
 
     private void printFAQ(){
-        System.out.println("Can my camper stay for multipple sessions? \nYes, guardians may sign up campers  for any number of sessions through their home menu!");
+        System.out.println("Can my camper stay for multiple sessions? \nYes, guardians may sign up campers  for any number of sessions through their home menu!");
         System.out.println("Should my camper bring any specific items? \nCampers will need a vairety of items, such as \n watersport essentails: swimsuit (2 or 3), goggles, towel, sunscreen \n Daily: bedtime essentails, multiple shorts, shirts, socks, shower and bathroom products \n Special event outfit: look at your sessions spirit night and bring relating accessories  ");
         System.out.println("What if my Camper does not want to or can not participate in an activity? \nAlthough participating is encouraged, campers are allowed to sit out in any activity. \nDepending on the number of kids sitting out, they will either have to sit out and watch the activity or will be escorted to another mini activity like arts & crafts or a game");
         System.out.println("What are some regular camp activities? \nswimming, archery, canoeing, overnight camp out by lake night, soccer, flag football, gymnastics, tag, camping survival strategies, reptile house, etc.");
@@ -210,10 +214,6 @@ public class UI {
         //activities
     }
 
-    private void logout(){
-        System.out.println("Goodbye!");
-        System.exit(0);
-    }
 
     private void sessionSignup(){
         System.out.print("\nEnter the first name of the camper you would like to register for a session: ");
@@ -238,7 +238,7 @@ public class UI {
         }
         int counter = 1;
         for(Session s : options){
-            System.out.println(counter + ") " + "Start: " + s.getStartDate() + ", End: " + s.getEndDate());
+            System.out.println(counter + ") " + "Start: " + s.getStartDate() + ", End: " + s.getEndDate() + ", Theme: " + s.getTheme());
         }
         System.out.print("Choose a session by selecting a number: ");
         int selection = scanner.nextInt();
@@ -264,6 +264,12 @@ public class UI {
         }
 
     }
+    
+    private void logout(){
+        System.out.println("Goodbye!");
+        campSystem.logout();
+    }
+
     public static void main(String[] args){
         UI ui = new UI();
         ui.run();
