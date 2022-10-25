@@ -46,8 +46,8 @@ public class Session {
         this.id = id;
     }
 
-    public void setAvailableSpots(int availableSpots) {
-
+    public void decreaseAvailableSpots() {
+        availableSpots --;
     }
 
     public UUID getUUID() {
