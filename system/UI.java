@@ -222,12 +222,20 @@ public class UI {
         String lastName = scanner.nextLine();
         Camper camper = campSystem.findCamperByName(firstName, lastName);
         Session session = chooseSession(camper);
+        if(session == null){
+            return;
+        }
         campSystem.sessionSignup(camper, session);
+        System.out.println(firstName + lastName + "was successfully signed up for the Session! ");
     }
 
     private Session chooseSession(Camper camper){
         int age = camper.getAge();
         ArrayList<Session> options = campSystem.findAvailableSessions(age);
+        if(options.size() == 0){
+            System.out.println("No sessions available for this camper!");
+            return null;
+        }
         int counter = 1;
         for(Session s : options){
             System.out.println(counter + ") " + "Start: " + s.getStartDate() + ", End: " + s.getEndDate());
