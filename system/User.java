@@ -5,6 +5,10 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * A User class that holds the information for a User of the camp system.
+ * @author Cyber Council
+ */
 public class User {
     protected UUID id;
     protected String firstName; 
@@ -19,12 +23,25 @@ public class User {
     protected Type type;
     protected ArrayList<Camper> campers;
 
+    /**
+     * Establishes an instance of the User class.
+     * @param firstName A String representing the first name of the User class.
+     * @param lastName A String representing the last name of the User class.
+     * @param userName A String representing the username of the User class.
+     */
     public User(String firstName, String lastName, String userName) {
         this.firstName = firstName;
         this.userName = userName;
         this.lastName = lastName;
     }
 
+    /**
+     * Establishes an instance of the User class with UUID.
+     * @param id A UUID representing the ID of the User.
+     * @param firstName A String representing the first name of the User class.
+     * @param lastName A String representing the last name of the User class.
+     * @param userName A String representing the username of the User class.
+     */
     public User(UUID id, String firstName, String lastName, String userName) {
         this.id = id;
         this.firstName = firstName;
@@ -33,17 +50,53 @@ public class User {
     }
 
     public UUID getId() {
-        return id;
+        return this.id;
     }
 
-    public String getUserName(){
-        return userName;
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    public String getUserName() {
+        return this.userName;
     }
 
     public String getPassword(){
-        return password;
+        return this.password;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    public String getPreferredContact() {
+        return this.preferredContact;
     }
     
+    public LocalDate getBirthday() {
+        return this.birthday;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public Type getType() {
+        return this.type;
+    }
+
+    public ArrayList<Camper> getCampers() {
+        return this.campers;
+    }
+
     public void addCampers(ArrayList<Camper> campers) {
         this.campers = campers;
     }
@@ -80,16 +133,27 @@ public class User {
         this.type = type;
     }
 
-    private int calculateAge() {    
+     /**
+     * Calculates and returns the user's age.
+     * @return An integer representing the age of the user in years.
+     */
+    protected int calculateAge() {    
         LocalDate currentDate = LocalDate.now();  
         return Period.between(this.birthday, currentDate).getYears();
     }
 
-    public void enrollCamper(Camper camper, Session session) {
-        //need more info on method
+     /**
+     * Enrolls a camper for the User class.
+     * @param camper The camper to be added.
+     */
+    public void enrollCamper(Camper camper) {
         this.campers.add(camper);
     }
 
+    /**
+     * Creates a string detailing the attributes of the User class.
+     * @return A string representation of the User class.
+     */
     public String toString() {
         String print = "Name :"+this.firstName+" "+this.lastName+"\nUsername :"+this.userName+"\nPassword :"+this.password+"\nEmail: "+this.email+
         "\nPhone Number: "+this.phoneNumber+"\nPreferred Contact: "+this.preferredContact+"\nAddress: "+this.address+"\nType of account: "+this.type+"\nCampers: ";

@@ -1,59 +1,73 @@
 package system;
+
 import java.util.ArrayList;
 
 /**
- * 
+ * A Medical class that holds the attributes for the medical needs of a individual.
  * @author Cyber Council
  */
 public class Medical {
-    
     private Contact doctor;
     private ArrayList <String> allergies;
     private ArrayList <Medication> medications;
 
     /**
-     * @param
+     * Establishes an instance of the Medical class.
+     * @param doctor A Contact representing the doctor of the Medical class.
      */
     public Medical(Contact doctor) {
-
+        this.doctor = doctor;
     }
 
     /**
-     * 
-     * @param allergies
+     * Adds a list of allergies to the Medical class.
+     * @param allergies An ArrayList of allergies representing the list of allergies.
      */
     public void addAllergies(ArrayList<String> allergies) {
-
+        this.allergies = allergies;
     }
 
     /**
-     * 
-     * @param medications
+     * Adds a list of medication to the Medical class.
+     * @param medications An ArrayList of Medication representing the list of Medications.
      */
     public void addMedications(ArrayList<Medication> medications) {
-
+        this.medications = medications;
     }
 
     /**
-     * @param
+     * Adds an allergy to the Allergies ArrayList.
+     * @param allergy A String representing an allergy.
      */
     public void addAllergy(String allergy) {
-
+        this.allergies.add(allergy);
     }
 
     /**
-     * @param 
+     * Adds a medication to the Medications ArrayList.
+     * @param medication A Medication representing a medication.
      */
     public void addMedication(Medication medication) {
-
+        this.medications.add(medication);
     }
 
     /**
-     * @return
+     * Creates a string detailing the attributes of the Medical class.
+     * @return A string representation of the Medical class.
      */
     public String toString() {
-        return "";
+        String print = "Doctor: "+this.doctor+"\nAllergies: ";
+        for (int i = 0; i < this.allergies.size(); i++) {
+			if (this.allergies.get(i) != null) {
+                print += this.allergies.get(i)+"\n";
+            }
+		}
+        print += "\nMedications: ";
+        for (int i = 0; i < this.medications.size(); i++) {
+			if (this.medications.get(i) != null) {
+                print += this.medications.get(i)+"\n";
+            }
+		}
+        return print;
     }
-
-
 }

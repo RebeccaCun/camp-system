@@ -1,19 +1,28 @@
 package system;
 
-import java.util.UUID;
-
+/**
+ * A Medication class that holds the information for a medication.
+ * @author Cyber Council
+ */
 public class Medication {
-    private String description;
+    private String name;
     private String time;
 
+    /**
+     * Establishes an instance of the Medication class.
+     * @param name A String representing the name of the Medication.
+     * @param time A String representing the time of the Medication.
+     */
     public Medication(String name, String time){
-        this.description = name;
+        this.name = name;
         this.time = time; 
-
     }
+
+    /**
+     * Creates a string detailing the attributes of the Medication class.
+     * @return A string representation of the Medication class.
+     */
     public String toString(){
-        return " ";
+        return "Name "+this.name+"\nTime: "+this.time;
     }
-
-
 }
