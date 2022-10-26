@@ -16,6 +16,7 @@ public class UI {
         scanner = new Scanner(System.in);
         campSystem = new CampSystemFACADE();
     }
+
     /**
      * main run for the program
      * calls for and saves all info from user
@@ -24,13 +25,14 @@ public class UI {
         System.out.println("Welcome to our camp website!");
         int choice;
         boolean stop = false;
+        Type accountType;
         while(true){
             displayIntroMenu();
             choice = getUserCommand(3);
             if(choice == -1){
                 System.out.println("Invalid input.");
             }else if(choice == 1){
-                login();
+                accountType = login();
                 break;
             }else if(choice == 2){
                 createAccount();
@@ -41,8 +43,17 @@ public class UI {
         }
 
         while(!stop){
-            displayMainMenu();
-            choice = getUserCommand(5);
+            if(accountType == Type.PARENT){
+                displayUserMenu();
+                choice = getUserCommand(5);
+            }else if(accountType == Type.COUNSELOR){
+                displayCounselorMenu();
+                choice = getUserCommand(6);
+            }else if(accountType == Type.DIRECTOR){
+                displayDirectorMenu();
+                choice = getUserCommand(7);
+            }
+                
             switch(choice){
                 case '1':
                     addCamper();
@@ -60,12 +71,18 @@ public class UI {
                     logout();
                     stop = true;
                     break;
+                case '6':
+                    giveStrike();
+                    break;
+                case '7':
+                    createCamp();
+                    break;
                 default:
                     System.out.println("Invalid input");
-            }
+            }   
         } 
-
     }
+
     /**
      * display intro screen
      */
@@ -74,12 +91,24 @@ public class UI {
         System.out.println("Press (2) to create a new account");
         System.out.println("Press (3) to quit");
     }
+
     /**
-     * displays main screen
+     * displays user menu
      */
-    private void displayMainMenu(){ //for choices: create child acct, add child to session
-        System.out.println("What would you like to do today? \n(1) add a new Camper \n(2) sign up camper for a session \n(3) finalize payment \n(4) General Information \n(5) FAQ’s (6) Logout");
+    private void displayUserMenu(){ //for choices: create child acct, add child to session
+        System.out.println("What would you like to do today? \n(1) add a new Camper \n(2) sign up camper for a session \n(3) General Information \n(4) FAQ’s (5) Logout");
     }
+
+    private void displayCounselorMenu(){
+        displayUserMenu();
+        System.out.println("(6) give Strike to a Camper");
+    }
+
+    private void displayDirectorMenu(){
+        displayCounselorMenu();
+        System.out.println("(7) create a new Camp");
+    }
+
     /**
      * 
      * @param commands users input
@@ -92,6 +121,7 @@ public class UI {
         }
         return -1;
     }
+
     /**
      * creates a new user account
      */
@@ -145,22 +175,35 @@ public class UI {
         }
         
     }
+
     /**
      * lets user log into preexisting account
      */
-    private void login(){
+    private Type login(){
         while(true){
             System.out.print("Username: ");
             String username = scanner.nextLine();
             System.out.print("Password: ");
             String password = scanner.nextLine();
-            if(campSystem.login(username, password) == true){
-                System.out.println("Login successful.");
-                break;
+            int loginResult = campSystem.login(username, password);
+            Type loginType = Type.COUNSELOR;
+            if(loginResult == -1){
+                System.out.println("Username or password invalid. Try again.");
+            }else{
+                switch(loginResult){
+                    case 1:
+                        loginType = Type.PARENT;
+                        break;
+                    case 2:
+                        loginType = Type.DIRECTOR;
+                        break;
+                }
+                return loginType;
             }
-            System.out.println("Username or password invalid. Try again.");
+            
         }
     }
+
     /**
      * adds camper to users account
      */
@@ -234,6 +277,7 @@ public class UI {
         medicalInfo.addMedications(medications);
         return medicalInfo;
     }
+
     /**
      * create a new contact within the account- doctor, emerg contact
      * @return a new contact
@@ -253,6 +297,7 @@ public class UI {
         
         return contact;
     }
+
     /**
      * prints overall info
      */
@@ -262,6 +307,7 @@ public class UI {
         System.out.println("> The camps email is \"campfuntimes@gmail.com \". Feel free to reach out with questions!");
         System.out.println("> Please arrive to you campers session within 1 hour of their call time. Parking will be availble, but limited.");
     }
+
     /**
      * prints FAQ's
      */
@@ -292,6 +338,7 @@ public class UI {
         campSystem.sessionSignup(camper, session);
         System.out.println(firstName + lastName + "was successfully signed up for the Session! ");
     }
+
     /**
      * lets a camper join a session
      * @param camper 
@@ -312,6 +359,7 @@ public class UI {
         int selection = scanner.nextInt();
         return options.get(selection - 1);
     }
+
     /**
      * prints Waiver that must be signed for camper
      */
@@ -332,8 +380,38 @@ public class UI {
                 break;
             }
         }
-
     }
+
+    private void giveStrike(){
+        System.out.print("Enter campers first name: ");
+        String firstName = scanner.nextLine();
+        System.out.print("Enter campers last name: ");
+        String lastName = scanner.nextLine();
+        campSystem.giveStrike(firstName, lastName);
+        System.out.println("Strike given to Camper " + firstName + lastName);
+    }
+
+    private void createCamp(){
+        System.out.println("Enter number of Sessions: ");
+        int numberSessions = scanner.nextInt();
+        for(int i = 1; i <= numberSessions; i++){
+            System.out.println("Enter theme for Session " +i+ ": ");
+            String theme = scanner.nextLine();
+            System.out.println("Enter start date (format: yyyy-mm-dd): ");
+            String start = scanner.nextLine();
+            LocalDate startDate = LocalDate.parse(start);
+            System.out.println("Enter end date (format yyyy-mm-dd): ");
+            String end = scanner.nextLine();
+            LocalDate endDate = LocalDate.parse(end);
+            campSystem.createSession(startDate, endDate, theme);
+        }
+        System.out.println("Enter number of Cabins: ");
+        int numberCabins = scanner.nextInt();
+        for(int i = 1; i <= numberCabins; i++){
+            //todo: fix age group issue
+        }
+    }
+
      /**
      * choose to Logout
      */
@@ -341,6 +419,7 @@ public class UI {
         System.out.println("Goodbye!");
         campSystem.logout();
     }
+
     /**
      * The main method!
      * @param args

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class CampSystemFACADE {
     private User currentUser;
     private SessionList sessions;
+    private CounselorsList counselors;
     private UserList users;
 
     public CampSystemFACADE(){
@@ -13,14 +14,25 @@ public class CampSystemFACADE {
         users = UserList.getInstance();
     }
 
-    public boolean login(String userName, String password){
+    // returns 1 for parent, 2 for director, 3 for counselor, -1 for incorrect input
+    public int login(String userName, String password){
         for(User user : users.getUsers()){
             if(user.getUserName().equals(userName) && user.getPassword().equals(password)){
                 currentUser = user;
-                return true;
+                if(user.type == Type.PARENT){
+                    return 1;
+                }else if(user.type == Type.DIRECTOR){
+                    return 2;
+                }
             }
         }
-        return false;
+        for(Counselor counselor : counselors.getCounselors()){
+            if(counselor.getUserName().equals(userName) && counselor.getPassword().equals(password)){
+                currentUser = counselor;
+                return 3;
+            }
+        }
+        return -1;
     }
 
     public boolean createUserAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address){
@@ -39,20 +51,17 @@ public class CampSystemFACADE {
     }
 
     public boolean createCounselorAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address, String biography, Medical medicalInfo){
-        for(User user : users.getUsers()){
-            if(user.getUserName().equals(userName)){
-                return false;
-            }
-        }
+        Counselor newCounselor = new Counselor(firstName, lastName, userName);
+        newCounselor.addAddress(address);
+        newCounselor.addEmail(email);
+        newCounselor.addPassword(password);
+        newCounselor.addBirthday(birthday);
+        newCounselor.addPhoneNumber(phoneNumber);
+        newCounselor.addPreferredContact(preferredContact);
+        newCounselor.addBiography(biography);
+        newCounselor.addMedical(medicalInfo);
 
-        User newUser = new User(firstName, lastName, userName);
-        newUser.addAddress(address);
-        newUser.addEmail(email);
-        newUser.addPassword(password);
-        newUser.addBirthday(birthday);
-        newUser.addPhoneNumber(phoneNumber);
-        newUser.addPreferredContact(preferredContact);
-        if(!users.addUser(newUser)){
+        if(!counselors.addCounselor(newCounselor)){
             return false;
         }
         return true;
@@ -107,6 +116,22 @@ public class CampSystemFACADE {
                 return false;
             }
         }
+        for(Counselor counselor : counselors.getCounselors()){
+            if(counselor.getUserName().equals(username)){
+                return false;
+            }
+        }
         return true;
+    }
+
+    public void giveStrike(String firstName, String lastName){
+        Camper camper = findCamperByName(firstName, lastName);
+        camper.giveStrike();
+    }
+
+    //todo: fix age group issue
+    public void createSession(LocalDate start, LocalDate end, String theme){
+        Session session = new Session(start, end, 12);
+        session.addTheme(theme);
     }
 }
