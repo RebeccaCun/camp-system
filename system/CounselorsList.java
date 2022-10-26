@@ -5,13 +5,17 @@ public class CounselorsList {
     private static User counselors;
     private ArrayList<User> counselor;
 
-    private Counselors() {
-        CounselorList = DataWriter.getUserJSON();
+    private Counselors() {  //confused. be back later
+        counselors = DataReader.getAllCounselors();
     }
-    private static Users getInstance(){
-        if(users == null){
+    private static User getInstance(){
+        if(counselors == null){
             counselors = new User();
         }
         return counselors;
+    }
+
+    public User getCounselor(String Username){
+        return null;
     }
 }

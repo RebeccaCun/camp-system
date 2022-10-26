@@ -275,9 +275,7 @@ public class UI {
         System.out.println("If I have an emergency, can I pick up my camper from camp early? \n Yes, as the campers guardian, you can pick up your camper from camp at any time.\n You may not get recompensated and will have to fill out paperwork and pack up your camper upon arrival");
         //activities
     }
-    /**
-     * choose Logout
-     */
+   
     /**
      * sign up for session
      */
@@ -336,12 +334,17 @@ public class UI {
         }
 
     }
-    
+     /**
+     * choose to Logout
+     */
     private void logout(){
         System.out.println("Goodbye!");
         campSystem.logout();
     }
-
+    /**
+     * The main method!
+     * @param args
+     */
     public static void main(String[] args){
         UI ui = new UI();
         ui.run();
