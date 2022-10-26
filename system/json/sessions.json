@@ -5,9 +5,7 @@
         "endDate": "2022-01-27",
         "ageGroup": 10,
         "availableSpots": 20,
-        "themes": [
-            "splash week"
-        ],
+        "theme": "splash week",
         "cabins": [
             "1392ff04-a05a-43ba-a7f3-f6fb48443b85"
         ]
@@ -18,10 +16,7 @@
         "endDate": "2022-10-28",
         "ageGroup": 12,
         "availableSpots": 2,
-        "themes": [
-            "forest exploration week",
-            "STEM week"
-        ],
+        "theme": "STEM week",
         "cabins": [
             "641f16ee-eddb-4c29-b2ba-d0f6d54b30ce"
         ]

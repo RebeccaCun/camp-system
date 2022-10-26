@@ -66,7 +66,7 @@ public class UserList {
      * @param userName
      * @return
      */
-    public boolean addUser(String userName, String password) {
+    public boolean addUser(User user) {
         return true;
     }
 

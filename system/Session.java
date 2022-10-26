@@ -14,7 +14,7 @@ public class Session {
     private LocalDate endDate;
     private int ageGroup;
     private int availableSpots;
-    private ArrayList<String> themes;
+    private String theme;
     private ArrayList<Cabin> cabins;
 
     /**
@@ -46,12 +46,16 @@ public class Session {
         this.id = id;
     }
 
-    public void setAvailableSpots(int availableSpots) {
-
+    public void decreaseAvailableSpots() {
+        availableSpots --;
     }
 
     public UUID getUUID() {
         return id;
+    }
+
+    public String getTheme() {
+
     }
     
     /**
@@ -80,7 +84,7 @@ public class Session {
     /**
      * 
      */
-    public void addThemes(ArrayList<String> themes) {
+    public void addTheme(String theme) {
         ;
     }
 
