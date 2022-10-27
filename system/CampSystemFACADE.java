@@ -6,12 +6,13 @@ import java.util.ArrayList;
 public class CampSystemFACADE {
     private User currentUser;
     private SessionList sessions;
-    private CounselorsList counselors;
+    private CounselorList counselors;
     private UserList users;
 
     public CampSystemFACADE(){
         sessions = SessionList.getInstance();
         users = UserList.getInstance();
+        counselors = CounselorList.getInstance();
     }
 
     // returns 1 for parent, 2 for director, 3 for counselor, -1 for incorrect input
@@ -81,9 +82,21 @@ public class CampSystemFACADE {
         return true;
     }
 
-    public void sessionSignup(Camper camper, Session session){
-        camper.addSession(session);
-        session.decreaseAvailableSpots();
+    public int sessionSignup(Camper camper, Session session){
+        int counter = 0;
+        for(Cabin cabin : session.getCabins()){
+            counter ++;
+            if(camper.getAge() == cabin.getCabinAge() || camper.getAge() == cabin.getCabinAge() +1){
+                if(cabin.getMaxNumberOfCampers() <= cabin.getCampers().size()){
+                    continue;
+                }
+                camper.addSession(session);
+                session.decreaseAvailableSpots();
+                cabin.addCamper(camper);
+                return counter;
+            }
+        }
+        return -1;
     }
 
     public Camper findCamperByName(String firstName, String lastName){
@@ -96,10 +109,10 @@ public class CampSystemFACADE {
         return camper;
     }
 
-    public ArrayList<Session> findAvailableSessions(int age){
+    public ArrayList<Session> findAvailableSessions(){
         ArrayList<Session> availableSessions = new ArrayList<Session>();
         for(Session s : sessions.getSessions()){
-            if(s.isAvailable() && s.viewAgeGroup() <= age && s.viewAgeGroup() + 2 >= age){
+            if(s.isAvailable()){
                 availableSessions.add(s);
             }
         }
@@ -129,9 +142,15 @@ public class CampSystemFACADE {
         camper.giveStrike();
     }
 
-    //todo: fix age group issue
     public void createSession(LocalDate start, LocalDate end, String theme){
-        Session session = new Session(start, end, 12);
+        Session session = new Session(start, end);
         session.addTheme(theme);
+        sessions.addSession(start, end);
+    }
+
+    public void addCabinToSessions(Cabin cabin){
+        for(Session session : sessions){
+            session.addCabin(cabin);
+        }
     }
 }

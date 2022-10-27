@@ -11,8 +11,7 @@ import java.util.UUID;
 public class Cabin {
     private UUID id;
     private int cabinAge;
-    private int MaxNumberOfCampers;
-    private int sessionDuration;
+    private int MaxNumberOfCampers = 8;
     private ArrayList<Camper> campers;
     private HashMap<Day, Schedule> schedules;
 
@@ -21,9 +20,8 @@ public class Cabin {
      * @param cabinAge A Integer representing the cabin age of the Cabin.
      * @param sessionDuration A Interger representing the session duration of the Cabin.
      */
-    public Cabin(int cabinAge, int sessionDuration) {
+    public Cabin(int cabinAge) {
         this.cabinAge = cabinAge;
-        this.sessionDuration = sessionDuration;
     }
 
     /**
@@ -32,10 +30,9 @@ public class Cabin {
      * @param cabinAge A Integer representing the cabin age of the Cabin.
      * @param sessionDuration A Interger representing the session duration of the Cabin.
      */
-    public Cabin(UUID id, int cabinAge, int sessionDuration) {
+    public Cabin(UUID id, int cabinAge) {
         this.id = id;
         this.cabinAge = cabinAge;
-        this.sessionDuration = sessionDuration;
     }
 
     /**
@@ -44,6 +41,18 @@ public class Cabin {
      */
     public UUID getUUID() {
         return id;
+    }
+
+    public int getCabinAge(){
+        return cabinAge;
+    }
+
+    public int getMaxNumberOfCampers(){
+        return MaxNumberOfCampers;
+    }
+
+    public ArrayList<Camper> getCampers(){
+        return campers;
     }
 
     /**
