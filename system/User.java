@@ -105,6 +105,10 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public void addPassword(String password){
+        this.password = password;
+    }
+    
     public void setPassword(String password) {
         this.password = password;
     }

@@ -29,4 +29,8 @@ public class CounselorList {
     public ArrayList<Counselor> getCounselors(){
         return counselors;
     }
+
+    public void addCounselor(Counselor counselor) {
+        counselors.add(counselor);
+    }
 }

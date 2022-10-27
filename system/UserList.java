@@ -79,10 +79,8 @@ public class UserList {
      * @param userName
      * @return
      */
-    public boolean addUser(String userName, String firstName, String lastName) {
-        if(hasUser(userName)) return false;
-        userList.add(new User(firstName, lastName, userName));
-        return true;
+    public void addUser(User user) {
+        users.add(user);
     }
 
     /**

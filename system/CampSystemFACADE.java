@@ -36,7 +36,7 @@ public class CampSystemFACADE {
         return -1;
     }
 
-    public boolean createUserAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address){
+    public void createUserAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address){
        
         User newUser = new User(firstName, lastName, userName);
         newUser.addAddress(address);
@@ -45,13 +45,10 @@ public class CampSystemFACADE {
         newUser.addBirthday(birthday);
         newUser.addPhoneNumber(phoneNumber);
         newUser.addPreferredContact(preferredContact);
-        if(!users.addUser(newUser)){
-            return false;
-        }
-        return true;
+        users.addUser(newUser);
     }
 
-    public boolean createCounselorAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address, String biography, Medical medicalInfo){
+    public void createCounselorAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address, String biography, Medical medicalInfo){
         Counselor newCounselor = new Counselor(firstName, lastName, userName);
         newCounselor.addAddress(address);
         newCounselor.addEmail(email);
@@ -62,10 +59,7 @@ public class CampSystemFACADE {
         newCounselor.addBiography(biography);
         newCounselor.addMedical(medicalInfo);
 
-        if(!counselors.addCounselor(newCounselor)){
-            return false;
-        }
-        return true;
+        counselors.addCounselor(newCounselor);
     }
 
     public boolean addCamper(String firstName, String lastName, LocalDate birthday, Contact emergencyContact, Medical medicalInfo, ArrayList<String> notes){

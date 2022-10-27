@@ -127,8 +127,11 @@ public class UI {
      */
     private void createAccount(){
         while(true){
-            System.out.print("Please choose an account type: (C)ounselor or (P)arent ");
+            System.out.print("Please choose an account type: (C)ounselor or (P)arent or press (X) to cancel");
             String accountType = scanner.nextLine();
+            if(accountType.equalsIgnoreCase("x")){
+                break;
+            }
             System.out.print("\nEnter your first name: ");
             String firstName = scanner.nextLine();
             System.out.print("\nEnter your last name: ");
@@ -163,15 +166,10 @@ public class UI {
                 System.out.println("Enter a short biography: ");
                 String biography = scanner.nextLine();
                 Medical medicalInfo = getMedicalInfo();
-                result = campSystem.createCounselorAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address, biography, medicalInfo);
+                campSystem.createCounselorAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address, biography, medicalInfo);
             }else{
-                result = campSystem.createUserAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address);
+                campSystem.createUserAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address);
             }
-            if(result == true){
-                System.out.println("\nAccount created successfully.");
-                break;
-            }
-            System.out.println("\nInvalid input. Start over.");
         }
         
     }
@@ -304,6 +302,11 @@ public class UI {
     private void printGeneralInformation(){
         String information = campSystem.getUserInformation();
         System.out.println(information);
+        ArrayList<Session> avSessions = campSystem.findAvailableSessions();
+        System.out.println("Currently available sessions: ");
+        for(Session s : avSessions){
+            System.out.println(" - " + s.getStartDate() + " - " + s.getEndDate() + ", Theme: " + s.getTheme());
+        }
         System.out.println("> The address of the camp is: 3738 Rofferd Drive, TN 42984 ");
         System.out.println("> The camps phone number is \"593-783-2849\"");
         System.out.println("> The camps email is \"campfuntimes@gmail.com \". Feel free to reach out with questions!");
