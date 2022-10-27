@@ -302,6 +302,8 @@ public class UI {
      * prints overall info
      */
     private void printGeneralInformation(){
+        String information = campSystem.getUserInformation();
+        System.out.println(information);
         System.out.println("> The address of the camp is: 3738 Rofferd Drive, TN 42984 ");
         System.out.println("> The camps phone number is \"593-783-2849\"");
         System.out.println("> The camps email is \"campfuntimes@gmail.com \". Feel free to reach out with questions!");

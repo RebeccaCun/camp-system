@@ -10,7 +10,7 @@ public class CounselorList {
         counselors = DataReader.getAllCounselors();
     }
 
-    public CounselorList getInstance(){
+    public static CounselorList getInstance(){
         if(counselorList == null){
             counselorList = new CounselorList();
         }
@@ -24,5 +24,9 @@ public class CounselorList {
             }
         }
         return null;
+    }
+
+    public ArrayList<Counselor> getCounselors(){
+        return counselors;
     }
 }

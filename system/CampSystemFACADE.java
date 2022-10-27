@@ -148,9 +148,31 @@ public class CampSystemFACADE {
         sessions.addSession(start, end);
     }
 
+    /**
+     * @param cabin
+     */
     public void addCabinToSessions(Cabin cabin){
-        for(Session session : sessions){
+        for(Session session : sessions.getSessions()){
             session.addCabin(cabin);
         }
+    }
+
+    public String getUserInformation(){
+        String info = new String();
+        if(currentUser.getCampers().isEmpty()){
+            info = "You have no campers added to your account.\n";
+        }else{
+            info = "You have the following campers added to your account:\n";
+            for(Camper c : currentUser.getCampers()){
+                info += c.getFirstName() + c.getLastName();
+                if(!c.getSessions().isEmpty()){
+                    info += "   Registered to the following sessions:\n";
+                    for(Session s : c.getSessions()){
+                        info += "   - " + s.getStartDate() + " - " + s.getEndDate() + ", Theme: " + s.getTheme();
+                    }
+                }
+            }
+        }
+        return info;
     }
 }

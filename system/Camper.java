@@ -30,6 +30,10 @@ public class Camper {
     public int getAge(){
         return Period.between(birthday, LocalDate.now()).getYears();
     }
+
+    public ArrayList<Session> getSessions(){
+        return sessions;
+    }
     
     public Camper(UUID id, String firstName, String lastName, LocalDate birthday){
         this.id = id;
