@@ -36,11 +36,12 @@ public class Camper {
     }
 
     public void addAddress(String address) {
-
+        
     }
 
     public void addEmergContacts(ArrayList<Contact> emergencyContacts) {
-
+        
+        
     }
 
     public void addGuardians(ArrayList<Contact>  guardians) {
