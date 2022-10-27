@@ -360,6 +360,19 @@ public class UI {
         int selection = scanner.nextInt();
         return options.get(selection - 1);
     }
+    /* Themes decriptions for when we ask director
+     * themes.concat("Session 1: Hawaiin - A week of Luau's with fresh atmophere and food, flowers galour, and dance \n");
+        themes.concat("Session 2: Rockstars - Celebrate some classic rockstars in a week of dancing, playing music, and a talent show \n");
+        themes.concat("Session 3: Ninja Warriors - Interested in Challenge courses, rockclimbing, and ninja karate lessons? You found the place! \n");
+        themes.concat("Session 4: Can you Survive in the woods? - come test your knowledge of commmon survival skills and camp out with us in our premium tents  ");
+        themes.concat("Session 5: Halloween");
+        themes.concat("Session 6: The Animal Kingdom");
+        themes.concat("Session 7: Heros vs Villains");
+        themes.concat("Session 8: the Wild Wild West ");
+        themes.concat("Session 9: Smores ");
+     */
+
+
 
     /**
      * prints Waiver that must be signed for camper
