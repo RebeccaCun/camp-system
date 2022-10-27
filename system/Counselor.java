@@ -70,6 +70,10 @@ public class Counselor extends User{
         this.cabins = cabins;
     }
 
+    public Medical getMedical() {
+        return this.medical;
+    }
+
     /**
      * Creates a string detailing the attributes of the Counselor class.
      * @return A string representation of the Counselor class.
