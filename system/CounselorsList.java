@@ -1,21 +1,44 @@
 package system;
 import java.util.ArrayList;
-//json based
+
 public class CounselorsList {
-    private static User counselors;
-    private ArrayList<User> counselor;
+    private ArrayList<Counselor> counselors;
+    private static CounselorsList counselorsList;
 
-    private Counselors() {  //confused. be back later
-        counselors = DataReader.getAllCounselors();
+    private CounselorsList(){}
+
+    public ArrayList<Counselor> getCounselor(){
+        return this.counselors;
     }
-    private static User getInstance(){
-        if(counselors == null){
-            counselors = new User();
+
+    public static CounselorsList getInstance(){
+        if (counselorsList == null) {
+			counselorsList = new CounselorsList();
+		}
+		return counselorsList;    
+    }
+
+    public boolean hasCounselor(String userName){
+        for(Counselor counselor: counselorsList)
+        {
+            if(counselor.getUserName().equals(userName)){
+                return true;
+            }
         }
-        return counselors;
+        return false;
     }
 
-    public User getCounselor(String Username){
-        return null;
+    public boolean addCounselor(String userName, String firstName, String lastName, int age, String phoneNumber){
+        if(hasCounselor(userName) return false;
+
+        CounselorsList.add(new Counselor(firstName, lastName, userName));
+    }
+
+    public void editCounselor(String username, String password){
+
+    }
+
+    public void saveCounselor(){
+        DataWriter.saveCounselors();
     }
 }
