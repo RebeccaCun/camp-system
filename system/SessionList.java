@@ -1,5 +1,6 @@
 package system;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class SessionList {
@@ -19,17 +20,17 @@ public class SessionList {
 		return sessionList;    
     }
 
-    public boolean hasSession(String startDate, String endDate, String ageGroup){
-        Session session = new Session(startDate, endDate, ageGroup);
+    public boolean hasSession(LocalDate startDate, LocalDate endDate){
+        Session session = new Session(startDate, endDate);
         for (int i = 0; i < sessions.size(); i++) {
-            if(sessions.get(i) = session) {
+            if(sessions.get(i) == session) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean addSession(String startDate, String endDate, String ageGroup){
+    public boolean addSession(LocalDate startDate, LocalDate endDate){
         //need more info on method
         return true;
     }

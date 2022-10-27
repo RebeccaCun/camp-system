@@ -335,8 +335,12 @@ public class UI {
         if(session == null){
             return;
         }
-        campSystem.sessionSignup(camper, session);
-        System.out.println(firstName + lastName + "was successfully signed up for the Session! ");
+        int signupResult = campSystem.sessionSignup(camper, session);
+        if(signupResult == -1){
+            System.out.println("No cabin available for your camper's age!");
+            return;
+        }
+        System.out.println(firstName + lastName + "was successfully signed up for the Session in Cabin " + signupResult);
     }
 
     /**
@@ -345,8 +349,7 @@ public class UI {
      * @return the session they chose to join
      */
     private Session chooseSession(Camper camper){
-        int age = camper.getAge();
-        ArrayList<Session> options = campSystem.findAvailableSessions(age);
+        ArrayList<Session> options = campSystem.findAvailableSessions();
         if(options.size() == 0){
             System.out.println("No sessions available for this camper!");
             return null;
@@ -408,7 +411,10 @@ public class UI {
         System.out.println("Enter number of Cabins: ");
         int numberCabins = scanner.nextInt();
         for(int i = 1; i <= numberCabins; i++){
-            //todo: fix age group issue
+            System.out.println("Enter lowest age for this cabin: ");
+            int cabinAge = scanner.nextInt();
+            Cabin newCabin = new Cabin(cabinAge);
+            campSystem.addCabinToSessions(newCabin);
         }
     }
 

@@ -12,7 +12,6 @@ public class Session {
     private UUID id;
     private LocalDate startDate;
     private LocalDate endDate;
-    private int ageGroup;
     private int availableSpots;
     private String theme;
     private ArrayList<Cabin> cabins;
@@ -21,9 +20,8 @@ public class Session {
      * 
      * @param startDate
      * @param endDate
-     * @param ageGroup
      */
-    public Session(LocalDate startDate, LocalDate endDate, int ageGroup) {
+    public Session(LocalDate startDate, LocalDate endDate) {
 
     }
 
@@ -35,6 +33,10 @@ public class Session {
         return endDate;
     }
 
+    public ArrayList<Cabin> getCabins(){
+        return cabins;
+    }
+
     /**
      * 
      * @param id 
@@ -42,7 +44,7 @@ public class Session {
      * @param endDate
      * @param ageGroup
      */
-    public Session(UUID id, LocalDate startDate, LocalDate endDate, int ageGroup) {
+    public Session(UUID id, LocalDate startDate, LocalDate endDate) {
         this.id = id;
     }
 
