@@ -54,9 +54,10 @@ public class Session {
         return id;
     }
 
-    public String getTheme() {
-
+    public String getTheme() {   //add themes AND decription going with the theme;
+        return "";
     }
+    
     
     /**
      * 

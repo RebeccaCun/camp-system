@@ -56,7 +56,7 @@ public class DataReader extends DataConstants {
     }
 
     /**
-     * Returns counselors
+     * Returns all counselors
      * @return ArrayList<Counselor>
      */
     public static ArrayList<Counselor> getAllCounselors() {
