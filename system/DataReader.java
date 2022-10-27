@@ -254,8 +254,7 @@ public class DataReader extends DataConstants {
                 Session newSession = new Session(
                     UUID.fromString((String) session.get(USER_ID)),
                     LocalDate.parse((String) session.get(START_DATE)),
-                    LocalDate.parse((String) session.get(END_DATE)),
-                    ((Long) session.get(AGE_GROUP)).intValue());
+                    LocalDate.parse((String) session.get(END_DATE)));
 
                 newSession.setAvailableSpots(
                     ((Long) session.get(AVAILABLE_SPOTS)).intValue());
@@ -301,8 +300,7 @@ public class DataReader extends DataConstants {
                 // create the new cabin
                 Cabin newCabin = new Cabin(
                     UUID.fromString((String) cabin.get(USER_ID)), 
-                    ((Long) cabin.get(CABIN_AGE)).intValue(),
-                    ((Long) cabin.get(SESSION_DURATION)).intValue());
+                    ((Long) cabin.get(CABIN_AGE)).intValue());
 
                 newCabin.addMaxCampers( ((Long) cabin.get(MAX_NO_OF_CAMPERS)).intValue() );
 

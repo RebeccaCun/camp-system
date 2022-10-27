@@ -42,7 +42,6 @@ public class Session {
      * @param id 
      * @param startDate
      * @param endDate
-     * @param ageGroup
      */
     public Session(UUID id, LocalDate startDate, LocalDate endDate) {
         this.id = id;
@@ -67,14 +66,6 @@ public class Session {
      */
     public boolean isAvailable() {
         return true;
-    }
-    
-    /**
-     * 
-     * @return
-     */
-    public int viewAgeGroup() {
-        return 0;
     }
     
     /**

@@ -18,7 +18,6 @@ public class Cabin {
     /**
      * Establishes an instance of the Cabin class.
      * @param cabinAge A Integer representing the cabin age of the Cabin.
-     * @param sessionDuration A Interger representing the session duration of the Cabin.
      */
     public Cabin(int cabinAge) {
         this.cabinAge = cabinAge;
@@ -28,7 +27,6 @@ public class Cabin {
      * Establishes an instance of the Cabin class with UUID.
      * @param id A UUID representing the ID of the Cabin.
      * @param cabinAge A Integer representing the cabin age of the Cabin.
-     * @param sessionDuration A Interger representing the session duration of the Cabin.
      */
     public Cabin(UUID id, int cabinAge) {
         this.id = id;
@@ -135,7 +133,7 @@ public class Cabin {
      * @return A string representation of the Cabin class.
      */
     public String toString() {
-        String print = "Cabin age: "+this.cabinAge+"\nMaximum number of campers: "+this.MaxNumberOfCampers+"\nSession Duration: "+this.sessionDuration;
+        String print = "Cabin age: "+this.cabinAge+"\nMaximum number of campers: "+this.MaxNumberOfCampers;
         for (int i = 0; i < campers.size(); i++) {
 			if (campers.get(i) != null) {
                 print += campers.get(i)+"\n";

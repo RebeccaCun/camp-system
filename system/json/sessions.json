@@ -3,7 +3,6 @@
         "id": "ae03bbb0-0bef-415b-a0fd-2d440dd1fa92",
         "startDate": "2022-01-15",
         "endDate": "2022-01-27",
-        "ageGroup": 10,
         "availableSpots": 20,
         "theme": "splash week",
         "cabins": [
@@ -14,7 +13,6 @@
         "id": "dee1f260-41a9-4ffc-aa85-d0f6bb49e986",
         "startDate": "2022-10-21",
         "endDate": "2022-10-28",
-        "ageGroup": 12,
         "availableSpots": 2,
         "theme": "STEM week",
         "cabins": [
