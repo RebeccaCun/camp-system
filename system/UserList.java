@@ -1,4 +1,5 @@
 package system;
+import java.io.FilterInputStream;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -40,6 +41,12 @@ public class UserList {
      * @return
      */
     public User getUser(String userName) {
+        for(User user : userList)
+        {
+            if(user.getUserName().equals(userName)){
+                return user;
+            }
+        }
         return null;
     }
 
@@ -49,7 +56,13 @@ public class UserList {
      * @return
      */
     public boolean hasUser(String userName) {
-        return true;
+        for(User user : userList)
+        {
+            if(user.getUserName().equals(userName)){
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -58,7 +71,7 @@ public class UserList {
      * @return
      */
     public ArrayList<User> getUsers() {
-        return null;
+        return userList;;
     }
 
     /**
@@ -66,7 +79,9 @@ public class UserList {
      * @param userName
      * @return
      */
-    public boolean addUser(User user) {
+    public boolean addUser(String userName, String firstName, String lastName) {
+        if(hasUser(userName)) return false;
+        userList.add(new User(firstName, lastName, userName));
         return true;
     }
 
@@ -85,7 +100,7 @@ public class UserList {
      * @return
      */
     public void saveUsers() {
-
+        DataWriter.saveUsers();
     }
 
     

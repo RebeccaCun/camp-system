@@ -357,6 +357,7 @@ public class UI {
         int counter = 1;
         for(Session s : options){
             System.out.println(counter + ") " + "Start: " + s.getStartDate() + ", End: " + s.getEndDate() + ", Theme: " + s.getTheme());
+            counter++;
         }
         System.out.print("Choose a session by selecting a number: ");
         int selection = scanner.nextInt();
