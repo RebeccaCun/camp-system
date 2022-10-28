@@ -30,6 +30,7 @@ public class User {
      * @param userName A String representing the username of the User class.
      */
     public User(String firstName, String lastName, String userName) {
+        this.id = UUID.randomUUID();
         this.firstName = firstName;
         this.userName = userName;
         this.lastName = lastName;

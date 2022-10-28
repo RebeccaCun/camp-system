@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.UUID;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -13,6 +14,22 @@ import org.json.simple.JSONObject;
  * @author Cyber Council
  */
 public class DataWriter extends DataConstants {
+
+    public static void main(String[] args) {
+
+        // // TESTING saveUsers()
+        // UserList ul = UserList.getInstance();
+        // User us = new User("w", "xyz", "zyxw");
+        // us.setType(Type.valueOf("PARENT"));
+
+        // ArrayList<Camper> cp = new ArrayList<>();
+        // cp.add(new Camper(UUID.randomUUID(), "v", "xyz", null));
+        // us.addCampers(cp);
+
+        // ul.addUser(us);
+
+        // saveUsers();
+    }
 
     /**
      * 
@@ -53,7 +70,7 @@ public class DataWriter extends DataConstants {
 		userDetails.put(PASSWORD, user.getPassword());
 		userDetails.put(EMAIL, user.getEmail());
 		userDetails.put(PHONE_NUMBER, user.getPhoneNumber());
-		userDetails.put(PREFFERED_CONTACT, user.getPrefferedContact());
+		userDetails.put(PREFFERED_CONTACT, user.getPreferredContact());
 		userDetails.put(BIRTHDAY, user.getBirthday());
 		userDetails.put(ADDRESS, user.getAddress());
 		userDetails.put(TYPE, user.getType().toString());

@@ -1,49 +1,62 @@
 [
     {
-        "id": "b34d803b-5c08-42fb-8be4-f377060f1f0e",
+        "birthday": 1992-10-17,
         "firstName": "Peri",
         "lastName": "Layers",
-        "userName": "periIsAQueen12",
         "password": "Ry09#3ILafcg",
-        "email": "perilayers@gmail.com",
         "phoneNumber": "801-403-6839",
-        "preferredContact": "phone",
-        "birthday": "1992-10-17",
         "address": "5260 Forest Dr., Columbia, SC 29206",
-        "type": "PARENT",
         "campers": [
             "942f97dc-fac3-48ea-8dad-3360908698fd"
-        ]
+        ],
+        "id": "b34d803b-5c08-42fb-8be4-f377060f1f0e",
+        "userName": "periIsAQueen12",
+        "type": "PARENT",
+        "preferredContact": "phone",
+        "email": "perilayers@gmail.com"
     },
     {
-        "id": "ea2f3110-aa8e-4b70-ab5e-29707a6c9cd0",
+        "birthday": 1988-05-22,
         "firstName": "James",
         "lastName": "Fendro",
-        "userName": "JamesFendro45",
         "password": "jFen377#camp",
-        "email": "jamesFendro@gmail.com",
         "phoneNumber": "388-521-5948",
-        "preferredContact": "phone",
-        "birthday": "1988-05-22",
         "address": "300 Monticello Ave, Norfolk, VA 23510",
+        "campers": [],
+        "id": "ea2f3110-aa8e-4b70-ab5e-29707a6c9cd0",
+        "userName": "JamesFendro45",
         "type": "PARENT",
-        "campers": [
-            "52bcafed-844c-44ee-89b9-9c1f1597444b"
-        ]
+        "preferredContact": "phone",
+        "email": "jamesFendro@gmail.com"
     },
     {
-        "id": "7dbf5d74-976b-4fdc-a11d-d3008f5861fe",
+        "birthday": 1997-01-17,
         "firstName": "Arthur",
         "lastName": "Barret",
-        "use d": "L09IFoUVBy#3",
-        "email": "arthurBarret9@gmail.com",
+        "password": null,
         "phoneNumber": "803-407-6234",
-        "preferredContact": "email",
-        "birthday": "1997-01-17",
         "address": "2718 Seneca Ave, Fort Pierce, FL 34946439",
+        "campers": [],
+        "id": "7dbf5d74-976b-4fdc-a11d-d3008f5861fe",
+        "userName": null,
         "type": "DIRECTOR",
+        "preferredContact": "email",
+        "email": "arthurBarret9@gmail.com"
+    },
+    {
+        "birthday": null,
+        "firstName": "w",
+        "lastName": "xyz",
+        "password": null,
+        "phoneNumber": null,
+        "address": null,
         "campers": [
-            "6e67d002-278c-494d-a49c-cd288e345483"
-        ]
+            "7fbce0eb-f2cd-490a-b29e-92faeaa4bc16"
+        ],
+        "id": "61b7c44a-094b-4059-87b5-dd3c927deccd",
+        "userName": "zyxw",
+        "type": "PARENT",
+        "preferredContact": null,
+        "email": null
     }
 ]

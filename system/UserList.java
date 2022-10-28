@@ -71,7 +71,7 @@ public class UserList {
      * @return
      */
     public ArrayList<User> getUsers() {
-        return userList;;
+        return users;
     }
 
     /**
