@@ -3,6 +3,8 @@ package system;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -70,7 +72,7 @@ public class DataWriter extends DataConstants {
      * 
      */
     public static void saveCounselors() {
-        UserList counselorListClass = CounselorList.getInstance();
+        CounselorList counselorListClass = CounselorList.getInstance();
         ArrayList<Counselor> counselors = counselorListClass.getCounselors();
 
         JSONArray jsonCounselors = new JSONArray();
@@ -161,7 +163,7 @@ public class DataWriter extends DataConstants {
      * 
      */
     public static void saveCampers() {
-        UserList camperListClass = CamperList.getInstance();
+        CamperList camperListClass = CamperList.getInstance();
         ArrayList<Camper> campers = camperListClass.getUsers();
 
         JSONArray jsonCampers = new JSONArray();
@@ -189,7 +191,7 @@ public class DataWriter extends DataConstants {
     private static JSONObject getCamperJSON(Camper camper) {
         JSONObject camperDetails = new JSONObject();
 
-		camperDetails.put(USER_ID, camper.getUUID().toString());
+        camperDetails.put(USER_ID, camper.getUUID().toString());
 		camperDetails.put(FIRST_NAME, camper.getFirstName());
 		camperDetails.put(LAST_NAME, camper.getLastName());
         // the birthday is in a local Date format
@@ -272,6 +274,145 @@ public class DataWriter extends DataConstants {
     }
 
     /**
+     * 
+     */
+    public static void saveSessions() {
+        SessionList sessionListClass = SessionList.getInstance();
+        ArrayList<Session> sessions = sessionListClass.getSessions();
+
+        JSONArray jsonSessions = new JSONArray();
+
+        // create the json objects
+        for (Session session: sessions) {
+            jsonSessions.add(getSessionJSON(session));
+        }
+
+        //  Write JSON file
+        try (FileWriter file = new FileWriter(SESSION_FILE_NAME)) {
+            file.write(jsonSessions.toJSONString());
+            file.flush();
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Return a JSONObject based on the given Session
+     * @param session the Session which needs to be converted to JSONObject
+     * @return a JSONObject for the given Session
+     */
+    private static JSONObject getSessionJSON(Session session) {
+        JSONObject sessionDetails = new JSONObject();
+
+		sessionDetails.put(USER_ID, session.getUUID().toString());
+        sessionDetails.put(START_DATE, session.getStartDate().toString());
+        sessionDetails.put(END_DATE, session.getEndDate().toString());
+        sessionDetails.put(AVAILABLE_SPOTS, session.getAvailableSpots());
+        sessionDetails.put(THEME, session.getTheme());
+
+        // get the cabin UUID array
+        ArrayList<Cabin> cabins = session.getCabins();
+        // make the JSONArray to populate
+        JSONArray jsonCabins = new JSONArray();
+
+        for (Cabin cabin : cabins)
+            jsonCabins.add(cabin.getUUID().toString());
+        sessionDetails.put(CABINS, jsonCabins);
+        
+        return sessionDetails;
+    }
+
+    /**
+     * 
+     */
+    public static void saveCabins() {
+        CabinList cabinClassList = CabinList.getInstance();
+        ArrayList<Cabin> cabins = cabinClassList.getCabins();
+
+        JSONArray jsonCabins = new JSONArray();
+
+        // create the json objects
+        for (Cabin cabin: cabins) {
+            jsonCabins.add(getCabinJSON(cabin));
+        }
+
+        //  Write JSON file
+        try (FileWriter file = new FileWriter(CABIN_FILE_NAME)) {
+            file.write(jsonCabins.toJSONString());
+            file.flush();
+    
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Return a JSONObject based on the given Cabin
+     * @param cabin the Cabin which needs to be converted to JSONObject
+     * @return a JSONObject for the given cabin
+     */
+    private static JSONObject getCabinJSON(Cabin cabin) {
+        JSONObject cabinDetails = new JSONObject();
+
+	    cabinDetails.put(USER_ID, cabin.getUUID().toString());
+        cabinDetails.put(CABIN_AGE, cabin.getCabinAge());
+        cabinDetails.put(MAX_NO_OF_CAMPERS, cabin.getMaxNumberOfCampers());
+        
+        // add schedules...
+        JSONObject jsonSchedule = new JSONObject();
+        HashMap<Day, Schedule> schedules = cabin.getSchedules();
+
+        // get the Day values
+        Set<Day> setDays = schedules.keySet();
+        
+        // convert Day values to String and add to an ArrayList
+        ArrayList<String> days = new ArrayList<>();
+        for (Day day : setDays)
+            days.add(day.toString());
+        // days contains list of all the Day values from the JSON but as Strings
+
+        // loop through each day..
+        for (String day : days) {
+            JSONArray daySchedules = new JSONArray();
+            Schedule sched = schedules.get(Day.valueOf(day));
+            
+            ArrayList<Activity> activities = sched.getActivites();
+
+            for (Activity activity : activities) {
+                JSONObject jsonActivity = new JSONObject();
+                
+                jsonActivity.put(TITLE, activity.getTitle());
+                jsonActivity.put(LOCATION, activity.getLocation());
+                jsonActivity.put(START_TIME, activity.getStartTime());
+                jsonActivity.put(END_TIME, activity.getEndTime());
+
+                // get the notes ArrayList and add to a JSONArray
+                ArrayList<String> notes = activity.getNotes();
+                JSONArray jsonNotes = new JSONArray();
+                for (String note : notes)
+                    jsonNotes.add(note);
+                jsonActivity.put(NOTES, jsonNotes);
+            
+                daySchedules.add(jsonActivity);
+            }
+
+            jsonSchedule.put(day, daySchedules);
+        }
+        cabinDetails.put(SCHEDULES, jsonSchedule);
+        
+        // get campers...
+        JSONArray jsonCampers = new JSONArray();
+        ArrayList<Camper> campers = cabin.getCampers();
+        for (Camper camper : campers)
+            jsonCampers.add(camper.getUUID().toString());
+
+        cabinDetails.put(CAMPERS, jsonCampers);
+		
+        return cabinDetails;
+    }
+    
+    /**
      * Return a JSONArray of the given Contacts ArrayList
      * @param contacts ArrayList<Contact>
      * @return JSONArray of Contacts
@@ -292,5 +433,4 @@ public class DataWriter extends DataConstants {
 
         return jsonArray;
     }
-    
 }

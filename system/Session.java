@@ -59,6 +59,9 @@ public class Session {
         return "";
     }
     
+    public void setAvailableSpots(int availableSpots) {
+        
+    }
     
     /**
      * 
