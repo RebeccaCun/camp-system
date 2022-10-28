@@ -1,6 +1,6 @@
 [
     {
-        "birthday": 1992-10-17,
+        "birthday": "1992-10-17",
         "firstName": "Peri",
         "lastName": "Layers",
         "password": "Ry09#3ILafcg",
@@ -16,7 +16,7 @@
         "email": "perilayers@gmail.com"
     },
     {
-        "birthday": 1988-05-22,
+        "birthday": "1988-05-22",
         "firstName": "James",
         "lastName": "Fendro",
         "password": "jFen377#camp",
@@ -30,7 +30,7 @@
         "email": "jamesFendro@gmail.com"
     },
     {
-        "birthday": 1997-01-17,
+        "birthday": "1997-01-17",
         "firstName": "Arthur",
         "lastName": "Barret",
         "password": null,
@@ -42,21 +42,5 @@
         "type": "DIRECTOR",
         "preferredContact": "email",
         "email": "arthurBarret9@gmail.com"
-    },
-    {
-        "birthday": null,
-        "firstName": "w",
-        "lastName": "xyz",
-        "password": null,
-        "phoneNumber": null,
-        "address": null,
-        "campers": [
-            "7fbce0eb-f2cd-490a-b29e-92faeaa4bc16"
-        ],
-        "id": "61b7c44a-094b-4059-87b5-dd3c927deccd",
-        "userName": "zyxw",
-        "type": "PARENT",
-        "preferredContact": null,
-        "email": null
     }
 ]

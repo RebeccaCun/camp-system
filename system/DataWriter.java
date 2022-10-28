@@ -2,6 +2,7 @@ package system;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -17,18 +18,19 @@ public class DataWriter extends DataConstants {
 
     public static void main(String[] args) {
 
-        // // TESTING saveUsers()
-        // UserList ul = UserList.getInstance();
-        // User us = new User("w", "xyz", "zyxw");
-        // us.setType(Type.valueOf("PARENT"));
+        // TESTING saveUsers()
+        UserList ul = UserList.getInstance();
+        User us = new User("w", "xyz", "zyxw");
+        us.setType(Type.valueOf("PARENT"));
+        us.addBirthday(LocalDate.parse("2016-08-16"));
 
-        // ArrayList<Camper> cp = new ArrayList<>();
-        // cp.add(new Camper(UUID.randomUUID(), "v", "xyz", null));
-        // us.addCampers(cp);
+        ArrayList<Camper> cp = new ArrayList<>();
+        cp.add(new Camper(UUID.randomUUID(), "v", "xyz", null));
+        us.addCampers(cp);
 
-        // ul.addUser(us);
+        ul.addUser(us);
 
-        // saveUsers();
+        saveUsers();
     }
 
     /**
@@ -71,7 +73,7 @@ public class DataWriter extends DataConstants {
 		userDetails.put(EMAIL, user.getEmail());
 		userDetails.put(PHONE_NUMBER, user.getPhoneNumber());
 		userDetails.put(PREFFERED_CONTACT, user.getPreferredContact());
-		userDetails.put(BIRTHDAY, user.getBirthday());
+		userDetails.put(BIRTHDAY, user.getBirthday().toString());
 		userDetails.put(ADDRESS, user.getAddress());
 		userDetails.put(TYPE, user.getType().toString());
 		

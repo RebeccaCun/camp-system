@@ -22,6 +22,16 @@ public class DataReader extends DataConstants {
     private static ArrayList<Camper> campers;
     private static ArrayList<Cabin> cabins;
 
+    public static void main(String[] args) {
+        ArrayList<Session> us = getAllSessions();
+        // ArrayList<User> us = getAllUsers();
+        // ArrayList<Counselor> us = getAllCounselors();
+        for (Session user : us) {
+            System.out.println(user);
+            System.out.println(user.getTheme());
+        }
+    }
+
     /**
      * Returns users
      * @return ArrayList<User>
@@ -31,11 +41,11 @@ public class DataReader extends DataConstants {
 
         try {
             // read from the file that is defined in the DataConstants
-            FileReader reader = new FileReader(USERS_FILE_NAME);
+            FileReader userReader = new FileReader(USERS_FILE_NAME);
             JSONParser parser = new JSONParser(); // make a JSON parser
 			
-            // get the camp array from json
-            JSONArray userJSON = (JSONArray) new JSONParser().parse(reader);
+            // get the user array from json
+            JSONArray userJSON = (JSONArray) new JSONParser().parse(userReader);
 
             for (int i=0; i<userJSON.size(); i++) {
                 JSONObject user = (JSONObject) userJSON.get(i);
