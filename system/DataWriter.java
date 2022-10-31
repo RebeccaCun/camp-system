@@ -11,11 +11,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 /**
- * 
+ * Writes Data to JSON
  * @author Cyber Council
  */
 public class DataWriter extends DataConstants {
 
+    /**
+     * JUST FOR TESTING
+     * TO BE DELETED
+     */
     public static void main(String[] args) {
 
         // TESTING saveUsers()
@@ -34,7 +38,8 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * 
+     * Save the User ArrayList from the UserList class 
+     * into the USERS_FILE_NAME file
      */
     public static void saveUsers() {
         UserList userListClass = UserList.getInstance();
@@ -88,7 +93,8 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * 
+     * Save the Counselor ArrayList from the CounselorsList class 
+     * into the COUNSELORS_FILE_NAME file
      */
     public static void saveCounselors() {
         CounselorList counselorListClass = CounselorList.getInstance();
@@ -179,7 +185,8 @@ public class DataWriter extends DataConstants {
 
 
     /**
-     * 
+     * Save the Camper ArrayList from the CamperList class 
+     * into the CAMPERS_FILE_NAME file
      */
     public static void saveCampers() {
         CamperList camperListClass = CamperList.getInstance();
@@ -293,7 +300,8 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * 
+     * Save the Session ArrayList from the SessionList class 
+     * into the SESSION_FILE_NAME file
      */
     public static void saveSessions() {
         SessionList sessionListClass = SessionList.getInstance();
@@ -343,7 +351,8 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * 
+     * Save the Cabin ArrayList from the CabinList class 
+     * into the CABIN_FILE_NAME file
      */
     public static void saveCabins() {
         CabinList cabinClassList = CabinList.getInstance();
