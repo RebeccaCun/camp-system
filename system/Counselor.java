@@ -69,7 +69,10 @@ public class Counselor extends User{
     public void addCabins(ArrayList<Cabin> cabins) {
         this.cabins = cabins;
     }
-
+    /**
+     * adds medical info for the counselor 
+     * @return Medical info added
+     */
     public Medical getMedical() {
         return this.medical;
     }

@@ -41,14 +41,26 @@ public class Cabin {
         return id;
     }
 
+    /**
+     * returns the age of specific cabin
+     * @return an int for age
+     */
     public int getCabinAge(){
         return cabinAge;
     }
 
+    /**
+     * returns constant max number of campers per cabin
+     * @return int of campers
+     */
     public int getMaxNumberOfCampers(){
         return MaxNumberOfCampers;
     }
 
+    /**
+     * gets the list of campers in specific cabin
+     * @return list of campers
+     */
     public ArrayList<Camper> getCampers(){
         return campers;
     }
