@@ -12,6 +12,9 @@ public class UI {
     private Scanner scanner;
     private CampSystemFACADE campSystem;
 
+    /**
+     * creates an instance of the UI class
+     */
     public UI(){
         scanner = new Scanner(System.in);
         campSystem = new CampSystemFACADE();
@@ -19,7 +22,6 @@ public class UI {
 
     /**
      * main run for the program
-     * calls for and saves all info from user
      */
     public void run(){
         System.out.println("Welcome to our camp website!");
@@ -84,7 +86,7 @@ public class UI {
     }
 
     /**
-     * display intro screen
+     * displays the intro screen 
      */
     private void displayIntroMenu(){
         System.out.println("Press (1) to sign in to your account");
@@ -93,17 +95,23 @@ public class UI {
     }
 
     /**
-     * displays user menu
+     * displays the main menu with the parent's options
      */
-    private void displayUserMenu(){ //for choices: create child acct, add child to session
+    private void displayUserMenu(){
         System.out.println("What would you like to do today? \n(1) add a new Camper \n(2) sign up camper for a session \n(3) General Information \n(4) FAQ’s (5) Logout");
     }
 
+    /** 
+     * displays the main menu with the counselor's options
+     */
     private void displayCounselorMenu(){
         displayUserMenu();
         System.out.println("(6) give Strike to a Camper");
     }
 
+    /**
+     * displays the main menu with the director's options
+     */
     private void displayDirectorMenu(){
         displayCounselorMenu();
         System.out.println("(7) create a new Camp");
@@ -111,8 +119,8 @@ public class UI {
 
     /**
      * 
-     * @param commands users input
-     * @return int showing users decison 
+     * @param commands the number of possible choices
+     * @return int showing users decison or -1 if the choice was invalid
      */
     private int getUserCommand(int commands){
         int choice = scanner.nextInt();
@@ -136,7 +144,6 @@ public class UI {
             String firstName = scanner.nextLine();
             System.out.print("\nEnter your last name: ");
             String lastName = scanner.nextLine();
-            // how to verify account type?
             String username;
             while(true){
                 System.out.print("\nEnter a username: ");
@@ -161,7 +168,6 @@ public class UI {
             LocalDate birthday = LocalDate.parse(birthdayString);
             System.out.print("\nEnter your address: ");
             String address = scanner.nextLine();
-            boolean result;
             if(accountType.equalsIgnoreCase("c")){
                 System.out.println("Enter a short biography: ");
                 String biography = scanner.nextLine();
@@ -216,7 +222,6 @@ public class UI {
             LocalDate birthday = LocalDate.parse(birthdayString);
             System.out.println("\n Enter the following information about the EMERGENCY CONTACT:");
             Contact emergencyContact = createContact();
-            //maybe add guardians here (?)
 
             Medical medicalInfo = getMedicalInfo();
             
@@ -243,6 +248,10 @@ public class UI {
         }
     }
 
+    /**
+     * asks for the medical info that is needed to register a camper or a counselor
+     * @return the medical info
+     */
     private Medical getMedicalInfo(){
         System.out.println("\nEnter the following information about the DOCTOR");
         Contact doctorContact = createContact();
@@ -277,8 +286,8 @@ public class UI {
     }
 
     /**
-     * create a new contact within the account- doctor, emerg contact
-     * @return a new contact
+     * creates a new contact 
+     * @return the new contact
      */
     private Contact createContact(){
         Contact contact;
@@ -297,7 +306,7 @@ public class UI {
     }
 
     /**
-     * prints overall info
+     * prints general info
      */
     private void printGeneralInformation(){
         String information = campSystem.getUserInformation();
@@ -328,7 +337,7 @@ public class UI {
     }
    
     /**
-     * sign up for session
+     * signs up a camper for a session
      */
     private void sessionSignup(){
         System.out.print("\nEnter the first name of the camper you would like to register for a session: ");
@@ -349,8 +358,8 @@ public class UI {
     }
 
     /**
-     * lets a camper join a session
-     * @param camper 
+     * lets a camper pick a session out of available ones
+     * @param camper the camper to be signed up for a session
      * @return the session they chose to join
      */
     private Session chooseSession(Camper camper){
@@ -383,7 +392,7 @@ public class UI {
 
 
     /**
-     * prints Waiver that must be signed for camper
+     * prints Waiver that must be signed in order to register a camper
      */
     private void askToAcceptWaiver(){
 
@@ -404,6 +413,9 @@ public class UI {
         }
     }
 
+    /** 
+     * gives a strike to a camper
+     */
     private void giveStrike(){
         System.out.print("Enter campers first name: ");
         String firstName = scanner.nextLine();
@@ -413,6 +425,9 @@ public class UI {
         System.out.println("Strike given to Camper " + firstName + lastName);
     }
 
+    /**
+     * creates a new camp and sets up sessions and cabins with the director's input
+     */
     private void createCamp(){
         System.out.println("Enter number of Sessions: ");
         int numberSessions = scanner.nextInt();
@@ -438,7 +453,7 @@ public class UI {
     }
 
      /**
-     * choose to Logout
+     * logs user out of the system
      */
     private void logout(){
         System.out.println("Goodbye!");
