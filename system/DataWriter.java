@@ -183,7 +183,7 @@ public class DataWriter extends DataConstants {
      */
     public static void saveCampers() {
         CamperList camperListClass = CamperList.getInstance();
-        ArrayList<Camper> campers = camperListClass.getUsers();
+        ArrayList<Camper> campers = camperListClass.getCampers();
 
         JSONArray jsonCampers = new JSONArray();
 
