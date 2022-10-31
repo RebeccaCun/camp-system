@@ -421,7 +421,9 @@ public class UI {
         String firstName = scanner.nextLine();
         System.out.print("Enter campers last name: ");
         String lastName = scanner.nextLine();
-        campSystem.giveStrike(firstName, lastName);
+        System.out.print("Enter the reason for the strike: ");
+        String reason = scanner.nextLine();
+        campSystem.giveStrike(firstName, lastName, reason);
         System.out.println("Strike given to Camper " + firstName + lastName);
     }
 

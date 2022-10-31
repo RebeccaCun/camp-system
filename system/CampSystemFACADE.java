@@ -131,9 +131,9 @@ public class CampSystemFACADE {
         return true;
     }
 
-    public void giveStrike(String firstName, String lastName){
+    public void giveStrike(String firstName, String lastName, String reason){
         Camper camper = findCamperByName(firstName, lastName);
-        camper.giveStrike();
+        camper.giveStrike(reason);
     }
 
     public void createSession(LocalDate start, LocalDate end, String theme){
