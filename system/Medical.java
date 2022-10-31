@@ -52,6 +52,30 @@ public class Medical {
     }
 
     /**
+     * 
+     * @return
+     */    
+    public Contact getDoctor() {
+        return this.doctor;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<String> getAllergies() {
+        return this.allergies;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<Medication> getMedications() {
+        return this.medications;
+    }
+
+    /**
      * Creates a string detailing the attributes of the Medical class.
      * @return A string representation of the Medical class.
      */

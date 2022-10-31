@@ -14,5 +14,14 @@ public class CabinList {
 		}
 		return cabinList;    
     }
+
+    /**
+     * 
+     * @param userName
+     * @return
+     */
+    public ArrayList<Cabin> getCabins() {
+        return cabins;
+    }
     
 }

@@ -17,6 +17,22 @@ public class Medication {
         this.name = name;
         this.time = time; 
     }
+    
+    /**
+     * 
+     * @return
+     */
+    public String getName() {
+        return this.name;
+    }
+    
+    /**
+     * 
+     * @return
+     */
+    public String getTime() {
+        return this.time;
+    }
 
     /**
      * Creates a string detailing the attributes of the Medication class.

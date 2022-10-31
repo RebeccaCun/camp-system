@@ -26,6 +26,14 @@ public class Schedule {
     }
 
     /**
+     * 
+     * @return
+     */
+    public ArrayList<Activity> getActivities() {
+        return this.activities;
+    }
+
+    /**
      * Removes a activity from the Schedule class.
      * @param activity The activity to be removed.
      */

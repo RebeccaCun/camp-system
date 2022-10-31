@@ -47,6 +47,64 @@ public class Camper {
         this.lastName = lastName;
         this.birthday = birthday;
     }
+
+    /**
+     * 
+     * @return
+     */
+    public LocalDate getBirthday() {
+        return this.birthday;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<Contact> getEmergencyContacts() {
+        return this.emergencyContacts;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<Contact> getGuardians() {
+        return this.guardians;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Medical getMedical() {
+        return this.medical;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public int getNumberStrikes() {
+        return this.numberStrikes;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<String> getReasonStrikes() {
+        return this.reasonStrikes;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<String> getNotes() {
+        return this.notes;
+    }
+
+
     /**
      * campers first name
      * @return String first name

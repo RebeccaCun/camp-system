@@ -176,7 +176,7 @@ public class DataWriter extends DataConstants {
         ArrayList<Cabin> cabins = counselor.getCabins();
         
         for (Cabin cabin : cabins)
-            jsonCabins.add(cabins.getID().toString());    
+            jsonCabins.add(cabin.getUUID().toString());    
 
         counselorDetails.put(CABINS, jsonCabins);
         
@@ -405,7 +405,7 @@ public class DataWriter extends DataConstants {
             JSONArray daySchedules = new JSONArray();
             Schedule sched = schedules.get(Day.valueOf(day));
             
-            ArrayList<Activity> activities = sched.getActivites();
+            ArrayList<Activity> activities = sched.getActivities();
 
             for (Activity activity : activities) {
                 JSONObject jsonActivity = new JSONObject();

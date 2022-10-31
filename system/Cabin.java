@@ -66,6 +66,14 @@ public class Cabin {
     }
 
     /**
+     * 
+     * @return
+     */
+    public HashMap<Day, Schedule> getSchedules() {
+        return this.schedules;
+    }
+
+    /**
      * Adds the max number of campers to the Cabin class.
      * @param maxCampers The integer to be added.
      */
