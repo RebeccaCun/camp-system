@@ -10,8 +10,6 @@ import java.util.UUID;
 public class UserList {
 
     private ArrayList<User> users;
-    private ArrayList<Counselor> counselors;
-    private ArrayList<Camper> campers;
 
     private static UserList userList;
 
@@ -20,8 +18,7 @@ public class UserList {
      */
     private UserList() {
         users = DataReader.getAllUsers();
-        counselors = DataReader.getAllCounselors();
-        campers = DataReader.getAllCampers();
+        userList = this;
     }
 
     /**
@@ -41,7 +38,7 @@ public class UserList {
      * @return
      */
     public User getUser(String userName) {
-        for(User user : userList)
+        for(User user : users)
         {
             if(user.getUserName().equals(userName)){
                 return user;
