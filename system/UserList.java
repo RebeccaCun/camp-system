@@ -1,29 +1,23 @@
 package system;
-import java.io.FilterInputStream;
+
 import java.util.ArrayList;
-import java.util.UUID;
 
 /**
- * 
+ * An UserList class that contains all of the users for the camp system.
  * @author Cyber Council
  */
 public class UserList {
-
-    private ArrayList<User> users;
-
+    private ArrayList<User> users = DataReader.getAllUsers();
     private static UserList userList;
 
     /**
-     * 
+     * Initializes an instance of the UserList class.
      */
-    private UserList() {
-        users = DataReader.getAllUsers();
-        userList = this;
-    }
+    private UserList() {}
 
     /**
-     * 
-     * @return
+     * Creates an instance of the UserList class.
+     * @return The created UserList instance.
      */
     public static UserList getInstance() {
         if (userList == null) {
@@ -33,9 +27,9 @@ public class UserList {
     }
     
     /**
-     * 
-     * @param userName
-     * @return
+     * Searches for a specific User and returns them if found.
+     * @param userName The username of the User being searched for.
+     * @return The user being searched for.
      */
     public User getUser(String userName) {
         for(User user : users)
@@ -48,12 +42,12 @@ public class UserList {
     }
 
     /**
-     * 
-     * @param userName
-     * @return
+     * Searches for a specific User and returns a boolean depending of it they are found.
+     * @param userName The username of the User being searched for.
+     * @return The boolean representing the status of the User..
      */
     public boolean hasUser(String userName) {
-        for(User user : userList)
+        for(User user : users)
         {
             if(user.getUserName().equals(userName)){
                 return true;
@@ -62,41 +56,37 @@ public class UserList {
         return false;
     }
 
-    /**
-     * 
-     * @param userName
-     * @return
-     */
     public ArrayList<User> getUsers() {
         return users;
     }
 
     /**
-     * 
-     * @param userName
-     * @return
+     * Adds a user to the User class.
+     * @param user The User to be added.
      */
     public void addUser(User user) {
         users.add(user);
     }
 
     /**
-     * 
-     * @param userName
-     * @return
+     * Edits a User in the list.
+     * @param user The user to be edited.
+     * @param newFirstName The first name of the new User.
+     * @param newLastName The last name of the new User.
+     * @param newUserName The user name of the new User.
      */
-    public void editUser(String userName, String password) {
-
+    public void editUser(User user, String newFirstName, String newLastName, String newUserName) {
+        for (int i = 0; i < users.size(); i++) {
+            if(users.get(i) == user) {
+                users.set(i,new User(newFirstName, newLastName, newUserName));
+            }
+        }
     }
 
     /**
-     * 
-     * @param userName
-     * @return
+     * Saves the UserList.
      */
     public void saveUsers() {
         DataWriter.saveUsers();
-    }
-
-    
+    }    
 }
