@@ -22,16 +22,6 @@ public class DataReader extends DataConstants {
     private static ArrayList<Camper> campers;
     private static ArrayList<Cabin> cabins;
 
-    public static void main(String[] args) {
-        ArrayList<Session> us = getAllSessions();
-    // ArrayList<User> us = getAllUsers();
-        // ArrayList<Counselor> us = getAllCounselors();
-        for (Session user : us) {
-            System.out.println(user);
-            System.out.println(user.getTheme());
-        }
-    }
-
     /**
      * Returns users
      * @return ArrayList<User>
