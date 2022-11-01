@@ -472,13 +472,25 @@ public class UI {
         }
     }
 
-    private void printRoster(){}
-    private void printWeekInfo(){
-        //ask for the session
+    private void printRoster(){
+        System.out.println(campSystem.listSessions());
+        System.out.println("For which session would you like the roster printed? Enter session number: ");
+        int sessionNr = scanner.nextInt();
+        campSystem.printRoster(sessionNr);
     }
+
+    private void printWeekInfo(){
+        System.out.println(campSystem.listSessions());
+        System.out.println("For which session would you like the information printed? Enter session number: ");
+        int sessionNr = scanner.nextInt();
+        campSystem.printWeekInfo(sessionNr);
+    }
+
     private void printSchedule(){
-        //ask for the session
-        
+        System.out.println(campSystem.listSessions());
+        System.out.println("For which session would you like the schedule printed? Enter session number: ");
+        int sessionNr = scanner.nextInt();
+        campSystem.printSchedule(sessionNr);
     }
     
 

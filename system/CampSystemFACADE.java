@@ -1,5 +1,8 @@
 package system;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -9,6 +12,7 @@ public class CampSystemFACADE {
     private CounselorList counselors;
     private CamperList campers;
     private UserList users;
+    private FileWriter writer;
 
     public CampSystemFACADE(){
         sessions = SessionList.getInstance();
@@ -170,5 +174,93 @@ public class CampSystemFACADE {
             }
         }
         return info;
+    }
+
+    public String listSessions(){
+        String sessionList = "Sessions:\n";
+        int counter = 1;
+        for(Session s : sessions.getSessions()){
+            sessionList += counter + ") Start: " + s.getStartDate() + ", Theme: " + s.getTheme() + "\n";
+        }
+        return sessionList;
+    }
+
+    public void printRoster(int sessionNr){
+        Session session = sessions.getSessions().get(sessionNr - 1);
+        Cabin toPrint = findCounselorsCabin(session);
+        File rosterFile = new File("System/roster.txt");
+        try{
+            rosterFile.createNewFile();
+            writer = new FileWriter(rosterFile);
+            writer.write("Campers in your Cabin: ");
+            for(Camper c : toPrint.getCampers()){
+                writer.write("- " + c.getFirstName() + c.getLastName() + ", " + c.getAge());
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void printWeekInfo(int sessionNr){
+        Session session = sessions.getSessions().get(sessionNr - 1);
+        Cabin toPrint = findCounselorsCabin(session);
+        File infoFile = new File("System/info.txt");
+        try{
+            infoFile.createNewFile();
+            writer = new FileWriter(infoFile);
+            writer.write("--- VITAL INFORMATION FOR THE WEEK FROM " + session.getStartDate() + " TO " + session.getEndDate() + " ---");
+            for(Camper c : toPrint.getCampers()){
+                writer.write("- " + c.getFirstName() + c.getLastName() + ":");
+                writer.write("  -> ALLERGIES: " + c.getMedical().getAllergies());
+                if(c.getMedical().getAllergies().isEmpty()){
+                    writer.write("      no allergies");
+                }else{
+                    for(String allergy : c.getMedical().getAllergies()){
+                        writer.write("      - " + allergy);
+                    }
+                }
+                writer.write("  -> EMERGENCY CONTACTS: ");
+                for(Contact emergency : c.getEmergencyContacts()){
+                    writer.write("      - " + emergency.getFirstName() + " " + emergency.getLastName() + ", " + emergency.getAddress() + ", " + emergency.getPhoneNumber());
+                }
+                writer.write("  -> MEDICAL INFORMATION: ");
+                Contact doc = c.getMedical().getDoctor();
+                writer.write("      - Doctor: " + doc.getFirstName() + " " + doc.getLastName() + ", " + doc.getAddress() + ", " + doc.getPhoneNumber());
+                writer.write("      - Medications: ");
+                for(Medication m : c.getMedical().getMedications()){
+                    writer.write("      " + m.getName() + ", " + m.getTime());
+                }
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void printSchedule(int sessionNr){
+        Session session = sessions.getSessions().get(sessionNr - 1);
+        Cabin toPrint = findCounselorsCabin(session);
+        File scheduleFile = new File("System/schedule.txt");
+        try{
+            scheduleFile.createNewFile();
+            writer = new FileWriter(scheduleFile);
+            for(Day day : Day.values()){
+                writer.write(day.toString() + ": ");
+                writer.write(toPrint.viewSchedules());
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private Cabin findCounselorsCabin(Session session){
+        Counselor couns = (Counselor) currentUser;
+        for(Cabin c : session.getCabins()){
+            for(Cabin counsCabin : couns.getCabins()){
+                if(c == counsCabin){
+                    return c;
+                }
+            }
+        }
+        return null;
     }
 }
