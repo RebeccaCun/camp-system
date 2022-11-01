@@ -7,13 +7,16 @@ import java.util.ArrayList;
  * @author Cyber Council
  */
 public class UserList {
-    private ArrayList<User> users = DataReader.getAllUsers();
+    private ArrayList<User> users;
     private static UserList userList;
 
     /**
      * Initializes an instance of the UserList class.
      */
-    private UserList() {}
+    private UserList() {
+        userList = this;
+        users = DataReader.getAllUsers();
+    }
 
     /**
      * Creates an instance of the UserList class.

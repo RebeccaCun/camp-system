@@ -149,19 +149,19 @@ public class UI {
      */
     private void createAccount(){
         while(true){
-            System.out.print("Please choose an account type: (C)ounselor or (P)arent or press (X) to cancel");
-            String accountType = scanner.nextLine();
+            System.out.println("Please choose an account type: (C)ounselor or (P)arent or press (X) to cancel");
+            String accountType = scanner.next();
             if(accountType.equalsIgnoreCase("x")){
                 break;
             }
-            System.out.print("\nEnter your first name: ");
-            String firstName = scanner.nextLine();
+            System.out.print("Enter your first name: ");
+            String firstName = scanner.next();
             System.out.print("\nEnter your last name: ");
-            String lastName = scanner.nextLine();
+            String lastName = scanner.next();
             String username;
             while(true){
                 System.out.print("\nEnter a username: ");
-                username = scanner.nextLine();
+                username = scanner.next();
                 if(!campSystem.checkUsernameAvailability(username)){
                     System.out.println("Username already taken. Please choose a different one.");
                     continue;

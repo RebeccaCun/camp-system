@@ -11,6 +11,7 @@ public class CounselorList {
      */
     private CounselorList() {  
         counselors = DataReader.getAllCounselors();
+        counselorList = this;
     }
     /**
      * gets an instance of the counselor and adds it to the list of counselors

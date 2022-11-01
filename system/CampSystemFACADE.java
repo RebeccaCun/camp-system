@@ -131,14 +131,18 @@ public class CampSystemFACADE {
     }
 
     public boolean checkUsernameAvailability(String username){
-        for(User user : users.getUsers()){
-            if(user.getUserName().equals(username)){
-                return false;
+        if(!users.getUsers().isEmpty()){
+            for(User user : users.getUsers()){
+                if(user.getUserName().equals(username)){
+                    return false;
+                }
             }
         }
-        for(Counselor counselor : counselors.getCounselors()){
-            if(counselor.getUserName().equals(username)){
-                return false;
+        if(!counselors.getCounselors().isEmpty()){
+            for(Counselor counselor : counselors.getCounselors()){
+                if(counselor.getUserName().equals(username)){
+                    return false;
+                }
             }
         }
         return true;
