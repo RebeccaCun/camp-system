@@ -45,7 +45,7 @@
             ],
             "medications": [
                 {
-                    "description": "Takes one OCD tablet mixed in with breakfasts",
+                    "name": "Takes one OCD tablet mixed in with breakfasts",
                     "time": "Before breakfast"
                 }
             ]
@@ -109,7 +109,7 @@
             ],
             "medications": [
                 {
-                    "description": "Takes one OCD tablet mixed in with breakfasts",
+                    "name": "Takes one OCD tablet mixed in with breakfasts",
                     "time": "Before breakfast"
                 }
             ]

@@ -160,7 +160,7 @@ public class DataWriter extends DataConstants {
         for (Medication medication : medications) {
             JSONObject jsonMedication = new JSONObject();
             
-            jsonMedication.put(DESCRIPTION, medication.getDescription());
+            jsonMedication.put(NAME, medication.getName());
             jsonMedication.put(TIME, medication.getTime());
 
             jsonMedications.add(jsonMedication);
@@ -261,7 +261,7 @@ public class DataWriter extends DataConstants {
         for (Medication medication : medications) {
             JSONObject jsonMedication = new JSONObject();
             
-            jsonMedication.put(DESCRIPTION, medication.getDescription());
+            jsonMedication.put(NAME, medication.getName());
             jsonMedication.put(TIME, medication.getTime());
 
             jsonMedications.add(jsonMedication);

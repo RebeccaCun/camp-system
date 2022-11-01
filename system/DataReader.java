@@ -588,7 +588,7 @@ public class DataReader extends DataConstants {
 
             // get the medication info and add to the arraylist
             newMedications.add( new Medication(
-                (String) medication.get(DESCRIPTION),
+                (String) medication.get(NAME),
                 (String) medication.get(TIME) ));
         }
         

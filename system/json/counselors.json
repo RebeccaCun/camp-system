@@ -25,7 +25,7 @@
             ],
             "medications": [
                 {
-                    "description": "NA",
+                    "name": "NA",
                     "time": "NA"
                 }
             ]
@@ -60,7 +60,7 @@
             ],
             "medications": [
                 {
-                    "description": "NA",
+                    "name": "NA",
                     "time": "NA"
                 }
             ]
