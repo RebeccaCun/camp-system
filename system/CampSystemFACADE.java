@@ -52,10 +52,13 @@ public class CampSystemFACADE {
         newUser.addBirthday(birthday);
         newUser.addPhoneNumber(phoneNumber);
         newUser.addPreferredContact(preferredContact);
+        newUser.setType(Type.PARENT);
+
         users.addUser(newUser);
     }
 
     public void createCounselorAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address, String biography, Medical medicalInfo){
+        
         Counselor newCounselor = new Counselor(firstName, lastName, userName);
         newCounselor.addAddress(address);
         newCounselor.addEmail(email);
@@ -65,6 +68,7 @@ public class CampSystemFACADE {
         newCounselor.addPreferredContact(preferredContact);
         newCounselor.addBiography(biography);
         newCounselor.addMedical(medicalInfo);
+        newCounselor.setType(Type.COUNSELOR);
 
         counselors.addCounselor(newCounselor);
     }

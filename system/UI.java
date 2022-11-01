@@ -45,7 +45,6 @@ public class UI {
         }
 
         while(!stop){
-            scanner.nextLine();
             if(accountType == Type.PARENT){
                 displayUserMenu();
                 choice = getUserCommand(5);
@@ -58,36 +57,36 @@ public class UI {
             }
                 
             switch(choice){
-                case '1':
+                case 1:
                     addCamper();
                     break;
-                case '2':
+                case 2:
                     sessionSignup();
                     break;
-                case '3':
+                case 3:
                     printGeneralInformation();
                     break;
-                case '4': 
+                case 4: 
                     printFAQ();
                     break;
-                case '5':
+                case 5:
                     logout();
                     stop = true;
                     break;
-                case '6':
+                case 6:
                     giveStrike();
                     break;
-                case '7':
+                case 7:
                     if(accountType == Type.DIRECTOR){
                         createCamp();
                     }else{
                         printRoster();
                     }
                     break;
-                case '8':
+                case 8:
                     printWeekInfo();
                     break;
-                case '9':
+                case 9:
                     printSchedule();
                     break;
                 default:
@@ -151,12 +150,12 @@ public class UI {
     private void createAccount(){
         while(true){
             System.out.println("Please choose an account type: (C)ounselor or (P)arent or press (X) to cancel");
-            String accountType = scanner.next();
+            scanner.nextLine();
+            String accountType = scanner.nextLine();
             if(accountType.equalsIgnoreCase("x")){
                 break;
             }
             System.out.print("Enter your first name: ");
-            scanner.nextLine();
             String firstName = scanner.nextLine();
             System.out.print("Enter your last name: ");
             String lastName = scanner.nextLine();
@@ -170,7 +169,6 @@ public class UI {
                 }
                 break;
             }
-            
             System.out.print("Enter a password: ");
             String password = scanner.nextLine();
             System.out.print("Enter your email address: ");
@@ -258,7 +256,7 @@ public class UI {
             askToAcceptWaiver();
 
             if(campSystem.addCamper(firstName, lastName, birthday, emergencyContact, medicalInfo, notes) == true){   // add guardian details?
-                System.out.println(firstName + lastName+ "has been successfully signed up as a Camper");
+                System.out.println(firstName + " " + lastName+ " has been successfully signed up as a Camper");
                 break;
             }
 
