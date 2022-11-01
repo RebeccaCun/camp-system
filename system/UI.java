@@ -320,7 +320,7 @@ public class UI {
     }
 
     /**
-     * prints general info
+     * prints general info for the camp
      */
     private void printGeneralInformation(){
         String information = campSystem.getUserInformation();
@@ -338,7 +338,7 @@ public class UI {
     }
 
     /**
-     * prints FAQ's
+     * prints FAQ's 
      */
     private void printFAQ(){
         System.out.println("Can my camper stay for multiple sessions? \nYes, guardians may sign up campers  for any number of sessions through their home menu!");
@@ -471,21 +471,28 @@ public class UI {
             campSystem.addCabinToSessions(newCabin);
         }
     }
-
+    /**
+     * print all the people in one session
+     */
     private void printRoster(){
         System.out.println(campSystem.listSessions());
         System.out.println("For which session would you like the roster printed? Enter session number: ");
         int sessionNr = scanner.nextInt();
         campSystem.printRoster(sessionNr);
     }
-
+    /**
+     * prints the sessions info
+     * ex. dates, theme
+     */
     private void printWeekInfo(){
         System.out.println(campSystem.listSessions());
         System.out.println("For which session would you like the information printed? Enter session number: ");
         int sessionNr = scanner.nextInt();
         campSystem.printWeekInfo(sessionNr);
     }
-
+    /**
+     * prints out generic schedule for the camp
+     */
     private void printSchedule(){
         System.out.println(campSystem.listSessions());
         System.out.println("For which session would you like the schedule printed? Enter session number: ");
