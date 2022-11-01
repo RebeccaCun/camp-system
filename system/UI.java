@@ -464,7 +464,7 @@ public class UI {
         int numberCabins = scanner.nextInt();
         for(int i = 1; i <= numberCabins; i++){
             System.out.println("Enter lowest age for this cabin: ");
-            int cabinAge = scanner.nextInt();
+            int minCabinAge = scanner.nextInt();
             System.out.println("Enter highest age for this cabin: ");
             int maxCabinAge = scanner.nextInt();
             Cabin newCabin = new Cabin(minCabinAge, maxCabinAge);
