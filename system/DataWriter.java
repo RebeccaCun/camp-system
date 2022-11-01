@@ -24,6 +24,8 @@ public class DataWriter extends DataConstants {
 
         // // TESTING saveUsers()
         // UserList ul = UserList.getInstance();
+        // CamperList cl = CamperList.getInstance();
+
         // User us = new User("w", "xyz", "zyxw");
         // us.setType(Type.valueOf("PARENT"));
         // us.addBirthday(LocalDate.parse("2016-08-16"));
@@ -31,31 +33,40 @@ public class DataWriter extends DataConstants {
         // ArrayList<Camper> cp = new ArrayList<>();
         // cp.add(new Camper(UUID.randomUUID(), "v", "xyz", null));
         // us.addCampers(cp);
-
         // ul.addUser(us);
 
         // saveUsers();
 
-        SessionList sl = SessionList.getInstance();
-        CabinList cl = CabinList.getInstance();
+        // Contact doc = new Contact("NAME", "NAME", "ACCEPTED_WAIVER", "ADDRESS");
 
-        Session s = new Session(LocalDate.parse("2002-12-01"), LocalDate.parse("2002-12-11"));
-        s.setAvailableSpots(3);
+        // Medical med = new Medical(doc);
+
+        // Camper c = new Camper("NAME", "LAST", LocalDate.parse("2002-12-20"));
+        // c.addMedical(med);
+        // cl.addCamper(c);
+
+        // saveCampers();
+
+        // SessionList sl = SessionList.getInstance();
+        // CabinList cl = CabinList.getInstance();
+
+        // Session s = new Session(LocalDate.parse("2002-12-01"), LocalDate.parse("2002-12-11"));
+        // s.setAvailableSpots(3);
         
-        Cabin c = new Cabin(20, 21);
+        // Cabin c = new Cabin(20, 21);
         
-        ArrayList<Activity> al = new ArrayList<>();
-        Activity a = new Activity("TITLE", "LOCATION");
-        al.add(a);
+        // ArrayList<Activity> al = new ArrayList<>();
+        // Activity a = new Activity("TITLE", "LOCATION");
+        // al.add(a);
 
-        System.out.println( cl.addCabin(c));
+        // System.out.println( cl.addCabin(c));
         
 
-        s.addCabin(c);
-        System.out.println( sl.addSession(s) );
+        // s.addCabin(c);
+        // System.out.println( sl.addSession(s) );
 
-        saveSessions();
-        saveCabins();
+        // saveSessions();
+        // saveCabins();
     }
 
     /**

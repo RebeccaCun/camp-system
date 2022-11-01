@@ -21,6 +21,7 @@ public class Counselor extends User{
      */
     public Counselor(String firstName, String lastName, String userName) {
         super(firstName, lastName, userName);
+        cabins = new ArrayList<>();
     }
 
     /**
@@ -32,6 +33,7 @@ public class Counselor extends User{
      */
     public Counselor(UUID id, String firstName, String lastName, String userName) {
         super(id, firstName, lastName, userName);
+        cabins = new ArrayList<>();
     }
 
     /**

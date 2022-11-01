@@ -32,6 +32,7 @@ public class Camper {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
+        id = UUID.randomUUID();
         emergencyContacts = new ArrayList<>();
         guardians = new ArrayList<>();
         reasonStrikes = new ArrayList<>();

@@ -34,6 +34,7 @@ public class User {
         this.firstName = firstName;
         this.userName = userName;
         this.lastName = lastName;
+        campers = new ArrayList<>();
     }
 
     /**
@@ -48,6 +49,7 @@ public class User {
         this.firstName = firstName;
         this.userName = userName;
         this.lastName = lastName;
+        campers = new ArrayList<>();
     }
 
     public UUID getId() {

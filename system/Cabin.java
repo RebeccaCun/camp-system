@@ -25,10 +25,10 @@ public class Cabin {
     public Cabin(int minCabinAge, int maxCabinAge) {
         id = UUID.randomUUID();
         campers = new ArrayList<>();
+        schedules = new HashMap<Day, Schedule>();
     
         this.minCabinAge = minCabinAge;
         this.maxCabinAge = maxCabinAge;
-        schedules = new HashMap<Day, Schedule>();
         Day days[] = {Day.SUNDAY, Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY};
         ArrayList<Activity> template = new ArrayList<Activity>();
         template.add(new Activity("Archery", "Field"));
@@ -103,6 +103,7 @@ public class Cabin {
         this.minCabinAge = minCabinAge;
         this.maxCabinAge = maxCabinAge;
         campers = new ArrayList<>();
+        schedules = new HashMap<>();
     }
 
     public UUID getUUID() {

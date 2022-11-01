@@ -17,6 +17,7 @@ public class Director extends User{
      */
     public Director(String firstName, String lastName, String userName) {
         super(firstName, lastName, userName);
+        counselorNames = new ArrayList<>();
     }
 
     /**

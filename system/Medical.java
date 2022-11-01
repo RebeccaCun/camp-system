@@ -17,6 +17,8 @@ public class Medical {
      */
     public Medical(Contact doctor) {
         this.doctor = doctor;
+        allergies = new ArrayList<>();
+        medications = new ArrayList<>();
     }
 
     /**
