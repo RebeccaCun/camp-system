@@ -45,6 +45,7 @@ public class UI {
         }
 
         while(!stop){
+            scanner.nextLine();
             if(accountType == Type.PARENT){
                 displayUserMenu();
                 choice = getUserCommand(5);
@@ -126,7 +127,7 @@ public class UI {
      * displays the main menu with the director's options
      */
     private void displayDirectorMenu(){
-        displayCounselorMenu();
+        displayUserMenu();
         System.out.println("(6) give Strike to a Camper");
         System.out.println("(7) create a new Camp");
     }
@@ -155,13 +156,14 @@ public class UI {
                 break;
             }
             System.out.print("Enter your first name: ");
-            String firstName = scanner.next();
-            System.out.print("\nEnter your last name: ");
-            String lastName = scanner.next();
+            scanner.nextLine();
+            String firstName = scanner.nextLine();
+            System.out.print("Enter your last name: ");
+            String lastName = scanner.nextLine();
             String username;
             while(true){
-                System.out.print("\nEnter a username: ");
-                username = scanner.next();
+                System.out.print("Enter a username: ");
+                username = scanner.nextLine();
                 if(!campSystem.checkUsernameAvailability(username)){
                     System.out.println("Username already taken. Please choose a different one.");
                     continue;
@@ -169,18 +171,18 @@ public class UI {
                 break;
             }
             
-            System.out.print("\nEnter a password: ");
+            System.out.print("Enter a password: ");
             String password = scanner.nextLine();
-            System.out.print("\nEnter your email address: ");
+            System.out.print("Enter your email address: ");
             String email = scanner.nextLine();
-            System.out.print("\nEnter your phone number: ");
+            System.out.print("Enter your phone number: ");
             String phoneNumber = scanner.nextLine();
-            System.out.print("\nEnter your preferred method of contact (phone or email): ");
+            System.out.print("Enter your preferred method of contact (phone or email): ");
             String preferredContact = scanner.nextLine();
-            System.out.print("\nEnter your birthday (format: yyyy-mm-dd): ");
+            System.out.print("Enter your birthday (format: yyyy-mm-dd): ");
             String birthdayString = scanner.nextLine();
             LocalDate birthday = LocalDate.parse(birthdayString);
-            System.out.print("\nEnter your address: ");
+            System.out.print("Enter your address: ");
             String address = scanner.nextLine();
             if(accountType.equalsIgnoreCase("c")){
                 System.out.println("Enter a short biography: ");
@@ -190,6 +192,7 @@ public class UI {
             }else{
                 campSystem.createUserAccount(username, password, email, lastName, firstName, phoneNumber, preferredContact, birthday, address);
             }
+            break;
         }
         
     }
@@ -200,6 +203,7 @@ public class UI {
     private Type login(){
         while(true){
             System.out.print("Username: ");
+            scanner.nextLine();
             String username = scanner.nextLine();
             System.out.print("Password: ");
             String password = scanner.nextLine();
@@ -227,26 +231,27 @@ public class UI {
      */
     private void addCamper(){
         while(true){
-            System.out.print("\nEnter Campers first name: ");
+            System.out.print("Enter Campers first name: ");
+            scanner.nextLine();
             String firstName = scanner.nextLine();
-            System.out.print("\nEnter Campers last name: ");
+            System.out.print("Enter Campers last name: ");
             String lastName = scanner.nextLine();
-            System.out.print("\nEnter Campers birthday (format: yyyy-mm-dd): ");
+            System.out.print("Enter Campers birthday (format: yyyy-mm-dd): ");
             String birthdayString = scanner.nextLine();
             LocalDate birthday = LocalDate.parse(birthdayString);
-            System.out.println("\n Enter the following information about the EMERGENCY CONTACT:");
+            System.out.println("\nEnter the following information about the EMERGENCY CONTACT:");
             Contact emergencyContact = createContact();
 
             Medical medicalInfo = getMedicalInfo();
             
-            System.out.print("\n Would you like to add general notes about the camper? (Y/N) ");
+            System.out.print("\nWould you like to add general notes about the camper? (Y/N) ");
             String yn = scanner.nextLine();
             ArrayList<String> notes = new ArrayList<String>();
             while(yn.equalsIgnoreCase("y")){
-                System.out.print("\n Enter note: ");
+                System.out.println("Enter note: ");
                 String note = scanner.nextLine();
                 notes.add(note);
-                System.out.print("\n Would you like to add more notes about the camper? (Y/N) ");
+                System.out.println("Would you like to add more notes about the camper? (Y/N) ");
                 yn = scanner.nextLine();
             }
             
@@ -269,28 +274,28 @@ public class UI {
     private Medical getMedicalInfo(){
         System.out.println("\nEnter the following information about the DOCTOR");
         Contact doctorContact = createContact();
-        System.out.println("\nWould you like to add Medications? (All necessary medications to be taken during camp must be added) Y/N");
+        System.out.println("Would you like to add Medications? (All necessary medications to be taken during camp must be added) Y/N");
         String yn = scanner.nextLine();
         ArrayList<Medication> medications = new ArrayList<Medication>();
         while(yn.equalsIgnoreCase("y")){
-            System.out.print("\nWhat is the name of the medication");
+            System.out.println("\nWhat is the name of the medication?");
             String medName = scanner.nextLine();
-            System.out.print("\nWhat time of day does the medicine have to be taken? " );
+            System.out.println("What time of day does the medicine have to be taken?");
             String medTime = scanner.nextLine();
             Medication medication = new Medication(medName, medTime);
             medications.add(medication);
-            System.out.print("\nDo you want to add another medication? (Y/N) ");
+            System.out.println("\nDo you want to add another medication? (Y/N)");
             yn = scanner.nextLine();
         }
         //for adding allergies
-        System.out.println("\nWould you like to add any Allergies? Y/N");
+        System.out.println("\nWould you like to add any Allergies? (Y/N)");
         yn = scanner.nextLine();
         ArrayList<String> allergies = new ArrayList<String>();
         while(yn.equalsIgnoreCase("y")){
-            System.out.print("\nWhat is the campers allergy to?");
+            System.out.println("\nWhat is the campers allergy to?");
             String allergy = scanner.nextLine();
             allergies.add(allergy);
-            System.out.print("\nDo you want to add another allergy? Y/N");
+            System.out.println("\nDo you want to add another allergy? (Y/N)");
             yn = scanner.nextLine();
         }
         Medical medicalInfo = new Medical(doctorContact);
@@ -306,13 +311,13 @@ public class UI {
     private Contact createContact(){
         Contact contact;
 
-        System.out.print("\n Enter the first name: "); 
+        System.out.print("Enter the first name: "); 
         String firstName = scanner.nextLine();
-        System.out.print("\n Enter the last name: "); 
+        System.out.print("Enter the last name: "); 
         String lastName = scanner.nextLine();
-        System.out.print("\nEnter the address: ");
+        System.out.print("Enter the address: ");
         String address = scanner.nextLine();
-        System.out.print("\nEnter the phone number: ");
+        System.out.print("Enter the phone number: ");
         String phoneNumber = scanner.nextLine();
         contact = new Contact(firstName, lastName, phoneNumber, address);
         
@@ -356,9 +361,9 @@ public class UI {
      * signs up a camper for a session
      */
     private void sessionSignup(){
-        System.out.print("\nEnter the first name of the camper you would like to register for a session: ");
+        System.out.println("\nEnter the first name of the camper you would like to register for a session: ");
         String firstName = scanner.nextLine();
-        System.out.print("\nEnter the last name of the camper you would like to register for a session: ");
+        System.out.println("\nEnter the last name of the camper you would like to register for a session: ");
         String lastName = scanner.nextLine();
         Camper camper = campSystem.findCamperByName(firstName, lastName);
         Session session = chooseSession(camper);
@@ -422,7 +427,7 @@ public class UI {
             + "arises through the negligence, omission, default or other action of anyone affiliated with the camp, "
             + "including other campers. I further agree that if any such claim is made, I will indemnify and defend the "
             + "camp with respect to any such claim, injury or damage.");
-            System.out.print("The camp cannot be attended without accepting this waiver. Type \"yes\" to accept the waiver. ");
+            System.out.println("The camp cannot be attended without accepting this waiver. Type \"yes\" to accept the waiver. ");
             if(scanner.nextLine().equalsIgnoreCase("yes")){
                 break;
             }
@@ -434,11 +439,11 @@ public class UI {
      */
     private void giveStrike(){
         System.out.print("Enter campers first name: ");
-        String firstName = scanner.nextLine();
+        String firstName = scanner.next();
         System.out.print("Enter campers last name: ");
-        String lastName = scanner.nextLine();
+        String lastName = scanner.next();
         System.out.print("Enter the reason for the strike: ");
-        String reason = scanner.nextLine();
+        String reason = scanner.next();
         campSystem.giveStrike(firstName, lastName, reason);
         System.out.println("Strike given to Camper " + firstName + lastName);
     }
@@ -447,11 +452,13 @@ public class UI {
      * creates a new camp and sets up sessions and cabins with the director's input
      */
     private void createCamp(){
-        System.out.println("Enter number of Sessions: ");
+        System.out.print("Enter number of Sessions: ");
         int numberSessions = scanner.nextInt();
         for(int i = 1; i <= numberSessions; i++){
             System.out.println("Enter theme for Session " +i+ ": ");
             String theme = scanner.nextLine();
+            System.out.println("Enter short description for Session " +i+ ": ");
+            theme += ": " + scanner.nextLine();
             System.out.println("Enter start date (format: yyyy-mm-dd): ");
             String start = scanner.nextLine();
             LocalDate startDate = LocalDate.parse(start);
