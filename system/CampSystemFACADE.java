@@ -20,6 +20,7 @@ public class CampSystemFACADE {
         users = UserList.getInstance();
         counselors = CounselorList.getInstance();
         campers = CamperList.getInstance();
+        cabins = CabinList.getInstance();
     }
 
     // returns 1 for parent, 2 for director, 3 for counselor, -1 for incorrect input
@@ -180,9 +181,9 @@ public class CampSystemFACADE {
         }else{
             info = "You have the following campers added to your account:\n";
             for(Camper c : currentUser.getCampers()){
-                info += c.getFirstName() + c.getLastName();
+                info += c.getFirstName() + " " + c.getLastName();
                 if(!c.getSessions().isEmpty()){
-                    info += "   Registered to the following sessions:\n";
+                    info += "\n   Registered to the following sessions:\n";
                     for(Session s : c.getSessions()){
                         info += "   - " + s.getStartDate() + " - " + s.getEndDate() + ", Theme: " + s.getTheme();
                     }

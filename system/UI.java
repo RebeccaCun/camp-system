@@ -24,7 +24,7 @@ public class UI {
      * main run for the program
      */
     public void run(){
-        System.out.println("Welcome to our camp website!");
+        System.out.println("\nWelcome to our camp website!");
         int choice;
         boolean stop = false;
         Type accountType;
@@ -108,7 +108,7 @@ public class UI {
      * displays the main menu with the parent's options
      */
     private void displayUserMenu(){
-        System.out.println("What would you like to do today? \n(1) add a new Camper \n(2) sign up camper for a session \n(3) General Information \n(4) FAQ’s (5) Logout");
+        System.out.println("\nWhat would you like to do today? \n(1) add a new Camper \n(2) sign up camper for a session \n(3) General Information \n(4) FAQ’s \n(5) Logout");
     }
 
     /** 
@@ -360,6 +360,7 @@ public class UI {
      */
     private void sessionSignup(){
         System.out.println("\nEnter the first name of the camper you would like to register for a session: ");
+        scanner.nextLine();
         String firstName = scanner.nextLine();
         System.out.println("\nEnter the last name of the camper you would like to register for a session: ");
         String lastName = scanner.nextLine();
