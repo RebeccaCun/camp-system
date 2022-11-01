@@ -29,7 +29,7 @@ public class DataConstants {
  protected static final String DOCTOR = "doctor";
  protected static final String ALLERGIES = "allergies";
  protected static final String MEDICATIONS = "medications";
- protected static final String DESCRIPTION = "description";
+ protected static final String NAME = "name";
  protected static final String TIME = "time";
  protected static final String REASON = "reason";
  protected static final String ACCEPTED_WAIVER = "acceptedWaiver";
