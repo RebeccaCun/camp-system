@@ -24,7 +24,7 @@ public class DataReader extends DataConstants {
 
     public static void main(String[] args) {
         ArrayList<Session> us = getAllSessions();
-        // ArrayList<User> us = getAllUsers();
+    // ArrayList<User> us = getAllUsers();
         // ArrayList<Counselor> us = getAllCounselors();
         for (Session user : us) {
             System.out.println(user);
