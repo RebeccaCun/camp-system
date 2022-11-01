@@ -19,16 +19,16 @@ public class Medication {
     }
     
     /**
-     * 
-     * @return
+     * used to get the name of the medication
+     * @return String representing name of medication
      */
     public String getName() {
         return this.name;
     }
     
     /**
-     * 
-     * @return
+     * Gives the time of day the medication is taken (aka 5:00 or dinner time)
+     * @return String of time
      */
     public String getTime() {
         return this.time;
