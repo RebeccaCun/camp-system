@@ -124,27 +124,5 @@
             "Starting a food fight",
             "ae03bbb0-0bef-415b-a0fd-2d440dd1fa92"
         ]
-    },
-    {
-        "birthday": "2002-12-20",
-        "firstName": "NAME",
-        "lastName": "LAST",
-        "medical": {
-            "doctor": {
-                "firstName": "NAME",
-                "lastName": "NAME",
-                "phoneNumber": "ACCEPTED_WAIVER",
-                "address": "ADDRESS"
-            },
-            "allergies": [],
-            "medications": []
-        },
-        "sessions": [],
-        "notes": [],
-        "numberStrikes": 0,
-        "emergencyContacts": [],
-        "id": "429f6877-b0c2-41a6-9db0-ec0e0fec8c27",
-        "guardians": [],
-        "reasonStrikes": []
     }
 ]
