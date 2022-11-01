@@ -171,10 +171,10 @@ public class Cabin {
      * @return A string representation of the schedules.
      */
     public String viewSchedules() {
-        String print = "";
-        for (Day day : schedules.keySet()) {
-            print += day;
-            print += schedules.get(day)+"\n";
+        String print = new String();
+        for(Day day : Day.values()){
+            print += day.toString() + ": \n";
+            print += schedules.get(day).toString();
         }
         return print;
     }

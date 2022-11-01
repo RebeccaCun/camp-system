@@ -243,10 +243,7 @@ public class CampSystemFACADE {
         try{
             scheduleFile.createNewFile();
             writer = new FileWriter(scheduleFile);
-            for(Day day : Day.values()){
-                writer.write(day.toString() + ": ");
-                writer.write(toPrint.viewSchedules());
-            }
+            writer.write(toPrint.viewSchedules());
         }catch(IOException e){
             e.printStackTrace();
         }
