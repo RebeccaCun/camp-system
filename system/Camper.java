@@ -48,54 +48,159 @@ public class Camper {
         this.birthday = birthday;
     }
 
+    /**
+     * 
+     * @return
+     */
+    public LocalDate getBirthday() {
+        return this.birthday;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<Contact> getEmergencyContacts() {
+        return this.emergencyContacts;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<Contact> getGuardians() {
+        return this.guardians;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Medical getMedical() {
+        return this.medical;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public int getNumberStrikes() {
+        return this.numberStrikes;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<String> getReasonStrikes() {
+        return this.reasonStrikes;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<String> getNotes() {
+        return this.notes;
+    }
+
+
+    /**
+     * campers first name
+     * @return String first name
+     */
     public String getFirstName() {
         return firstName;
     }
-
+    /**
+     * campers last name
+     * @return String last name
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     * age of camper
+     * @return int campers age
+     */
     public int getAge() {
         return Period.between(birthday, LocalDate.now()).getYears();
     }
 
+    /**
+     * campers specific UUID
+     * @return UUID
+     */
     public UUID getUUID() {
         return id;
     }
 
+    /**
+     * gets all possible sessions
+     * @return array List of all sessions
+     */
     public ArrayList<Session> getSessions() {
         return sessions;
     }
 
+    /**
+     * sets campers number of strikes
+     * @param strikes
+     */
     public void setNumStrikes(int strikes) {
         this.numberStrikes = strikes;
     }
 
+    /**
+     * add emergency contact to campers
+     * @param emergencyContacts arraylist of contacts
+     */
     public void addEmergContacts(ArrayList<Contact> emergencyContacts) {
         this.emergencyContacts = emergencyContacts;
     }
 
+    /**
+     * adds campers primary guardians
+     * @param guardians arraylist
+     */
     public void addGuardians(ArrayList<Contact> guardians) {
         this.guardians = guardians;
     }
-
+    /**
+     * adds medical info to camper
+     * @param medical
+     */
     public void addMedical(Medical medical) {
         this.medical = medical;
     }
-
+    /**
+     * add an explanation of strike
+     * @param reasons for strike
+     */
     public void addStrikeReason(ArrayList<String> reasons) {
         this.reasonStrikes = reasons;
     }
 
+    /**
+     * adds notes to the camper profile
+     * @param notes array list of notes
+     */
     public void addNotes(ArrayList<String> notes) {
         this.notes = notes;
     }
 
+    /**
+     * add a camper to the session givin array list of sessions
+     * @param sessions arrayList
+     */
     public void addSessions(ArrayList<Session> sessions) {
         this.sessions = sessions;
     }
-
+    /**
+     * add a camper to the session givin a session
+     * @param sessions Session
+     */
     public void addSession(Session session) {
         sessions.add(session);
     }

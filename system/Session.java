@@ -58,6 +58,14 @@ public class Session {
         return this.theme;
     }
 
+    /**
+     * 
+     * @return
+     */
+    public int getAvailableSpots() {
+        return this.availableSpots;
+    }
+
     public void decreaseAvailableSpots() { //not in the uml - Rebecca
         this.availableSpots--;
     }

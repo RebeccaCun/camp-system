@@ -17,16 +17,28 @@ public class Medication {
         this.name = name;
         this.time = time; 
     }
+    
+    /**
+     * 
+     * @return
+     */
+    public String getName() {
+        return this.name;
+    }
+    
+    /**
+     * 
+     * @return
+     */
+    public String getTime() {
+        return this.time;
+    }
 
     /**
      * Creates a string detailing the attributes of the Medication class.
      * @return A string representation of the Medication class.
      */
     public String toString(){
-<<<<<<< HEAD
-        return "Take "+ description + " medication at the following time: " + time;
-=======
         return "Name "+this.name+"\nTime: "+this.time;
->>>>>>> e839a270038a12ef0d592dde61636fab8512d862
     }
 }

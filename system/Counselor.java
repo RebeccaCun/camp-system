@@ -70,6 +70,26 @@ public class Counselor extends User{
         this.cabins = cabins;
     }
 
+    /**
+     * 
+     * @return
+     */
+    public String getBiography() {
+        return this.biography;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<Cabin> getCabins() {
+        return this.cabins;
+    }
+
+    /**
+     * adds medical info for the counselor 
+     * @return Medical info added
+     */
     public Medical getMedical() {
         return this.medical;
     }

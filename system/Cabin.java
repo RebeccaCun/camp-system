@@ -3,6 +3,7 @@ package system;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.Random;
 
 /**
  * A Cabin class that holds the information for a cabin at the camp.
@@ -10,39 +11,106 @@ import java.util.UUID;
  */
 public class Cabin {
     private UUID id;
-    private int cabinAge;
+    private int minCabinAge;
+    private int maxCabinAge;
     private int MaxNumberOfCampers = 8;
     private ArrayList<Camper> campers;
     private HashMap<Day, Schedule> schedules;
 
     /**
      * Establishes an instance of the Cabin class.
-     * @param cabinAge A Integer representing the cabin age of the Cabin.
+     * @param minCabinAge A Integer representing the minimum cabin age of the Cabin.
+     * @param maxCabinAge A Integer representing the maximum cabin age of the Cabin.
      */
-    public Cabin(int cabinAge) {
-        this.cabinAge = cabinAge;
+    public Cabin(int minCabinAge, int maxCabinAge) {
+        this.minCabinAge = minCabinAge;
+        this.maxCabinAge = maxCabinAge;
+        Day days[] = {Day.SUNDAY, Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY};
+        ArrayList<Activity> template = new ArrayList<Activity>();
+        template.add(new Activity("Archery", "Field"));
+        template.add(new Activity("Swimming Time", "Pool"));
+        template.add(new Activity("Fishing", "Lake"));
+        template.add(new Activity("Arts and Crafts", "Recreation Center"));
+        template.add(new Activity("Card Games", "Recreation Center"));
+        template.add(new Activity("Scavenger Hunt", "Forest"));
+        template.add(new Activity("Relay Race", "Field"));
+        template.add(new Activity("Capture the Flag", "Field"));
+        template.add(new Activity("Game Time", "Game Center"));
+        template.add(new Activity("Talent Show", "Recreation Center"));
+        template.add(new Activity("Forest Hike", "Forest"));
+        ArrayList<Activity> schedule = new ArrayList<Activity>();
+        int number = 0;
+        int number2 = 0;
+        int number3 = 0;
+        int number4 = 0;
+        int number5 = 0;
+        int numberLoop = -1;
+        Random rand = new Random();
+        number = rand.nextInt(template.size());
+        schedule.add(template.get(number));
+        for (int i = 0; i < 7; i++) {
+            schedule.add(new Activity("Breakfast", "Cafeteria"));
+            while (numberLoop == -1) {
+                number2 = rand.nextInt(template.size());
+                if (number2 != number) {
+                    schedule.add(template.get(number2));
+                    numberLoop = 1;
+                }
+            }
+            schedule.add(new Activity("Lunch", "Cafeteria"));
+            numberLoop = -1;
+            while (numberLoop == -1) {
+                number3 = rand.nextInt(template.size());
+                if (number3 != number2 && number3 != number) {
+                    schedule.add(template.get(number3));
+                    numberLoop = 1;
+                }
+            }
+            numberLoop = -1;
+            while (numberLoop == -1) {
+                schedule.add(template.get(number));
+                number4 = rand.nextInt(template.size());
+                if (number4 != number3 && number4 != number2 && number4 != number) {
+                    schedule.add(template.get(number4));
+                    numberLoop = 1;
+                }
+            }
+            schedule.add(new Activity("Dinner", "Cafeteria"));
+            numberLoop = -1;
+            while (numberLoop == -1) {
+                number5 = rand.nextInt(template.size());
+                if (number5 != number4 && number5 != number3 && number5 != number2 && number5 != number) {
+                    schedule.add(template.get(number5));
+                    numberLoop = 1;
+                }
+            }
+            schedules.put(days[i], new Schedule(schedule));
+        }
     }
 
     /**
      * Establishes an instance of the Cabin class with UUID.
      * @param id A UUID representing the ID of the Cabin.
-     * @param cabinAge A Integer representing the cabin age of the Cabin.
+     * @param minCabinAge A Integer representing the minimum cabin age of the Cabin.
+     * @param maxCabinAge A Integer representing the maximum cabin age of the Cabin.
      */
-    public Cabin(UUID id, int cabinAge) {
+    public Cabin(UUID id, int minCabinAge, int maxCabinAge) {
         this.id = id;
-        this.cabinAge = cabinAge;
+        this.minCabinAge = minCabinAge;
+        this.maxCabinAge = maxCabinAge;
     }
 
-    /**
-     * Returns the UUID of the Cabin class.
-     * @return the UUID of the Cabin.
-     */
     public UUID getUUID() {
         return id;
     }
 
-    public int getCabinAge(){
-        return cabinAge;
+    public int getMinCabinAge(){
+        return this.minCabinAge;
+    }
+
+
+    public int getMaxCabinAge(){
+        return maxCabinAge;
     }
 
     public int getMaxNumberOfCampers(){
@@ -51,6 +119,10 @@ public class Cabin {
 
     public ArrayList<Camper> getCampers(){
         return campers;
+    }
+
+    public HashMap<Day, Schedule> getSchedules() {
+        return this.schedules;
     }
 
     /**
@@ -133,7 +205,7 @@ public class Cabin {
      * @return A string representation of the Cabin class.
      */
     public String toString() {
-        String print = "Cabin age: "+this.cabinAge+"\nMaximum number of campers: "+this.MaxNumberOfCampers;
+        String print = "Cabin Age Range: "+this.minCabinAge+" to "+this.maxCabinAge+"\nMaximum number of campers: "+this.MaxNumberOfCampers;
         for (int i = 0; i < campers.size(); i++) {
 			if (campers.get(i) != null) {
                 print += campers.get(i)+"\n";

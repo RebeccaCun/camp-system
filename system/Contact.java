@@ -25,6 +25,38 @@ public class Contact {
     }
 
     /**
+     * 
+     * @return
+     */
+    public String getFirstName() {
+        return this.firstName;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getLastName() {
+        return this.lastName;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getAddress() {
+        return this.address;
+    }
+    
+    /**
      * Creates a string detailing the attributes of the Contact class.
      * @return A string representation of the Contact class.
      */

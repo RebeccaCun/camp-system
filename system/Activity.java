@@ -80,6 +80,46 @@ public class Activity {
     }
 
     /**
+     * 
+     * @return
+     */
+    public String getTitle() {
+        return this.title;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getLocation() {
+        return this.location;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public ArrayList<String> getNotes() {
+        return this.notes;
+    }
+
+    /**
      * Creates a string detailing the attributes of the Activity class.
      * @return A string representation of the Activity class.
      */

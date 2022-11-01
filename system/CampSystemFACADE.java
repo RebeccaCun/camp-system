@@ -82,7 +82,7 @@ public class CampSystemFACADE {
         int counter = 0;
         for(Cabin cabin : session.getCabins()){
             counter ++;
-            if(camper.getAge() == cabin.getCabinAge() || camper.getAge() == cabin.getCabinAge() +1){
+            if(camper.getAge() >= cabin.getMinCabinAge() || camper.getAge() <= cabin.getMaxCabinAge()){
                 if(cabin.getMaxNumberOfCampers() <= cabin.getCampers().size()){
                     continue;
                 }
