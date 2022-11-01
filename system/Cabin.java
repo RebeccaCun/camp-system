@@ -47,40 +47,44 @@ public class Cabin {
         int numberLoop = -1;
         Random rand = new Random();
         number = rand.nextInt(template.size());
+        schedule.add(template.get(number));
         for (int i = 0; i < 7; i++) {
             schedule.add(new Activity("Breakfast", "Cafeteria"));
             while (numberLoop == -1) {
-                schedule.add(template.get(number));
                 number2 = rand.nextInt(template.size());
-                if (number != number2) {
-                    schedule.add(template.get(number));
+                if (number2 != number) {
+                    schedule.add(template.get(number2));
+                    numberLoop = 1;
                 }
             }
-            numberLoop = 1;
             schedule.add(new Activity("Lunch", "Cafeteria"));
             numberLoop = -1;
             while (numberLoop == -1) {
                 number3 = rand.nextInt(template.size());
                 if (number3 != number2 && number3 != number) {
-                    schedule.add(template.get(number));
+                    schedule.add(template.get(number3));
+                    numberLoop = 1;
                 }
+            }
+            numberLoop = -1;
+            while (numberLoop == -1) {
                 schedule.add(template.get(number));
                 number4 = rand.nextInt(template.size());
                 if (number4 != number3 && number4 != number2 && number4 != number) {
-                    schedule.add(template.get(number));
+                    schedule.add(template.get(number4));
+                    numberLoop = 1;
                 }
             }
-            numberLoop = 1;
             schedule.add(new Activity("Dinner", "Cafeteria"));
             numberLoop = -1;
             while (numberLoop == -1) {
                 number5 = rand.nextInt(template.size());
                 if (number5 != number4 && number5 != number3 && number5 != number2 && number5 != number) {
-                    schedule.add(template.get(number));
+                    schedule.add(template.get(number5));
+                    numberLoop = 1;
                 }
             }
-            numberLoop = 1;
-            schedules.put(days[i],new Schedule(schedule));
+            schedules.put(days[i], new Schedule(schedule));
         }
     }
 
