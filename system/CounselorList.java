@@ -51,4 +51,8 @@ public class CounselorList {
     public void addCounselor(Counselor counselor) {
         counselors.add(counselor);
     }
+
+    public void saveCounselors(){
+        DataWriter.saveCounselors();
+    }
 }
