@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * 
+ * User interface of the camp program
  * @author Cyber Council
  */
 public class UI {
