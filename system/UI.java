@@ -474,9 +474,13 @@ public class UI {
 
     private void printRoster(){}
     private void printWeekInfo(){
-
+        //ask for the session
     }
-    private void printSchedule(){}
+    private void printSchedule(){
+        //ask for the session
+        
+    }
+    
 
      /**
      * logs user out of the system
