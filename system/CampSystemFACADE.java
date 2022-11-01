@@ -12,6 +12,7 @@ public class CampSystemFACADE {
     private CounselorList counselors;
     private CamperList campers;
     private UserList users;
+    private CabinList cabins;
     private FileWriter writer;
 
     public CampSystemFACADE(){
@@ -120,6 +121,12 @@ public class CampSystemFACADE {
     }
 
     public void logout(){
+        users.saveUsers();
+        campers.saveCampers();
+        sessions.saveSessions();
+        counselors.saveCounselors();
+        cabins.saveCabins();
+        
         currentUser = null;
     }
 
@@ -152,6 +159,7 @@ public class CampSystemFACADE {
      * @param cabin
      */
     public void addCabinToSessions(Cabin cabin){
+        cabins.addCabin(cabin);
         for(Session session : sessions.getSessions()){
             session.addCabin(cabin);
         }
@@ -243,10 +251,7 @@ public class CampSystemFACADE {
         try{
             scheduleFile.createNewFile();
             writer = new FileWriter(scheduleFile);
-            for(Day day : Day.values()){
-                writer.write(day.toString() + ": ");
-                writer.write(toPrint.viewSchedules());
-            }
+            writer.write(toPrint.viewSchedules());
         }catch(IOException e){
             e.printStackTrace();
         }

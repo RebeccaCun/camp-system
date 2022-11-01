@@ -26,8 +26,8 @@ public class Schedule {
     }
 
     /**
-     * 
-     * @return
+     * returns a list of all the activities in the camp schedule 
+     * @return ArrayList of activities
      */
     public ArrayList<Activity> getActivities() {
         return this.activities;
@@ -50,12 +50,10 @@ public class Schedule {
      * @return A string representation of the Schedule class.
      */
     public String toString(){
-        String print = "Activities: ";
-        for (int i = 0; i < activities.size(); i++) {
-			if (activities.get(i) != null) {
-                print += activities.get(i)+"\n";
-            }
-		}
+        String print = new String();
+        for(Activity a : activities){
+            print += a.toString() + "\n";
+        }
         return print;
     }
 }

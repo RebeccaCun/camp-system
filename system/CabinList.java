@@ -7,13 +7,16 @@ import java.util.ArrayList;
  * @author Cyber Council
  */
 public class CabinList {
-    private ArrayList<Cabin> cabins = DataReader.getAllCabins();
+    private ArrayList<Cabin> cabins;
     private static CabinList cabinList;
 
     /**
      * Initializes an instance of the CabinList class.
      */
-    private CabinList(){}
+    private CabinList(){
+        cabins = DataReader.getAllCabins();
+        cabinList = this;
+    }
 
     /**
      * Creates an instance of the CabinList class.

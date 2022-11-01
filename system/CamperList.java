@@ -25,5 +25,9 @@ public class CamperList {
     public ArrayList<Camper> getCampers(){
         return campers;
     }
+
+    public void saveCampers(){
+        DataWriter.saveCampers();
+    }
     
 }
