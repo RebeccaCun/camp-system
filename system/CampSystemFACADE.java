@@ -7,12 +7,14 @@ public class CampSystemFACADE {
     private User currentUser;
     private SessionList sessions;
     private CounselorList counselors;
+    private CamperList campers;
     private UserList users;
 
     public CampSystemFACADE(){
         sessions = SessionList.getInstance();
         users = UserList.getInstance();
         counselors = CounselorList.getInstance();
+        campers = CamperList.getInstance();
     }
 
     // returns 1 for parent, 2 for director, 3 for counselor, -1 for incorrect input
@@ -70,7 +72,7 @@ public class CampSystemFACADE {
         newCamper.addMedical(medicalInfo);
         newCamper.addNotes(notes);
 
-        CamperList.addCamper(newCamper);
+        campers.addCamper(newCamper);
         currentUser.addCamper(newCamper);
 
         return true;

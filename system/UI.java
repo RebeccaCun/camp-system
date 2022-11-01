@@ -50,7 +50,7 @@ public class UI {
                 choice = getUserCommand(5);
             }else if(accountType == Type.COUNSELOR){
                 displayCounselorMenu();
-                choice = getUserCommand(6);
+                choice = getUserCommand(9);
             }else if(accountType == Type.DIRECTOR){
                 displayDirectorMenu();
                 choice = getUserCommand(7);
@@ -77,7 +77,17 @@ public class UI {
                     giveStrike();
                     break;
                 case '7':
-                    createCamp();
+                    if(accountType == Type.DIRECTOR){
+                        createCamp();
+                    }else{
+                        printRoster();
+                    }
+                    break;
+                case '8':
+                    printWeekInfo();
+                    break;
+                case '9':
+                    printSchedule();
                     break;
                 default:
                     System.out.println("Invalid input");
@@ -107,6 +117,9 @@ public class UI {
     private void displayCounselorMenu(){
         displayUserMenu();
         System.out.println("(6) give Strike to a Camper");
+        System.out.println("(7) print roster for cabin");
+        System.out.println("(8) print next weeks information");
+        System.out.println("(9) print Schedule");
     }
 
     /**
@@ -114,6 +127,7 @@ public class UI {
      */
     private void displayDirectorMenu(){
         displayCounselorMenu();
+        System.out.println("(6) give Strike to a Camper");
         System.out.println("(7) create a new Camp");
     }
 
@@ -453,6 +467,12 @@ public class UI {
             campSystem.addCabinToSessions(newCabin);
         }
     }
+
+    private void printRoster(){}
+    private void printWeekInfo(){
+
+    }
+    private void printSchedule(){}
 
      /**
      * logs user out of the system
