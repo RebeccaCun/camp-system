@@ -320,6 +320,7 @@ public class UI {
         System.out.println("> The camps phone number is \"593-783-2849\"");
         System.out.println("> The camps email is \"campfuntimes@gmail.com \". Feel free to reach out with questions!");
         System.out.println("> Please arrive to you campers session within 1 hour of their call time. Parking will be availble, but limited.");
+        System.out.println("> This camp has Lake Judomo bordering it and is an outdoors based camp. Sunscreen and Mosqito sprey is provided");
     }
 
     /**
@@ -328,11 +329,12 @@ public class UI {
     private void printFAQ(){
         System.out.println("Can my camper stay for multiple sessions? \nYes, guardians may sign up campers  for any number of sessions through their home menu!");
         System.out.println("Should my camper bring any specific items? \nCampers will need a vairety of items, such as \n watersport essentails: swimsuit (2 or 3), goggles, towel, sunscreen \n Daily: bedtime essentails, multiple shorts, shirts, socks, shower and bathroom products \n Special event outfit: look at your sessions spirit night and bring relating accessories  ");
-        System.out.println("What if my Camper does not want to or can not participate in an activity? \nAlthough participating is encouraged, campers are allowed to sit out in any activity. \nDepending on the number of kids sitting out, they will either have to sit out and watch the activity or will be escorted to another mini activity like arts & crafts or a game");
+        System.out.println("What if my Camper does not want to or cannot participate in an activity? \nAlthough participating is encouraged, campers are allowed to sit out in any activity. \nDepending on the number of kids sitting out, they will either have to sit out and watch the activity or will be escorted to another mini activity like arts & crafts or a game");
         System.out.println("What are some regular camp activities? \nswimming, archery, canoeing, overnight camp out by lake night, soccer, flag football, gymnastics, tag, camping survival strategies, reptile house, etc.");
         System.out.println("What kinds of payment do you accept?\n We only accept Credit/Debit card and echecks");
         System.out.println("Can you sign your kid for more then one session? \nYes, you can sign campers up for multiple on your homepage ");
         System.out.println("If I have an emergency, can I pick up my camper from camp early? \n Yes, as the campers guardian, you can pick up your camper from camp at any time.\n You may not get recompensated and will have to fill out paperwork and pack up your camper upon arrival");
+        System.out.println("How many supervisors are there watching the campers? \n We have one director for the camp and sustain a 1 counselor : 8 camper ratio");
         //activities
     }
    
