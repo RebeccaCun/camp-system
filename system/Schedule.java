@@ -26,8 +26,8 @@ public class Schedule {
     }
 
     /**
-     * 
-     * @return
+     * returns a list of all the activities in the camp schedule 
+     * @return ArrayList of activities
      */
     public ArrayList<Activity> getActivities() {
         return this.activities;

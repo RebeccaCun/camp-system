@@ -52,24 +52,24 @@ public class Medical {
     }
 
     /**
-     * 
-     * @return
+     * gets the Contact for the doctor
+     * @return contact 
      */    
     public Contact getDoctor() {
         return this.doctor;
     }
 
     /**
-     * 
-     * @return
+     * returns an arrayList of the campers allegies
+     * @return ArrayList
      */
     public ArrayList<String> getAllergies() {
         return this.allergies;
     }
 
     /**
-     * 
-     * @return
+     * returns an ArrayList of all the campers medications
+     * @return ArrayList
      */
     public ArrayList<Medication> getMedications() {
         return this.medications;
