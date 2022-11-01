@@ -124,7 +124,7 @@ public class Activity {
      * @return A string representation of the Activity class.
      */
     public String toString(){
-        return this.title+"is located at"+this.location+" from "+this.startTime+" to "+this.endTime;
+        return this.startTime+" to "+ this.endTime + ": " + this.title + " at " + this.location;
     }
     
 }
