@@ -23,8 +23,12 @@ public class Cabin {
      * @param maxCabinAge A Integer representing the maximum cabin age of the Cabin.
      */
     public Cabin(int minCabinAge, int maxCabinAge) {
+        id = UUID.randomUUID();
+        campers = new ArrayList<>();
+    
         this.minCabinAge = minCabinAge;
         this.maxCabinAge = maxCabinAge;
+        schedules = new HashMap<Day, Schedule>();
         Day days[] = {Day.SUNDAY, Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY};
         ArrayList<Activity> template = new ArrayList<Activity>();
         template.add(new Activity("Archery", "Field"));
@@ -98,6 +102,7 @@ public class Cabin {
         this.id = id;
         this.minCabinAge = minCabinAge;
         this.maxCabinAge = maxCabinAge;
+        campers = new ArrayList<>();
     }
 
     public UUID getUUID() {

@@ -8,13 +8,16 @@ import java.util.ArrayList;
  * @author Cyber Council
  */
 public class SessionList {
-    private ArrayList<Session> sessions = DataReader.getAllSessions();
+    private ArrayList<Session> sessions;
     private static SessionList sessionList;
 
     /**
      * Initializes an instance of the SessionList class.
      */
-    private SessionList() {}
+    private SessionList() {
+        sessions = DataReader.getAllSessions();
+        sessionList = this;
+    }
 
     public ArrayList<Session> getSessions(){
         return this.sessions;
@@ -63,13 +66,12 @@ public class SessionList {
 
     /**
      * Adds a Session to the list and returns a boolean depending of if it was added.
-     * @param startDate The start date of the Session being added.
-     * @param endDate The end date of the Session being added.
+     * @param session The session to be added
      * @return The boolean representing the status of the Session.
      */
-    public boolean addSession(LocalDate startDate, LocalDate endDate) {
-        if(hasSession(startDate, endDate)) {
-            sessions.add(new Session(startDate, endDate));
+    public boolean addSession(Session session) {
+        if(!hasSession(session.getStartDate(), session.getEndDate())) {
+            sessions.add(session);
             return true;
         }
         return false;

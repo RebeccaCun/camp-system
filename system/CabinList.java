@@ -66,9 +66,9 @@ public class CabinList {
      * @param maxCabinAge The max. cabin age of the Cabin being added.
      * @return The boolean representing the status of the Cabin.
      */
-    public boolean addCabin(int minCabinAge, int maxCabinAge) {
-        if(hasCabin(minCabinAge, maxCabinAge)) {
-            cabins.add(new Cabin(minCabinAge, maxCabinAge));
+    public boolean addCabin(Cabin cabin) {
+        if(!hasCabin(cabin.getMinCabinAge(), cabin.getMaxCabinAge())) {
+            cabins.add(cabin);
             return true;
         }
         return false;

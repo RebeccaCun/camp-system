@@ -42,7 +42,8 @@ public class DataConstants {
  protected static final String AVAILABLE_SPOTS = "availableSpots";
  protected static final String THEME = "theme";
  protected static final String CABINS = "cabins";
- protected static final String CABIN_AGE = "cabinAge";
+ protected static final String MIN_CABIN_AGE = "minCabinAge";
+ protected static final String MAX_CABIN_AGE = "maxCabinAge";
  protected static final String MAX_NO_OF_CAMPERS = "maxNumberOfCampers";
  protected static final String BIOGRAPHY = "biography";
  protected static final String SCHEDULES = "schedules";

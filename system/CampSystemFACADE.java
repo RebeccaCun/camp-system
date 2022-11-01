@@ -145,7 +145,7 @@ public class CampSystemFACADE {
     public void createSession(LocalDate start, LocalDate end, String theme){
         Session session = new Session(start, end);
         session.addTheme(theme);
-        sessions.addSession(start, end);
+        sessions.addSession(session);
     }
 
     /**

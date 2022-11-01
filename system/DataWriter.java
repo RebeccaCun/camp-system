@@ -22,19 +22,40 @@ public class DataWriter extends DataConstants {
      */
     public static void main(String[] args) {
 
-        // TESTING saveUsers()
-        UserList ul = UserList.getInstance();
-        User us = new User("w", "xyz", "zyxw");
-        us.setType(Type.valueOf("PARENT"));
-        us.addBirthday(LocalDate.parse("2016-08-16"));
+        // // TESTING saveUsers()
+        // UserList ul = UserList.getInstance();
+        // User us = new User("w", "xyz", "zyxw");
+        // us.setType(Type.valueOf("PARENT"));
+        // us.addBirthday(LocalDate.parse("2016-08-16"));
 
-        ArrayList<Camper> cp = new ArrayList<>();
-        cp.add(new Camper(UUID.randomUUID(), "v", "xyz", null));
-        us.addCampers(cp);
+        // ArrayList<Camper> cp = new ArrayList<>();
+        // cp.add(new Camper(UUID.randomUUID(), "v", "xyz", null));
+        // us.addCampers(cp);
 
-        ul.addUser(us);
+        // ul.addUser(us);
 
-        saveUsers();
+        // saveUsers();
+
+        SessionList sl = SessionList.getInstance();
+        CabinList cl = CabinList.getInstance();
+
+        Session s = new Session(LocalDate.parse("2002-12-01"), LocalDate.parse("2002-12-11"));
+        s.setAvailableSpots(3);
+        
+        Cabin c = new Cabin(20, 21);
+        
+        ArrayList<Activity> al = new ArrayList<>();
+        Activity a = new Activity("TITLE", "LOCATION");
+        al.add(a);
+
+        System.out.println( cl.addCabin(c));
+        
+
+        s.addCabin(c);
+        System.out.println( sl.addSession(s) );
+
+        saveSessions();
+        saveCabins();
     }
 
     /**
@@ -384,7 +405,8 @@ public class DataWriter extends DataConstants {
         JSONObject cabinDetails = new JSONObject();
 
 	    cabinDetails.put(USER_ID, cabin.getUUID().toString());
-        cabinDetails.put(CABIN_AGE, cabin.getCabinAge());
+        cabinDetails.put(MIN_CABIN_AGE, cabin.getMinCabinAge());
+        cabinDetails.put(MAX_CABIN_AGE, cabin.getMaxCabinAge());
         cabinDetails.put(MAX_NO_OF_CAMPERS, cabin.getMaxNumberOfCampers());
         
         // add schedules...

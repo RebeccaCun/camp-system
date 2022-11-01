@@ -310,7 +310,8 @@ public class DataReader extends DataConstants {
                 // create the new cabin
                 Cabin newCabin = new Cabin(
                     UUID.fromString((String) cabin.get(USER_ID)), 
-                    ((Long) cabin.get(CABIN_AGE)).intValue());
+                    ((Long) cabin.get(MIN_CABIN_AGE)).intValue(),
+                    ((Long) cabin.get(MAX_CABIN_AGE)).intValue());
 
                 newCabin.addMaxCampers( ((Long) cabin.get(MAX_NO_OF_CAMPERS)).intValue() );
 

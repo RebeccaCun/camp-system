@@ -22,8 +22,10 @@ public class Session {
      * @param endDate A String representing the end date of the Session.
      */
     public Session(LocalDate startDate, LocalDate endDate) {
+        id = UUID.randomUUID();
         this.startDate = startDate;
         this.endDate = endDate;
+        cabins = new ArrayList<>();
     }
 
     /**
@@ -36,6 +38,7 @@ public class Session {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
+        cabins = new ArrayList<>();
     }
 
     public LocalDate getStartDate(){

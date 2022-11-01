@@ -23,6 +23,7 @@ public class Activity {
     public Activity(String title, String location){
         this.title = title;
         this.location = location;
+        notes = new ArrayList<>();
     }
 
     /**

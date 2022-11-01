@@ -32,6 +32,11 @@ public class Camper {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
+        emergencyContacts = new ArrayList<>();
+        guardians = new ArrayList<>();
+        reasonStrikes = new ArrayList<>();
+        notes = new ArrayList<>();
+        sessions = new ArrayList<>();
     }
 
     /**
@@ -46,6 +51,11 @@ public class Camper {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
+        emergencyContacts = new ArrayList<>();
+        guardians = new ArrayList<>();
+        reasonStrikes = new ArrayList<>();
+        notes = new ArrayList<>();
+        sessions = new ArrayList<>();
     }
 
     /**
