@@ -15,8 +15,10 @@ public class SessionList {
      * Initializes an instance of the SessionList class.
      */
     private SessionList() {
-        sessions = new ArrayList<Session>();
         sessions = DataReader.getAllSessions();
+        if(sessions == null){
+            sessions = new ArrayList<Session>();
+        }
         sessionList = this;
     }
 

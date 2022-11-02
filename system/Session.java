@@ -134,6 +134,7 @@ public class Session {
      */
     public void addCabin(Cabin cabin) {
         this.cabins.add(cabin);
+        availableSpots += 8;
     }
     
     /**

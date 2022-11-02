@@ -464,9 +464,9 @@ public class UI {
     private void createCamp(){
         System.out.print("Enter number of Sessions: ");
         int numberSessions = scanner.nextInt();
+        scanner.nextLine();
         for(int i = 1; i <= numberSessions; i++){
             System.out.println("Enter theme for Session " +i+ ": ");
-            scanner.nextLine();
             String theme = scanner.nextLine();
             System.out.println("Enter short description for Session " +i+ ": ");
             theme += ": " + scanner.nextLine();
@@ -481,9 +481,9 @@ public class UI {
         System.out.println("Enter number of Cabins: ");
         int numberCabins = scanner.nextInt();
         for(int i = 1; i <= numberCabins; i++){
-            System.out.println("Enter lowest age for this cabin: ");
+            System.out.println("Enter lowest age for the " + i + ". cabin: ");
             int minCabinAge = scanner.nextInt();
-            System.out.println("Enter highest age for this cabin: ");
+            System.out.println("Enter highest age for the " + i + ". cabin: ");
             int maxCabinAge = scanner.nextInt();
             Cabin newCabin = new Cabin(minCabinAge, maxCabinAge);
             campSystem.addCabinToSessions(newCabin);
