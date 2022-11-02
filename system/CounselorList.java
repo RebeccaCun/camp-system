@@ -15,6 +15,9 @@ public class CounselorList {
      */
     private CounselorList() {  
         counselors = DataReader.getAllCounselors();
+        if(counselors == null){
+            counselors = new ArrayList<Counselor>();
+        }
         counselorList = this;
     }
     /**

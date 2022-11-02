@@ -16,6 +16,9 @@ public class UserList {
     private UserList() {
         userList = this;
         users = DataReader.getAllUsers();
+        if(users == null){
+            users = new ArrayList<User>();
+        }
     }
 
     /**

@@ -306,9 +306,9 @@ public class CampSystemFACADE {
         try{
             rosterFile.createNewFile();
             writer = new FileWriter(rosterFile);
-            writer.write("Campers in your Cabin: ");
+            writer.write("Campers in your Cabin: \n");
             for(Camper c : toPrint.getCampers()){
-                writer.write("- " + c.getFirstName() + c.getLastName() + ", " + c.getAge());
+                writer.write("- " + c.getFirstName() +" "+ c.getLastName() + ", " + c.getAge()+"\n");
             }
             writer.close();
         }catch(IOException e){
@@ -327,27 +327,27 @@ public class CampSystemFACADE {
         try{
             infoFile.createNewFile();
             writer = new FileWriter(infoFile);
-            writer.write("--- VITAL INFORMATION FOR THE WEEK FROM " + session.getStartDate() + " TO " + session.getEndDate() + " ---");
+            writer.write("--- VITAL INFORMATION FOR THE WEEK FROM " + session.getStartDate() + " TO " + session.getEndDate() + " ---\n\n");
             for(Camper c : toPrint.getCampers()){
-                writer.write("- " + c.getFirstName() + c.getLastName() + ":");
-                writer.write("  -> ALLERGIES: " + c.getMedical().getAllergies());
+                writer.write("- " + c.getFirstName() + " "+ c.getLastName() + ":\n");
+                writer.write("  -> ALLERGIES: \n");
                 if(c.getMedical().getAllergies().isEmpty()){
                     writer.write("      no allergies");
                 }else{
                     for(String allergy : c.getMedical().getAllergies()){
-                        writer.write("      - " + allergy);
+                        writer.write("      - " + allergy + "\n");
                     }
                 }
-                writer.write("  -> EMERGENCY CONTACTS: ");
+                writer.write("  -> EMERGENCY CONTACTS: \n");
                 for(Contact emergency : c.getEmergencyContacts()){
-                    writer.write("      - " + emergency.getFirstName() + " " + emergency.getLastName() + ", " + emergency.getAddress() + ", " + emergency.getPhoneNumber());
+                    writer.write("      - " + emergency.getFirstName() + " " + emergency.getLastName() + ", " + emergency.getAddress() + ", " + emergency.getPhoneNumber()+ "\n");
                 }
-                writer.write("  -> MEDICAL INFORMATION: ");
+                writer.write("  -> MEDICAL INFORMATION: \n");
                 Contact doc = c.getMedical().getDoctor();
-                writer.write("      - Doctor: " + doc.getFirstName() + " " + doc.getLastName() + ", " + doc.getAddress() + ", " + doc.getPhoneNumber());
-                writer.write("      - Medications: ");
+                writer.write("      - Doctor: " + doc.getFirstName() + " " + doc.getLastName() + ", " + doc.getAddress() + ", " + doc.getPhoneNumber()+"\n");
+                writer.write("      - Medications: \n");
                 for(Medication m : c.getMedical().getMedications()){
-                    writer.write("      " + m.getName() + ", " + m.getTime());
+                    writer.write("      " + m.getName() + ", " + m.getTime()+"\n");
                 }
                 writer.close();
             }
