@@ -75,19 +75,12 @@
         "maxNumberOfCampers": 20
     },
     {
-        "maxCabinAge": 21,
+        "maxCabinAge": 12,
         "campers": [],
         "schedules": {
             "WEDNESDAY": [
                 {
                     "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
@@ -109,118 +102,6 @@
                 },
                 {
                     "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Talent Show"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
                     "location": "Forest",
                     "startTime": null,
                     "endTime": null,
@@ -228,38 +109,10 @@
                 },
                 {
                     "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
                     "location": "Field",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Archery"
+                    "title": "Capture the Flag"
                 },
                 {
                     "notes": [],
@@ -267,62 +120,6 @@
                     "startTime": null,
                     "endTime": null,
                     "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
                 },
                 {
                     "notes": [],
@@ -336,121 +133,44 @@
                     "location": "Recreation Center",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
+                    "title": "Talent Show"
                 }
             ],
             "MONDAY": [
                 {
                     "notes": [],
-                    "location": "Recreation Center",
+                    "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Card Games"
+                    "title": "Breakfast"
+                },
+                {
+                    "notes": [],
+                    "location": "Pool",
+                    "startTime": null,
+                    "endTime": null,
+                    "title": "Swimming Time"
                 },
                 {
                     "notes": [],
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Breakfast"
+                    "title": "Lunch"
+                },
+                {
+                    "notes": [],
+                    "location": "Recreation Center",
+                    "startTime": null,
+                    "endTime": null,
+                    "title": "Talent Show"
+                },
+                {
+                    "notes": [],
+                    "location": "Pool",
+                    "startTime": null,
+                    "endTime": null,
+                    "title": "Swimming Time"
                 },
                 {
                     "notes": [],
@@ -464,132 +184,6 @@
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Talent Show"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Scavenger Hunt"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
                     "title": "Dinner"
                 },
                 {
@@ -598,214 +192,11 @@
                     "startTime": null,
                     "endTime": null,
                     "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Archery"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
                 }
             ],
             "THURSDAY": [
                 {
                     "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
@@ -813,10 +204,10 @@
                 },
                 {
                     "notes": [],
-                    "location": "Field",
+                    "location": "Recreation Center",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Capture the Flag"
+                    "title": "Arts and Crafts"
                 },
                 {
                     "notes": [],
@@ -824,13 +215,6 @@
                     "startTime": null,
                     "endTime": null,
                     "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
                 },
                 {
                     "notes": [],
@@ -845,48 +229,6 @@
                     "startTime": null,
                     "endTime": null,
                     "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
                 },
                 {
                     "notes": [],
@@ -904,285 +246,19 @@
                 },
                 {
                     "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Scavenger Hunt"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
                     "location": "Field",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Archery"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
+                    "title": "Capture the Flag"
                 }
             ],
             "SUNDAY": [
                 {
                     "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
                     "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Capture the Flag"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
                 },
                 {
                     "notes": [],
@@ -1193,38 +269,10 @@
                 },
                 {
                     "notes": [],
-                    "location": "Recreation Center",
+                    "location": "Game Center",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
+                    "title": "Game Time"
                 },
                 {
                     "notes": [],
@@ -1235,34 +283,6 @@
                 },
                 {
                     "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Talent Show"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
                     "location": "Recreation Center",
                     "startTime": null,
                     "endTime": null,
@@ -1270,31 +290,10 @@
                 },
                 {
                     "notes": [],
-                    "location": "Cafeteria",
+                    "location": "Field",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
+                    "title": "Relay Race"
                 },
                 {
                     "notes": [],
@@ -1312,218 +311,15 @@
                 },
                 {
                     "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
                     "location": "Field",
                     "startTime": null,
                     "endTime": null,
                     "title": "Archery"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
                 }
             ],
             "TUESDAY": [
                 {
                     "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
@@ -1531,10 +327,10 @@
                 },
                 {
                     "notes": [],
-                    "location": "Field",
+                    "location": "Pool",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Capture the Flag"
+                    "title": "Swimming Time"
                 },
                 {
                     "notes": [],
@@ -1542,6 +338,20 @@
                     "startTime": null,
                     "endTime": null,
                     "title": "Lunch"
+                },
+                {
+                    "notes": [],
+                    "location": "Recreation Center",
+                    "startTime": null,
+                    "endTime": null,
+                    "title": "Card Games"
+                },
+                {
+                    "notes": [],
+                    "location": "Pool",
+                    "startTime": null,
+                    "endTime": null,
+                    "title": "Swimming Time"
                 },
                 {
                     "notes": [],
@@ -1552,59 +362,10 @@
                 },
                 {
                     "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
                     "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
                 },
                 {
                     "notes": [],
@@ -1612,277 +373,11 @@
                     "startTime": null,
                     "endTime": null,
                     "title": "Talent Show"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Scavenger Hunt"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Archery"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
                 }
             ],
             "FRIDAY": [
                 {
                     "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
@@ -1911,220 +406,17 @@
                 },
                 {
                     "notes": [],
-                    "location": "Recreation Center",
+                    "location": "Field",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Talent Show"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Scavenger Hunt"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
+                    "title": "Capture the Flag"
                 },
                 {
                     "notes": [],
                     "location": "Field",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Archery"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
+                    "title": "Capture the Flag"
                 },
                 {
                     "notes": [],
@@ -2138,41 +430,6 @@
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
                     "title": "Dinner"
                 },
                 {
@@ -2180,149 +437,16 @@
                     "location": "Recreation Center",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
                     "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
                 }
             ],
             "SATURDAY": [
                 {
                     "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
                     "location": "Cafeteria",
                     "startTime": null,
                     "endTime": null,
                     "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Capture the Flag"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
                 },
                 {
                     "notes": [],
@@ -2330,76 +454,6 @@
                     "startTime": null,
                     "endTime": null,
                     "title": "Talent Show"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Scavenger Hunt"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Forest",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
                 },
                 {
                     "notes": [],
@@ -2420,161 +474,28 @@
                     "location": "Recreation Center",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Card Games"
+                    "title": "Talent Show"
+                },
+                {
+                    "notes": [],
+                    "location": "Recreation Center",
+                    "startTime": null,
+                    "endTime": null,
+                    "title": "Talent Show"
+                },
+                {
+                    "notes": [],
+                    "location": "Recreation Center",
+                    "startTime": null,
+                    "endTime": null,
+                    "title": "Talent Show"
                 },
                 {
                     "notes": [],
                     "location": "Forest",
                     "startTime": null,
                     "endTime": null,
-                    "title": "Forest Hike"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Lake",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Fishing"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Pool",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Swimming Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Dinner"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Arts and Crafts"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Breakfast"
-                },
-                {
-                    "notes": [],
-                    "location": "Cafeteria",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Lunch"
-                },
-                {
-                    "notes": [],
-                    "location": "Game Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Game Time"
-                },
-                {
-                    "notes": [],
-                    "location": "Recreation Center",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Card Games"
-                },
-                {
-                    "notes": [],
-                    "location": "Field",
-                    "startTime": null,
-                    "endTime": null,
-                    "title": "Relay Race"
+                    "title": "Scavenger Hunt"
                 },
                 {
                     "notes": [],
@@ -2592,8 +513,8 @@
                 }
             ]
         },
-        "id": "ee777435-6aac-437a-a030-bc368b44e832",
-        "minCabinAge": 20,
+        "id": "8d2b6a86-8985-42a0-b650-4b0d5da1e633",
+        "minCabinAge": 10,
         "maxNumberOfCampers": 8
     }
 ]
