@@ -39,7 +39,7 @@ public class Cabin {
         Activity f = new Activity("Scavenger Hunt", "Forest");
         Activity g = new Activity("Relay Race", "Field");
         Activity h = new Activity("Capture the Flag", "Field");
-        Activity i = new Activity("Game Time", "Game Center");
+        Activity i2 = new Activity("Game Time", "Game Center");
         Activity j = new Activity("Talent Show", "Recreation Center");
         Activity k = new Activity("Forest Hike", "Forest");
         template.add(a);
@@ -50,7 +50,7 @@ public class Cabin {
         template.add(f);
         template.add(g);
         template.add(h);
-        template.add(i);
+        template.add(i2);
         template.add(j);
         template.add(k);
         Activity breakf = new Activity("Breakfast", "Cafeteria");
