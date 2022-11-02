@@ -60,56 +60,56 @@ public class Camper {
     }
 
     /**
-     * 
-     * @return
+     * Returns the birthday of the Camper class.
+     * @return The LocalDate of the birthday for the Camper.
      */
     public LocalDate getBirthday() {
         return this.birthday;
     }
 
     /**
-     * 
-     * @return
+     * Returns the emergency contact of the Camper class.
+     * @return The ArrayList of contacts for the Camper.
      */
     public ArrayList<Contact> getEmergencyContacts() {
         return this.emergencyContacts;
     }
 
     /**
-     * 
-     * @return
+     * Returns the guardians of the Camper class.
+     * @return The ArrayList of guardians for the Camper.
      */
     public ArrayList<Contact> getGuardians() {
         return this.guardians;
     }
 
     /**
-     * 
-     * @return
+     * Returns the medical information of the Camper class.
+     * @return The medical information for the Camper.
      */
     public Medical getMedical() {
         return this.medical;
     }
 
     /**
-     * 
-     * @return
+     * Returns the amount of strikes of the Camper class.
+     * @return The Integer of number of strikes for the Camper.
      */
     public int getNumberStrikes() {
         return this.numberStrikes;
     }
 
     /**
-     * 
-     * @return
+     * Returns the reason of strikes of the Camper class.
+     * @return The ArrayList of reasons for the Camper.
      */
     public ArrayList<String> getReasonStrikes() {
         return this.reasonStrikes;
     }
 
     /**
-     * 
-     * @return
+     * Returns the notes of the Camper class.
+     * @return The ArrayList of notes for the Camper.
      */
     public ArrayList<String> getNotes() {
         return this.notes;
