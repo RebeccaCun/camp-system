@@ -239,6 +239,15 @@ public class UI {
             System.out.print("Enter Campers birthday (format: yyyy-mm-dd): ");
             String birthdayString = scanner.nextLine();
             LocalDate birthday = LocalDate.parse(birthdayString);
+            Boolean more = true;
+    
+            while(more){
+                System.out.println("\nEnter the following information about the EMERGENCY CONTACT:");
+                Contact emergencyContact = createContact();
+    
+                System.out.println("Would you like to add another emergency contact? (True/False)");
+                more = scanner.nextBoolean();
+            }
             System.out.println("\nEnter the following information about the EMERGENCY CONTACT:");
             Contact emergencyContact = createContact();
 
