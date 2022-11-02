@@ -82,7 +82,6 @@ public class Cabin {
             }
             numberLoop = -1;
             while (numberLoop == -1) {
-                schedule.add(template.get(number));
                 number4 = rand.nextInt(template.size());
                 if (number4 != number3 && number4 != number2 && number4 != number) {
                     schedule.add(template.get(number4));
