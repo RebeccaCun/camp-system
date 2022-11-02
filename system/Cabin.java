@@ -57,11 +57,11 @@ public class Cabin {
         breakf.addStartTime("08:00");
         breakf.addEndTime("08:30");
         Activity lunch = new Activity("Lunch", "Cafeteria");
-        breakf.addStartTime("12:00");
-        breakf.addEndTime("12:30");
+        lunch.addStartTime("12:00");
+        lunch.addEndTime("12:30");
         Activity dinner = new Activity("Dinner", "Cafeteria");
-        breakf.addStartTime("18:00");
-        breakf.addEndTime("18:30");
+        dinner.addStartTime("18:00");
+        dinner.addEndTime("18:30");
         int number = 0;
         int number2 = 0;
         int number3 = 0;
