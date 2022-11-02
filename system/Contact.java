@@ -25,32 +25,32 @@ public class Contact {
     }
 
     /**
-     * 
-     * @return
+     * Returns the first name of the Contact class.
+     * @return The String of the first name for the Contact.
      */
     public String getFirstName() {
         return this.firstName;
     }
 
     /**
-     * 
-     * @return
+     * Returns the last name of the Contact class.
+     * @return The String of the last name for the Contact.
      */
     public String getLastName() {
         return this.lastName;
     }
 
     /**
-     * 
-     * @return
+     * Returns the phone number of the Contact class.
+     * @return The String of the phone number for the Contact.
      */
     public String getPhoneNumber() {
         return this.phoneNumber;
     }
 
     /**
-     * 
-     * @return
+     * Returns the address of the Contact class.
+     * @return The String of the address for the Contact.
      */
     public String getAddress() {
         return this.address;

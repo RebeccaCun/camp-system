@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * A CampSystem class that holds the information for the camp system itself.
+ * @author Cyber Council
+ */
 public class CampSystemFACADE {
     private User currentUser;
     private SessionList sessions;
@@ -15,6 +19,9 @@ public class CampSystemFACADE {
     private CabinList cabins;
     private FileWriter writer;
 
+    /**
+     * Initializes an instance of the CampSystem class.
+     */
     public CampSystemFACADE(){
         sessions = SessionList.getInstance();
         users = UserList.getInstance();

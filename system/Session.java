@@ -41,38 +41,65 @@ public class Session {
         cabins = new ArrayList<>();
     }
 
+    /**
+     * Returns the start date of the Session class.
+     * @return The LocalDate of the start date for the Session.
+     */
     public LocalDate getStartDate(){
         return this.startDate;
     }
 
+    /**
+     * Returns the end date of the Session class.
+     * @return The LocalDate of the end date for the Session.
+     */
     public LocalDate getEndDate(){
         return this.endDate;
     }
 
+    /**
+     * Returns the cabins of the Session class.
+     * @return The ArrayList of cabins for the Session.
+     */
     public ArrayList<Cabin> getCabins(){
         return this.cabins;
     }
 
+    /**
+     * Returns the ID of the Session class.
+     * @return The ID of the Session.
+     */
     public UUID getUUID() {
         return this.id;
     }
 
+    /**
+     * Returns the theme of the Session class.
+     * @return The String of the theme for the Session.
+     */
     public String getTheme() {   //add themes AND decription going with the theme;
         return this.theme;
     }
 
     /**
-     * 
-     * @return
+     * Returns the available spots of the Session class.
+     * @return The integer of the available spots for the Session.
      */
     public int getAvailableSpots() {
         return this.availableSpots;
     }
 
-    public void decreaseAvailableSpots() { //not in the uml - Rebecca
+    /**
+     * Decreases the amount of spots in the Session.
+     */
+    public void decreaseAvailableSpots() { 
         this.availableSpots--;
     }
     
+    /**
+     * Sets the available spots of the Session class.
+     * @param availableSpots The integer of the available spots for the Session.
+     */
     public void setAvailableSpots(int availableSpots) {
         this.availableSpots = availableSpots;
     }

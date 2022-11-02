@@ -59,6 +59,10 @@ public class UserList {
         return false;
     }
 
+    /**
+     * Returns the users of the UserList Class.
+     * @return The ArrayList of the users.
+     */
     public ArrayList<User> getUsers() {
         return users;
     }

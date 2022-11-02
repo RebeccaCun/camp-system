@@ -50,7 +50,7 @@ public class Counselor extends User{
     public void giveStrike(Camper camper, String reason) {
         for (int i = 0; i < campers.size(); i++) {
             if(campers.get(i) == camper) {
-                camper.giveStrike(reason); //needs to be implemented in Camper
+                camper.giveStrike(reason); 
             }
         }
     }
@@ -72,24 +72,24 @@ public class Counselor extends User{
     }
 
     /**
-     * 
-     * @return
+     * Returns the biography of the User class.
+     * @return The string of the biography for the Counselor.
      */
     public String getBiography() {
         return this.biography;
     }
 
     /**
-     * 
-     * @return
+     * Returns the cabins of the Counselor class.
+     * @return The ArrayList of the cabins for the Counselor.
      */
     public ArrayList<Cabin> getCabins() {
         return this.cabins;
     }
 
-    /**
-     * adds medical info for the counselor 
-     * @return Medical info added
+   /**
+     * Returns the medical information of the Counselor class.
+     * @return The Medical information for the Counselor.
      */
     public Medical getMedical() {
         return this.medical;

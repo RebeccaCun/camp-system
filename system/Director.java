@@ -39,7 +39,7 @@ public class Director extends User{
     public void giveStrike(Camper camper, String reason) {
         for (int i = 0; i < campers.size(); i++) {
             if(campers.get(i) == camper) {
-                camper.giveStrike(reason); //needs to be implemented in Camper
+                camper.giveStrike(reason); 
             }
         } 
     }   

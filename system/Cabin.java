@@ -106,27 +106,50 @@ public class Cabin {
         schedules = new HashMap<>();
     }
 
+    /**
+     * Returns the ID of the Cabin class.
+     * @return The ID of the Cabin.
+     */
     public UUID getUUID() {
         return id;
     }
 
+    /**
+     * Returns the minimum cabin age of the Cabin class.
+     * @return The integer for the minimum cabin age of the Cabin.
+     */
     public int getMinCabinAge(){
         return this.minCabinAge;
     }
 
-
+    /**
+     * Returns the maximum cabin age of the Cabin class.
+     * @return The integer for the maximum cabin age of the Cabin.
+     */
     public int getMaxCabinAge(){
         return maxCabinAge;
     }
 
+    /**
+     * Returns the maximum number of campers of the Cabin class.
+     * @return The integer for the max number of campers of the Cabin.
+     */
     public int getMaxNumberOfCampers(){
         return MaxNumberOfCampers;
     }
 
+    /**
+     * Returns the campers of the Cabin class.
+     * @return The ArrayList of Campers of the Cabin.
+     */
     public ArrayList<Camper> getCampers(){
         return campers;
     }
 
+    /**
+     * Returns the schedules of the Cabin class.
+     * @return The HashMap for the schedule of the Cabin.
+     */
     public HashMap<Day, Schedule> getSchedules() {
         return this.schedules;
     }

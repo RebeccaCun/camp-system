@@ -81,40 +81,40 @@ public class Activity {
     }
 
     /**
-     * 
-     * @return
+     * Returns the title of the Activity class.
+     * @return The String for the title of the Activity.
      */
     public String getTitle() {
         return this.title;
     }
 
     /**
-     * 
-     * @return
+     * Returns the location of the Activity class.
+     * @return The String for the location of the Activity.
      */
     public String getLocation() {
         return this.location;
     }
 
     /**
-     * 
-     * @return
+     * Returns the start time of the Activity class.
+     * @return The String for the start time of the Activity.
      */
     public String getStartTime() {
         return this.startTime;
     }
 
     /**
-     * 
-     * @return
+     * Returns the end time of the Activity class.
+     * @return The String for the end time of the Activity.
      */
     public String getEndTime() {
         return this.endTime;
     }
 
     /**
-     * 
-     * @return
+     * Returns the notes of the Activity class.
+     * @return The ArrayList of the notes for the Activity.
      */
     public ArrayList<String> getNotes() {
         return this.notes;

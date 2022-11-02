@@ -1,6 +1,10 @@
 package system;
 import java.util.ArrayList;
 
+/**
+ * An CounselorList class that contains all of the counselors for the camp system.
+ * @author Cyber Council
+ */
 public class CounselorList {
 
     private ArrayList<Counselor> counselors;
@@ -53,6 +57,9 @@ public class CounselorList {
         counselors.add(counselor);
     }
 
+    /**
+     * Saves the CounselorList.
+     */
     public void saveCounselors(){
         DataWriter.saveCounselors();
     }
