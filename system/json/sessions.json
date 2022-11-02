@@ -1,0 +1,167 @@
+[
+    {
+        "availableSpots": 64,
+        "endDate": "2022-01-07",
+        "theme": "hawaii: hawaii",
+        "id": "5ed67928-1b99-4fea-b2b8-41f58b1c978a",
+        "startDate": "2022-01-01",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 64,
+        "endDate": "2022-02-07",
+        "theme": "2022-02-01: lego",
+        "id": "9885edb3-d685-40af-9e3f-1acc1d1a779b",
+        "startDate": "2022-02-01",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-07-07",
+        "theme": "Hawaii: hula dancing",
+        "id": "98f2370f-6739-4a80-894b-65924856b1dc",
+        "startDate": "2022-07-01",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-07-14",
+        "theme": "Rockstars: music!",
+        "id": "15226a1b-8aa4-4ff0-b605-242c46860a45",
+        "startDate": "2022-07-08",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-07-21",
+        "theme": "Ninja: challenge courses",
+        "id": "c73cea8b-135c-4f84-99f5-da49505b0739",
+        "startDate": "2022-07-15",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-08-03",
+        "theme": "Halloween: Spooky",
+        "id": "c9e69f1c-a7f7-462d-9fe4-de12c2e563ac",
+        "startDate": "2022-07-27",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-08-15",
+        "theme": "Hollywood: Singing",
+        "id": "3585feaf-934d-4c02-a373-481f2196d8fa",
+        "startDate": "2022-08-09",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-08-22",
+        "theme": "Hero's: Marvel vs DC",
+        "id": "e1f879dd-bfed-424e-a8e9-61ed70a59b97",
+        "startDate": "2022-08-16",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-08-29",
+        "theme": "Wild West: Lassu",
+        "id": "d47141f5-9c08-49a7-8176-224fe0054eb9",
+        "startDate": "2022-08-23",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-09-05",
+        "theme": "Animals: Common critters",
+        "id": "6c101774-3c21-416e-b27a-a6a577de41db",
+        "startDate": "2022-08-30",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    },
+    {
+        "availableSpots": 48,
+        "endDate": "2022-09-17",
+        "theme": "S'mores: 2022-09-06",
+        "id": "c00799f0-a386-4baf-9274-19f7b3dcfb53",
+        "startDate": "2022-09-11",
+        "cabins": [
+            "5371ba3c-5b20-4938-ab51-7cb82e0c8adb",
+            "b472f0c7-5ecc-44e2-a9e2-2e9d01b0a551",
+            "6adcb9ee-dcf7-4f96-acfc-0e009deace9c",
+            "f4913d13-8147-4c02-8429-8612071697e7",
+            "68408f51-24fa-4631-a545-1c459c22603c",
+            "2e4c321f-af1c-4e93-9800-8652283b116a"
+        ]
+    }
+]
