@@ -58,6 +58,7 @@ public class Cabin {
             schedule.add(template.get(number));
             schedule.get(schedule.size()-1).addStartTime("09:00");
             schedule.get(schedule.size()-1).addEndTime("10:30");
+            numberLoop = -1;
             while (numberLoop == -1) {
                 number2 = rand.nextInt(template.size());
                 if (number2 != number) {
@@ -75,8 +76,8 @@ public class Cabin {
                 number3 = rand.nextInt(template.size());
                 if (number3 != number2 && number3 != number) {
                     schedule.add(template.get(number3));
-                    schedule.get(schedule.size()-1).addStartTime("1:00");
-                    schedule.get(schedule.size()-1).addEndTime("3:00");
+                    schedule.get(schedule.size()-1).addStartTime("13:00");
+                    schedule.get(schedule.size()-1).addEndTime("15:00");
                     numberLoop = 1;
                 }
             }
@@ -85,24 +86,25 @@ public class Cabin {
                 number4 = rand.nextInt(template.size());
                 if (number4 != number3 && number4 != number2 && number4 != number) {
                     schedule.add(template.get(number4));
-                    schedule.get(schedule.size()-1).addStartTime("3:30");
-                    schedule.get(schedule.size()-1).addEndTime("5:30");
+                    schedule.get(schedule.size()-1).addStartTime("15:30");
+                    schedule.get(schedule.size()-1).addEndTime("17:30");
                     numberLoop = 1;
                 }
             }
             schedule.add(new Activity("Dinner", "Cafeteria"));
-            schedule.get(schedule.size()-1).addStartTime("6:00");
-            schedule.get(schedule.size()-1).addEndTime("6:30");
+            schedule.get(schedule.size()-1).addStartTime("18:00");
+            schedule.get(schedule.size()-1).addEndTime("18:30");
             numberLoop = -1;
             while (numberLoop == -1) {
                 number5 = rand.nextInt(template.size());
                 if (number5 != number4 && number5 != number3 && number5 != number2 && number5 != number) {
                     schedule.add(template.get(number5));
-                    schedule.get(schedule.size()-1).addStartTime("7:00");
-                    schedule.get(schedule.size()-1).addEndTime("8:00");
+                    schedule.get(schedule.size()-1).addStartTime("19:00");
+                    schedule.get(schedule.size()-1).addEndTime("20:00");
                     numberLoop = 1;
                 }
             }
+            numberLoop = -1;
             schedules.put(days[i], new Schedule(schedule));
         }
     }
