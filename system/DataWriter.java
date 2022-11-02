@@ -21,6 +21,14 @@ public class DataWriter extends DataConstants {
 
         Cabin nc = new Cabin(10, 12);
         c.addCabin(nc);
+
+        // HashMap<Day, Schedule> hs = nc.getSchedules();
+
+        // Set<Day> s = hs.keySet();
+        // for (Day day : s)
+        //     System.out.println(day.toString());
+
+        // System.out.println(hs.toString());
         
         saveCabins();
     }
