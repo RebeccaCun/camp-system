@@ -198,6 +198,7 @@ public class UI {
 
     /**
      * lets user log into preexisting account
+     * @return The type of account of the user.
      */
     private Type login(){
         while(true){

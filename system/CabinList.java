@@ -44,6 +44,10 @@ public class CabinList {
         return null;
     }
 
+    /**
+     * Returns the cabins of the CabinList.
+     * @return The ArrayList of cabins in the CabinList.
+     */
     public ArrayList<Cabin> getCabins() {
         return cabins;
     }
@@ -65,8 +69,7 @@ public class CabinList {
 
     /**
      * Adds a Cabin to the list and returns a boolean depending of if it was added.
-     * @param minCabinAge The min. cabin age of the Cabin being added.
-     * @param maxCabinAge The max. cabin age of the Cabin being added.
+     * @param cabin The cabin being added.
      * @return The boolean representing the status of the Cabin.
      */
     public boolean addCabin(Cabin cabin) {

@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * A CampSystem class that holds the information for the camp system itself.
+ * @author Cyber Council
+ */
 public class CampSystemFACADE {
     private User currentUser;
     private SessionList sessions;
@@ -15,6 +19,9 @@ public class CampSystemFACADE {
     private CabinList cabins;
     private FileWriter writer;
 
+    /**
+     * Initializes an instance of the CampSystem class.
+     */
     public CampSystemFACADE(){
         sessions = SessionList.getInstance();
         users = UserList.getInstance();
@@ -23,6 +30,12 @@ public class CampSystemFACADE {
         cabins = CabinList.getInstance();
     }
 
+    /**
+     * Logins a user.
+     * @param userName The username of the user.
+     * @param password The password of the user.
+     * @return An integer depending on the type of the user's account, 
+     */
     // returns 1 for parent, 2 for director, 3 for counselor, -1 for incorrect input
     public int login(String userName, String password){
         for(User user : users.getUsers()){
@@ -44,6 +57,18 @@ public class CampSystemFACADE {
         return -1;
     }
 
+    /**
+     * Creates a user account.
+     * @param userName The username of the new account.
+     * @param password The password of the new account.
+     * @param email The email of the new account.
+     * @param lastName The last name of the new account.
+     * @param firstName The first name of the new account.
+     * @param phoneNumber The phone number of the new account.
+     * @param preferredContact The preferred contact of the new account.
+     * @param birthday The birthday of the new account.
+     * @param address The address of the new account.
+     */
     public void createUserAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address){
        
         User newUser = new User(firstName, lastName, userName);
@@ -58,6 +83,20 @@ public class CampSystemFACADE {
         users.addUser(newUser);
     }
 
+    /**
+     * Creates a counselor account.
+     * @param userName The username of the new account.
+     * @param password The password of the new account.
+     * @param email The email of the new account.
+     * @param lastName The last name of the new account.
+     * @param firstName The first name of the new account.
+     * @param phoneNumber The phone number of the new account.
+     * @param preferredContact The preferred contact of the new account.
+     * @param birthday The birthday of the new account.
+     * @param address The address of the new account.
+     * @param biography The biography of the new account.
+     * @param medicalInfo The medical information of the new account.
+     */
     public void createCounselorAccount(String userName, String password, String email, String lastName, String firstName, String phoneNumber, String preferredContact, LocalDate birthday, String address, String biography, Medical medicalInfo){
         
         Counselor newCounselor = new Counselor(firstName, lastName, userName);
@@ -74,6 +113,16 @@ public class CampSystemFACADE {
         counselors.addCounselor(newCounselor);
     }
 
+    /**
+     * Creates and adds a camper to the camper list and user's account.
+     * @param firstName The first name of the camper.
+     * @param lastName The last name of the camper.
+     * @param birthday The birthday of the camper.
+     * @param emergencyContact The emergency contact of the camper.
+     * @param medicalInfo The medical information of the camper.
+     * @param notes The biography of the camper.
+     * @return A boolean depending on if the camper was successfully added.
+     */
     public boolean addCamper(String firstName, String lastName, LocalDate birthday, Contact emergencyContact, Medical medicalInfo, ArrayList<String> notes){
         Camper newCamper = new Camper(firstName, lastName, birthday);
         ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
@@ -88,11 +137,17 @@ public class CampSystemFACADE {
         return true;
     }
 
+    /**
+     * Signs up a camper to a session.
+     * @param camper The camper being added.
+     * @param session The session that the camper is being added to
+     * @return The integer representing whether or not the camper was successfully added.
+     */
     public int sessionSignup(Camper camper, Session session){
         int counter = 0;
         for(Cabin cabin : session.getCabins()){
             counter ++;
-            if(camper.getAge() >= cabin.getMinCabinAge() || camper.getAge() <= cabin.getMaxCabinAge()){
+            if(camper.getAge() >= cabin.getMinCabinAge() && camper.getAge() <= cabin.getMaxCabinAge()){
                 if(cabin.getMaxNumberOfCampers() <= cabin.getCampers().size()){
                     continue;
                 }
@@ -105,6 +160,10 @@ public class CampSystemFACADE {
         return -1;
     }
 
+    /**
+     * Searches for a camper by their first and last name in the campers list.
+     * @return The camper being searched for.
+     */
     public Camper findCamperByName(String firstName, String lastName){
         Camper camper = null;
         for(Camper c : currentUser.campers){
@@ -115,6 +174,10 @@ public class CampSystemFACADE {
         return camper;
     }
 
+    /**
+     * Searches for available sessions in the sessions List.
+     * @return A list of available sessions.
+     */
     public ArrayList<Session> findAvailableSessions(){
         ArrayList<Session> availableSessions = new ArrayList<Session>();
         for(Session s : sessions.getSessions()){
@@ -125,6 +188,9 @@ public class CampSystemFACADE {
         return availableSessions;
     }
 
+    /**
+     * Logouts the current user.
+     */
     public void logout(){
         users.saveUsers();
         campers.saveCampers();
@@ -135,6 +201,11 @@ public class CampSystemFACADE {
         currentUser = null;
     }
 
+    /**
+     * Searches for a username's availibility and returns a boolean depending if if it is available.
+     * @param username The username being checked for.
+     * @return The boolean dependent of if the username is usable or not.
+     */
     public boolean checkUsernameAvailability(String username){
         if(!users.getUsers().isEmpty()){
             for(User user : users.getUsers()){
@@ -153,11 +224,23 @@ public class CampSystemFACADE {
         return true;
     }
 
+    /**
+     * Gives a strike to a specific camper.
+     * @param firstName The String of the first name of the camper.
+     * @param lastName The String of the last name of the camper.
+     * @param reason The String of the reason for the strike.
+     */
     public void giveStrike(String firstName, String lastName, String reason){
         Camper camper = findCamperByName(firstName, lastName);
         camper.giveStrike(reason);
     }
 
+    /**
+     * Creates a session.
+     * @param start The LocalDate of the start of the Session.
+     * @param end The LocalDate of the end of the Session.
+     * @param theme The String of the theme for the Session.
+     */
     public void createSession(LocalDate start, LocalDate end, String theme){
         Session session = new Session(start, end);
         session.addTheme(theme);
@@ -165,7 +248,8 @@ public class CampSystemFACADE {
     }
 
     /**
-     * @param cabin
+     * Adds a cabin to the Session list.
+     * @param cabin The cabin being added.
      */
     public void addCabinToSessions(Cabin cabin){
         cabins.addCabin(cabin);
@@ -174,6 +258,10 @@ public class CampSystemFACADE {
         }
     }
 
+    /**
+     * Returns the information of the current user.
+     * @return A String representing the information of the current user.
+     */
     public String getUserInformation(){
         String info = new String();
         if(currentUser.getCampers().isEmpty()){
@@ -193,6 +281,10 @@ public class CampSystemFACADE {
         return info;
     }
 
+    /**
+     * Returns the Sessions.
+     * @return A String representing the Sessions.
+     */
     public String listSessions(){
         String sessionList = "Sessions:\n";
         int counter = 1;
@@ -203,6 +295,10 @@ public class CampSystemFACADE {
         return sessionList;
     }
 
+    /**
+     * Prints the Roster into a file.
+     * @param sessionNr An Integer representing the size of the Session list.
+     */
     public void printRoster(int sessionNr){
         Session session = sessions.getSessions().get(sessionNr - 1);
         Cabin toPrint = findCounselorsCabin(session);
@@ -220,6 +316,10 @@ public class CampSystemFACADE {
         }
     }
 
+    /**
+     * Prints the Session Week Info into a file.
+     * @param sessionNr An Integer representing the size of the Session list.
+     */
     public void printWeekInfo(int sessionNr){
         Session session = sessions.getSessions().get(sessionNr - 1);
         Cabin toPrint = findCounselorsCabin(session);
@@ -256,6 +356,10 @@ public class CampSystemFACADE {
         }
     }
 
+    /**
+     * Prints the Schedule Info into a file.
+     * @param sessionNr An Integer representing the size of the Session list.
+     */
     public void printSchedule(int sessionNr){
         Session session = sessions.getSessions().get(sessionNr - 1);
         Cabin toPrint = findCounselorsCabin(session);
@@ -270,6 +374,11 @@ public class CampSystemFACADE {
         }
     }
 
+    /**
+     * Searches for a specific counselor's cabin.
+     * @param userName The session where the cabin resides.
+     * @return The cabin being searched for.
+     */
     private Cabin findCounselorsCabin(Session session){
         Counselor couns = (Counselor) currentUser;
         for(Cabin c : session.getCabins()){

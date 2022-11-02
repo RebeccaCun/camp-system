@@ -19,6 +19,10 @@ public class SessionList {
         sessionList = this;
     }
 
+    /**
+     * Returns the Sessions for the SessionList class.
+     * @return The ArrayList of sessions in the SessionList.
+     */
     public ArrayList<Session> getSessions(){
         return this.sessions;
     }
