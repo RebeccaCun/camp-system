@@ -123,18 +123,14 @@ public class CampSystemFACADE {
      * @param notes The biography of the camper.
      * @return A boolean depending on if the camper was successfully added.
      */
-    public boolean addCamper(String firstName, String lastName, LocalDate birthday, Contact emergencyContact, Medical medicalInfo, ArrayList<String> notes){
+    public void addCamper(String firstName, String lastName, LocalDate birthday, ArrayList<Contact> emergencyContacts, Medical medicalInfo, ArrayList<String> notes){
         Camper newCamper = new Camper(firstName, lastName, birthday);
-        ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
-        emergencyContacts.add(emergencyContact);
         newCamper.addEmergContacts(emergencyContacts);
         newCamper.addMedical(medicalInfo);
         newCamper.addNotes(notes);
 
         campers.addCamper(newCamper);
         currentUser.addCamper(newCamper);
-
-        return true;
     }
 
     /**

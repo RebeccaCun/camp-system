@@ -230,50 +230,42 @@ public class UI {
      * adds camper to users account
      */
     private void addCamper(){
-        while(true){
-            System.out.print("Enter Campers first name: ");
-            scanner.nextLine();
-            String firstName = scanner.nextLine();
-            System.out.print("Enter Campers last name: ");
-            String lastName = scanner.nextLine();
-            System.out.print("Enter Campers birthday (format: yyyy-mm-dd): ");
-            String birthdayString = scanner.nextLine();
-            LocalDate birthday = LocalDate.parse(birthdayString);
-            Boolean more = true;
-    
-            while(more){
-                System.out.println("\nEnter the following information about the EMERGENCY CONTACT:");
-                Contact emergencyContact = createContact();
-    
-                System.out.println("Would you like to add another emergency contact? (True/False)");
-                more = scanner.nextBoolean();
-            }
+        System.out.print("Enter Campers first name: ");
+        scanner.nextLine();
+        String firstName = scanner.nextLine();
+        System.out.print("Enter Campers last name: ");
+        String lastName = scanner.nextLine();
+        System.out.print("Enter Campers birthday (format: yyyy-mm-dd): ");
+        String birthdayString = scanner.nextLine();
+        LocalDate birthday = LocalDate.parse(birthdayString);
+        String yn = "y";
+        ArrayList<Contact> emergencyContacts = new ArrayList<Contact>();
+        while(yn.equalsIgnoreCase("y")){
             System.out.println("\nEnter the following information about the EMERGENCY CONTACT:");
             Contact emergencyContact = createContact();
-
-            Medical medicalInfo = getMedicalInfo();
-            
-            System.out.print("\nWould you like to add general notes about the camper? (Y/N) ");
-            String yn = scanner.nextLine();
-            ArrayList<String> notes = new ArrayList<String>();
-            while(yn.equalsIgnoreCase("y")){
-                System.out.println("Enter note: ");
-                String note = scanner.nextLine();
-                notes.add(note);
-                System.out.println("Would you like to add more notes about the camper? (Y/N) ");
-                yn = scanner.nextLine();
-            }
-            
-            askToAcceptWaiver();
-
-            if(campSystem.addCamper(firstName, lastName, birthday, emergencyContact, medicalInfo, notes) == true){   // add guardian details?
-                System.out.println(firstName + " " + lastName+ " has been successfully signed up as a Camper");
-                break;
-            }
-
-
-            System.out.println("\nInvalid input. Start over.");
+            emergencyContacts.add(emergencyContact);
+            System.out.println("Would you like to add another emergency contact? (Y/N)");
+            yn = scanner.nextLine();
         }
+    
+        Medical medicalInfo = getMedicalInfo();
+        
+        System.out.print("\nWould you like to add general notes about the camper? (Y/N) ");
+        yn = scanner.nextLine();
+        ArrayList<String> notes = new ArrayList<String>();
+        while(yn.equalsIgnoreCase("y")){
+            System.out.println("Enter note: ");
+            String note = scanner.nextLine();
+            notes.add(note);
+            System.out.println("Would you like to add more notes about the camper? (Y/N) ");
+            yn = scanner.nextLine();
+        }
+        
+        askToAcceptWaiver();
+
+        campSystem.addCamper(firstName, lastName, birthday, emergencyContacts, medicalInfo, notes);   // add guardian details?
+        System.out.println(firstName + " " + lastName+ " has been successfully signed up as a Camper");
+            
     }
 
     /**
