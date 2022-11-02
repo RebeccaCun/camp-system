@@ -52,31 +52,31 @@ public class Cabin {
         for (int i = 0; i < 7; i++) {
             ArrayList<Activity> schedule = new ArrayList<Activity>();
             schedule.add(new Activity("Breakfast", "Cafeteria"));
-            schedule.get(0).addStartTime("08:00");
-            schedule.get(0).addEndTime("08:30");
+            schedule.get(schedule.size()-1).addStartTime("08:00");
+            schedule.get(schedule.size()-1).addEndTime("08:30");
             number = rand.nextInt(template.size());
             schedule.add(template.get(number));
-            schedule.get(1).addStartTime("09:00");
-            schedule.get(1).addEndTime("10:30");
+            schedule.get(schedule.size()-1).addStartTime("09:00");
+            schedule.get(schedule.size()-1).addEndTime("10:30");
             while (numberLoop == -1) {
                 number2 = rand.nextInt(template.size());
                 if (number2 != number) {
                     schedule.add(template.get(number2));
-                    schedule.get(2).addStartTime("11:00");
-                    schedule.get(2).addEndTime("11:45");
+                    schedule.get(schedule.size()-1).addStartTime("11:00");
+                    schedule.get(schedule.size()-1).addEndTime("11:45");
                     numberLoop = 1;
                 }
             }
             schedule.add(new Activity("Lunch", "Cafeteria"));
-            schedule.get(3).addStartTime("12:00");
-            schedule.get(3).addEndTime("12:30");
+            schedule.get(schedule.size()-1).addStartTime("12:00");
+            schedule.get(schedule.size()-1).addEndTime("12:30");
             numberLoop = -1;
             while (numberLoop == -1) {
                 number3 = rand.nextInt(template.size());
                 if (number3 != number2 && number3 != number) {
                     schedule.add(template.get(number3));
-                    schedule.get(4).addStartTime("1:00");
-                    schedule.get(4).addEndTime("3:00");
+                    schedule.get(schedule.size()-1).addStartTime("1:00");
+                    schedule.get(schedule.size()-1).addEndTime("3:00");
                     numberLoop = 1;
                 }
             }
@@ -86,21 +86,21 @@ public class Cabin {
                 number4 = rand.nextInt(template.size());
                 if (number4 != number3 && number4 != number2 && number4 != number) {
                     schedule.add(template.get(number4));
-                    schedule.get(5).addStartTime("3:30");
-                    schedule.get(5).addEndTime("5:30");
+                    schedule.get(schedule.size()-1).addStartTime("3:30");
+                    schedule.get(schedule.size()-1).addEndTime("5:30");
                     numberLoop = 1;
                 }
             }
             schedule.add(new Activity("Dinner", "Cafeteria"));
-            schedule.get(6).addStartTime("6:00");
-            schedule.get(6).addEndTime("6:30");
+            schedule.get(schedule.size()-1).addStartTime("6:00");
+            schedule.get(schedule.size()-1).addEndTime("6:30");
             numberLoop = -1;
             while (numberLoop == -1) {
                 number5 = rand.nextInt(template.size());
                 if (number5 != number4 && number5 != number3 && number5 != number2 && number5 != number) {
                     schedule.add(template.get(number5));
-                    schedule.get(7).addStartTime("7:00");
-                    schedule.get(7).addEndTime("8:00");
+                    schedule.get(schedule.size()-1).addStartTime("7:00");
+                    schedule.get(schedule.size()-1).addEndTime("8:00");
                     numberLoop = 1;
                 }
             }
