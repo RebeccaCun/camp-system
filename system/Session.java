@@ -95,7 +95,7 @@ public class Session {
     public void decreaseAvailableSpots() { 
         this.availableSpots--;
     }
-    
+
     /**
      * Sets the available spots of the Session class.
      * @param availableSpots The integer of the available spots for the Session.
