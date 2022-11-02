@@ -1,1 +1,73 @@
-[{"birthday":"1981-03-24","lastName":"Williams","medical":{"doctor":{"firstName":"Kasey","lastName":"Frederick","phoneNumber":"773-234-3329","address":"2706 W Flournoy St, Chicago, IL 60612"},"allergies":["NA"],"medications":[{"name":"NA","time":"NA"}]},"address":"7 Boyden St, Webster, MA 01570","campers":[],"biography":"Jacob is a very friedly, open and outdoor-type guy who loves working with kids and organizing camps.","userName":"jowi34","type":"COUNSELOR","firstName":"John","password":"123aE234*3eMp","phoneNumber":null,"id":"2c05844f-d412-4503-bd19-ee4059c50406","preferredContact":null,"email":"williamsWork@gmail.com","cabins":["1392ff04-a05a-43ba-a7f3-f6fb48443b85","1392ff04-a05a-43ba-a7f3-f6fb48443b85"]},{"birthday":"1981-04-24","lastName":"Aaden","medical":{"doctor":{"firstName":"Kasey","lastName":"Frederick","phoneNumber":"773-234-3329","address":"2706 W Flournoy St, Chicago, IL 60612"},"allergies":["NA"],"medications":[{"name":"NA","time":"NA"}]},"address":"497 Redwood Street, Greenville, SC 29616","campers":[],"biography":"Reilly is excited to be a counselor as this is his first time.","userName":"rAde4","type":"COUNSELOR","firstName":"Reilly","password":"8KvK3JmfJASQ","phoneNumber":null,"id":"96fe472f-c908-4f46-b033-540b1f240a18","preferredContact":null,"email":"reAa20@gmail.com","cabins":["641f16ee-eddb-4c29-b2ba-d0f6d54b30ce"]}]
+[
+    {
+        "birthday": "1981-03-24",
+        "lastName": "Williams",
+        "medical": {
+            "doctor": {
+                "firstName": "Kasey",
+                "lastName": "Frederick",
+                "phoneNumber": "773-234-3329",
+                "address": "2706 W Flournoy St, Chicago, IL 60612"
+            },
+            "allergies": [
+                "NA"
+            ],
+            "medications": [
+                {
+                    "name": "NA",
+                    "time": "NA"
+                }
+            ]
+        },
+        "address": "7 Boyden St, Webster, MA 01570",
+        "campers": [],
+        "biography": "Jacob is a very friedly, open and outdoor-type guy who loves working with kids and organizing camps.",
+        "userName": "jowi34",
+        "type": "COUNSELOR",
+        "firstName": "John",
+        "password": "123aE234*3eMp",
+        "phoneNumber": null,
+        "id": "2c05844f-d412-4503-bd19-ee4059c50406",
+        "preferredContact": null,
+        "email": "williamsWork@gmail.com",
+        "cabins": [
+            "1392ff04-a05a-43ba-a7f3-f6fb48443b85",
+            "1392ff04-a05a-43ba-a7f3-f6fb48443b85"
+        ]
+    },
+    {
+        "birthday": "1981-04-24",
+        "lastName": "Aaden",
+        "medical": {
+            "doctor": {
+                "firstName": "Kasey",
+                "lastName": "Frederick",
+                "phoneNumber": "773-234-3329",
+                "address": "2706 W Flournoy St, Chicago, IL 60612"
+            },
+            "allergies": [
+                "NA"
+            ],
+            "medications": [
+                {
+                    "name": "NA",
+                    "time": "NA"
+                }
+            ]
+        },
+        "address": "497 Redwood Street, Greenville, SC 29616",
+        "campers": [],
+        "biography": "Reilly is excited to be a counselor as this is his first time.",
+        "userName": "rAde4",
+        "type": "COUNSELOR",
+        "firstName": "Reilly",
+        "password": "8KvK3JmfJASQ",
+        "phoneNumber": null,
+        "id": "96fe472f-c908-4f46-b033-540b1f240a18",
+        "preferredContact": null,
+        "email": "reAa20@gmail.com",
+        "cabins": [
+            "641f16ee-eddb-4c29-b2ba-d0f6d54b30ce"
+        ]
+    }
+]
