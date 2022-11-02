@@ -42,7 +42,6 @@ public class Cabin {
         template.add(new Activity("Game Time", "Game Center"));
         template.add(new Activity("Talent Show", "Recreation Center"));
         template.add(new Activity("Forest Hike", "Forest"));
-        ArrayList<Activity> schedule = new ArrayList<Activity>();
         int number = 0;
         int number2 = 0;
         int number3 = 0;
@@ -53,6 +52,7 @@ public class Cabin {
         number = rand.nextInt(template.size());
         schedule.add(template.get(number));
         for (int i = 0; i < 7; i++) {
+            ArrayList<Activity> schedule = new ArrayList<Activity>();
             schedule.add(new Activity("Breakfast", "Cafeteria"));
             while (numberLoop == -1) {
                 number2 = rand.nextInt(template.size());
