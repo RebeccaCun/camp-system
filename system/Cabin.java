@@ -47,13 +47,13 @@ public class Cabin {
         int number3 = 0;
         int number4 = 0;
         int number5 = 0;
-        int numberLoop = -1;
         Random rand = new Random();
-        number = rand.nextInt(template.size());
-        schedule.add(template.get(number));
+        int numberLoop = -1;
         for (int i = 0; i < 7; i++) {
             ArrayList<Activity> schedule = new ArrayList<Activity>();
             schedule.add(new Activity("Breakfast", "Cafeteria"));
+            number = rand.nextInt(template.size());
+            schedule.add(template.get(number));
             while (numberLoop == -1) {
                 number2 = rand.nextInt(template.size());
                 if (number2 != number) {
