@@ -198,6 +198,7 @@ public class CampSystemFACADE {
         int counter = 1;
         for(Session s : sessions.getSessions()){
             sessionList += counter + ") Start: " + s.getStartDate() + ", Theme: " + s.getTheme() + "\n";
+            counter ++;
         }
         return sessionList;
     }
@@ -213,6 +214,7 @@ public class CampSystemFACADE {
             for(Camper c : toPrint.getCampers()){
                 writer.write("- " + c.getFirstName() + c.getLastName() + ", " + c.getAge());
             }
+            writer.close();
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -247,6 +249,7 @@ public class CampSystemFACADE {
                 for(Medication m : c.getMedical().getMedications()){
                     writer.write("      " + m.getName() + ", " + m.getTime());
                 }
+                writer.close();
             }
         }catch(IOException e){
             e.printStackTrace();
@@ -261,6 +264,7 @@ public class CampSystemFACADE {
             scheduleFile.createNewFile();
             writer = new FileWriter(scheduleFile);
             writer.write(toPrint.viewSchedules());
+            writer.close();
         }catch(IOException e){
             e.printStackTrace();
         }

@@ -39,6 +39,7 @@ public class UI {
             }else if(choice == 2){
                 createAccount();
             } else if(choice == 3){
+                campSystem.logout();
                 System.out.println("Goodbye.");
                 return;
             } 
