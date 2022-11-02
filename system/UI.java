@@ -457,6 +457,7 @@ public class UI {
         int numberSessions = scanner.nextInt();
         for(int i = 1; i <= numberSessions; i++){
             System.out.println("Enter theme for Session " +i+ ": ");
+            scanner.nextLine();
             String theme = scanner.nextLine();
             System.out.println("Enter short description for Session " +i+ ": ");
             theme += ": " + scanner.nextLine();
