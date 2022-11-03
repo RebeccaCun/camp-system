@@ -1,1 +1,32 @@
-[{"birthday":"1997-01-17","firstName":"Arthur","lastName":"Barret","password":"arthur","phoneNumber":"803-407-6234","address":"2718 Seneca Ave, Fort Pierce, FL 34946439","campers":[],"id":"7dbf5d74-976b-4fdc-a11d-d3008f5861fe","userName":"arthur","type":"DIRECTOR","preferredContact":"email","email":"arthurBarret9@gmail.com"},{"birthday":"1992-10-17","firstName":"Peri","lastName":"Layers","password":"Ry09#3ILafcg","phoneNumber":"801-403-6839","address":"5260 Forest Dr., Columbia, SC 29206","campers":["942f97dc-fac3-48ea-8dad-3360908698fd"],"id":"b34d803b-5c08-42fb-8be4-f377060f1f0e","userName":"periIsAQueen12","type":"PARENT","preferredContact":"phone","email":"perilayers@gmail.com"}]
+[
+    {
+        "birthday": "1997-01-17",
+        "firstName": "Arthur",
+        "lastName": "Barret",
+        "password": "arthur",
+        "phoneNumber": "803-407-6234",
+        "address": "2718 Seneca Ave, Fort Pierce, FL 34946439",
+        "campers": [],
+        "id": "7dbf5d74-976b-4fdc-a11d-d3008f5861fe",
+        "userName": "arthur",
+        "type": "DIRECTOR",
+        "preferredContact": "email",
+        "email": "arthurBarret9@gmail.com"
+    },
+    {
+        "birthday": "1992-10-17",
+        "firstName": "Leveah",
+        "lastName": "Davis",
+        "password": "1234",
+        "phoneNumber": "801-403-6839",
+        "address": "5260 Forest Dr., Columbia, SC 29206",
+        "campers": [
+            "942f97dc-fac3-48ea-8dad-3360908698fd"
+        ],
+        "id": "b34d803b-5c08-42fb-8be4-f377060f1f0e",
+        "userName": "levDavis",
+        "type": "PARENT",
+        "preferredContact": "phone",
+        "email": "perilayers@gmail.com"
+    }
+]
