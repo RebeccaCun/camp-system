@@ -15,6 +15,9 @@ public class CamperList {
      */
     private CamperList(){
         campers = DataReader.getAllCampers();
+        if(campers == null){
+            campers = new ArrayList<Camper>();
+        }
         camperList = this;
     }
 

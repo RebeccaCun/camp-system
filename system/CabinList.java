@@ -15,6 +15,9 @@ public class CabinList {
      */
     private CabinList(){
         cabins = DataReader.getAllCabins();
+        if(cabins == null){
+            cabins = new ArrayList<Cabin>();
+        }
         cabinList = this;
     }
 
