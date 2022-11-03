@@ -832,7 +832,7 @@
     {
         "maxCabinAge": 12,
         "campers": [
-            "1aa07db0-9ea2-4d0d-8e94-152bc52dcd14", "960241df-88c6-4319-b81f-ac7119c19a2c", "f7ce0d29-a9c1-45a0-b866-a939800dca4f", "5b02deb3-60f7-4a43-abdb-da8802513fc0", "64786610-c2f7-49cf-8b66-e65791c488dd", "942f97dc-fac3-48ea-8dad-3360777698fd", "942f97dc-fac3-48ea-8dad-3360908698fd", "94482gc-bal4-56eg-8dad-4738268698fd", "94282gc-bbl4-56eg-8dad-4738278698fd"
+            "1aa07db0-9ea2-4d0d-8e94-152bc52dcd14", "960241df-88c6-4319-b81f-ac7119c19a2c", "f7ce0d29-a9c1-45a0-b866-a939800dca4f", "5b02deb3-60f7-4a43-abdb-da8802513fc0", "64786610-c2f7-49cf-8b66-e65791c488dd", "942f97dc-fac3-48ea-8dad-3360777698fd", "942f97dc-fac3-48ea-8dad-3360908698fd", "6f076c6a-53fa-47d4-a526-d27387b46978", "841114e8-ea1a-4024-8c28-7e1167ee464b"
         ],
         "schedules": {
             "WEDNESDAY": [
