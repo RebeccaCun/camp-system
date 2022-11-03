@@ -63,62 +63,46 @@ public class Cabin {
         dinner.addStartTime("18:00");
         dinner.addEndTime("18:30");
         int number = 0;
-        int number2 = 0;
-        int number3 = 0;
-        int number4 = 0;
-        int number5 = 0;
         Random rand = new Random();
-        int numberLoop = -1;
         for (int i = 0; i < 7; i++) {
             ArrayList<Activity> schedule = new ArrayList<Activity>();
+
             schedule.add(breakf);
+
             number = rand.nextInt(template.size());
             template.get(number).addStartTime("09:00");
             template.get(number).addEndTime("10:30");
             schedule.add(template.get(number));
-            numberLoop = -1;
-            while (numberLoop == -1) {
-                number2 = rand.nextInt(template.size());
-                if (number2 != number) {
-                    template.get(number2).addStartTime("11:00");
-                    template.get(number2).addEndTime("11:45");
-                    schedule.add(template.get(number2));
-                    numberLoop = 1;
-                }
-            }
+            template.remove(number);
+
+            number = rand.nextInt(template.size());
+            template.get(number).addStartTime("11:00");
+            template.get(number).addEndTime("11:45");
+            schedule.add(template.get(number));
+            template.remove(number);
+
             schedule.add(lunch);
-            numberLoop = -1;
-            while (numberLoop == -1) {
-                number3 = rand.nextInt(template.size());
-                if (number3 != number2 && number3 != number) {
-                    template.get(number3).addStartTime("13:00");
-                    template.get(number3).addEndTime("15:00");
-                    schedule.add(template.get(number3));
-                    numberLoop = 1;
-                }
-            }
-            numberLoop = -1;
-            while (numberLoop == -1) {
-                number4 = rand.nextInt(template.size());
-                if (number4 != number3 && number4 != number2 && number4 != number) {
-                    template.get(number4).addStartTime("15:30");
-                    template.get(number4).addEndTime("17:30");
-                    schedule.add(template.get(number4));
-                    numberLoop = 1;
-                }
-            }
+
+            number = rand.nextInt(template.size());
+            template.get(number).addStartTime("13:00");
+            template.get(number).addEndTime("15:00");
+            schedule.add(template.get(number));
+            template.remove(number);
+            
+            number = rand.nextInt(template.size());
+            template.get(number).addStartTime("15:30");
+            template.get(number).addEndTime("17:30");
+            schedule.add(template.get(number));
+            template.remove(number);
+
             schedule.add(dinner);
-            numberLoop = -1;
-            while (numberLoop == -1) {
-                number5 = rand.nextInt(template.size());
-                if (number5 != number4 && number5 != number3 && number5 != number2 && number5 != number) {
-                    template.get(number5).addStartTime("19:00");
-                    template.get(number5).addEndTime("18:00");
-                    schedule.add(template.get(number5));
-                    numberLoop = 1;
-                }
-            }
-            numberLoop = -1;
+
+            number = rand.nextInt(template.size());
+            template.get(number).addStartTime("19:00");
+            template.get(number).addEndTime("18:00");
+            schedule.add(template.get(number));
+            template.remove(number);
+
             schedules.put(days[i], new Schedule(schedule));
         }
     }
