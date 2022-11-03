@@ -1,70 +1,70 @@
 MONDAY: 
 08:00 to 08:30: Breakfast at Cafeteria
-09:00 to 10:30: Capture the Flag at Field
-11:00 to 11:45: Swimming Time at Pool
+09:00 to 10:30: Arts and Crafts at Recreation Center
+11:00 to 11:45: Talent Show at Recreation Center
 12:00 to 12:30: Lunch at Cafeteria
-13:00 to 15:00: Fishing at Lake
-15:30 to 17:30: Arts and Crafts at Recreation Center
+13:00 to 15:00: Archery at Field
+15:30 to 17:30: Game Time at Game Center
 18:00 to 18:30: Dinner at Cafeteria
-19:00 to 18:00: Card Games at Recreation Center
+19:00 to 18:00: Relay Race at Field
 
 TUESDAY: 
 08:00 to 08:30: Breakfast at Cafeteria
 09:00 to 10:30: Relay Race at Field
-11:00 to 11:45: Talent Show at Recreation Center
+11:00 to 11:45: Fishing at Lake
 12:00 to 12:30: Lunch at Cafeteria
-13:00 to 15:00: Card Games at Recreation Center
-15:30 to 17:30: Swimming Time at Pool
+13:00 to 15:00: Forest Hike at Forest
+15:30 to 17:30: Arts and Crafts at Recreation Center
 18:00 to 18:30: Dinner at Cafeteria
-19:00 to 18:00: Fishing at Lake
+19:00 to 18:00: Swimming Time at Pool
 
 WEDNESDAY: 
 08:00 to 08:30: Breakfast at Cafeteria
-09:00 to 10:30: Talent Show at Recreation Center
-11:00 to 11:45: Fishing at Lake
+09:00 to 10:30: Fishing at Lake
+11:00 to 11:45: Swimming Time at Pool
 12:00 to 12:30: Lunch at Cafeteria
-13:00 to 15:00: Card Games at Recreation Center
-15:30 to 17:30: Forest Hike at Forest
-18:00 to 18:30: Dinner at Cafeteria
-19:00 to 18:00: Relay Race at Field
-
-THURSDAY: 
-08:00 to 08:30: Breakfast at Cafeteria
-09:00 to 10:30: Forest Hike at Forest
-11:00 to 11:45: Game Time at Game Center
-12:00 to 12:30: Lunch at Cafeteria
-13:00 to 15:00: Arts and Crafts at Recreation Center
-15:30 to 17:30: Archery at Field
+13:00 to 15:00: Forest Hike at Forest
+15:30 to 17:30: Relay Race at Field
 18:00 to 18:30: Dinner at Cafeteria
 19:00 to 18:00: Scavenger Hunt at Forest
 
-FRIDAY: 
+THURSDAY: 
 08:00 to 08:30: Breakfast at Cafeteria
-09:00 to 10:30: Talent Show at Recreation Center
-11:00 to 11:45: Scavenger Hunt at Forest
+09:00 to 10:30: Card Games at Recreation Center
+11:00 to 11:45: Archery at Field
 12:00 to 12:30: Lunch at Cafeteria
 13:00 to 15:00: Capture the Flag at Field
-15:30 to 17:30: Forest Hike at Forest
-18:00 to 18:30: Dinner at Cafeteria
-19:00 to 18:00: Arts and Crafts at Recreation Center
-
-SATURDAY: 
-08:00 to 08:30: Breakfast at Cafeteria
-09:00 to 10:30: Capture the Flag at Field
-11:00 to 11:45: Swimming Time at Pool
-12:00 to 12:30: Lunch at Cafeteria
-13:00 to 15:00: Talent Show at Recreation Center
-15:30 to 17:30: Arts and Crafts at Recreation Center
+15:30 to 17:30: Scavenger Hunt at Forest
 18:00 to 18:30: Dinner at Cafeteria
 19:00 to 18:00: Game Time at Game Center
 
+FRIDAY: 
+08:00 to 08:30: Breakfast at Cafeteria
+09:00 to 10:30: Relay Race at Field
+11:00 to 11:45: Capture the Flag at Field
+12:00 to 12:30: Lunch at Cafeteria
+13:00 to 15:00: Fishing at Lake
+15:30 to 17:30: Arts and Crafts at Recreation Center
+18:00 to 18:30: Dinner at Cafeteria
+19:00 to 18:00: Archery at Field
+
+SATURDAY: 
+08:00 to 08:30: Breakfast at Cafeteria
+09:00 to 10:30: Arts and Crafts at Recreation Center
+11:00 to 11:45: Game Time at Game Center
+12:00 to 12:30: Lunch at Cafeteria
+13:00 to 15:00: Talent Show at Recreation Center
+15:30 to 17:30: Card Games at Recreation Center
+18:00 to 18:30: Dinner at Cafeteria
+19:00 to 18:00: Forest Hike at Forest
+
 SUNDAY: 
 08:00 to 08:30: Breakfast at Cafeteria
-09:00 to 10:30: Capture the Flag at Field
-11:00 to 11:45: Arts and Crafts at Recreation Center
+09:00 to 10:30: Scavenger Hunt at Forest
+11:00 to 11:45: Fishing at Lake
 12:00 to 12:30: Lunch at Cafeteria
-13:00 to 15:00: Card Games at Recreation Center
-15:30 to 17:30: Archery at Field
+13:00 to 15:00: Capture the Flag at Field
+15:30 to 17:30: Relay Race at Field
 18:00 to 18:30: Dinner at Cafeteria
 19:00 to 18:00: Forest Hike at Forest
 

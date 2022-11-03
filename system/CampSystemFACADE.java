@@ -345,8 +345,9 @@ public class CampSystemFACADE {
                 for(Medication m : c.getMedical().getMedications()){
                     writer.write("      " + m.getName() + ", " + m.getTime()+"\n");
                 }
-                writer.close();
+                
             }
+            writer.close();
         }catch(IOException e){
             e.printStackTrace();
         }
