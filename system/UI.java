@@ -265,8 +265,7 @@ public class UI {
 
         campSystem.addCamper(firstName, lastName, birthday, emergencyContacts, medicalInfo, notes);   // add guardian details?
         System.out.println(firstName + " " + lastName+ " has been successfully signed up as a Camper");
-            
-    }
+        }
 
     /**
      * asks for the medical info that is needed to register a camper or a counselor
