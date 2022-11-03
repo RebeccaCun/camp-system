@@ -377,7 +377,7 @@ public class UI {
             System.out.println("No cabin available for your camper's age!");
             return;
         }
-        System.out.println(firstName + lastName + "was successfully signed up for the Session in Cabin " + signupResult);
+        System.out.println(firstName + " " + lastName + " was successfully signed up for the Session in Cabin " + signupResult);
     }
 
     /**
