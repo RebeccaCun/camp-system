@@ -30,80 +30,64 @@ public class Cabin {
         this.minCabinAge = minCabinAge;
         this.maxCabinAge = maxCabinAge;
         Day days[] = {Day.SUNDAY, Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY};
-        
-        Activity breakf = new Activity("Breakfast", "Cafeteria");
-        breakf.addStartTime("08:00");
-        breakf.addEndTime("08:30");
-        Activity lunch = new Activity("Lunch", "Cafeteria");
-        lunch.addStartTime("12:00");
-        lunch.addEndTime("12:30");
-        Activity dinner = new Activity("Dinner", "Cafeteria");
-        dinner.addStartTime("18:00");
-        dinner.addEndTime("18:30");
+        ArrayList<Activity> template = new ArrayList<Activity>();
+        template.add(new Activity("Archery", "Field"));
+        template.add(new Activity("Swimming Time", "Pool"));
+        template.add(new Activity("Fishing", "Lake"));
+        template.add(new Activity("Arts and Crafts", "Recreation Center"));
+        template.add(new Activity("Card Games", "Recreation Center"));
+        template.add(new Activity("Scavenger Hunt", "Forest"));
+        template.add(new Activity("Relay Race", "Field"));
+        template.add(new Activity("Capture the Flag", "Field"));
+        template.add(new Activity("Game Time", "Game Center"));
+        template.add(new Activity("Talent Show", "Recreation Center"));
+        template.add(new Activity("Forest Hike", "Forest"));
+        ArrayList<Activity> schedule = new ArrayList<Activity>();
         int number = 0;
+        int number2 = 0;
+        int number3 = 0;
+        int number4 = 0;
+        int number5 = 0;
+        int numberLoop = -1;
         Random rand = new Random();
+        number = rand.nextInt(template.size());
+        schedule.add(template.get(number));
         for (int i = 0; i < 7; i++) {
-            ArrayList<Activity> template = new ArrayList<Activity>();
-            Activity a = new Activity("Archery", "Field");
-            Activity b = new Activity("Swimming Time", "Pool");
-            Activity c = new Activity("Fishing", "Lake");
-            Activity d = new Activity("Arts and Crafts", "Recreation Center");
-            Activity e = new Activity("Card Games", "Recreation Center");
-            Activity f = new Activity("Scavenger Hunt", "Forest");
-            Activity g = new Activity("Relay Race", "Field");
-            Activity h = new Activity("Capture the Flag", "Field");
-            Activity i2 = new Activity("Game Time", "Game Center");
-            Activity j = new Activity("Talent Show", "Recreation Center");
-            Activity k = new Activity("Forest Hike", "Forest");
-            template.add(a);
-            template.add(b);
-            template.add(c);
-            template.add(d);
-            template.add(e);
-            template.add(f);
-            template.add(g);
-            template.add(h);
-            template.add(i2);
-            template.add(j);
-            template.add(k);
-            ArrayList<Activity> schedule = new ArrayList<Activity>();
-
-            schedule.add(breakf);
-
-            number = rand.nextInt(template.size());
-            template.get(number).addStartTime("09:00");
-            template.get(number).addEndTime("10:30");
-            schedule.add(template.get(number));
-            template.remove(number);
-
-            number = rand.nextInt(template.size());
-            template.get(number).addStartTime("11:00");
-            template.get(number).addEndTime("11:45");
-            schedule.add(template.get(number));
-            template.remove(number);
-
-            schedule.add(lunch);
-
-            number = rand.nextInt(template.size());
-            template.get(number).addStartTime("13:00");
-            template.get(number).addEndTime("15:00");
-            schedule.add(template.get(number));
-            template.remove(number);
-            
-            number = rand.nextInt(template.size());
-            template.get(number).addStartTime("15:30");
-            template.get(number).addEndTime("17:30");
-            schedule.add(template.get(number));
-            template.remove(number);
-
-            schedule.add(dinner);
-
-            number = rand.nextInt(template.size());
-            template.get(number).addStartTime("19:00");
-            template.get(number).addEndTime("18:00");
-            schedule.add(template.get(number));
-            template.remove(number);
-
+            schedule.add(new Activity("Breakfast", "Cafeteria"));
+            while (numberLoop == -1) {
+                number2 = rand.nextInt(template.size());
+                if (number2 != number) {
+                    schedule.add(template.get(number2));
+                    numberLoop = 1;
+                }
+            }
+            schedule.add(new Activity("Lunch", "Cafeteria"));
+            numberLoop = -1;
+            while (numberLoop == -1) {
+                number3 = rand.nextInt(template.size());
+                if (number3 != number2 && number3 != number) {
+                    schedule.add(template.get(number3));
+                    numberLoop = 1;
+                }
+            }
+            numberLoop = -1;
+            while (numberLoop == -1) {
+                schedule.add(template.get(number));
+                number4 = rand.nextInt(template.size());
+                if (number4 != number3 && number4 != number2 && number4 != number) {
+                    schedule.add(template.get(number4));
+                    numberLoop = 1;
+                }
+            }
+            schedule.add(new Activity("Dinner", "Cafeteria"));
+            numberLoop = -1;
+            while (numberLoop == -1) {
+                number5 = rand.nextInt(template.size());
+                if (number5 != number4 && number5 != number3 && number5 != number2 && number5 != number) {
+                    schedule.add(template.get(number5));
+                    numberLoop = 1;
+                }
+            }
             schedules.put(days[i], new Schedule(schedule));
         }
     }

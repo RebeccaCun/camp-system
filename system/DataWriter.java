@@ -16,15 +16,6 @@ import org.json.simple.JSONObject;
  */
 public class DataWriter extends DataConstants {
 
-    public static void main(String[] args) {
-        CabinList c = CabinList.getInstance();
-
-        Cabin nc = new Cabin(10, 12);
-        c.addCabin(nc);
-        
-        saveCabins();
-    }
-
     /**
      * Save the User ArrayList from the UserList class 
      * into the USERS_FILE_NAME file

@@ -218,8 +218,6 @@ public class DataReader extends DataConstants {
                     // if the session exists, add to the sessions ArrayList
                     if (newSession != null)
                         newSessions.add(newSession);
-
-                    // TODO else session is in campers but not in sessions?
                 }
 
                 // get the camper from the campers arrayList and 
@@ -387,8 +385,6 @@ public class DataReader extends DataConstants {
             // if the Camper exists, add to the Camper array
             if (newCamper != null)
                 newCampers.add(newCamper);
-            
-            // TODO else Camper is in the object but not in campers?
         }
 
         return newCampers;
@@ -418,8 +414,6 @@ public class DataReader extends DataConstants {
             // if the cabin exists, add to the Cabin array
             if (newCabin != null)
                 newCabins.add(newCabin);
-            
-            // TODO else cabin is in the object but not in cabins?
         }
 
         return newCabins;
