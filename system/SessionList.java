@@ -15,6 +15,7 @@ public class SessionList {
      * Initializes an instance of the SessionList class.
      */
     private SessionList() {
+        sessions = new ArrayList<Session>();
         sessions = DataReader.getAllSessions();
         sessionList = this;
     }
@@ -73,12 +74,8 @@ public class SessionList {
      * @param session The session to be added
      * @return The boolean representing the status of the Session.
      */
-    public boolean addSession(Session session) {
-        if(!hasSession(session.getStartDate(), session.getEndDate())) {
-            sessions.add(session);
-            return true;
-        }
-        return false;
+    public void addSession(Session session) {
+        sessions.add(session);
     }
 
     /**
