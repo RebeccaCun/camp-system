@@ -149,15 +149,27 @@ public class DataReader extends DataConstants {
             for (int i=0; i<camperJSON.size(); i++) {
                 JSONObject camper = (JSONObject) camperJSON.get(i);
 
-                // get the attributes...
-                String birthday = (String) camper.get(BIRTHDAY);
+                Camper newCamper = null;
 
-                // create the camper...
-                Camper newCamper = new Camper(
-                    UUID.fromString((String) camper.get(USER_ID)),
-                    (String) camper.get(FIRST_NAME), 
-                    (String) camper.get(LAST_NAME), 
-                    LocalDate.parse(birthday));
+                // get the attributes...
+                try {
+                    String birthday = (String) camper.get(BIRTHDAY);
+
+                    // create the camper...
+                    newCamper = new Camper(
+                        UUID.fromString((String) camper.get(USER_ID)),
+                        (String) camper.get(FIRST_NAME), 
+                        (String) camper.get(LAST_NAME), 
+                        LocalDate.parse(birthday));
+
+                } catch (NullPointerException n) {
+                    // if the birthday happens to be null
+                    newCamper = new Camper(
+                        UUID.fromString((String) camper.get(USER_ID)),
+                        (String) camper.get(FIRST_NAME), 
+                        (String) camper.get(LAST_NAME), 
+                        null);
+                }
 
                 // create a new emergency contacts arraylist from the emergency contacts JSON array
                 ArrayList<Contact> newEmegConts = getContacts( (JSONArray) camper.get(EMERGENCY_CONTACTS) );

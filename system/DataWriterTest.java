@@ -24,10 +24,10 @@ class DataWriterTest {
 
     @AfterEach
 	public void tearDown() {
-        // UserList.getInstance().getUsers().clear();
-		// DataWriter.saveUsers();
-        // CamperList.getInstance().getCampers().clear();
-		// DataWriter.saveCampers();
+        UserList.getInstance().getUsers().clear();
+		DataWriter.saveUsers();
+        CamperList.getInstance().getCampers().clear();
+		DataWriter.saveCampers();
 	}
 
     @Test
