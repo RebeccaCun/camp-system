@@ -24,10 +24,10 @@ class DataWriterTest {
 
     @AfterEach
 	public void tearDown() {
-        UserList.getInstance().getUsers().clear();
-		DataWriter.saveUsers();
-        CamperList.getInstance().getCampers().clear();
-		DataWriter.saveCampers();
+        // UserList.getInstance().getUsers().clear();
+		// DataWriter.saveUsers();
+        // CamperList.getInstance().getCampers().clear();
+		// DataWriter.saveCampers();
 	}
 
     @Test
@@ -75,12 +75,17 @@ class DataWriterTest {
 	// 	assertEquals("", DataLoader.getUsers().get(0).getUserName());
 	// }
 	
-	// @Test
-	// void testWritingNullUser() {
-	// 	users.add(new User(null, null, null));
-	// 	DataWriter.saveUsers();
-	// 	assertEquals(null, DataReader.getAllUsers().get(0).getUserName());
-	// }
+	@Test
+	void testWritingNullUser() {
+		User us = new User(null, null, null);
+        
+        // users.add(us);
+		ul.addUser(us);
+        DataWriter.saveUsers();
+
+        assertEquals(null, 
+            DataReader.getAllUsers().get(0).getPhoneNumber());
+	}
 
     /**
      * Test whether DataWriter can write a camper 

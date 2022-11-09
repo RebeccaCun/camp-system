@@ -480,12 +480,22 @@ public class DataReader extends DataConstants {
         user.addEmail( (String) userObj.get(EMAIL) );
         user.addPhoneNumber( (String) userObj.get(PHONE_NUMBER) );
         user.addPreferredContact( (String) userObj.get(PREFFERED_CONTACT) );
-        user.addBirthday( LocalDate.parse((String) userObj.get(BIRTHDAY)) );
+        
+        try {
+            user.addBirthday( LocalDate.parse((String) userObj.get(BIRTHDAY)) );
+        } catch (NullPointerException n) {
+            user.addBirthday(null);
+        }
+
         user.addAddress( (String) userObj.get(ADDRESS) );
        
         String type = (String) userObj.get(TYPE);
-        Type newType = Type.valueOf(type);
-        user.setType(newType);
+        try {
+            Type newType = Type.valueOf(type);
+            user.setType(newType);
+        } catch (NullPointerException n) {
+            user.setType(null);
+        }
 
         // initialize the campers ArrayList first...
         getCampers();
@@ -517,13 +527,22 @@ public class DataReader extends DataConstants {
         counselor.addEmail( (String) userObj.get(EMAIL) );
         counselor.addPhoneNumber( (String) userObj.get(PHONE_NUMBER) );
         counselor.addPreferredContact( (String) userObj.get(PREFFERED_CONTACT) );
-        counselor.addBirthday( LocalDate.parse((String) userObj.get(BIRTHDAY)) );
+        
+        try {
+            counselor.addBirthday( LocalDate.parse((String) userObj.get(BIRTHDAY)) );            
+        } catch (NullPointerException n) {
+            counselor.addBirthday(null);
+        }
         counselor.addAddress( (String) userObj.get(ADDRESS) );
        
         // get the type
         String type = (String) userObj.get(TYPE);
-        Type newType = Type.valueOf(type);
-        counselor.setType(newType);
+        try {
+            Type newType = Type.valueOf(type);
+            counselor.setType(newType);
+        } catch (NullPointerException n) {
+            counselor.setType(null);
+        }
 
         // initialize the campers ArrayList first...
         getCampers();
