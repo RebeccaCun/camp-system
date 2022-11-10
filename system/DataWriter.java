@@ -57,10 +57,21 @@ public class DataWriter extends DataConstants {
 		userDetails.put(EMAIL, user.getEmail());
 		userDetails.put(PHONE_NUMBER, user.getPhoneNumber());
 		userDetails.put(PREFFERED_CONTACT, user.getPreferredContact());
-		userDetails.put(BIRTHDAY, user.getBirthday().toString());
 		userDetails.put(ADDRESS, user.getAddress());
-		userDetails.put(TYPE, user.getType().toString());
-		
+
+        try {
+            userDetails.put(TYPE, user.getType().toString());            
+        } catch (NullPointerException n) {
+            userDetails.put(TYPE, null);
+        }
+
+        try {
+            userDetails.put(BIRTHDAY, 
+                user.getBirthday().toString());            
+        } catch (NullPointerException n) {
+            userDetails.put(BIRTHDAY, null);
+        }
+
         // ArrayList from getCampers() to JSONArray
         JSONArray jsonCampers = new JSONArray();
         ArrayList<Camper> campers = user.getCampers();
@@ -199,8 +210,13 @@ public class DataWriter extends DataConstants {
         camperDetails.put(USER_ID, camper.getUUID().toString());
 		camperDetails.put(FIRST_NAME, camper.getFirstName());
 		camperDetails.put(LAST_NAME, camper.getLastName());
+        
         // the birthday is in a local Date format
-        camperDetails.put(BIRTHDAY, camper.getBirthday().toString());
+        try {
+            camperDetails.put(BIRTHDAY, camper.getBirthday().toString());
+        } catch (NullPointerException n) {
+            camperDetails.put(BIRTHDAY, null);
+        }
 
         // write the emergency contacts
         camperDetails.put(EMERGENCY_CONTACTS, 
