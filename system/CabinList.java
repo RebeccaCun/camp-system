@@ -32,6 +32,10 @@ public class CabinList {
 		return cabinList;    
     }
 
+    public void setCabins(ArrayList<Cabin> cabins){
+        this.cabins = cabins;
+    }
+
     /**
      * Searches for a specific Cabin and returns them if found.
      * @param minCabinAge The start date of the Cabin being searched for.
@@ -81,20 +85,6 @@ public class CabinList {
             return true;
         }
         return false;
-    }
-
-    /**
-     * Edits a Cabin in the list.
-     * @param cabin The Cabin to be edited.
-     * @param minCabinAge The min. cabin age of the new Cabin.
-     * @param maxCabinAge The max. cabin age of the new Cabin.
-     */
-    public void editCabin(Cabin cabin, int minCabinAge, int maxCabinAge) {
-        for (int i = 0; i < cabins.size(); i++) {
-            if(cabins.get(i) == cabin) {
-                cabins.set(i,new Cabin(minCabinAge, maxCabinAge));
-            }
-        }
     }
 
     /**
