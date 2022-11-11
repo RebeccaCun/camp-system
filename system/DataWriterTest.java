@@ -99,15 +99,6 @@ class DataWriterTest {
 	}
 
     @Test
-	void testWritingEmptyCabin() {        
-		cabinL.addCabin(new Cabin(0,0));
-        DataWriter.saveCabins();
-
-        assertEquals(0, 
-            DataReader.getAllCabins().get(0).getCampers().size());
-	}
-	
-	@Test
 	void testWritingNullUser() {
 		User us = new User(null, null, null);
         
@@ -116,6 +107,15 @@ class DataWriterTest {
 
         assertEquals(null, 
             DataReader.getAllUsers().get(0).getPhoneNumber());
+	}
+
+    @Test
+	void testWritingEmptyCabin() {        
+		cabinL.addCabin(new Cabin(0,0));
+        DataWriter.saveCabins();
+
+        assertEquals(0, 
+            DataReader.getAllCabins().get(0).getCampers().size());
 	}
 
     @Test
@@ -128,7 +128,7 @@ class DataWriterTest {
         assertEquals(null, 
             DataReader.getAllCampers().get(0).getBirthday());
 	}
-
+    
     @Test
 	void testWritingNullSession() {
 		Session se = new Session(null, null);
@@ -138,6 +138,17 @@ class DataWriterTest {
 
         assertEquals(null, 
             DataReader.getAllSessions().get(0).getTheme());
+	}
+
+    @Test
+	void testWritingNullCounselor() {
+		Counselor cs = new Counselor(null, null, null);
+        
+		counselorL.addCounselor(cs);
+        DataWriter.saveCounselors();
+
+        assertEquals(null, 
+            DataReader.getAllCounselors().get(0).getPhoneNumber());
 	}
 
     /**

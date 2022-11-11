@@ -124,38 +124,37 @@ public class DataWriter extends DataConstants {
         JSONObject jsonMedical = new JSONObject();
         Medical med = counselor.getMedical();
 
-        // writing doctor
         JSONObject jsonDoctor = new JSONObject();
-        Contact doctor = med.getDoctor();
-        jsonDoctor.put(FIRST_NAME, doctor.getFirstName());
-        jsonDoctor.put(LAST_NAME, doctor.getLastName());
-        jsonDoctor.put(PHONE_NUMBER, doctor.getPhoneNumber());
-        jsonDoctor.put(ADDRESS, doctor.getAddress());
-
-        jsonMedical.put(DOCTOR, jsonDoctor);
-
-        // writing allergies
         JSONArray jsonAllergies = new JSONArray();
-        ArrayList<String> allergies = med.getAllergies();
-        
-        for (String allergy : allergies)
-            jsonAllergies.add(allergy);
-
-        jsonMedical.put(ALLERGIES, jsonAllergies);
-
-        // writing medications
         JSONArray jsonMedications = new JSONArray();
-        ArrayList<Medication> medications = med.getMedications();
-        
-        for (Medication medication : medications) {
-            JSONObject jsonMedication = new JSONObject();
-            
-            jsonMedication.put(NAME, medication.getName());
-            jsonMedication.put(TIME, medication.getTime());
+        try {
+            // writing doctor
+            Contact doctor = med.getDoctor();
+            jsonDoctor.put(FIRST_NAME, doctor.getFirstName());
+            jsonDoctor.put(LAST_NAME, doctor.getLastName());
+            jsonDoctor.put(PHONE_NUMBER, doctor.getPhoneNumber());
+            jsonDoctor.put(ADDRESS, doctor.getAddress());
 
-            jsonMedications.add(jsonMedication);
-        }    
-        
+            // writing allergies
+            ArrayList<String> allergies = med.getAllergies();
+            for (String allergy : allergies)
+                jsonAllergies.add(allergy);
+
+            // writing medications
+            ArrayList<Medication> medications = med.getMedications();
+            for (Medication medication : medications) {
+                JSONObject jsonMedication = new JSONObject();
+                
+                jsonMedication.put(NAME, medication.getName());
+                jsonMedication.put(TIME, medication.getTime());
+
+                jsonMedications.add(jsonMedication);
+            }
+        } catch (Exception e) {
+            // do nothing if they are null
+        }
+        jsonMedical.put(DOCTOR, jsonDoctor);
+        jsonMedical.put(ALLERGIES, jsonAllergies);
         jsonMedical.put(MEDICATIONS, jsonMedications);
 
         // Add the whole medical object to the counselor...
