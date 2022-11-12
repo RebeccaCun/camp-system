@@ -19,6 +19,64 @@ public class CampSystemFACADE {
     private CabinList cabins;
     private FileWriter writer;
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public SessionList getSessions(){
+        return sessions;
+    }
+
+    public void setSessions(SessionList sessions){
+        this.sessions = sessions;
+    }
+
+    public CounselorList getCounselors(){
+        return counselors;
+    }
+
+    public void setCounselors(CounselorList counselors){
+        this.counselors = counselors;
+    }
+
+    public CamperList getCampers() {
+        return campers;
+    }
+
+    public void setCampers(CamperList campers) {
+        this.campers = campers;
+    }
+
+    public UserList getUsers() {
+        return users;
+    }
+
+    public void setUsers(UserList users) {
+        this.users = users;
+    }
+
+    public CabinList getCabins() {
+        return cabins;
+    }
+
+    public void setCabins(CabinList cabins) {
+        this.cabins = cabins;
+    }
+
+    public FileWriter getWriter() {
+        return writer;
+    }
+
+    public void setWriter(FileWriter writer) {
+        this.writer = writer;
+    }
+
+   
+    
     /**
      * Initializes an instance of the CampSystem class.
      */
@@ -387,4 +445,6 @@ public class CampSystemFACADE {
         }
         return null;
     }
+
+   
 }
