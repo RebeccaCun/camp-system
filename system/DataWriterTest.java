@@ -61,14 +61,7 @@ class DataWriterTest {
         // Create User
         User u = new User("Mike", "Smith",
              "mSmith");
-        u.addPassword("smithing");
-        u.addEmail("smith@gmail.com");
-        u.addPhoneNumber("803-454-2022");
-        u.addPreferredContact("email");
-        u.addBirthday(LocalDate.parse("2022-10-20"));
-        u.addAddress("somewhere, USA");
-        u.setType(Type.PARENT);
-
+        
         // Add User to the UserList
         userL.addUser(u);
 
@@ -89,7 +82,53 @@ class DataWriterTest {
 
         assertEquals("esmith", DataReader.getAllUsers().get(4).getUserName());
 	}
-	
+
+    @Test
+	void testWritingOneCabin() {
+        // Create Cabin
+        Cabin c = new Cabin(10, 12);
+        cabinL.addCabin(c);
+
+        DataWriter.saveCabins();
+		assertEquals(12,
+            DataReader.getAllCabins().get(0).getMaxCabinAge());
+	}
+
+    @Test
+	void testWritingOneCamper() {
+        // Create Camper
+        Camper c = new Camper("Amy", "Smith", 
+            LocalDate.parse("2022-02-20"));
+        camperL.addCamper(c);
+
+        DataWriter.saveCampers();
+		assertEquals("Smith",
+            DataReader.getAllCampers().get(0).getLastName());
+	}
+
+    @Test
+	void testWritingOneSession() {
+        // Create Session
+        Session s = new Session(LocalDate.parse("2022-02-20"),
+            LocalDate.parse("2022-03-20"));
+        sessionL.addSession(s);
+        
+        DataWriter.saveSessions();
+		assertEquals("2022-03-20",
+            DataReader.getAllSessions().get(0).getEndDate().toString());
+	}
+
+    @Test
+	void testWritingOneCounselor() {
+        // Create Counselor
+        Counselor c = new Counselor("Amy", "Smith", "aSmith");
+        counselorL.addCounselor(c);
+        
+        DataWriter.saveCounselors();
+		assertEquals("Smith",
+            DataReader.getAllCounselors().get(0).getLastName());
+	}
+
 	@Test
 	void testWritingEmptyUser() {
 		userL.addUser(new User("", "", ""));
