@@ -11,10 +11,17 @@ import org.junit.jupiter.api.Test;
 
 class DataReaderTest {
 
-    private UserList ul = UserList.getInstance();
-    private CamperList cl = CamperList.getInstance();
-    private ArrayList<User> users = ul.getUsers();
-    private ArrayList<Camper> campers = CamperList.getInstance().getCampers();
+    private UserList userL = UserList.getInstance();
+    private CabinList cabinL = CabinList.getInstance();
+    private CamperList camperL = CamperList.getInstance();
+    private SessionList sessionL = SessionList.getInstance();
+    private CounselorList counselorL = CounselorList.getInstance();
+    
+    private ArrayList<User> users = userL.getUsers();
+    private ArrayList<Cabin> cabins = cabinL.getCabins();
+    private ArrayList<Camper> campers = camperL.getCampers();
+    private ArrayList<Session> sessions = sessionL.getSessions();
+    private ArrayList<Counselor> counselors = counselorL.getCounselors();
 
     @BeforeEach
     public void setup() {
@@ -32,7 +39,7 @@ class DataReaderTest {
         u.setType(Type.PARENT);
 
         // Add User to the UserList
-        ul.addUser(u);
+        userL.addUser(u);
         // Save the User
         DataWriter.saveUsers();
     }
@@ -90,8 +97,8 @@ class DataReaderTest {
         u.addCamper(c);
 
         // Save to Lists
-        ul.addUser(u);
-        cl.addCamper(c);
+        userL.addUser(u);
+        camperL.addCamper(c);
         DataWriter.saveUsers();
         DataWriter.saveCampers();
 
@@ -103,5 +110,59 @@ class DataReaderTest {
         assertEquals(0,
             campers.get(0).getUUID().compareTo( 
             users.get(1).getCampers().get(0).getUUID() ));
+    }
+
+    /**
+     * Test whether DataReader can write a cabin 
+     * with only calling the constructor
+     */
+    @Test
+    void testWritingCabinConstructor() {
+        // Create Cabin
+        Cabin c = new Cabin(10, 12);
+        cabinL.addCabin(c);
+        DataWriter.saveCabins();
+
+        // Get the Users and Campers
+        cabins = DataReader.getAllCabins();
+    
+        assertEquals(1, cabins.size());
+    }
+
+    /**
+     * Test whether DataReader can write a camper 
+     * with only calling the constructor
+     */
+    @Test
+    void testWritingCamperConstructor() {
+        // Create new Camper for the User
+        Camper c = new Camper("Long", "Kam", LocalDate.parse("2022-10-21"));
+
+        // Save to Lists
+        camperL.addCamper(c);
+        DataWriter.saveCampers();
+
+        // Get the Users and Campers
+        campers = DataReader.getAllCampers();
+    
+        assertEquals(1, campers.size());
+    }
+    
+    /**
+     * Test whether DataReader can write a session 
+     * with only calling the constructor
+     */
+    @Test
+    void testWritingSessionConstructor() {
+
+        // Create Session
+        Session s = new Session(LocalDate.parse("2022-02-20"),
+        LocalDate.parse("2022-03-20"));
+        sessionL.addSession(s);
+        
+        DataWriter.saveSessions();
+        sessions = DataReader.getAllSessions();
+    
+        assertEquals(1, sessions.size());
     }
 }

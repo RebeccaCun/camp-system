@@ -98,7 +98,9 @@ public class DataReader extends DataConstants {
      * @return ArrayList<Session>
      */
     public static ArrayList<Session> getAllSessions() {
-        initiate();
+        if (!initiate())
+            getSessions();
+    
         return sessions;
     }
 
@@ -107,7 +109,9 @@ public class DataReader extends DataConstants {
      * @return ArrayList<Camper>
      */
     public static ArrayList<Camper> getAllCampers() {
-        initiate();
+        if (!initiate())
+            getCampers();
+        
         return campers;
     }
 
@@ -116,7 +120,9 @@ public class DataReader extends DataConstants {
      * @return ArrayList<Cabin>
      */
     public static ArrayList<Cabin> getAllCabins() {
-        initiate();
+        if (!initiate())
+            getCabins();
+        
         return cabins;
     }
 
@@ -124,12 +130,44 @@ public class DataReader extends DataConstants {
      * getAllUsers() and getAllCounselors() initiate all the five 
      * ArrayLists of this class. 
      * So, initiate them if the Arrays are not already called.
+     * @return true if the users and counselors array was null 
+     * and getAllUsers() and getAllCounselors(). False otherwise
      */
-    private static void initiate() {
+    private static boolean initiate() {
         if (users == null || counselors == null) {
             getAllUsers();
             getAllCounselors();
+            return true;
         }
+        
+        // One possibility is that the Arrays were updated and are now not null
+        // Ex. they are empty but not null
+        // So, check whether the current size of the array match the jsonobjects
+        else if (users.size() != getJSONSize(USERS_FILE_NAME) ||
+                counselors.size() != getJSONSize(COUNSELORS_FILE_NAME))
+            return false;
+        else // yes, it is redundant
+            return false;
+    }
+
+    /**
+     * Return the number of JSONObjects (size of the JSONArray) 
+     * of the given file path
+     * @param file The path of the JSON file for opening
+     * @return The number of Objects in the file
+     */
+    private static int getJSONSize(String file) {
+        FileReader fileReader = null;
+        JSONArray fileJSON = null;
+
+        try {
+            fileReader = new FileReader(file);
+            JSONParser fileParser = new JSONParser();
+            fileJSON = (JSONArray) new JSONParser().parse(fileReader);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return fileJSON.size();
     }
 
     /**
@@ -180,8 +218,12 @@ public class DataReader extends DataConstants {
                 newCamper.addGuardians(newGuardians);
 
                 // get the medical information
-                JSONObject medical = (JSONObject) camper.get(MEDICAL);
-                newCamper.addMedical(getMedical(medical));
+                try {
+                    JSONObject medical = (JSONObject) camper.get(MEDICAL);
+                    newCamper.addMedical(getMedical(medical));
+                } catch (NullPointerException n) {
+                    newCamper.addMedical(null);
+                }
 
                 // get the Number Strikes info...
                 int numberStrikes =((Long) camper.get(NUMBER_STRIKES)).intValue();
@@ -261,10 +303,25 @@ public class DataReader extends DataConstants {
                 JSONObject session = (JSONObject) sessionsJSON.get(i);
 
                 // create the session
+                LocalDate startDate;
+                try {
+                    startDate = 
+                        LocalDate.parse((String) session.get(START_DATE));
+                } catch (NullPointerException n) {
+                    startDate = null;
+                }
+                
+                LocalDate endDate;
+                try {
+                    endDate =
+                        LocalDate.parse((String) session.get(END_DATE));
+                } catch (NullPointerException n) {
+                    endDate = null;
+                }
+
                 Session newSession = new Session(
                     UUID.fromString((String) session.get(USER_ID)),
-                    LocalDate.parse((String) session.get(START_DATE)),
-                    LocalDate.parse((String) session.get(END_DATE)));
+                    startDate, endDate); 
 
                 newSession.setAvailableSpots(
                     ((Long) session.get(AVAILABLE_SPOTS)).intValue());
