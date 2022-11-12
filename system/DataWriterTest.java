@@ -189,24 +189,4 @@ class DataWriterTest {
         assertEquals(null, 
             DataReader.getAllCounselors().get(0).getPhoneNumber());
 	}
-
-    /**
-     * Test whether DataWriter can write a camper 
-     * with only calling the constructor
-     */
-    @Test
-    void testWritingCamperConstructor() {
-        
-        // Create new Camper for the User
-        Camper c = new Camper("Long", "Kam", LocalDate.parse("2022-10-21"));
-
-        // Save to Lists
-        camperL.addCamper(c);
-        DataWriter.saveCampers();
-
-        // Get the Users and Campers
-        campers = DataReader.getAllCampers();
-    
-        assertEquals(1, campers.size());
-    }
 }
