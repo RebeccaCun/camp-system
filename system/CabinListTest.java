@@ -1,24 +1,32 @@
 package system;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+// import org.junit.Test;
+// import org.junit.jupiter.api.BeforeAll;
+// import org.junit.jupiter.api.BeforeEach;
+
+// import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import java.util.ArrayList;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 public class CabinListTest {
-    public CabinList cabinList;
+    public static CabinList cabinList;
 
     @BeforeAll
-    public void setupOnce(){
+    public static void setupOnce(){
         cabinList = CabinList.getInstance();
+        // System.out.println("setupOnce");
     }
 
     @BeforeEach
     public void setup(){
         cabinList.setCabins(new ArrayList<Cabin>());
+        // System.out.println("setup");
     }
 
     @Test
