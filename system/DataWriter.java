@@ -17,7 +17,7 @@ import org.json.simple.JSONObject;
 public class DataWriter extends DataConstants {
 
     /**
-     * Save the User ArrayList from the UserList class 
+     * Save the User ArrayList from the UserList class
      * into the USERS_FILE_NAME file
      */
     public static void saveUsers() {
@@ -35,7 +35,7 @@ public class DataWriter extends DataConstants {
         try (FileWriter file = new FileWriter(USERS_FILE_NAME)) {
             file.write(jsonUsers.toJSONString());
             file.flush();
-    
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,14 +60,14 @@ public class DataWriter extends DataConstants {
 		userDetails.put(ADDRESS, user.getAddress());
 
         try {
-            userDetails.put(TYPE, user.getType().toString());            
+            userDetails.put(TYPE, user.getType().toString());
         } catch (NullPointerException n) {
             userDetails.put(TYPE, null);
         }
 
         try {
-            userDetails.put(BIRTHDAY, 
-                user.getBirthday().toString());            
+            userDetails.put(BIRTHDAY,
+                user.getBirthday().toString());
         } catch (NullPointerException n) {
             userDetails.put(BIRTHDAY, null);
         }
@@ -78,12 +78,12 @@ public class DataWriter extends DataConstants {
         for (Camper camper : campers)
             jsonCampers.add(camper.getUUID().toString());
         userDetails.put(CAMPERS, jsonCampers);
-        
+
         return userDetails;
     }
 
     /**
-     * Save the Counselor ArrayList from the CounselorsList class 
+     * Save the Counselor ArrayList from the CounselorsList class
      * into the COUNSELORS_FILE_NAME file
      */
     public static void saveCounselors() {
@@ -101,7 +101,7 @@ public class DataWriter extends DataConstants {
         try (FileWriter file = new FileWriter(COUNSELORS_FILE_NAME)) {
             file.write(jsonCounselors.toJSONString());
             file.flush();
-    
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -116,7 +116,7 @@ public class DataWriter extends DataConstants {
 
         // the counselor inherits user, so many attributes are common
         JSONObject counselorDetails = getUserJSON(counselor);
-		
+
         // writing biography
         counselorDetails.put(BIOGRAPHY, counselor.getBiography());
 
@@ -144,7 +144,7 @@ public class DataWriter extends DataConstants {
             ArrayList<Medication> medications = med.getMedications();
             for (Medication medication : medications) {
                 JSONObject jsonMedication = new JSONObject();
-                
+
                 jsonMedication.put(NAME, medication.getName());
                 jsonMedication.put(TIME, medication.getTime());
 
@@ -163,18 +163,18 @@ public class DataWriter extends DataConstants {
         // writing the Cabin attribute...
         JSONArray jsonCabins = new JSONArray();
         ArrayList<Cabin> cabins = counselor.getCabins();
-        
+
         for (Cabin cabin : cabins)
-            jsonCabins.add(cabin.getUUID().toString());    
+            jsonCabins.add(cabin.getUUID().toString());
 
         counselorDetails.put(CABINS, jsonCabins);
-        
+
         return counselorDetails;
     }
 
 
     /**
-     * Save the Camper ArrayList from the CamperList class 
+     * Save the Camper ArrayList from the CamperList class
      * into the CAMPERS_FILE_NAME file
      */
     public static void saveCampers() {
@@ -192,7 +192,7 @@ public class DataWriter extends DataConstants {
         try (FileWriter file = new FileWriter(CAMPERS_FILE_NAME)) {
             file.write(jsonCampers.toJSONString());
             file.flush();
-    
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -209,7 +209,7 @@ public class DataWriter extends DataConstants {
         camperDetails.put(USER_ID, camper.getUUID().toString());
 		camperDetails.put(FIRST_NAME, camper.getFirstName());
 		camperDetails.put(LAST_NAME, camper.getLastName());
-        
+
         // the birthday is in a local Date format
         try {
             camperDetails.put(BIRTHDAY, camper.getBirthday().toString());
@@ -218,11 +218,11 @@ public class DataWriter extends DataConstants {
         }
 
         // write the emergency contacts
-        camperDetails.put(EMERGENCY_CONTACTS, 
+        camperDetails.put(EMERGENCY_CONTACTS,
             getContactJSON( camper.getEmergencyContacts() ));
 
         // write the guradian contacts
-        camperDetails.put(GUARDIANS, 
+        camperDetails.put(GUARDIANS,
             getContactJSON( camper.getGuardians() ));
 
         // writing the Medical attribute
@@ -235,7 +235,7 @@ public class DataWriter extends DataConstants {
 
             // writing doctor
             JSONObject jsonDoctor = new JSONObject();
-            
+
             Contact doctor = med.getDoctor();
             jsonDoctor.put(FIRST_NAME, doctor.getFirstName());
             jsonDoctor.put(LAST_NAME, doctor.getLastName());
@@ -247,7 +247,7 @@ public class DataWriter extends DataConstants {
             // writing allergies
             JSONArray jsonAllergies = new JSONArray();
             ArrayList<String> allergies = med.getAllergies();
-            
+
             for (String allergy : allergies)
                 jsonAllergies.add(allergy);
 
@@ -256,18 +256,18 @@ public class DataWriter extends DataConstants {
             // writing medications
             JSONArray jsonMedications = new JSONArray();
             ArrayList<Medication> medications = med.getMedications();
-            
+
             for (Medication medication : medications) {
                 JSONObject jsonMedication = new JSONObject();
-                
+
                 jsonMedication.put(NAME, medication.getName());
                 jsonMedication.put(TIME, medication.getTime());
 
                 jsonMedications.add(jsonMedication);
-            }    
-            
+            }
+
             jsonMedical.put(MEDICATIONS, jsonMedications);
-        
+
         } catch (NullPointerException n) {
             // if the Medical attribute is not initialized,
             //  then do nothing.
@@ -304,7 +304,7 @@ public class DataWriter extends DataConstants {
     }
 
     /**
-     * Save the Session ArrayList from the SessionList class 
+     * Save the Session ArrayList from the SessionList class
      * into the SESSION_FILE_NAME file
      */
     public static void saveSessions() {
@@ -322,7 +322,7 @@ public class DataWriter extends DataConstants {
         try (FileWriter file = new FileWriter(SESSION_FILE_NAME)) {
             file.write(jsonSessions.toJSONString());
             file.flush();
-    
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -337,15 +337,15 @@ public class DataWriter extends DataConstants {
         JSONObject sessionDetails = new JSONObject();
 
         try {
-            sessionDetails.put(START_DATE, 
-                session.getStartDate().toString());            
+            sessionDetails.put(START_DATE,
+                session.getStartDate().toString());
         } catch (NullPointerException n) {
             sessionDetails.put(START_DATE, null);
         }
 
         try {
-            sessionDetails.put(END_DATE, 
-                session.getEndDate().toString());            
+            sessionDetails.put(END_DATE,
+                session.getEndDate().toString());
         } catch (NullPointerException n) {
             sessionDetails.put(END_DATE, null);
         }
@@ -355,7 +355,7 @@ public class DataWriter extends DataConstants {
         } catch (NullPointerException n) {
             sessionDetails.put(USER_ID, null);
         }
-       
+
         sessionDetails.put(AVAILABLE_SPOTS, session.getAvailableSpots());
         sessionDetails.put(THEME, session.getTheme());
 
@@ -367,12 +367,12 @@ public class DataWriter extends DataConstants {
         for (Cabin cabin : cabins)
             jsonCabins.add(cabin.getUUID().toString());
         sessionDetails.put(CABINS, jsonCabins);
-        
+
         return sessionDetails;
     }
 
     /**
-     * Save the Cabin ArrayList from the CabinList class 
+     * Save the Cabin ArrayList from the CabinList class
      * into the CABIN_FILE_NAME file
      */
     public static void saveCabins() {
@@ -390,7 +390,7 @@ public class DataWriter extends DataConstants {
         try (FileWriter file = new FileWriter(CABIN_FILE_NAME)) {
             file.write(jsonCabins.toJSONString());
             file.flush();
-    
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -408,14 +408,14 @@ public class DataWriter extends DataConstants {
         cabinDetails.put(MIN_CABIN_AGE, cabin.getMinCabinAge());
         cabinDetails.put(MAX_CABIN_AGE, cabin.getMaxCabinAge());
         cabinDetails.put(MAX_NO_OF_CAMPERS, cabin.getMaxNumberOfCampers());
-        
+
         // add schedules...
         JSONObject jsonSchedule = new JSONObject();
         HashMap<Day, Schedule> schedules = cabin.getSchedules();
 
         // get the Day values
         Set<Day> setDays = schedules.keySet();
-        
+
         // convert Day values to String and add to an ArrayList
         ArrayList<String> days = new ArrayList<>();
         for (Day day : setDays)
@@ -426,12 +426,12 @@ public class DataWriter extends DataConstants {
         for (String day : days) {
             JSONArray daySchedules = new JSONArray();
             Schedule sched = schedules.get(Day.valueOf(day));
-            
+
             ArrayList<Activity> activities = sched.getActivities();
 
             for (Activity activity : activities) {
                 JSONObject jsonActivity = new JSONObject();
-                
+
                 jsonActivity.put(TITLE, activity.getTitle());
                 jsonActivity.put(LOCATION, activity.getLocation());
                 jsonActivity.put(START_TIME, activity.getStartTime());
@@ -443,14 +443,14 @@ public class DataWriter extends DataConstants {
                 for (String note : notes)
                     jsonNotes.add(note);
                 jsonActivity.put(NOTES, jsonNotes);
-            
+
                 daySchedules.add(jsonActivity);
             }
 
             jsonSchedule.put(day, daySchedules);
         }
         cabinDetails.put(SCHEDULES, jsonSchedule);
-        
+
         // get campers...
         JSONArray jsonCampers = new JSONArray();
         ArrayList<Camper> campers = cabin.getCampers();
@@ -458,10 +458,10 @@ public class DataWriter extends DataConstants {
             jsonCampers.add(camper.getUUID().toString());
 
         cabinDetails.put(CAMPERS, jsonCampers);
-		
+
         return cabinDetails;
     }
-    
+
     /**
      * Return a JSONArray of the given Contacts ArrayList
      * @param contacts ArrayList<Contact>
@@ -469,10 +469,10 @@ public class DataWriter extends DataConstants {
      */
     private static JSONArray getContactJSON(ArrayList<Contact> contacts) {
         JSONArray jsonArray = new JSONArray();
-        
+
         for (Contact contact : contacts) {
             JSONObject jsonContact = new JSONObject();
-            
+
             jsonContact.put(FIRST_NAME, contact.getFirstName());
             jsonContact.put(LAST_NAME, contact.getLastName());
             jsonContact.put(PHONE_NUMBER, contact.getPhoneNumber());
