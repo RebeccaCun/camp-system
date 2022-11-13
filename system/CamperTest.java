@@ -1,33 +1,31 @@
 package system;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
+
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CamperTest {
-    private Camper campers = Camper.getInstance();
-    private ArrayList<Camper> camperList = campers.getUsers();
+    public Camper camper;
 
     @BeforeEach
     public void setup(){
-        camperList.clear();
-        camperList.add(new Camper("Jannie", "Smith", "09/09/2012"));
-        camperList.add(new User("Sandy", "Johnson", "02/14/2012"));
-        DataWriter.saveUsers();
+        camper = new Camper("Jannie", "Smith", LocalDate.parse("2012-03-08"));
+        //DataWriter.saveUsers();
     }
     @AfterEach
     public void tearDown() {
-        Camper.getInstance().getCampers().clear();
-        DataWriter.saveUsers();
+        camper = null;
+        //DataWriter.saveUsers();
 
     }
 
     @Test
-    void testHaveUserFirstNameValid() {
-        String hasJannie = campers.getFirstName();
+    void testFirstNameValid() {
+        String hasJannie = camper.getFirstName();
         boolean valid = false;
         if(hasJannie == "Jannie")
         {
@@ -35,18 +33,10 @@ public class CamperTest {
         }
         assertTrue(valid);
     }
-    @Test
-    void testHaveUserFirstNameValid2() {
-        String hasSandy = campers.getFirstName();
-        boolean valid = false;
-        if(hasSandy == "Sandy")
-            valid = true;
-        assertTrue(valid);
-    }
 
     @Test
-    void testHaveUserLastNameValid() {
-        String hasSmith = campers.getLastName();
+    void testLastNameValid() {
+        String hasSmith = camper.getLastName();
         boolean valid = false;
         if(hasSmith == "Smith")
             valid = true;
@@ -54,10 +44,10 @@ public class CamperTest {
     }
 
     @Test
-    void testHaveUserLastNameValid2() {
-        String hasJohn = campers.getLastName();
+    void testValidBirthday(){
+        LocalDate bday = camper.getBirthday();
         boolean valid = false;
-        if(hasJohn == "Johnson")
+        if(bday.equals(LocalDate.parse("2012-03-08")))
             valid = true;
         assertTrue(valid);
     }
