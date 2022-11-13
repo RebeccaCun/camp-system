@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.platform.engine.discovery.UriSelector;
 
 class DataReaderTest {
 
@@ -47,9 +48,15 @@ class DataReaderTest {
     @AfterEach
 	public void tearDown() {
         UserList.getInstance().getUsers().clear();
-		DataWriter.saveUsers();
+        CabinList.getInstance().getCabins().clear();
         CamperList.getInstance().getCampers().clear();
-		DataWriter.saveCampers();
+        SessionList.getInstance().getSessions().clear();
+        CounselorList.getInstance().getCounselors().clear();
+        DataWriter.saveUsers();
+        DataWriter.saveCabins();
+        DataWriter.saveCampers();
+        DataWriter.saveSessions();
+        DataWriter.saveCounselors();
 	}
 
     @Test
@@ -164,5 +171,70 @@ class DataReaderTest {
         sessions = DataReader.getAllSessions();
     
         assertEquals(1, sessions.size());
+    }
+
+    /**
+     * Test whether DataReader can write a Counselor 
+     * with only calling the constructor
+     */
+    @Test
+    void testWritingCounselorConstructor() {
+
+        // Create Counselor
+        Counselor c = new Counselor("Amy", "Works", "aWorks");
+        counselorL.addCounselor(c);
+        
+        DataWriter.saveCounselors();
+        counselors = DataReader.getAllCounselors();
+    
+        assertEquals(1, counselors.size());
+    }
+
+    /**
+     * Test whether DataReader can write a Counselor 
+     * with only calling the constructor
+     */
+    @Test
+    void testWritingUserConstructor() {
+
+        // Create User
+        userL.addUser(new User("Amy", "Works", "aWorks"));
+        
+        DataWriter.saveUsers();
+        users = DataReader.getAllUsers();
+    
+        assertEquals(2, users.size());
+    }
+
+    @Test
+    void testWritingEachOneByOne() {
+        UserList.getInstance().getUsers().clear();
+        DataWriter.saveUsers();
+        int totalSize = 0;
+
+        userL.addUser(new User("null", "void", "empty"));
+        DataWriter.saveUsers();
+
+        cabinL.addCabin(new Cabin(10, 11));
+        DataWriter.saveCabins();
+
+        camperL.addCamper(new Camper("null", "empty",
+            LocalDate.parse("2022-10-20")));
+        DataWriter.saveCampers();
+
+        sessionL.addSession(new Session(LocalDate.parse("2022-10-10"),
+            LocalDate.parse("2022-11-10")));
+        DataWriter.saveSessions();
+
+        counselorL.addCounselor(new Counselor("null", "null", "null"));
+        DataWriter.saveCounselors();
+
+        totalSize += DataReader.getAllSessions().size()
+            + DataReader.getAllUsers().size() 
+            + DataReader.getAllCabins().size() 
+            + DataReader.getAllCampers().size() 
+            + DataReader.getAllCounselors().size() ;
+    
+        assertEquals(5, totalSize);
     }
 }

@@ -57,6 +57,30 @@ class DataWriterTest {
 	}
 
     @Test
+	void testWritingZeroCabins() {
+		cabins = DataReader.getAllCabins();
+		assertEquals(0, cabins.size());
+	}
+
+    @Test
+	void testWritingZeroCampers() {
+		campers = DataReader.getAllCampers();
+		assertEquals(0, campers.size());
+	}
+
+    @Test
+	void testWritingZeroSessions() {
+		sessions = DataReader.getAllSessions();
+		assertEquals(0, sessions.size());
+	}
+
+    @Test
+	void testWritingZeroCounselors() {
+		counselors = DataReader.getAllCounselors();
+		assertEquals(0, counselors.size());
+	}
+
+    @Test
 	void testWritingOneUser() {
         // Create User
         User u = new User("Mike", "Smith",
@@ -189,4 +213,12 @@ class DataWriterTest {
         assertEquals(null, 
             DataReader.getAllCounselors().get(0).getPhoneNumber());
 	}
+
+    @Test
+    void testWritingEmptyCamper() {
+        camperL.addCamper(new Camper("", "", null));
+        DataWriter.saveCampers();
+        assertEquals("", 
+            DataReader.getAllCampers().get(0).getLastName());
+    }
 }
