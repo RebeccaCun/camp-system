@@ -15,7 +15,7 @@ public class CamperTest {
     @BeforeEach
     public void setup(){
         camper = new Camper("Jannie", "Smith", LocalDate.parse("2012-03-08"));
-        another = new Camper("George","Beard", LocalDate.parse("12"));
+        another = new Camper("George","Beard", LocalDate.parse("2012-09-09"));
         //DataWriter.saveUsers();
     }
     @AfterEach
@@ -72,12 +72,12 @@ public class CamperTest {
             valid = true;
         assertTrue(valid);
     }
-    /*@Test     ?????
+    @Test
     void testBirthday2(){
-        LocalDate bday = camper.getBirthday();
+        LocalDate bday = another.getBirthday();
         boolean valid = false;
-        if(bday.equals(LocalDate.parse("12")))
+        if(bday.equals(LocalDate.parse("2012-09-09")))
             valid = true;
         assertTrue(valid);
-    }*/
+    }
 }
