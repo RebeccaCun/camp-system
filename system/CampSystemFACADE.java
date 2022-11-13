@@ -220,7 +220,7 @@ public class CampSystemFACADE {
      */
     public Camper findCamperByName(String firstName, String lastName){
         Camper camper = null;
-        for(Camper c : currentUser.campers){
+        for(Camper c : campers.getCampers()){
             if(c.getFirstName().equalsIgnoreCase(firstName) && c.getLastName().equalsIgnoreCase(lastName)){
                 camper = c;
             }
