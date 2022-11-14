@@ -28,12 +28,12 @@ public class SessionListTest {
 	}
 
     @Test
-    public void hasSessionFalse(){
+    public void TestHasSessionFalse(){
         assertFalse(sessionList.hasSession(LocalDate.parse("2018-07-01"), LocalDate.parse("2018-07-08")));
     }
 
     @Test
-    public void hasSessionTrue(){
+    public void TestHasSessionTrue(){
         assertTrue(sessionList.hasSession(LocalDate.parse("2018-07-09"), LocalDate.parse("2018-07-16")));   
     }
     

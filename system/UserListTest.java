@@ -26,12 +26,12 @@ public class UserListTest {
 	}
 
     @Test
-    public void hasUserFalse(){
+    public void testHasUserFalse(){
         assertFalse(userList.hasUser("KO_OU"));
     }
 
     @Test
-    public void hasUserTrue(){
+    public void testHasUserTrue(){
         assertTrue(userList.hasUser("NA_KO"));   
     }
     
