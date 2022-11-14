@@ -198,6 +198,9 @@ public class CampSystemFACADE {
      * @return The integer representing whether or not the camper was successfully added.
      */
     public int sessionSignup(Camper camper, Session session){
+        if(camper == null || session == null){
+            return -1;
+        }
         int counter = 0;
         for(Cabin cabin : session.getCabins()){
             counter ++;
@@ -261,6 +264,9 @@ public class CampSystemFACADE {
      * @return The boolean dependent of if the username is usable or not.
      */
     public boolean checkUsernameAvailability(String username){
+        if(username == null){
+            return false;
+        }
         if(!users.getUsers().isEmpty()){
             for(User user : users.getUsers()){
                 if(user.getUserName().equals(username)){
@@ -306,6 +312,9 @@ public class CampSystemFACADE {
      * @param cabin The cabin being added.
      */
     public void addCabinToSessions(Cabin cabin){
+        if(cabin == null){
+            return;
+        }
         cabins.addCabin(cabin);
         for(Session session : sessions.getSessions()){
             session.addCabin(cabin);

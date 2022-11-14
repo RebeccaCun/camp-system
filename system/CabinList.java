@@ -66,8 +66,8 @@ public class CabinList {
      * @return The boolean representing the status of the Cabin.
      */
     public boolean hasCabin(int minCabinAge, int maxCabinAge) {
-        for (int i = 0; i < cabins.size(); i++) {
-            if(cabins.get(i) == new Cabin(minCabinAge, maxCabinAge)) {
+        for (Cabin cabin : cabins){
+            if(cabin.getMinCabinAge() == minCabinAge && cabin.getMaxCabinAge() == maxCabinAge){
                 return true;
             }
         }
@@ -80,6 +80,9 @@ public class CabinList {
      * @return The boolean representing the status of the Cabin.
      */
     public boolean addCabin(Cabin cabin) {
+        if(cabin == null){
+            return false;
+        }
         if(!hasCabin(cabin.getMinCabinAge(), cabin.getMaxCabinAge())) {
             cabins.add(cabin);
             return true;

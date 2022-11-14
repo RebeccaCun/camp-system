@@ -1,13 +1,5 @@
 package system;
 
-// import java.util.ArrayList;
-
-// import org.junit.Test;
-// import org.junit.jupiter.api.BeforeAll;
-// import org.junit.jupiter.api.BeforeEach;
-
-// import static org.junit.jupiter.api.Assertions.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
@@ -54,7 +46,7 @@ public class CabinListTest {
     @Test
     public void addNullCabin(){
         int lengthBefore = cabinList.getCabins().size();
-        cabinList.addCabin(null);
-        assertEquals(lengthBefore, cabinList.getCabins().size());
+        boolean result = cabinList.addCabin(null);
+        assertEquals(false, result);
     }
 }

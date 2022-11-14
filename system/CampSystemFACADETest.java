@@ -1,13 +1,13 @@
 package system;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
-
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 public class CampSystemFACADETest {
     private CampSystemFACADE system = new CampSystemFACADE();
 
@@ -78,6 +78,19 @@ public class CampSystemFACADETest {
     }
 
     @Test
+    public void createUserAccountEmptyValues(){
+        system.createUserAccount("", "", "", "", "", "", "", null, "");
+        assertEquals(0, system.getUsers().getUsers().size());
+    }
+
+    @Test
+    public void createUserAccountNullValues(){
+        system.createUserAccount(null, null, null, null, null, null, null, null, null);
+        assertEquals(0, system.getUsers().getUsers().size());
+    }
+
+    //for the Counselor Account and the addCamper methods I did not test for null/empty inputs, since it would give the same result as the create User Account Tests
+    @Test
     public void createCounselorAccountShouldAddCounselorToList(){
         system.createCounselorAccount("testcounselor", "test", "test@gmail.com", "counselor", "test", "123456789", "email", LocalDate.of(2000, 01, 01), "Columbia, SC", "I like nature", new Medical(new Contact("Test", "Doctor", "123", "Office")));
         assertEquals(1, system.getCounselors().getCounselors().size());
@@ -129,8 +142,9 @@ public class CampSystemFACADETest {
     @Test
     public void findAvailableSessionsWithOneSession(){
         Session session = new Session(LocalDate.of(2022,8,1), LocalDate.of(2022,8,7));
+        session.addCabin(new Cabin(10,12));
         system.getSessions().addSession(session);
-        //***********************************************************************weird thing in session needs to be fixed */
+        assertEquals(1, system.findAvailableSessions().size());
     }
 
     @Test
@@ -165,6 +179,7 @@ public class CampSystemFACADETest {
     @Test
     public void giveStrikeShouldAddStrike(){
         Camper camper = new Camper("Test", "Camper", LocalDate.of(2011,1,1));
+        system.getCampers().addCamper(camper);
         system.giveStrike("Test", "Camper", "bad behaviour");
         assertEquals(1,camper.getNumberStrikes());
     }
@@ -222,7 +237,7 @@ public class CampSystemFACADETest {
 
     @Test
     public void listSessionsEmpty(){
-        assertEquals("No sessions exist.", system.listSessions());
+        assertEquals("Sessions:\n", system.listSessions());
     }
 
     @Test

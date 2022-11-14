@@ -26,6 +26,7 @@ public class Session {
         this.startDate = startDate;
         this.endDate = endDate;
         cabins = new ArrayList<>();
+        availableSpots = 0;
     }
 
     /**
@@ -39,6 +40,7 @@ public class Session {
         this.startDate = startDate;
         this.endDate = endDate;
         cabins = new ArrayList<>();
+        availableSpots = 0;
     }
 
     /**
@@ -109,7 +111,7 @@ public class Session {
      * @return A boolean representing the status of the Session.
      */
     public boolean isAvailable() {
-        return cabins.size() < availableSpots;
+        return availableSpots > 0;
     }
     
     /**
@@ -118,6 +120,7 @@ public class Session {
      */
     public void addCabins(ArrayList<Cabin> cabins) {
         this.cabins = cabins;
+        availableSpots += cabins.size()*8;
     }
 
     /**
