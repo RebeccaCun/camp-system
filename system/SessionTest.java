@@ -1,6 +1,7 @@
 package system;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
@@ -21,8 +22,29 @@ public class SessionTest {
 	}
 
     @Test
-    public void testHasCamper(){
-        assertEquals(5,5);
+    public void testAvailableFalse(){
+		session.setAvailableSpots(4);
+		ArrayList<Cabin> cabins = new ArrayList<Cabin>();
+		cabins.add(new Cabin(12, 14));
+		cabins.add(new Cabin(12, 14));
+		cabins.add(new Cabin(12, 14));
+		cabins.add(new Cabin(12, 14));
+		cabins.add(new Cabin(12, 14));
+		session.addCabins(cabins);
+        assertFalse(session.isAvailable());
+    }
+
+	@Test
+    public void testAvailableTrue(){
+		session.setAvailableSpots(6);
+		ArrayList<Cabin> cabins = new ArrayList<Cabin>();
+		cabins.add(new Cabin(12, 14));
+		cabins.add(new Cabin(12, 14));
+		cabins.add(new Cabin(12, 14));
+		cabins.add(new Cabin(12, 14));
+		cabins.add(new Cabin(12, 14));
+		session.addCabins(cabins);
+        assertTrue(session.isAvailable());
     }
     
 }
